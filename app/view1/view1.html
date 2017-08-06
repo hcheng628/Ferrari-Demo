@@ -1,0 +1,220 @@
+<div class="content" ng-controller="RegisterCtrl">
+    <form class="form-horizontal">
+        <div class="row panel well">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+                        <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+                    </li>
+                </ul>
+                <!-- pre>{{cfService.houseType}}</pre-->
+                <div ng-switch on="selection" class="well-lg">
+                    <!-- First Step -->
+                    <div ng-switch-when="Step 1: Personal Information">
+
+                        <div class="form-group row">
+                            <label for="firstName" class="col-2 col-form-label" for="firstName">First Name</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="firstName" value="Ping-Ping" ng-model="cfService.firstName">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="lastName" class="col-2 col-form-label" for="lastName">Last Name</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="lastName" value="Pong-Pong" ng-model="cfService.lastName">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-2 col-form-label">Email</label>
+                            <div class="col-10">
+                                <input class="form-control" type="email" value="example@user.com" id="email" ng-model="cfService.email">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="ssn" class="col-2 col-form-label">SSN</label>
+                            <div class="col-10">
+                                <input class="form-control" type="number" value="562887652" id="ssn" ng-model="cfService.ssn">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="birthdate" class="col-2 col-form-label">Birthdate</label>
+                            <div class="col-10">
+                                <datepicker date-format="yyyy-MM-dd">
+                                    <input ng-model="cfService.birthdate" id="birthdate" type="text" class="form-control" />
+                                </datepicker>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-2 col-form-label">Phone</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" value="3863850866" id="phone" ng-model="cfService.phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Step -->
+                    <div ng-switch-when="Step 2: Residence Information">
+                        <div class="form-group row">
+                            <label for="address" class="col-2 col-form-label" for="address">Address</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="address" ng-model="cfService.address">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address2" class="col-2 col-form-label" for="address">Address 2</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="address2" ng-model="cfService.address2">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="city" class="col-2 col-form-label" for="city">City</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="city" ng-model="cfService.city">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="state">State</label>
+                            <select class="form-control" id="state" ng-model="cfService.state">
+                                <option value="GA">Georgia</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="zip">Zip</label>
+                            <input class="form-control" type="text" value="30329" id="zip" ng-model="cfService.zip">
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="houseType" class="col-2 col-form-label" for="houseType">Housing Type</label>
+                            <select class="form-control" id="houseType" ng-model="cfService.houseType">
+                                <option value="1">Rent</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="residenceSince" class="col-2 col-form-label" for="residenceSince">Residence Since</label>
+                            <div class="col-10">
+                                <datepicker date-format="yyyy-MM-dd">
+                                    <input ng-model="cfService.residenceSince" id="residenceSince" type="text" class="form-control"/>
+                                </datepicker>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="mortgageRent" class="col-2 col-form-label" for="mortgageRent">Monthly Mortgage/Rent</label>
+                            <div class="col-10">
+                                <input class="form-control" type="number" value="1200" id="mortgageRent" ng-model="cfService.mortgageRent">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="firstName">Bankruptcy in past 7 years?</label>
+                            <div class="col-10">
+                                <label><input type="radio" ng-model="cfService.bankruptcy" value="Y">Yes</label>
+                                <label><input type="radio" ng-model="cfService.bankruptcy" value="N">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-switch-when="Step 3: Employment Information">
+
+                        <div class="form-group row">
+                            <label for="employmentStatus">Employment Status</label>
+                            <select class="form-control" id="employmentStatus" ng-model="cfService.employmentStatus">
+                                <option value="1">Employed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="employer" class="col-2 col-form-label" for="address">Employer</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="employer" value="Maybe work for CRIF?" ng-model="cfService.employer">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="employerSince" class="col-2 col-form-label" for="address">Employer Since</label>
+                            <div class="col-10">
+                                <datepicker date-format="yyyy-MM-dd">
+                                    <input  ng-model="cfService.employerSince" id="employerSince" type="text" class="form-control"/>
+                                </datepicker>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="monthlyIncome" class="col-2 col-form-label" for="city">Gross Monthly Income</label>
+                            <div class="col-10">
+                                <input class="form-control" type="number" id="monthlyIncome" value="" ng-model="cfService.monthlyIncome">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="otherIncome" class="col-2 col-form-label" for="city">Ohter Income</label>
+                            <div class="col-10">
+                                <input class="form-control" type="number" id="otherIncome" value="" ng-model="cfService.otherIncome">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="monthlyExpenses" class="col-2 col-form-label" for="city">Monthly Expenses</label>
+                            <div class="col-10">
+                                <input class="form-control" type="number" id="monthlyExpenses" value="" ng-model="cfService.monthlyExpenses">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-switch-when="Step 4: Loan Information">
+
+                        <div class="form-group row">
+                            <label for="loanType">Loan Type</label>
+                            <select class="form-control" id="loanType" ng-model="cfService.loanType">
+                                <option value="AUTO">Personal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="loanAmount" class="col-2 col-form-label" for="city">Loan Amount</label>
+                            <div class="col-10">
+                                <input class="form-control" type="number" id="loanAmount" value="" ng-model="cfService.loanAmount">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Step -->
+                    <div ng-switch-when="Step 5: Agreement & Verification">
+                        <h3>Terms & Conditions</h3>
+                        <textarea class="col-md-12" readonly="readonly" >
+                        1. TERMS OF USE AGREEMENT FOR ALL SERVICES AND THE WEBSITES
+                            Please carefully read, understand and agree to the terms and conditions contained in this Terms of Use Agreement (“Agreement”).
+                            This is a Demo
+                            Relex!
+                        </textarea>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="pager pull-left">
+                            <li class="" ng-class="{disabled: !hasPreviousStep()}">
+                                <a href="javascript:void(0);" ng-click="decrementStep()">&larr; Previous Step</a>
+                            </li>
+                            <li class="" ng-class="{disabled: !hasNextStep()}">
+                                <a href="javascript:void(0);" ng-click="incrementStep()">Next Step &rarr;</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <button style="margin:20px 0;" ng-click="startApp()" class="btn btn-success">Confirm and Submit</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
