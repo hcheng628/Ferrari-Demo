@@ -3,7 +3,8 @@
 angular.module('myApp.view1', [
     'ngRoute',
     'mgcrea.ngStrap',
-    'ngAnimate'
+    'ngAnimate',
+    'toaster'
 ])
 
     .config(['$routeProvider', function($routeProvider) {
@@ -91,7 +92,7 @@ angular.module('myApp.view1', [
         };
     }])
 
-    .service('CFService', function ($http) {
+    .service('CFService', function ($http, toaster) {
         var self = {
             'processEngineGuid': '',
             'firstName': "JONATHAN",
@@ -171,9 +172,8 @@ angular.module('myApp.view1', [
 
                     if(aftCnv.Envelope.Body.startApplicationResponse.return._Status == "SUCCESS") {
                         self.processEngineGuid = aftCnv.Envelope.Body.startApplicationResponse.return.Header.ProcessEngineGuid;
-                        console.log(self.processEngineGuid);
+                        toaster.pop('success', 'AppGUID ' + self.processEngineGuid);
                     }
-                    console.log();
                 }, function(error){
                     console.err(error);
                 })
