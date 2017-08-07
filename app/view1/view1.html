@@ -7,7 +7,6 @@
                         <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
                     </li>
                 </ul>
-                <!-- pre>{{cfService.houseType}}</pre-->
                 <div ng-switch on="selection" class="well-lg">
                     <!-- First Step -->
                     <div ng-switch-when="Step 1: Personal Information">
@@ -15,28 +14,28 @@
                         <div class="form-group row">
                             <label for="firstName" class="col-2 col-form-label" for="firstName">First Name</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="firstName" value="Ping-Ping" ng-model="cfService.firstName">
+                                <input class="form-control" type="text" id="firstName"  ng-model="cfService.firstName">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="lastName" class="col-2 col-form-label" for="lastName">Last Name</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="lastName" value="Pong-Pong" ng-model="cfService.lastName">
+                                <input class="form-control" type="text" id="lastName"  ng-model="cfService.lastName">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-2 col-form-label">Email</label>
                             <div class="col-10">
-                                <input class="form-control" type="email" value="example@user.com" id="email" ng-model="cfService.email">
+                                <input class="form-control" type="email"  id="email" ng-model="cfService.email">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="ssn" class="col-2 col-form-label">SSN</label>
                             <div class="col-10">
-                                <input class="form-control" type="number" value="562887652" id="ssn" ng-model="cfService.ssn">
+                                <input class="form-control" type="number"  id="ssn" ng-model="cfService.ssn">
                             </div>
                         </div>
 
@@ -52,7 +51,7 @@
                         <div class="form-group row">
                             <label for="phone" class="col-2 col-form-label">Phone</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" value="3863850866" id="phone" ng-model="cfService.phone">
+                                <input class="form-control" type="text"  id="phone" ng-model="cfService.phone">
                             </div>
                         </div>
                     </div>
@@ -81,12 +80,13 @@
                             <label for="state">State</label>
                             <select class="form-control" id="state" ng-model="cfService.state">
                                 <option value="GA">Georgia</option>
+                                <option value="CA">California</option>
                             </select>
                         </div>
 
                         <div class="form-group row">
                             <label for="zip">Zip</label>
-                            <input class="form-control" type="text" value="30329" id="zip" ng-model="cfService.zip">
+                            <input class="form-control" type="text" id="zip" ng-model="cfService.zip">
                         </div>
 
                         <div class="form-group row">
@@ -109,7 +109,7 @@
                         <div class="form-group row">
                             <label for="mortgageRent" class="col-2 col-form-label" for="mortgageRent">Monthly Mortgage/Rent</label>
                             <div class="col-10">
-                                <input class="form-control" type="number" value="1200" id="mortgageRent" ng-model="cfService.mortgageRent">
+                                <input class="form-control" type="number" id="mortgageRent" ng-model="cfService.mortgageRent">
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@
                         <div class="form-group row">
                             <label for="employer" class="col-2 col-form-label" for="address">Employer</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="employer" value="Maybe work for CRIF?" ng-model="cfService.employer">
+                                <input class="form-control" type="text" id="employer" ng-model="cfService.employer">
                             </div>
                         </div>
 
@@ -150,21 +150,21 @@
                         <div class="form-group row">
                             <label for="monthlyIncome" class="col-2 col-form-label" for="city">Gross Monthly Income</label>
                             <div class="col-10">
-                                <input class="form-control" type="number" id="monthlyIncome" value="" ng-model="cfService.monthlyIncome">
+                                <input class="form-control" type="number" id="monthlyIncome"  ng-model="cfService.monthlyIncome">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="otherIncome" class="col-2 col-form-label" for="city">Ohter Income</label>
                             <div class="col-10">
-                                <input class="form-control" type="number" id="otherIncome" value="" ng-model="cfService.otherIncome">
+                                <input class="form-control" type="number" id="otherIncome" ng-model="cfService.otherIncome">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="monthlyExpenses" class="col-2 col-form-label" for="city">Monthly Expenses</label>
                             <div class="col-10">
-                                <input class="form-control" type="number" id="monthlyExpenses" value="" ng-model="cfService.monthlyExpenses">
+                                <input class="form-control" type="number" id="monthlyExpenses" ng-model="cfService.monthlyExpenses">
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                         <div class="form-group row">
                             <label for="loanAmount" class="col-2 col-form-label" for="city">Loan Amount</label>
                             <div class="col-10">
-                                <input class="form-control" type="number" id="loanAmount" value="" ng-model="cfService.loanAmount">
+                                <input class="form-control" type="number" id="loanAmount"  ng-model="cfService.loanAmount">
                             </div>
                         </div>
                     </div>
@@ -211,6 +211,9 @@
                     </div>
                     <div class="pull-right">
                         <button style="margin:20px 0;" ng-click="startApp()" class="btn btn-success">Confirm and Submit</button>
+                        <button style="margin:20px 0;" ng-click="getAppInfo()" class="btn btn-primary">Retrieve Application Information</button>
+                        <button style="margin:20px 0;" ng-click="showCreateModal()" class="btn btn-success">Show Modal</button>
+
                     </div>
                     <div class="clearfix"></div>
                 </div>

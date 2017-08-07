@@ -1,0 +1,113 @@
+<div id="createModal"
+     class="modal"
+     role="dialog"
+>
+    <div class="modal-dialog" style="width: 66%" >
+        <div class="modal-content" >
+            <div class="modal-header" >
+                <button type="button"
+                        class="close"
+                        ng-click="createModal.hide()" >&times;</button >
+                <h4 class="modal-title" >Available Offers</h4 >
+            </div >
+            <div class="modal-body" >
+                <form ng-submit=""
+                      class="form-horizontal"
+                      novalidate >
+                    <div class="row">
+
+                        <div ng-if="contacts.matchSelfieResponse" class="panel panel-default">
+                            <div class="panel-heading">Match Selfie API - Call</div>
+                            <div class="panel-body">
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label" >Match Score</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               ng-model="contacts.matchSelfieResponse.MatchScore"
+                                               readonly />
+                                    </div >
+                                </div >
+
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label" >Natural</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               ng-model="contacts.matchSelfieResponse.SelfieTests.NaturalCapture.Natural"
+                                               readonly />
+                                    </div >
+                                </div >
+
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label" >Reflect</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               ng-model="contacts.matchSelfieResponse.SelfieTests.NaturalCapture.Reflect"
+                                               readonly />
+                                    </div >
+                                </div >
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">AuthenticateID API - Call</div>
+                            <div class="panel-body">
+
+                                <div class="form-group" ng-repeat="offer in cfService.Offers">
+                                    <label class="col-sm-3 control-label" >Offers</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="offer._InstitutionName"
+                                               readonly />
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="offer._InterestRate"
+                                               readonly />
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="offer._LoanAmount"
+                                               readonly />
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="offer._MonthlyPayment"
+                                               readonly />
+                                    </div >
+                                </div >
+
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label" >TransactionID</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="contacts.authDocResponse.TransactionId"
+                                               readonly />
+                                    </div >
+                                </div >
+
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label" >DocumentId</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="contacts.authDocResponse.DocumentId"
+                                               readonly />
+                                    </div >
+                                </div >
+                            </div>
+                        </div>
+
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">AuthenticateID API - Document Fields</div>
+                            <div class="panel-body">
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label" >Surname</label >
+                                    <div class="col-sm-9" >
+                                        <input type="text" class="form-control"
+                                               name="" ng-model="contacts.authDocResponse.DocumentInfo.DocumentFields.REC.Surname"
+                                               readonly />
+                                    </div >
+                                </div >
+                            </div>
+                        </div>
+                    </div>
+                </form >
+            </div >
+        </div >
+    </div >
+</div >
