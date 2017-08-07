@@ -4,7 +4,7 @@ angular.module('myApp.view1', [
     'ngRoute',
     'mgcrea.ngStrap',
     'ngAnimate'
-    ])
+])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/view1', {
@@ -93,7 +93,7 @@ angular.module('myApp.view1', [
 
     .service('CFService', function ($http) {
         var self = {
-            'processEngineGuid': '05d1ba20-7b8f-11e7-80eb-3e8b20524153',
+            'processEngineGuid': '',
             'firstName': "JONATHAN",
             'lastName': "CONSUMER",
             'email': 'praful.asher.uat@gmail.com',
@@ -119,6 +119,7 @@ angular.module('myApp.view1', [
             'loanAmount': 50000,
             'externalAppId': '',
             'offers': [],
+            'institutions': [],
             'isSearching': false,
             'isSaving': false,
             'search': null,
@@ -132,7 +133,6 @@ angular.module('myApp.view1', [
                 var numOfEmpMonths = parseInt(endDate.getMonth() - startEmpDate.getMonth() + (12 * (endDate.getFullYear() - startEmpDate.getFullYear()))) % 12;
                 var numOfEmpYears = Math.floor(endDate.getMonth() - startEmpDate.getMonth() + (12 * (endDate.getFullYear() - startEmpDate.getFullYear())) / 12);
                 self.externalAppId = Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) + Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) + endDate.getTime();
-
                 // console.log("numOfResMonths: " + numOfResMonths + " numOfResYears: " + numOfResYears + " numOfEmpMonths: " + numOfEmpMonths + " numOfEmpYears: " + numOfEmpYears);
                 /*
                  var numOfResMonths = 5;
@@ -140,7 +140,6 @@ angular.module('myApp.view1', [
                  var numOfEmpMonths = 5;
                  var numOfEmpYears = 5;
                  */
-
                 var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'>"
                     + "<soapenv:Header/><soapenv:Body><cfp:startApplication><username>ApplicationStarter</username><password>password</password><processCacheId>MOVECU_COP</processCacheId>"
                     + "<processVersion></processVersion><documentInput><![CDATA[<DocumentInput><Header DateTimeCreated='2016-09-12T18:39:08+05:30'"
@@ -167,11 +166,14 @@ angular.module('myApp.view1', [
                     }
                 }).then(function(response){
                     // console.log(response.data);
-                    var parser = new DOMParser();
-                    var xmlDoc = parser.parseFromString(response.data, "text/xml");
-                    if(xmlDoc.getElementsByTagName('ProcessEngineGuid')[0].childNodes[0].nodeValue) {
-                        self.processEngineGuid = xmlDoc.getElementsByTagName('ProcessEngineGuid')[0].childNodes[0].nodeValue;
+                    var x2js = new X2JS();
+                    var aftCnv = x2js.xml_str2json(response.data);
+
+                    if(aftCnv.Envelope.Body.startApplicationResponse.return._Status == "SUCCESS") {
+                        self.processEngineGuid = aftCnv.Envelope.Body.startApplicationResponse.return.Header.ProcessEngineGuid;
+                        console.log(self.processEngineGuid);
                     }
+                    console.log();
                 }, function(error){
                     console.err(error);
                 })
@@ -182,8 +184,8 @@ angular.module('myApp.view1', [
             },
             'getAppInfo': function () {
                 var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/>"
-                + "<soapenv:Body><cfp:getApplicationInfo><username>ApplicationStarter</username><password>password</password><processEngineGuid>"
-                + self.processEngineGuid + "</processEngineGuid><applicationId>2903</applicationId></cfp:getApplicationInfo></soapenv:Body></soapenv:Envelope>";
+                    + "<soapenv:Body><cfp:getApplicationInfo><username>ApplicationStarter</username><password>password</password><processEngineGuid>"
+                    + self.processEngineGuid + "</processEngineGuid><applicationId>2903</applicationId></cfp:getApplicationInfo></soapenv:Body></soapenv:Envelope>";
 
                 $http.post('http://10.110.28.172:8080/CFProxy-1.0.0/jaxws/CFProxyWS', msg, {
                     headers: {
@@ -196,26 +198,25 @@ angular.module('myApp.view1', [
                         'SOAPAction': ''
                     }
                 }).then(function(response){
-                    // console.log(response.data);
-                    var parser = new DOMParser();
-                    var xmlDoc = parser.parseFromString(response.data, "text/xml");
-                    if(xmlDoc.getElementsByTagName('Offer').length > 0) {
-                        // self.offers = xmlDoc.getElementsByTagName('Offer');
-
-                    }
                     var x2js = new X2JS();
                     var aftCnv = x2js.xml_str2json(response.data);
-                    // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Application._Status);
+                    console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Application._Status == "WT_OFFERS");
+                    // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer);
                     // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer);
 
-                    // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer.length);
-
-                    for (var i=0; i < aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer.length; i++) {
-                        if(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i].Id){
-                            self.offers.push(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]);
+                    if (aftCnv.Envelope.Body.getApplicationInfoResponse.return.Application._Status == "WT_OFFERS") {
+                        //console.log('Here');
+                        for (var i=0; i < aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer.length; i++) {
+                            if(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._OfferID){
+                                self.offers.push(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]);
+                                if (self.institutions.indexOf(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName) < 0) {
+                                    self.institutions.push(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName);
+                                    console.log("Pushed to institutions" + aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName);
+                                }
+                            }
                         }
-                    }
 
+                    }
                     console.log(self.offers);
 
 
