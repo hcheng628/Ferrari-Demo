@@ -211,8 +211,12 @@
                     </div>
                     <div class="pull-right">
                         <button style="margin:20px 0;" ng-click="startApp()" class="btn btn-success">Confirm and Submit</button>
-                        <button style="margin:20px 0;" ng-click="getAppInfo()" class="btn btn-primary">Retrieve Application Information</button>
-                        <button style="margin:20px 0;" ng-click="showCreateModal()" class="btn btn-success">Show Modal</button>
+                        <button style="margin:20px 0;" ng-show="cfService.processEngineGuid" ng-click="getAppInfo()" class="btn btn-primary">Retrieve Application Information</button>
+                        <button style="margin:20px 0;" ng-show="cfService.offers.length > 0" ng-click="showCreateModal()" class="btn btn-success">Show Offers</button>
+
+                        <!--button style="margin:20px 0;" ng-click="startSpin()" class="btn btn-success">Test Spin</button-->
+                        <!--button style="margin:20px 0;" ng-click="stopSpin()" class="btn btn-success">Test StopSpin</button-->
+
 
                     </div>
                     <div class="clearfix"></div>
@@ -220,4 +224,5 @@
             </div>
         </div>
     </form>
+    <cc-spinner is-loading="cfService.isApiCalling" message="Loading....." ></cc-spinner>
 </div>
