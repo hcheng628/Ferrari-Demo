@@ -1,5 +1,18 @@
 /* app css stylesheet */
 
+#pageWrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    background: url("../img/appBlueBackground.jpg");
+    background-size: cover;
+    min-height: 100vh;
+	padding-bottom: 180px;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

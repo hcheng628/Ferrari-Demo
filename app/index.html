@@ -12,13 +12,17 @@
   <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" />
   <link href="../node_modules/angularjs-toaster/toaster.min.css" rel="stylesheet" type="text/css" />
-  <link href="./app.css" rel="stylesheet">
+  <link href="../node_modules/ladda/dist/ladda-themeless.min.css" rel="stylesheet" type="text/css" />
+  <link href="app.css" rel="stylesheet" type="text/css">
   <!--
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   -->
 </head>
+<body>
+<div id="pageWrapper" style="">
+
 <!--
 <ul class="menu">
   <li><a href="#!/view1">view1</a></li>
@@ -29,11 +33,34 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<toaster-container toaster-options="{'time-out': 5000}" ></toaster-container >
-<div ng-view></div>
+<header class='navbar navbar-default '>
+  <nav class='container' role='navigation'>
+    <div class='navbar-header brand-name'>
+      <a href='index.html' class='pull-left brand-font'><img style="width: 60%" src="../img/synergy-component-system-featuring-creditflow-logo.gif"></a>
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+    </div>
+    <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+      <li><a style="font-size: 130%;" href='#'>CRIF</a></li>    
+      <li><a style="font-size: 130%;" href='#'>ACTion</a></li>
+      <li><a style="font-size: 130%;" href='#'>Synergy</a></li>
+      <li><a style="font-size: 130%;" href='#'>Cheese</a></li> 
+      <li><a style="font-size: 130%;" href='#'>Burger</a></li>            
+    </ul>
+  </nav>
+</header>
+
+	<toaster-container toaster-options="{'time-out': 5000}" ></toaster-container >
+	<div style="margin-top: 0px;" ng-view></div>
 <br/>
 <hr/>
-<div class="pull-right" style="margin-right: 66px;">Angular seed app: v<span app-version></span><br/>WebStorm - JetBrains <br/>Author Hongyu</div>
+<div class="pull-right" style="margin-right: 66px;">Angular seed app: v<span app-version></span>WebStorm - JetBrains <br/>Author Hongyu</div>
+</div>
+
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -55,6 +82,10 @@
 <script src="../node_modules/angularjs-toaster/toaster.min.js"></script>
 
 <script src="../node_modules/angular-spinner/dist/angular-spinner.min.js"></script>
+
+<script src="../node_modules/ladda/js/spin.js"></script>
+<script src="../node_modules/ladda/js/ladda.js"></script>
+<script src="../node_modules/angular-ladda/dist/angular-ladda.min.js"></script>
 
 <script src="app.js"></script>
 <script src="view1/view1.js"></script>

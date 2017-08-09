@@ -5,10 +5,22 @@ angular.module('myApp.view1', [
     'mgcrea.ngStrap',
     'ngAnimate',
     'toaster',
-    'angularSpinner'
-])
+    'angularSpinner',
+	'angular-ladda'
+	])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', 'laddaProvider', function($routeProvider, laddaProvider) {
+		/*
+		laddaProvider
+		spinnerSize: 35,
+		spinnerColor: '#ffffff'
+		*/
+		
+		laddaProvider.setOption({
+		  style: 'expand-right'
+		});
+
+		
         $routeProvider.when('/view1', {
             templateUrl: 'view1/view1.html',
             controller: 'RegisterCtrl'
@@ -51,7 +63,7 @@ angular.module('myApp.view1', [
 					setTimeout(function () {
 						$scope.getAppInfo();
 						$scope.cfService.isApiCalling = false;
-					}, 25000);
+					}, 35000);
 				};	
             }, function (error) {
                 console.error(error);
@@ -141,6 +153,7 @@ angular.module('myApp.view1', [
 
     .service('CFService', function ($http, toaster, $q) {
         var self = {
+			'ACTionID': '',
             'isApiCalling': false,
             'processEngineGuid': '',
             'firstName': "JONATHAN",
@@ -242,7 +255,9 @@ angular.module('myApp.view1', [
 
             },
             'updateApp': function (institutionName, offerID, loanType) {
-				console.log("updateApp: " + institutionName + " " + offerID + " " + loanType)
+				console.log("updateApp: " + institutionName + " " + offerID + " " + loanType);
+				self.isApiCalling = true;
+
 				var d = $q.defer();
 				var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/><soapenv:Body>"
 					+"<cfp:updateApplication><username>ApplicationStarter</username><password>password</password><processEngineGuid>" + self.processEngineGuid + "</processEngineGuid><activityId></activityId>"
@@ -263,7 +278,13 @@ angular.module('myApp.view1', [
                 }).then(function(response){
                     var x2js = new X2JS();
                     var aftCnv = x2js.xml_str2json(response.data);
-                    console.log(aftCnv.Envelope.Body);
+                    console.log(aftCnv.Envelope.Body.updateApplicationResponse);
+					
+					if (aftCnv.Envelope.Body.updateApplicationResponse.return.Header.ApplicationID) {
+						self.ACTionID = aftCnv.Envelope.Body.updateApplicationResponse.return.Header.ApplicationID;
+						toaster.pop('success', 'ACTion ApppID: ' + self.ACTionID);
+					}
+					
 					self.isApiCalling = false;
 					d.resolve();
                 }, function(error){
@@ -294,7 +315,6 @@ angular.module('myApp.view1', [
                 }).then(function(response){
                     var x2js = new X2JS();
                     var aftCnv = x2js.xml_str2json(response.data);
-                    // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Application._Status == "WT_OFFERS");
                     // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer);
                     // console.log(aftCnv.Envelope.Body.getApplicationInfoResponse.return);
 

@@ -34,6 +34,7 @@
   "dependencies": {
     "angular": "^1.6.5",
     "angular-animate": "^1.6.5",
+    "angular-ladda": "^0.4.3",
     "angular-route": "^1.6.5",
     "angular-spinner": "^1.0.1",
     "angular-strap": "^2.3.12",
