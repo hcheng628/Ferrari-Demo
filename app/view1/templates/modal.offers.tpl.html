@@ -15,15 +15,22 @@
                       class="form-horizontal"
                       novalidate >
                     <div class="row">
-
                         <!-- ng-if="offer._InstitutionName == institution" -->
                         <!-- pre>{{cfService.offers}}</pre -->
                         <!-- pre>{{cfService.institutions}}</pre-->
-                        <div class="panel panel-info" ng-repeat="institution in cfService.institutions">
-                            <div class="panel-heading" style=" color: #333; background-color: #f5f5f5;border-color: #ddd; font-size: 200%;">{{ institution }}</div>
+                        <!-- div class="panel panel-info" ng-repeat="institution in cfService.institutions" -->
+                        <div class="panel panel-info">
+                            <div class="panel-heading" style=" color: #333; background-color: #f5f5f5;border-color: #ddd; font-size: 200%;">First Hawaiian Bank</div>
                             <div class="panel-body">
-                                <div class="form-group" ng-if="institution == offer._InstitutionName" ng-repeat="offer in cfService.offers">
+                                <div class="form-group" ng-if=" 'Meritrust' == offer._InstitutionName" ng-repeat="offer in cfService.offers">
                                     <div >
+                                        <label class="col-sm-3 control-label" >Offer ID</label >
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"
+                                                   ng-model="offer._OfferID"
+                                                   readonly />
+                                        </div>
+
                                         <label class="col-sm-3 control-label" >Interest Rate</label >
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control"
@@ -34,14 +41,14 @@
                                         <label class="col-sm-3 control-label" >Loan Amount</label >
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control"
-                                                   ng-model="offer._LoanAmount"
+                                                   ng-model="offer._LoanAmount | currency"
                                                    readonly />
                                         </div>
 
                                         <label class="col-sm-3 control-label" >Monthly Payment</label >
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control"
-                                                   ng-model="offer._MonthlyPayment"
+                                                   ng-model="offer._MonthlyPayment | currency"
                                                    readonly />
                                         </div>
 

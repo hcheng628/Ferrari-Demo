@@ -94,6 +94,7 @@ angular.module('myApp.view1', [
             $scope.cfService.updateApp(institutionName, offerID, loanType).then(function(resp){
                 console.log("Success Get App Info");
                 console.log(resp);
+                $scope.createModal.hide();
             }, function(err){
                 console.error(err);
             });
