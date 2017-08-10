@@ -10,6 +10,12 @@
                         ng-click="createModal.hide()" >&times;</button >
                 <h4 class="modal-title" >Available Offers</h4 >
             </div >
+
+
+
+            <!-- self.hasOffersFlag = false; -->
+
+
             <div class="modal-body" >
                 <form ng-submit=""
                       class="form-horizontal"
@@ -18,7 +24,13 @@
                         <!-- ng-if="offer._InstitutionName == institution" -->
                         <!-- pre>{{cfService.offers}}</pre -->
                         <!-- pre>{{cfService.institutions}}</pre-->
-                        <!-- div class="panel panel-info" ng-repeat="institution in cfService.institutions" -->
+                        <!-- div class="panel panel-info" ng-repeat="institution in cfService.institutions"  ng-model="offer._MonthlyPayment | currency" -->
+
+                        <div class="alert alert-warning" ng-show="cfService.hasOffersFlag == false" style="font-weight: bold; font-size: 133%">
+                            No offers at this time but please come back and check with us in the future. Thanks!
+                        </div>
+
+
                         <div class="panel panel-info">
                             <div class="panel-heading" style=" color: #333; background-color: #f5f5f5;border-color: #ddd; font-size: 200%;">First Hawaiian Bank</div>
                             <div class="panel-body">
@@ -34,21 +46,21 @@
                                         <label class="col-sm-3 control-label" >Interest Rate</label >
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control"
-                                                   ng-model="offer._InterestRate"
+                                                   value="{{offer._InterestRate }} %"
                                                    readonly />
                                         </div>
 
                                         <label class="col-sm-3 control-label" >Loan Amount</label >
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control"
-                                                   ng-model="offer._LoanAmount | currency"
+                                                   value="{{offer._LoanAmount | currency}}"
                                                    readonly />
                                         </div>
 
                                         <label class="col-sm-3 control-label" >Monthly Payment</label >
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control"
-                                                   ng-model="offer._MonthlyPayment | currency"
+                                                   value="{{offer._MonthlyPayment | currency}}"
                                                    readonly />
                                         </div>
 
@@ -58,8 +70,8 @@
                                                    ng-model="offer._LoanTerm"
                                                    readonly />
                                         </div>
-										<div class="col-sm-12">
-                                            <button class="btn btn-primary form-control" ladda="cfService.isApiCalling" ng-click="updateApp(institution, offer._OfferID, offer._LoanType)" >Select Offer</button>
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-primary form-control" ladda="cfService.isApiCalling" ng-click="updateApp('Meritrust', offer._OfferID, offer._LoanType)" >Select Offer</button>
                                         </div>
                                     </div>
                                 </div >
