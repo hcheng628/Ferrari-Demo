@@ -6,21 +6,21 @@ angular.module('myApp.view1', [
     'ngAnimate',
     'toaster',
     'angularSpinner',
-	'angular-ladda'
-	])
+    'angular-ladda'
+])
 
     .config(['$routeProvider', 'laddaProvider', function($routeProvider, laddaProvider) {
-		/*
-		laddaProvider
-		spinnerSize: 35,
-		spinnerColor: '#ffffff'
-		*/
-		
-		laddaProvider.setOption({
-		  style: 'expand-right'
-		});
+        /*
+         laddaProvider
+         spinnerSize: 35,
+         spinnerColor: '#ffffff'
+         */
 
-		
+        laddaProvider.setOption({
+            style: 'expand-right'
+        });
+
+
         $routeProvider.when('/view1', {
             templateUrl: 'view1/view1.html',
             controller: 'RegisterCtrl'
@@ -46,9 +46,17 @@ angular.module('myApp.view1', [
                 show: true
             })
         };
-		
+
+        $scope.showBureauModal = function () {
+            $scope.createModal = $modal({
+                scope: $scope,
+                template: 'view1/templates/modal.bureau.tpl.html',
+                show: true
+            })
+        };
+
         $scope.startSpin = function () {
-          usSpinnerService.spin('spinner-1');
+            usSpinnerService.spin('spinner-1');
         };
 
         $scope.stopSpin = function () {
@@ -58,13 +66,13 @@ angular.module('myApp.view1', [
         $scope.startApp = function () {
             $scope.cfService.startApp().then(function(resp){
                 console.log("Success Start App");
-				if ($scope.cfService.processEngineGuid) {
-					$scope.cfService.isApiCalling = true;
-					setTimeout(function () {
-						$scope.getAppInfo();
-						$scope.cfService.isApiCalling = false;
-					}, 35000);
-				};	
+                if ($scope.cfService.processEngineGuid) {
+                    $scope.cfService.isApiCalling = true;
+                    setTimeout(function () {
+                        $scope.getAppInfo();
+                        $scope.cfService.isApiCalling = false;
+                    }, 35000);
+                };
             }, function (error) {
                 console.error(error);
             });
@@ -72,25 +80,25 @@ angular.module('myApp.view1', [
 
         $scope.getAppInfo =function () {
             $scope.cfService.getAppInfo().then(function(resp){
-				console.log("Success Get App Info");
-				$scope.showCreateModal();
-			}, function(err){
-				console.error(err);
-			});
+                console.log("Success Get App Info");
+                $scope.showCreateModal();
+            }, function(err){
+                console.error(err);
+            });
         };
-		
-		
-		$scope.updateApp = function (institutionName, offerID, loanType) {
-			// console.log(institutionName + " " + offerID + " " + loanType);
-			/* */
-			$scope.cfService.updateApp(institutionName, offerID, loanType).then(function(resp){
-				console.log("Success Get App Info");
-				console.log(resp);
-			}, function(err){
-				console.error(err);
-			});
-			
-		};
+
+
+        $scope.updateApp = function (institutionName, offerID, loanType) {
+            // console.log(institutionName + " " + offerID + " " + loanType);
+            /* */
+            $scope.cfService.updateApp(institutionName, offerID, loanType).then(function(resp){
+                console.log("Success Get App Info");
+                console.log(resp);
+            }, function(err){
+                console.error(err);
+            });
+
+        };
 
         $scope.selection = $scope.steps[0];
 
@@ -153,7 +161,7 @@ angular.module('myApp.view1', [
 
     .service('CFService', function ($http, toaster, $q) {
         var self = {
-			'ACTionID': '',
+            'ACTionID': '',
             'isApiCalling': false,
             'processEngineGuid': '',
             'firstName': "JONATHAN",
@@ -239,9 +247,9 @@ angular.module('myApp.view1', [
                         toaster.pop('success', 'GUID: ' + self.processEngineGuid);
                         setTimeout(function () {
                             toaster.pop({
-								type: 'info',
-								body: 'Waiting for Offers'
-							});
+                                type: 'info',
+                                body: 'Waiting for Offers'
+                            });
                         }, 3000);
                         d.resolve();
                     }
@@ -255,17 +263,17 @@ angular.module('myApp.view1', [
 
             },
             'updateApp': function (institutionName, offerID, loanType) {
-				console.log("updateApp: " + institutionName + " " + offerID + " " + loanType);
-				self.isApiCalling = true;
+                console.log("updateApp: " + institutionName + " " + offerID + " " + loanType);
+                self.isApiCalling = true;
 
-				var d = $q.defer();
-				var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/><soapenv:Body>"
-					+"<cfp:updateApplication><username>ApplicationStarter</username><password>password</password><processEngineGuid>" + self.processEngineGuid + "</processEngineGuid><activityId></activityId>"
-					+"<documentInput><![CDATA[<DocumentUpdate><Header ApplicationID='2903' DateTime='2016-10-04T15:24:44.823' ProcessEngineGuid='"+ self.processEngineGuid + "' /><OfferSelection Action='SELECT' "
-					+ " InstitutionName='" + institutionName + "' LoanType='" + loanType + "' OfferID='" + offerID + "'/></DocumentUpdate>]]></documentInput></cfp:updateApplication></soapenv:Body></soapenv:Envelope>";
-				console.log(msg);
-				
-				$http.post('http://10.110.28.172:8080/CFProxy-1.0.0/jaxws/CFProxyWS', msg, {
+                var d = $q.defer();
+                var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/><soapenv:Body>"
+                    +"<cfp:updateApplication><username>ApplicationStarter</username><password>password</password><processEngineGuid>" + self.processEngineGuid + "</processEngineGuid><activityId></activityId>"
+                    +"<documentInput><![CDATA[<DocumentUpdate><Header ApplicationID='2903' DateTime='2016-10-04T15:24:44.823' ProcessEngineGuid='"+ self.processEngineGuid + "' /><OfferSelection Action='SELECT' "
+                    + " InstitutionName='" + institutionName + "' LoanType='" + loanType + "' OfferID='" + offerID + "'/></DocumentUpdate>]]></documentInput></cfp:updateApplication></soapenv:Body></soapenv:Envelope>";
+                console.log(msg);
+
+                $http.post('http://10.110.28.172:8080/CFProxy-1.0.0/jaxws/CFProxyWS', msg, {
                     headers: {
                         'Content-Type':'text/xml',
                         'Accept':'text/xml',
@@ -279,28 +287,28 @@ angular.module('myApp.view1', [
                     var x2js = new X2JS();
                     var aftCnv = x2js.xml_str2json(response.data);
                     console.log(aftCnv.Envelope.Body.updateApplicationResponse);
-					
-					if (aftCnv.Envelope.Body.updateApplicationResponse.return.Header.ApplicationID) {
-						self.ACTionID = aftCnv.Envelope.Body.updateApplicationResponse.return.Header.ApplicationID;
-						toaster.pop('success', 'ACTion ApppID: ' + self.ACTionID);
-					}
-					
-					self.isApiCalling = false;
-					d.resolve();
+
+                    if (aftCnv.Envelope.Body.updateApplicationResponse.return.Header.ApplicationID) {
+                        self.ACTionID = aftCnv.Envelope.Body.updateApplicationResponse.return.Header.ApplicationID;
+                        toaster.pop('success', 'ACTion Application Created');
+                    }
+
+                    self.isApiCalling = false;
+                    d.resolve();
                 }, function(error){
                     // console.err(error);
-					self.isApiCalling = false;
-					d.reject(error);
+                    self.isApiCalling = false;
+                    d.reject(error);
                 });
-				return d.promise;
+                return d.promise;
             },
             'getAppInfo': function () {
-				var d = $q.defer();
+                var d = $q.defer();
                 var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/>"
                     + "<soapenv:Body><cfp:getApplicationInfo><username>ApplicationStarter</username><password>password</password><processEngineGuid>"
                     + self.processEngineGuid + "</processEngineGuid><applicationId>2903</applicationId></cfp:getApplicationInfo></soapenv:Body></soapenv:Envelope>";
-                
-				self.isApiCalling = true;
+
+                self.isApiCalling = true;
 
                 $http.post('http://10.110.28.172:8080/CFProxy-1.0.0/jaxws/CFProxyWS', msg, {
                     headers: {
@@ -330,15 +338,15 @@ angular.module('myApp.view1', [
                             }
                         }
                     }
-					self.isApiCalling = false;
-					d.resolve();
+                    self.isApiCalling = false;
+                    d.resolve();
                     // console.log(self.offers);
                 }, function(error){
                     // console.err(error);
-					self.isApiCalling = false;
-					d.reject(error);
+                    self.isApiCalling = false;
+                    d.reject(error);
                 });
-				return d.promise;
+                return d.promise;
             }
         };
         return self;

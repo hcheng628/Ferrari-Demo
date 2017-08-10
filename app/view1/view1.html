@@ -1,11 +1,9 @@
 <div class="content" ng-controller="RegisterCtrl">
-	
-	<div class="row panel well" ng-show="cfService.ACTionID" style="font-weight: bold;">
-		ACTion Application#: {{ cfService.ACTionID }}
-	</div><br/>
-	
     <form class="form-horizontal">
         <div class="row panel well">
+            <div class="alert alert-success" ng-show="cfService.ACTionID" style="font-weight: bold;">
+                You have successfully submitted an application in ACTion
+            </div><br/>
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
                     <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
@@ -218,7 +216,8 @@
                         <button style="margin:20px 0;" ladda="cfService.isApiCalling" ng-click="startApp()" class="btn btn-success">Confirm and Submit</button>
                         <button style="margin:20px 0;" ng-show="cfService.processEngineGuid"  ladda="cfService.isApiCalling" ng-click="getAppInfo()" class="btn btn-primary">Retrieve Application Information</button>
                         <button style="margin:20px 0;" ng-show="cfService.offers.length > 0"  ng-click="showCreateModal()" class="btn btn-warning">Show Offers</button>
-                        
+                        <button style="margin:20px 0;" ng-show="cfService.offers.length > 0"  ng-click="showBureauModal()" class="btn btn-info">Show Bureau Report</button>
+
 						<!-- button style="margin:20px 0;" ng-click="" ladda="true" class="btn btn-success">Ladda Test</button-->
                         <!--button style="margin:20px 0;" ng-click="startSpin()" class="btn btn-success">Test Spin</button-->
                         <!--button style="margin:20px 0;" ng-click="stopSpin()" class="btn btn-success">Test StopSpin</button-->

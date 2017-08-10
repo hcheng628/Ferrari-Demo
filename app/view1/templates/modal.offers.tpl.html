@@ -19,7 +19,7 @@
                         <!-- ng-if="offer._InstitutionName == institution" -->
                         <!-- pre>{{cfService.offers}}</pre -->
                         <!-- pre>{{cfService.institutions}}</pre-->
-                        <div class="panel panel-default" ng-repeat="institution in cfService.institutions">
+                        <div class="panel panel-info" ng-repeat="institution in cfService.institutions">
                             <div class="panel-heading" style=" color: #333; background-color: #f5f5f5;border-color: #ddd; font-size: 200%;">{{ institution }}</div>
                             <div class="panel-body">
                                 <div class="form-group" ng-if="institution == offer._InstitutionName" ng-repeat="offer in cfService.offers">
