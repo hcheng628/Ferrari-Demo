@@ -218,8 +218,9 @@ angular.module('myApp.view1', [
                 console.log( currentUrl.substring(0, currentUrl.indexOf('8080') + 5) + "CFProxy-1.0.0/jaxws/CFProxyWS");
                 var proxyUrl = currentUrl.substring(0, currentUrl.indexOf('8080') + 5) + "CFProxy-1.0.0/jaxws/CFProxyWS";
 
+
                 var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'>"
-                    + "<soapenv:Header/><soapenv:Body><cfp:startApplication><username>ApplicationStarter</username><password>atlanta2016</password><processCacheId>CIAO_BELLA</processCacheId>"
+                    + "<soapenv:Header/><soapenv:Body><cfp:startApplication><username>ApplicationStarter</username><password>password</password><processCacheId>CIAO_BELLA</processCacheId>"
                     + "<processVersion></processVersion><documentInput><![CDATA[<DocumentInput><Header DateTimeCreated='2016-09-12T18:39:08+05:30'"
                     + " OpenSkyApplicationID='" + self.externalAppId + "'/><Application><Product LoanAmountRequest='" + self.loanAmount +  "' LoanType='AUTO' Term='60'>"
                     + "<Vehicle CbCondition='N' CurrentMileage='0' Downpayment='0' ModelYear='2016' Price='30000.00' Type='AUTO' /></Product></Application>"
@@ -251,7 +252,7 @@ angular.module('myApp.view1', [
                     if(aftCnv.Envelope.Body.startApplicationResponse.return._Status == "SUCCESS") {
                         self.processEngineGuid = aftCnv.Envelope.Body.startApplicationResponse.return.Header.ProcessEngineGuid;
                         self.isApiCalling = false;
-                        toaster.pop('success', 'CreditFlow AppID: ' + aftCnv.Envelope.Body.startApplicationResponse.return.Header.ApplicationID);
+                        toaster.pop('success', 'AppID: ' + aftCnv.Envelope.Body.startApplicationResponse.return.Header.ApplicationID);
                         setTimeout(function () {
                             toaster.pop({
                                 type: 'info',
@@ -274,12 +275,12 @@ angular.module('myApp.view1', [
                 self.isApiCalling = true;
 
                 var d = $q.defer();
+
                 var currentUrl = window.location.href;
                 console.log( currentUrl.substring(0, currentUrl.indexOf('8080') + 5) + "CFProxy-1.0.0/jaxws/CFProxyWS");
                 var proxyUrl = currentUrl.substring(0, currentUrl.indexOf('8080') + 5) + "CFProxy-1.0.0/jaxws/CFProxyWS";
-
                 var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/><soapenv:Body>"
-                    +"<cfp:updateApplication><username>ApplicationStarter</username><password>atlanta2016</password><processEngineGuid>" + self.processEngineGuid + "</processEngineGuid><activityId></activityId>"
+                    +"<cfp:updateApplication><username>ApplicationStarter</username><password>password</password><processEngineGuid>" + self.processEngineGuid + "</processEngineGuid><activityId></activityId>"
                     +"<documentInput><![CDATA[<DocumentUpdate><Header ApplicationID='2903' DateTime='2016-10-04T15:24:44.823' ProcessEngineGuid='"+ self.processEngineGuid + "' /><OfferSelection Action='SELECT' "
                     + " InstitutionName='" + institutionName + "' LoanType='" + loanType + "' OfferID='" + offerID + "'/></DocumentUpdate>]]></documentInput></cfp:updateApplication></soapenv:Body></soapenv:Envelope>";
                 console.log(msg);
@@ -315,13 +316,11 @@ angular.module('myApp.view1', [
             },
             'getAppInfo': function () {
                 var d = $q.defer();
-
                 var currentUrl = window.location.href;
                 console.log( currentUrl.substring(0, currentUrl.indexOf('8080') + 5) + "CFProxy-1.0.0/jaxws/CFProxyWS");
                 var proxyUrl = currentUrl.substring(0, currentUrl.indexOf('8080') + 5) + "CFProxy-1.0.0/jaxws/CFProxyWS";
-
                 var msg = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cfp='http://xmlns.crif.com/schema/CFProxy'><soapenv:Header/>"
-                    + "<soapenv:Body><cfp:getApplicationInfo><username>ApplicationStarter</username><password>atlanta2016</password><processEngineGuid>"
+                    + "<soapenv:Body><cfp:getApplicationInfo><username>ApplicationStarter</username><password>password</password><processEngineGuid>"
                     + self.processEngineGuid + "</processEngineGuid><applicationId>2903</applicationId></cfp:getApplicationInfo></soapenv:Body></soapenv:Envelope>";
 
                 self.isApiCalling = true;
@@ -345,18 +344,25 @@ angular.module('myApp.view1', [
                     if (aftCnv.Envelope.Body.getApplicationInfoResponse.return.Application._Status == "WT_OFFERS") {
                         //console.log('Here');
                         for (var i=0; i < aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer.length; i++) {
-                            if(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._OfferID){
+                            if(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName == 'FHB'){
                                 self.offers.push(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]);
                                 if (self.institutions.indexOf(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName) < 0) {
                                     self.institutions.push(aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName);
                                     console.log("Pushed to institutions" + aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._InstitutionName);
-                                    self.hasOffersFlag = true;
+                                }
+
+                                if (aftCnv.Envelope.Body.getApplicationInfoResponse.return.Offer[i]._OfferID == "0") {
+                                    self.hasOffersFlag = false;
                                 }
                             }
-                            if (self.offers.length < 1) {
-                                self.hasOffersFlag = false;
-                            }
                         }
+                        // Fix offset by 2
+                        for (var j=0; j <self.offers.length - 2; j++) {
+                            self.offers[j]._MonthlyPayment = self.offers[j+2]._MonthlyPayment;
+                        }
+
+                        console.log(self.offers);
+
                     }
                     self.isApiCalling = false;
                     d.resolve();
