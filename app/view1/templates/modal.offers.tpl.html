@@ -8,75 +8,38 @@
                 <button type="button"
                         class="close"
                         ng-click="createModal.hide()" >&times;</button >
-                <h4 class="modal-title" >Available Offers</h4 >
+                <h4 class="modal-title" ></h4 >
             </div >
-
-
-
             <!-- self.hasOffersFlag = false; -->
-
-
             <div class="modal-body" >
                 <form ng-submit=""
                       class="form-horizontal"
                       novalidate >
                     <div class="row">
-                        <!-- ng-if="offer._InstitutionName == institution" -->
-                        <!-- pre>{{cfService.offers}}</pre -->
-                        <!-- pre>{{cfService.institutions}}</pre-->
-                        <!-- div class="panel panel-info" ng-repeat="institution in cfService.institutions"  ng-model="offer._MonthlyPayment | currency" -->
+                        <div class="container" style="width: 80%">
+                            <fieldset class="for-panel">
+                                <legend>Turn on AutoPay?</legend>
+                                <div class="row col-md-offset-1">
 
-                        <div class="alert alert-warning" ng-show="cfService.hasOffersFlag == false" style="font-weight: bold; font-size: 133%">
-                            No offers at this time but please come back and check with us in the future. Thanks!
-                        </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <p>
+                                                AutoPay is the easiest way to pay, and it will help you build positive through on-time payments
+                                            </p>
+                                            <P>
+                                                If you enable AutoPay, we will automatically debit your monthly payment amount from your payment method on each due date.
+                                            </P>
 
-
-                        <div class="panel panel-info" ng-show="cfService.hasOffersFlag != false">
-                            <div class="panel-heading" style=" color: #333; background-color: #f5f5f5;border-color: #ddd; font-size: 200%;">First Hawaiian Bank</div>
-                            <div class="panel-body">
-                                <div class="form-group" ng-if=" 'FHB' == offer._InstitutionName && offer._OfferID" ng-repeat="offer in cfService.offers">
-                                    <div >
-                                        <label class="col-sm-3 control-label" >Offer ID</label >
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"
-                                                   ng-model="offer._OfferID"
-                                                   readonly />
-                                        </div>
-
-                                        <label class="col-sm-3 control-label" >Interest Rate</label >
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"
-                                                   value="{{offer._InterestRate }} %"
-                                                   readonly />
-                                        </div>
-
-                                        <label class="col-sm-3 control-label" >Loan Amount</label >
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"
-                                                   value="{{ offer._OfferID == '1' ? '500' : offer._LoanAmount | currency}}"
-                                                   readonly />
-                                        </div>
-
-                                        <label class="col-sm-3 control-label" >Monthly Payment</label >
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"
-                                                   value="{{offer._MonthlyPayment | currency}}"
-                                                   readonly />
-                                        </div>
-
-                                        <label class="col-sm-3 control-label" >Loan Term</label >
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"
-                                                   ng-model="offer._LoanTerm"
-                                                   readonly />
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-primary form-control" ladda="cfService.isApiCalling" ng-click="updateApp('Meritrust', offer._OfferID, offer._LoanType)" >Select Offer</button>
+                                            <p>
+                                                AutoPay is optional and won't affect our credit decision. You can modify your AutoPay settings any time.
+                                            </p>
+                                            <button class="btn btn-success" ng-click="showAutoPayModal()">YES, ENABLE AUTOPAY</button>
+                                            <button class="btn btn-danger" ng-click="createModal.hide()">No, not now</button>
                                         </div>
                                     </div>
-                                </div >
-                            </div >
-                            <div class="clearfix"></div>
+
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
                 </form >
@@ -85,3 +48,4 @@
         </div >
     </div >
 </div >
+

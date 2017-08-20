@@ -67,3 +67,59 @@ textarea {
 .spinner p {
     margin-top: 20px; 
 }
+
+fieldset.for-panel {
+    background-color: #fcfcfc;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding:15px 10px;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    background-color: #f9fdfd;
+    margin-bottom:12px;
+}
+fieldset.for-panel legend {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #4381ba;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+    margin: inherit;
+    padding: 7px;
+    width: auto;
+    background-color: #d9edf7;
+    margin-bottom: 0;
+}
+
+#approvedOffers  h5 {
+    color: white;
+}
+
+#approvedOffers .panel-footer span {
+    color: white;
+}
+
+.row-bordered:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin: 0 15px;
+}
+
+.am-fade {
+    background-color:#ffffdd;
+    /*background-color: transparent;*/
+    filter: alpha(opacity=70);
+    /*opacity: 0.5;*/
+}
+
+div.offersSelection:hover {
+    cursor: pointer;
+}
+
+div.divDisclure:hover {
+    cursor: pointer;
+}
+
