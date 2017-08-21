@@ -20,7 +20,7 @@
                                     </div>
                                 </div>
                                 <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
-                                
+
                                 <div class="" style="">
                                     <label class="control-label col-sm-3">First Name</label>
                                     <div class="col-sm-3 form-group">
@@ -109,7 +109,7 @@
 
                                     <label class="control-label col-sm-3">Zip Code</label>
                                     <div class="col-sm-3 form-group">
-                                        <input type="number" class="form-control" ng-model="app_zip" required>
+                                        <input type="number" class="form-control" ng-model="app_zip" required ng-minlength="5" ng-maxlength="5">
                                     </div>
                                 </div>
                                 <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
@@ -129,8 +129,8 @@
 
                                 <div class="">
                                     <div class="col-sm-3 form-group">
-                                        <button class="btn btn-primary" ng-click="cfService.step1Complete = true"> Submit <i
-                                                class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                        <button class="btn btn-primary" ng-click="cfService.step1Complete = true"> Submit <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
+                                        <button type="reset" class="btn btn-default"> Reset <i class="fa fa-refresh" aria-hidden="true"></i> </button>
                                     </div>
                                 </div>
                             </div>

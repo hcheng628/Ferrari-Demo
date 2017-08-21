@@ -29,24 +29,34 @@ angular.module('myApp.view1', [
     .controller('RegisterCtrl', [ '$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function($scope, $location, $modal, usSpinnerService, CFService) {
         $scope.cfService = CFService;
 
-        var app_initPurAmt = 809.00;
-        var app_income = null;
-        var app_firstName = "Ciao";
-        var app_middleName = "Di";
-        var app_lastName = "Bella";
-        var app_suffix = null;
-        var app_dob = null;
-        var app_ssn = null;
+        $scope.app_initPurAmt = null;
+        $scope.app_income = null;
+        $scope.app_firstName = null;
+        $scope.app_middleName = null;
+        $scope.app_lastName = null;
+        $scope.app_suffix = null;
+        $scope.app_dob = null;
+        $scope.app_ssn = null;
 
-        var app_housetype = null;
-        var app_address = null;
-        var app_apt = null;
-        var app_city = null;
-        var app_state = null;
-        var app_zip = null;
+        $scope.app_housetype = null;
+        $scope.app_address = null;
+        $scope.app_apt = null;
+        $scope.app_city = null;
+        $scope.app_state = null;
+        $scope.app_zip = null;
 
-        var app_phone = null;
-        var app_email = null;
+        $scope.app_phone = null;
+        $scope.app_email = null;
+
+
+        $scope.autoPayName = null
+        $scope.autoPay_routing = null;
+        $scope.autoPay_bankacct = null;
+        $scope.autoPay_cardnum = null;
+        $scope.autoPay_expiration = null;
+        $scope.autoPay_securityCode = null;
+
+
 
 
         $scope.showBureauModal = function () {

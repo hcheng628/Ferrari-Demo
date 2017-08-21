@@ -2,92 +2,101 @@
      class="modal"
      role="dialog"
 >
-    <div class="modal-dialog" style="width: 66%" >
-        <div class="modal-content" >
-            <div class="modal-header" >
+    <div class="modal-dialog" style="width: 66%">
+        <div class="modal-content">
+            <div class="modal-header">
                 <button type="button"
                         class="close"
-                        ng-click="createModal.hide()" >&times;</button >
-                <h4 class="modal-title" ></h4 >
-            </div >
+                        ng-click="createModal.hide()">&times;
+                </button>
+                <h4 class="modal-title"></h4>
+            </div>
             <!-- self.hasOffersFlag = false; -->
-            <div class="modal-body" >
+            <div class="modal-body">
                 <form ng-submit=""
                       class="form-horizontal"
-                      novalidate >
-                    <div class="row">
-                        <div class="container" style="width: 80%">
-                            <fieldset class="for-panel">
-                                <legend>Setting AutoPay</legend>
-                                <div class="row col-md-offset-2">
-                                    <div class="form-group">
-                                        <div class="form-group col-md-9">
-                                            <div class="form-horizontal form-inline">
-                                                <div class="" style="width: 100%;">
-                                                    <div class="form-group" style="width: 80%; display: inline-block;">
-                                                        <label class="control-label">Payment Method</label><br>
-                                                        <select class="form-control" style="" ng-model="cfService.autoPayType">
-                                                            <option value="debit_card">Debit Card</option>
-                                                            <option value="bank_acct">Bank Account</option>
-                                                        </select>
-                                                    </div>
+                      novalidate>
+                    <div class="">
+                        <fieldset class="for-panel">
+                            <legend>Setting AutoPay</legend>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-horizontal">
+                                            <div class="" style="background-color: #cccccc">
+                                                <label class="control-label col-sm-4">Payment Method</label>
+                                                <div class="col-sm-6 form-group">
+                                                    <select class="form-control" ng-model="cfService.autoPayType"
+                                                            required>
+                                                        <option value="debit_card">Debit Card</option>
+                                                        <option value="bank_acct">Bank Account</option>
+                                                    </select>
                                                 </div>
 
-                                                <div class="" style="width: 100%;">
-                                                    <div class="form-group" style="width: 80%; display: inline-block;">
-                                                        <label class="control-label">Name</label><br>
-                                                        <input type="text" class="form-control" value="Ping">
-                                                    </div>
+                                                <label class="control-label col-sm-4">Your Name</label>
+                                                <div class="col-sm-6 form-group">
+                                                    <input type="text" class="form-control " ng-model="autoPayName"
+                                                           required>
+                                                </div>
+                                            </div>
+
+                                            <div ng-show="cfService.autoPayType == 'debit_card'">
+                                                <label class="control-label col-sm-4">Card Number</label>
+                                                <div class="form-group col-sm-6">
+                                                    <input type="number" class="form-control"
+                                                           ng-model="autoPay_cardnum" required>
                                                 </div>
 
-                                                <div style="" ng-show="cfService.autoPayType == 'debit_card'">
-                                                    <div class="form-group" style="width: 50%; display: inline-block;">
-                                                        <label class="control-label">Card Number</label><br>
-                                                        <input type="number" class="form-control" style="width: 80%;">
-                                                    </div>
-
-                                                    <div class="form-group" style="width: 25%; display: inline-block;">
-                                                        <label class="control-label">Security Code</label><br>
-                                                        <input type="number" class="form-control" style="width: 40%;">
-                                                    </div>
-
-                                                    <div class="form-group" style="width: 25%; display: inline-block;">
-                                                        <label class="control-label">Expiration Date</label><br>
-                                                        <datepicker date-format="yyyy-MM-dd">
-                                                            <input  id="expirationDate" type="text" class="form-control" />
-                                                        </datepicker>
-                                                    </div>
+                                                <label class="control-label col-sm-4">Security Code</label>
+                                                <div class="form-group col-sm-6">
+                                                    <input type="number" class="form-control"
+                                                           ng-model="autoPay_securityCode" required>
                                                 </div>
 
-
-                                                <div style="" ng-show="cfService.autoPayType == 'bank_acct'">
-                                                    <div class="form-group" style="width: 50%; display: inline-block;">
-                                                        <label class="control-label">Routing Number</label><br>
-                                                        <input type="number" class="form-control" style="width: 50%;">
-                                                    </div>
-
-                                                    <div class="form-group" style="width: 50%; display: inline-block;">
-                                                        <label class="control-label">Account Number</label><br>
-                                                        <input type="number" class="form-control" style="width: 80%;">
-                                                    </div>
+                                                <label class="control-label col-sm-4">Expiration Date</label>
+                                                <div class="col-sm-6 form-group">
+                                                    <datepicker date-format="yyyy-MM-dd">
+                                                        <input id="expirationDate" type="text"
+                                                               ng-model="autoPay_expiration" class="form-control"
+                                                               required>
+                                                    </datepicker>
                                                 </div>
+                                            </div>
 
-                                                <div class="row col-md-9 col-md-offset-4" style="margin-top: 15px; margin-bottom: 15px;">
-                                                    <div class="">
-                                                        <button class="btn btn-success" value="submit" ng-click="createModal.hide()">Submit</button>
-                                                        <button class="btn btn-danger" value="cancel" ng-click="createModal.hide()">Cancel</button>
-                                                    </div>
+
+                                            <div style="" ng-show="cfService.autoPayType == 'bank_acct'">
+                                                <label class="control-label col-sm-4">Routing Number</label>
+                                                <div class="form-group col-sm-6">
+                                                    <input type="number" class="form-control" ng-model="autoPay_routing"
+                                                           required>
+                                                </div>
+                                                <label class="control-label col-sm-4">Account Number</label>
+                                                <div class="form-group col-sm-6">
+                                                    <input type="number" class="form-control"
+                                                           ng-model="autoPay_bankacct" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="row col-md-9 col-md-offset-4"
+                                                 style="margin-top: 15px; margin-bottom: 15px;">
+                                                <div class="">
+                                                    <button class="btn btn-success" value="submit"
+                                                            ng-click="createModal.hide()">Submit
+                                                    </button>
+                                                    <button class="btn btn-danger" value="cancel"
+                                                            ng-click="createModal.hide()">Cancel
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </fieldset>
-                        </div>
+                            </div>
+                        </fieldset>
                     </div>
-                </form >
-                <div class="clearfix" style="min-height: 100px;" ></div>
-            </div >
-        </div >
-    </div >
-</div >
+                </form>
+                <div class="clearfix" style="min-height: 60px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
