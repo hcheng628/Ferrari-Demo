@@ -7,7 +7,7 @@
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
-    background: url("../img/appBlueBackground.jpg");
+    background: url("../img/yellow.jpg");
     background-size: cover;
     min-height: 100vh;
 	padding-bottom: 180px;
@@ -126,5 +126,26 @@ div.divDisclure:hover {
 .form-control {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300 !important;
+    min-width: 95%;
+    color: #2095F2;
+    background-color: #E4E3D9;
 }
+
+#smallDatePicker ._720kb-datepicker-open {
+    width: 40%;
+}
+
+.indigo {
+    background-color: white !important;
+}
+
+.center-on-small-only {
+    text-align: center;
+}
+
+#emailAgree.well {
+    background-color: #E4E3D9;
+}
+
+
 

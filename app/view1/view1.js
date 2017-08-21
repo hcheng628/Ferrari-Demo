@@ -34,7 +34,7 @@ angular.module('myApp.view1', [
         $scope.app_firstName = null;
         $scope.app_middleName = null;
         $scope.app_lastName = null;
-        $scope.app_suffix = null;
+        $scope.app_suffix = "";
         $scope.app_dob = null;
         $scope.app_ssn = null;
 
