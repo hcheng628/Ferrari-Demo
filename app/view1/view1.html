@@ -1,146 +1,148 @@
 <div class="content" ng-controller="RegisterCtrl">
 
     <div class="row col-md-12" style="margin-top: 20px;">
+        <form novalidate >
+            <div class="container" style="width: 80%" ng-show="cfService.step1Complete == null">
+                <fieldset class="for-panel">
+                    <legend><i class="fa fa-battery-quarter" aria-hidden="true"></i></legend>
+                    <div class="row form-inline">
+                        <div class="container">
+                            <div class="col-md-12 " style="">
 
-        <div class="container" style="width: 80%" ng-show="cfService.step1Complete == null">
-            <fieldset class="for-panel">
-                <legend><i class="fa fa-battery-quarter" aria-hidden="true"></i></legend>
-                <div class="row col-md-offset-1">
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">Contact Initial Purchase Amount if Known</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="number" class="form-control" ng-model="app_initPurAmt">
+                                    </div>
+                                    <label class="control-label col-sm-3">Monthly Net Income From All Sources</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="number" class="form-control" value="" required ng-model="app_income" required>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">First Name</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="text" class="form-control" ng-model="app_firstName" required>
+                                    </div>
+                                    <label class="control-label col-sm-3">Last Name</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="text" class="form-control" ng-model="app_lastName" required>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                    <div class="form-group col-md-6">
-                        <div class="form-horizontal form-inline" style="">
 
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 80%;display: inline-block;">
-                                    <label class="control-label">Contact Initial Purchase Amount if Known</label>
-                                    <input type="number" class="form-control pull-right" value="809.00" style="width: 30%;">
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">Middle</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="text" class="form-control " ng-model="app_middleName">
+                                    </div>
+                                    <label class="control-label col-sm-3">Suffix</label>
+                                    <div class="col-sm-3 form-group">
+                                        <select class="form-control" ng-model="app_suffix">
+                                            <option value="II">II</option>
+                                            <option value="III">III</option>
+                                            <option value="IV">IV</option>
+                                            <option value="JR">JR</option>
+                                            <option value="SR">SR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">Date of Birth</label>
+                                    <div class="col-sm-3 form-group">
+                                        <datepicker date-format="yyyy-MM-dd">
+                                            <input id="birthdate" type="text" class="form-control" ng-model="app_dob" required/>
+                                        </datepicker>
+                                    </div>
+
+                                    <label class="control-label col-sm-3">SSN/ITIN</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="number" class="form-control" ng-model="app_ssn" required ng-minlength="5">
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">Housing Type</label>
+                                    <div class="col-sm-3 form-group">
+                                        <select class="form-control " ng-model="app_housetype" required>
+                                            <option value="">Select</option>
+                                            <option value="own">Own</option>
+                                            <option value="other">Other</option>
+                                            <option value="rent">Rent</option>
+                                        </select>
+                                    </div>
+                                    <label class="control-label col-sm-3">Mailing Address</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="text" class="form-control" ng-model="app_address" placeholder="PO Boxes not Allowed" required>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">Apt #</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="text" class="form-control" ng-model="app_apt">
+                                    </div>
+
+                                    <label class="control-label col-sm-3">City</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="text" class="form-control" ng-model="app_city" required>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">State</label>
+                                    <div class="col-sm-3 form-group">
+                                        <select class="form-control" ng-model="app_state" required>
+                                            <option value="II">Alaska</option>
+                                            <option value="III">Texas</option>
+                                            <option value="IV">Florida</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="control-label col-sm-3">Zip Code</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="number" class="form-control" ng-model="app_zip" required>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                <div class="" style="">
+                                    <label class="control-label col-sm-3">Phone Number</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="tel" class="form-control" ng-model="app_phone" required ng-minlength="10" ng-maxlength="10"/>
+                                    </div>
+
+                                    <label class="control-label col-sm-3">Email</label>
+                                    <div class="col-sm-3 form-group">
+                                        <input type="email" class="form-control" required ng-model="app_email"></input>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                <div class="">
+                                    <div class="col-sm-3 form-group">
+                                        <button class="btn btn-primary" ng-click="cfService.step1Complete = true"> Submit <i
+                                                class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                    </div>
                                 </div>
                             </div>
-
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 40%; display: inline-block;">
-                                    <label class="control-label">First Name</label><br>
-                                    <input type="text" class="form-control" value="Ciao" style="width: 70%;">
-                                </div>
-                                <div class="form-group" style="width: 40%; display: inline-block;">
-                                    <label class="control-label">Middle</label><br>
-                                    <input type="text" class="form-control" value="Di" style="width: 20%;">
-                                </div>
-                            </div>
-
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 40%; display: inline-block;">
-                                    <label class="control-label">Last Name</label>
-                                    <input type="text"  class="form-control" value="Bella" style="width: 70%;">
-                                </div>
-                                <div class="form-group" style="width: 40%; display: inline-block;">
-                                    <label class="control-label">Suffix</label><br>
-                                    <select class="form-control" style="width: 20%;">
-                                        <option value="II">II</option>
-                                        <option value="III">III</option>
-                                        <option value="IV">IV</option>
-                                        <option value="JR">JR</option>
-                                        <option value="SR">SR</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 40%; display: inline-block;">
-                                    <label class="control-label">SSN/ITIN</label><br>
-                                    <input type="number"  class="form-control" value="432998762" style="width: 70%;">
-                                </div>
-                                <div class="form-group" style="width: 40%; display: inline-block;">
-                                    <label class="control-label">Date of Birth</label><br>
-                                    <datepicker date-format="yyyy-MM-dd">
-                                        <input  id="birthdate" type="text" class="form-control" />
-                                    </datepicker>
-                                </div>
-                            </div>
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 80%; display: inline-block;">
-                                    <label class="control-label">Monthly Net Income From All Sources</label>
-                                    <input type="number" class="form-control pull-right" value="" style="width: 30%;">
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                </fieldset>
+            </div>
+        </form>
 
 
-                    <div class="form-group col-md-6">
-                        <div class="form-horizontal form-inline" style="">
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 30%; display: inline-block;">
-                                    <label class="control-label">Housing Type</label><br>
-                                    <select class="form-control " >
-                                        <option value="">Select</option>
-                                        <option value="own">Own</option>
-                                        <option value="other">Other</option>
-                                        <option value="rent">Rent</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group" style="width: 60%; display: inline-block;">
-                                    <label class="control-label">Mailing Address</label>
-                                    <input type="text" class="form-control" value="" placeholder="PO Boxes not Allowed" style="width: 100%">
-                                </div>
-                            </div>
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 30%; display: inline-block;">
-                                    <label class="control-label">Apt #</label><br>
-                                    <input type="text" class="form-control" value="" style="width: 50%;">
-                                </div>
-                                <div class="form-group" style="width: 30%; display: inline-block;">
-                                    <label class="control-label">City</label><br>
-                                    <input type="text"  class="form-control" value="" style="width: 50%;">
-                                </div>
-                                <div class="form-group" style="width: 30%; display: inline-block;">
-                                    <label class="control-label">State</label><br>
-                                    <select class="form-control" >
-                                        <option value="II">Alaska</option>
-                                        <option value="III">Texas</option>
-                                        <option value="IV">Florida</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 30%; display: inline-block;">
-                                    <label class="control-label">ZipCode</label><br>
-                                    <input type="number" class="form-control" value="" style="width: 50%;">
-                                </div>
-                                <div class="form-group" style="width: 60%; display: inline-block;">
-                                    <label class="control-label">Phone Number</label><br>
-                                    <input type="tel" class="form-control" value=""/>
-                                </div>
-                            </div>
-
-
-                            <div class="" style="width: 100%;">
-                                <div class="form-group" style="width: 80%; display: inline-block;">
-                                    <label class="control-label">Email</label>
-                                    <input type="email"  class="form-control" value="ciaobella@crif.com" style="width: 100%;"></input>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row col-md-9 col-md-offset-5">
-                    <button class="btn btn-primary" ng-click="cfService.step1Complete = true"> Submit <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="container" style="width: 80%" ng-show="cfService.step1Complete == true && cfService.step2Complete != true">
+        <div class="container" style="width: 80%"
+             ng-show="cfService.step1Complete == true && cfService.step2Complete != true">
             <fieldset class="for-panel">
                 <legend><i class="fa fa-battery-half" aria-hidden="true"></i></legend>
                 <div class="row">
@@ -157,52 +159,55 @@
                                         </div>
                                         <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                                        <div ng-click="cfService.step2Complete = true" class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
+                                        <div ng-click="cfService.step2Complete = true"
+                                             class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
                                             <div class="panel panel-default" style="background-color: #5999F7">
                                                 <a style="text-decoration: none;">
-                                                <div class="panel-body">
-                                                    <h5>$287.71/mo for 3 months</h5>
-                                                </div>
-                                                <div class="panel-footer" style="background-color: #3386FF">
-                                                    <span class="" >
+                                                    <div class="panel-body">
+                                                        <h5>$287.71/mo for 3 months</h5>
+                                                    </div>
+                                                    <div class="panel-footer" style="background-color: #3386FF">
+                                                    <span class="">
                                                         INTEREST (20% APR)<br>
                                                         $27.12
                                                     </span>
-                                                </div>
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
 
-                                        <div ng-click="cfService.step2Complete = true" class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
+                                        <div ng-click="cfService.step2Complete = true"
+                                             class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
                                             <div class="panel panel-default" style="background-color: #5999F7">
                                                 <a style="text-decoration: none;">
-                                                <div class="panel-body">
-                                                    <h5>$287.71/mo for 3 months</h5>
-                                                </div>
-                                                <div class="panel-footer" style="background-color: #3386FF">
-                                                        <span class="" >
+                                                    <div class="panel-body">
+                                                        <h5>$287.71/mo for 3 months</h5>
+                                                    </div>
+                                                    <div class="panel-footer" style="background-color: #3386FF">
+                                                        <span class="">
                                                         INTEREST (20% APR)<br>
                                                         $27.12
                                                     </span>
-                                                </div>
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
 
-                                        <div ng-click="cfService.step2Complete = true" class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
+                                        <div ng-click="cfService.step2Complete = true"
+                                             class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
                                             <div class="panel panel-default" style="background-color: #5A3BF1">
                                                 <a style="text-decoration: none;">
-                                                <div class="panel-body">
-                                                    <h5>$287.71/mo for 3 months</h5>
-                                                </div>
-                                                <div class="panel-footer" style="background-color: #3008F1">
-                                                        <span class="" >
+                                                    <div class="panel-body">
+                                                        <h5>$287.71/mo for 3 months</h5>
+                                                    </div>
+                                                    <div class="panel-footer" style="background-color: #3008F1">
+                                                        <span class="">
                                                         INTEREST (20% APR)<br>
                                                         $27.12
                                                     </span>
-                                                </div>
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div>
@@ -210,15 +215,16 @@
 
                                     </div>
                                     <!-- div class="panel-footer">Panel footer</div-->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </fieldset>
         </div>
 
-        <div class="container" style="width: 80%" ng-show="cfService.step2Complete == true && cfService.step3Complete != true">
+        <div class="container" style="width: 80%"
+             ng-show="cfService.step2Complete == true && cfService.step3Complete != true">
             <fieldset class="for-panel">
                 <legend><i class="fa fa-battery-three-quarters" aria-hidden="true"></i></legend>
                 <div class="row">
@@ -270,36 +276,48 @@
                                                 positive history through on-time payments.
                                             </span>
                                             <br><br>
-                                            <button class="btn btn-success" ng-click="showCreateModal()">Would you like to enable AutoPay?</button>
+                                            <button class="btn btn-success" ng-click="showCreateModal()">Would you like
+                                                to
+                                                enable AutoPay?
+                                            </button>
                                             <div style="min-height: 15px;"></div>
                                         </div>
                                         <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
 
-                                            <div class="form-group">
-                                                <div class="col-md-6 col-md-offset-3">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" name="agree" value="agree" /> Agree with the terms and conditions
-                                                        </label>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-md-offset-3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="agree" value="agree"/> Agree with
+                                                        the
+                                                        terms and conditions
+                                                    </label>
 
-                                                        <div ng-click="showBureauModal()" style="text-decoration: none">
-                                                            <div class="divDisclure" style="text-align: left;">
-                                                                <strong>PLEASE READ BEFORE APPLYING</strong>
-                                                                I have reviewed and agree to the
-                                                            <a href=""> Truth in Lending Disclosure and Loan Agreement </a> and the refund policy provided by
-                                                            ABCCBA, and have received the <a href=""> Credit Score Disclosure</a>.
-                                                            </div>
+                                                    <div ng-click="showBureauModal()" style="text-decoration: none">
+                                                        <div class="divDisclure" style="text-align: left;">
+                                                            <strong>PLEASE READ BEFORE APPLYING</strong>
+                                                            I have reviewed and agree to the
+                                                            <a href=""> Truth in Lending Disclosure and Loan
+                                                                Agreement </a>
+                                                            and the refund policy provided by
+                                                            ABCCBA, and have received the <a href=""> Credit Score
+                                                            Disclosure</a>.
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group">
-                                                <div class="col-md-8 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-primary" ng-click="cfService.step3Complete = true"  value="confirm">Confirm Loan <i class="fa fa-check" aria-hidden="true"></i></button>
-                                                    <button type="submit" class="btn btn-danger"  value="cancel">Back</button>
-                                                </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <button type="submit" class="btn btn-primary"
+                                                        ng-click="cfService.step3Complete = true" value="confirm">
+                                                    Confirm
+                                                    Loan <i class="fa fa-check" aria-hidden="true"></i></button>
+                                                <button type="submit" class="btn btn-danger" value="cancel">Back
+                                                </button>
                                             </div>
+                                        </div>
                                     </div>
                                     <!-- div class="panel-footer">Panel footer</div-->
                                 </div>
@@ -321,7 +339,8 @@
                                     <div class="clearfix" style="margin-top: 45px; margin-bottom: 45px;"></div>
                                     <div class="panel-body text-center">
                                         <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered text-success">
-                                            <span style="font-size: 160%"><strong>Application Completed <i class="fa fa-check-circle" aria-hidden="true"></i></strong></span>
+                                        <span style="font-size: 160%"><strong>Application Completed <i
+                                                class="fa fa-check-circle" aria-hidden="true"></i></strong></span>
                                             <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
                                             <span><br>Thank you for using CRIF System</i></span>
                                         </div>
@@ -336,5 +355,5 @@
             </fieldset>
         </div>
     </div>
-    <cc-spinner is-loading="cfService.isApiCalling" message="Loading....." ></cc-spinner>
+    <cc-spinner is-loading="cfService.isApiCalling" message="Loading....."></cc-spinner>
 </div>

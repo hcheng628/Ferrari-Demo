@@ -35,9 +35,9 @@
     "node": "6.10.1"
   },
   "dependencies": {
-    "express": "^4.15.3",
     "angular": "^1.6.5",
     "angular-animate": "^1.6.5",
+    "angular-auto-validate": "^1.19.0",
     "angular-ladda": "^0.4.3",
     "angular-route": "^1.6.5",
     "angular-spinner": "^1.0.1",
@@ -45,6 +45,7 @@
     "angularjs-datepicker": "^2.1.23",
     "angularjs-toaster": "^2.1.0",
     "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
     "jquery": "^3.2.1",
     "underscore": "^1.8.3"
   }

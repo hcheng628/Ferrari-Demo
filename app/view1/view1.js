@@ -6,21 +6,20 @@ angular.module('myApp.view1', [
     'ngAnimate',
     'toaster',
     'angularSpinner',
-    'angular-ladda'
+    'angular-ladda',
+    'jcs-autoValidate'
 ])
+    .run([
+        'bootstrap3ElementModifier',
+        function (bootstrap3ElementModifier) {
+            bootstrap3ElementModifier.enableValidationStateIcons(true);
+        }])
 
     .config(['$routeProvider', 'laddaProvider', function($routeProvider, laddaProvider) {
-        /*
-         laddaProvider
-         spinnerSize: 35,
-         spinnerColor: '#ffffff'
-         */
 
         laddaProvider.setOption({
             style: 'expand-right'
         });
-
-
 
         $routeProvider.when('/view1', {
             templateUrl: 'view1/view1.html',
@@ -29,6 +28,26 @@ angular.module('myApp.view1', [
     }])
     .controller('RegisterCtrl', [ '$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function($scope, $location, $modal, usSpinnerService, CFService) {
         $scope.cfService = CFService;
+
+        var app_initPurAmt = 809.00;
+        var app_income = null;
+        var app_firstName = "Ciao";
+        var app_middleName = "Di";
+        var app_lastName = "Bella";
+        var app_suffix = null;
+        var app_dob = null;
+        var app_ssn = null;
+
+        var app_housetype = null;
+        var app_address = null;
+        var app_apt = null;
+        var app_city = null;
+        var app_state = null;
+        var app_zip = null;
+
+        var app_phone = null;
+        var app_email = null;
+
 
         $scope.showBureauModal = function () {
             $scope.createModal = $modal({
@@ -72,7 +91,8 @@ angular.module('myApp.view1', [
             'step2Complete': null,
             'step3Complete': null,
             'step4Complete': null,
-            'autoPayType': null
+            'autoPayType': null,
+            'test': null
         };
         return self;
     });
