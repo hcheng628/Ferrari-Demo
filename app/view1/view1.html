@@ -2,13 +2,12 @@
 
     <div class="row col-md-12" style="margin-top: 20px;">
         <form novalidate >
-            <div class="container" style="width: 80%" ng-show="cfService.step1Complete == null">
+            <div class="container" ng-show="cfService.step1Complete == null">
                 <fieldset class="for-panel">
                     <legend><i class="fa fa-battery-quarter" aria-hidden="true"></i></legend>
-                    <div class="row form-inline">
-                        <div class="container">
-                            <div class="col-md-12 " style="">
-
+                    <div class="form-inline">
+                        <!--<div class="container">-->
+                            <!--<div class="col-md-12 " style="">-->
                                 <div class="" style="">
                                     <label class="control-label col-sm-3">Contact Initial Purchase Amount if Known</label>
                                     <div class="col-sm-3 form-group">
@@ -127,14 +126,14 @@
                                 </div>
                                 <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                                <div class="">
-                                    <div class="col-sm-3 form-group">
-                                        <button class="btn btn-primary" ng-click="cfService.step1Complete = true"> Submit <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
-                                        <button type="reset" class="btn btn-default"> Reset <i class="fa fa-refresh" aria-hidden="true"></i> </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                <!--<div class="col-sm-11">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="">
+                        <button class="btn btn-primary btn-block" ng-click="cfService.step1Complete = true"> Submit <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
+                        <button class="btn btn-default btn-block" type="reset" > Reset <i class="fa fa-refresh" aria-hidden="true"></i> </button>
                     </div>
                 </fieldset>
             </div>
@@ -182,12 +181,12 @@
                                             <div class="panel panel-default" style="background-color: #5999F7">
                                                 <a style="text-decoration: none;">
                                                     <div class="panel-body">
-                                                        <h5>$287.71/mo for 3 months</h5>
+                                                        <h5>$142.81/mo for 6 months</h5>
                                                     </div>
                                                     <div class="panel-footer" style="background-color: #3386FF">
                                                         <span class="">
                                                         INTEREST (20% APR)<br>
-                                                        $27.12
+                                                        $47.86
                                                     </span>
                                                     </div>
                                                 </a>
@@ -200,12 +199,12 @@
                                             <div class="panel panel-default" style="background-color: #5A3BF1">
                                                 <a style="text-decoration: none;">
                                                     <div class="panel-body">
-                                                        <h5>$287.71/mo for 3 months</h5>
+                                                        <h5>$74.94/mo for 12 months</h5>
                                                     </div>
                                                     <div class="panel-footer" style="background-color: #3008F1">
                                                         <span class="">
                                                         INTEREST (20% APR)<br>
-                                                        $27.12
+                                                        $47.86
                                                     </span>
                                                     </div>
                                                 </a>
