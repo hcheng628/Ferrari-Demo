@@ -69,17 +69,22 @@ textarea {
 }
 
 fieldset.for-panel {
-    background-color: #fcfcfc;
+    /*background-color: #fcfcfc;*/
+    background-color: #A6ACA8;
+    /*background-color: #d9edf7;*/
+    /*background-color: #f9fdfd;*/
+
+
     border: 1px solid #999;
     border-radius: 4px;
     padding:15px 10px;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-    background-color: #f9fdfd;
+    /*border-color: #bce8f1;*/
     margin-bottom:12px;
 }
 fieldset.for-panel legend {
-    background-color: #fafafa;
+    /*background-color: #454F47;*/
+    background-color: #d9edf7;
+
     border: 1px solid #ddd;
     border-radius: 5px;
     color: #4381ba;
@@ -89,7 +94,6 @@ fieldset.for-panel legend {
     margin: inherit;
     padding: 7px;
     width: auto;
-    background-color: #d9edf7;
     margin-bottom: 0;
 }
 
@@ -126,13 +130,15 @@ div.divDisclure:hover {
 .form-control {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300 !important;
-    min-width: 95%;
+    min-width: 85%;
     color: #2095F2;
-    background-color: #E4E3D9;
+    background-color: white;
+    border-radius: 7px !important;
+    padding-left: 20px !important;
 }
 
 #smallDatePicker ._720kb-datepicker-open {
-    width: 40%;
+    /*width: 90%;*/
 }
 
 .indigo {
@@ -143,9 +149,37 @@ div.divDisclure:hover {
     text-align: center;
 }
 
-#emailAgree.well {
-    background-color: #E4E3D9;
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/*#emailAgree.well {*/
+    /*background-color: #E4E3D9;*/
+/*}*/
+
+.glyphicon-ok {
+    display: none;
+}
+
+.glyphicon-remove {
+    display: none;
 }
 
 
+.myFooter{
+    font-size: 120%;
+    margin-top: 70px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+
+    /*min-height: 25px;*/
+    /*max-height: 25px;*/
+    background-color: #F8C700 !important;
+}
 
