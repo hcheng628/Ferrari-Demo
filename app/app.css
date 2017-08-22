@@ -97,11 +97,13 @@ fieldset.for-panel {
 }
 fieldset.for-panel legend {
     /*background-color: #454F47;*/
-    background-color: #d9edf7;
+    /*background-color: #d9edf7;*/
+    background-color: white;
 
-    border: 1px solid #ddd;
+    border: 1px solid #333C45;
     border-radius: 5px;
-    color: #4381ba;
+    /*color: #4381ba;*/
+    color: #333C45;
     font-size: 14px;
     font-weight: bold;
     line-height: 10px;

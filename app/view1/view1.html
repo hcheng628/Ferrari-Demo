@@ -3,8 +3,9 @@
         <form novalidate>
             <div class="container" ng-show="cfService.step1Complete == null">
                 <fieldset class="for-panel">
-                    <div class="" style="font-size: 120%; font-weight: bold">
-                        <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                        <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle"
+                                                                                       aria-hidden="true"></i></a>
                     </div>
                     <legend>
                         <i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
@@ -25,13 +26,14 @@
 
                             <div class="col-sm-6 form-group" style="">
                                 <div class="">
-                                    <label class="col-sm-6" style="color: white">Monthly Net Income From All Sources</label>
-                                    <input type="number" class="form-control" value="" required ng-model="app_income"required>
+                                    <label class="col-sm-6" style="color: white">Monthly Net Income From All
+                                        Sources</label>
+                                    <input type="number" class="form-control" value="" required ng-model="app_income"
+                                           required>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
-
 
 
                         <div class="" style="">
@@ -48,7 +50,7 @@
                                 <div class="">
                                     <label class="col-sm-6" style="color: white">Middle</label>
                                     <input type="text" class="form-control " ng-model="app_middleName"
-                                           >
+                                    >
                                 </div>
                             </div>
                             <!--<label class="control-label col-sm-3">Last Name</label>-->
@@ -63,7 +65,7 @@
                                     <label class="col-sm-6" style="color: white">Last Name</label>
 
                                     <input type="text" class="form-control" ng-model="app_lastName"
-                                                                                      required>
+                                           required>
                                 </div>
                             </div>
 
@@ -100,7 +102,8 @@
                             <div class="col-sm-6 form-group">
                                 <div class="">
                                     <label class="col-sm-6" style="color: white">Social Security</label>
-                                    <input id="ssn" type="text" class="form-control" ui-mask="999-99-9999" ng-model="app_ssn"  required validate-ssn>
+                                    <input id="ssn" type="text" class="form-control" ui-mask="999-99-9999"
+                                           ng-model="app_ssn" required validate-ssn>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +140,7 @@
                                 <div class="">
                                     <label class="col-sm-6" style="color: white">Apt #</label>
 
-                                    <input type="text" class="form-control" ng-model="app_apt" >
+                                    <input type="text" class="form-control" ng-model="app_apt">
                                 </div>
                             </div>
 
@@ -145,7 +148,8 @@
                             <div class="col-sm-6 form-group">
                                 <div class="">
                                     <label class="col-sm-6" style="color: white">Zip code</label>
-                                    <input type="number" class="form-control" ng-model="app_zip" required ng-minlength="5" ng-maxlength="5">
+                                    <input type="number" class="form-control" ng-model="app_zip" required
+                                           ng-minlength="5" ng-maxlength="5">
                                 </div>
                             </div>
                         </div>
@@ -198,27 +202,45 @@
                                     <label class="col-sm-6" style="color: white">Email</label>
 
                                     <input type="email" class="form-control" required ng-model="app_email"
-                                           ></input>
+                                    ></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+
+                        <div class="" style="">
+                            <div id="emailAgree" class="form-group" style="color: white">
+                                <input type="checkbox" name="emailAgree" value="emailAgree"/> By providing my email
+                                address, I agree to receive email communications about my account from SYNCB;
+                                and by checking the box, I consent to receive promotional emails.
+                            </div>
+                        </div>
+
+
+                        <div class="">
+                            <div class="">
+                                <div class="col-sm-6 form-group">
+                                    <div class="">
+                                        <button class="col-sm-3 btn btn-primary btn-block" style="width: 85%"
+                                                ng-click="cfService.step1Complete = true"> <i class="fa fa-lock"></i> Secure & Encrypted - Submit
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 form-group">
+                                    <div class="">
+                                        <button class="col-sm-3 btn btn-default btn-block" type="reset"
+                                                style="width: 85%"> Reset
+                                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
-
-                            <div id="emailAgree" class="well well-sm" style="border-radius: 10px;">
-                                <input type="checkbox" name="emailAgree" value="emailAgree"/> By providing my email address, I agree to receive email communications about my account from SYNCB;
-                                and by checking the box, I consent to receive  promotional emails.
-                            </div>
-                            <!--<div class="col-sm-11">-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
                         </div>
-                        <div class="">
-                            <button class="btn btn-primary btn-block" ng-click="cfService.step1Complete = true"> Submit
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            <button class="btn btn-default btn-block" type="reset"> Reset <i class="fa fa-refresh"
-                                                                                             aria-hidden="true"></i>
-                            </button>
-                        </div>
+                    </div>
                 </fieldset>
             </div>
         </form>
@@ -227,9 +249,9 @@
         <div class="container" style="width: 80%"
              ng-show="cfService.step1Complete == true && cfService.step2Complete != true">
             <fieldset class="for-panel">
-                <div class="" style="font-size: 120%; font-weight: bold">
+                <div class="pull-right" style="font-size: 120%; font-weight: bold">
                     <a href="" style="text-decoration: none;color: white">FAQ: <i class="fa fa-question-circle"
-                                                                     aria-hidden="true"></i></a>
+                                                                                  aria-hidden="true"></i></a>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
                         class="fa fa-battery-half" aria-hidden="true"></i></legend>
@@ -323,9 +345,9 @@
         <div class="container" style="width: 80%"
              ng-show="cfService.step2Complete == true && cfService.step3Complete != true">
             <fieldset class="for-panel">
-                <div class="" style="font-size: 120%; font-weight: bold">
+                <div class="pull-right" style="font-size: 120%; font-weight: bold">
                     <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle"
-                                                                     aria-hidden="true"></i></a>
+                                                                                   aria-hidden="true"></i></a>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
                         class="fa fa-battery-three-quarters" aria-hidden="true"></i></legend>
@@ -431,9 +453,9 @@
 
         <div class="container" style="width: 80%" ng-show="cfService.step3Complete == true">
             <fieldset class="for-panel">
-                <div class="" style="font-size: 120%; font-weight: bold">
+                <div class="pull-right" style="font-size: 120%; font-weight: bold">
                     <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle"
-                                                                     aria-hidden="true"></i></a>
+                                                                                   aria-hidden="true"></i></a>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
                         class="fa fa-battery-full" aria-hidden="true"></i></legend>
@@ -465,7 +487,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                <div class="clearfix" style="margin-top: 35px; margin-bottom: 35px;"></div>
             </fieldset>
             <div class="clearfix" style="margin-top: 200px;"></div>
         </div>
