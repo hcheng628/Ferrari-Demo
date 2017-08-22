@@ -16,7 +16,7 @@
                 <form ng-submit=""
                       class="form-horizontal"
                       novalidate>
-                    <div class="">
+                    <div class="" id="">
                         <fieldset class="for-panel">
                             <legend>Setting AutoPay</legend>
                             <div class="row">
@@ -24,7 +24,7 @@
                                     <div class="col-md-12">
                                         <div class="form-horizontal">
                                             <div class="" style="background-color: #cccccc">
-                                                <label class="control-label col-sm-4">Payment Method</label>
+                                                <label class="control-label col-sm-4" style="color: white">Payment Method</label>
                                                 <div class="col-sm-6 form-group">
                                                     <select class="form-control" ng-model="cfService.autoPayType"
                                                             required>
@@ -33,7 +33,7 @@
                                                     </select>
                                                 </div>
 
-                                                <label class="control-label col-sm-4">Your Name</label>
+                                                <label class="control-label col-sm-4" style="color: white">Your Name</label>
                                                 <div class="col-sm-6 form-group">
                                                     <input type="text" class="form-control " ng-model="autoPayName"
                                                            required>
@@ -41,19 +41,21 @@
                                             </div>
 
                                             <div ng-show="cfService.autoPayType == 'debit_card'">
-                                                <label class="control-label col-sm-4">Card Number</label>
+                                                <label class="control-label col-sm-4" style="color: white">Card Number</label>
                                                 <div class="form-group col-sm-6">
-                                                    <input type="number" class="form-control"
-                                                           ng-model="autoPay_cardnum" required>
+                                                    <input type="text" class="form-control"
+                                                           ng-model="autoPay_cardnum" required
+                                                           ui-mask="9999-9999-9999-9999"
+                                                    >
                                                 </div>
 
-                                                <label class="control-label col-sm-4">Security Code</label>
+                                                <label class="control-label col-sm-4" style="color: white">Security Code</label>
                                                 <div class="form-group col-sm-6">
                                                     <input type="number" class="form-control"
                                                            ng-model="autoPay_securityCode" required>
                                                 </div>
 
-                                                <label class="control-label col-sm-4">Expiration Date</label>
+                                                <label class="control-label col-sm-4" style="color: white">Expiration Date</label>
                                                 <div class="col-sm-6 form-group">
                                                     <datepicker date-format="yyyy-MM-dd">
                                                         <input id="expirationDate" type="text"
@@ -65,12 +67,12 @@
 
 
                                             <div style="" ng-show="cfService.autoPayType == 'bank_acct'">
-                                                <label class="control-label col-sm-4">Routing Number</label>
+                                                <label class="control-label col-sm-4" style="color: white">Routing Number</label>
                                                 <div class="form-group col-sm-6">
                                                     <input type="number" class="form-control" ng-model="autoPay_routing"
                                                            required>
                                                 </div>
-                                                <label class="control-label col-sm-4">Account Number</label>
+                                                <label class="control-label col-sm-4" style="color: white">Account Number</label>
                                                 <div class="form-group col-sm-6">
                                                     <input type="number" class="form-control"
                                                            ng-model="autoPay_bankacct" required>

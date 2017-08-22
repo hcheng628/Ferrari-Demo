@@ -4,7 +4,7 @@
             <div class="container" ng-show="cfService.step1Complete == null">
                 <fieldset class="for-panel">
                     <div class="" style="font-size: 120%; font-weight: bold">
-                        <a href="" style="text-decoration: none">FAQ: <i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                        <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle" aria-hidden="true"></i></a>
                     </div>
                     <legend>
                         <i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
@@ -19,14 +19,14 @@
                             <div class="col-sm-6 form-group" style="">
                                 <div class="">
                                     <label class="col-sm-6" style="color: white">Initial Purchase Amount</label>
-                                    <input type="number" class="form-control" ng-model="app_initPurAmt" placeholder="Initial Purchase Amount if Known">
+                                    <input type="number" class="form-control" ng-model="app_initPurAmt">
                                 </div>
                             </div>
 
                             <div class="col-sm-6 form-group" style="">
                                 <div class="">
-                                    <label class="col-sm-6" style="color: white">Monthly Net Income</label>
-                                    <input type="number" class="form-control" value="" required ng-model="app_income" placeholder="Monthly Net Income From All Sources" required>
+                                    <label class="col-sm-6" style="color: white">Monthly Net Income From All Sources</label>
+                                    <input type="number" class="form-control" value="" required ng-model="app_income"required>
                                 </div>
                             </div>
                         </div>
@@ -38,15 +38,17 @@
                             <!--<label class="control-label col-sm-3">First Name</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">First Name</label>
                                     <input type="text" class="form-control" ng-model="app_firstName"
-                                           placeholder="First Name" required>
+                                           required>
                                 </div>
                             </div>
 
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Middle</label>
                                     <input type="text" class="form-control " ng-model="app_middleName"
-                                           placeholder="Middle">
+                                           >
                                 </div>
                             </div>
                             <!--<label class="control-label col-sm-3">Last Name</label>-->
@@ -58,16 +60,17 @@
                             <!--<label class="control-label col-sm-3">Middle</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Last Name</label>
+
                                     <input type="text" class="form-control" ng-model="app_lastName"
-                                           placeholder="Last Name"
-                                           required>
+                                                                                      required>
                                 </div>
                             </div>
 
                             <!--<label class="control-label col-sm-3">Suffix</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
-
+                                    <label class="col-sm-6" style="color: white">Suffix</label>
                                     <select class="form-control" ng-model="app_suffix" required>
                                         <option value="">Suffix</option>
                                         <option value="II">II</option>
@@ -85,9 +88,10 @@
                             <!--<label class="control-label col-sm-3">Date of Birth</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Data of Birth</label>
                                     <datepicker id="smallDatePicker" date-format="yyyy-MM-dd">
                                         <input id="birthdate" type="text" class="form-control" ng-model="app_dob"
-                                               placeholder="Date of Birth" required/>
+                                               required/>
                                     </datepicker>
                                 </div>
                             </div>
@@ -95,6 +99,7 @@
                             <!--<label class="control-label col-sm-3">SSN/ITIN</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Social Security</label>
                                     <input id="ssn" type="text" class="form-control" ui-mask="999-99-9999" ng-model="app_ssn"  required validate-ssn>
                                 </div>
                             </div>
@@ -105,14 +110,15 @@
                             <!--<label class="control-label col-sm-3">Mailing Address</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
-
+                                    <label class="col-sm-6" style="color: white">Mailing Address</label>
                                     <input type="text" class="form-control" ng-model="app_address"
-                                           placeholder="Mailing Address" required>
+                                           required>
                                 </div>
                             </div>
                             <!--<label class="control-label col-sm-3">Housing Type</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Housing Type</label>
 
                                     <select class="form-control " ng-model="app_housetype" required>
                                         <option value="">Housing Type</option>
@@ -129,17 +135,17 @@
                             <!--<label class="control-label col-sm-3">Apt #</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Apt #</label>
 
-                                    <input type="text" class="form-control" ng-model="app_apt" placeholder="Apt #">
+                                    <input type="text" class="form-control" ng-model="app_apt" >
                                 </div>
                             </div>
 
                             <!--<label class="control-label col-sm-3">Zip Code</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
-
-                                    <input type="number" class="form-control" ng-model="app_zip" placeholder="Zip Code"
-                                           required ng-minlength="5" ng-maxlength="5">
+                                    <label class="col-sm-6" style="color: white">Zip code</label>
+                                    <input type="number" class="form-control" ng-model="app_zip" required ng-minlength="5" ng-maxlength="5">
                                 </div>
                             </div>
                         </div>
@@ -149,21 +155,26 @@
                             <!--<label class="control-label col-sm-3">State</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
-
+                                    <label class="col-sm-6" style="color: white">State</label>
                                     <select class="form-control" ng-model="app_state" required>
                                         <option value="">State</option>
                                         <option value="Alaska">Alaska</option>
-                                        <option value="Texas">Texas</option>
+                                        <option value="Delaware">Delaware</option>
                                         <option value="Florida">Florida</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Hawaii">Hawaii</option>
+                                        <option value="Illinois">Illinois</option>
+                                        <option value="Indiana">Indiana</option>
+                                        <option value="Maryland">Maryland</option>
+                                        <option value="New Jersey">New Jersey</option>
                                     </select>
                                 </div>
                             </div>
                             <!--<label class="control-label col-sm-3">City</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
-
-                                    <input type="text" class="form-control" ng-model="app_city" placeholder="City"
-                                           required>
+                                    <label class="col-sm-6" style="color: white">City</label>
+                                    <input type="text" class="form-control" ng-model="app_city" required>
                                 </div>
                             </div>
                         </div>
@@ -173,9 +184,9 @@
                             <!--<label class="control-label col-sm-3">Phone Number</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Phone</label>
 
                                     <input type="tel" class="form-control" ng-model="app_phone"
-
                                            ui-mask="999-999-9999"
                                            required ng-minlength="12" ng-maxlength="12"/>
                                 </div>
@@ -184,9 +195,10 @@
                             <!--<label class="control-label col-sm-3">Email</label>-->
                             <div class="col-sm-6 form-group">
                                 <div class="">
+                                    <label class="col-sm-6" style="color: white">Email</label>
 
                                     <input type="email" class="form-control" required ng-model="app_email"
-                                           placeholder="Email"></input>
+                                           ></input>
                                 </div>
                             </div>
                             <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
@@ -216,7 +228,7 @@
              ng-show="cfService.step1Complete == true && cfService.step2Complete != true">
             <fieldset class="for-panel">
                 <div class="" style="font-size: 120%; font-weight: bold">
-                    <a href="" style="text-decoration: none">FAQ: <i class="fa fa-question-circle"
+                    <a href="" style="text-decoration: none;color: white">FAQ: <i class="fa fa-question-circle"
                                                                      aria-hidden="true"></i></a>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
@@ -311,7 +323,7 @@
              ng-show="cfService.step2Complete == true && cfService.step3Complete != true">
             <fieldset class="for-panel">
                 <div class="" style="font-size: 120%; font-weight: bold">
-                    <a href="" style="text-decoration: none">FAQ: <i class="fa fa-question-circle"
+                    <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle"
                                                                      aria-hidden="true"></i></a>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
@@ -419,7 +431,7 @@
         <div class="container" style="width: 80%" ng-show="cfService.step3Complete == true">
             <fieldset class="for-panel">
                 <div class="" style="font-size: 120%; font-weight: bold">
-                    <a href="" style="text-decoration: none">FAQ: <i class="fa fa-question-circle"
+                    <a href="" style="text-decoration: none; color: white">FAQ: <i class="fa fa-question-circle"
                                                                      aria-hidden="true"></i></a>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
@@ -452,8 +464,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
             </fieldset>
+            <div class="clearfix" style="margin-top: 200px;"></div>
         </div>
     </div>
-    <cc-spinner is-loading="cfService.isApiCalling" message="Loading....."></cc-spinner>
 </div>

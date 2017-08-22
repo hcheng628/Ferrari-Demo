@@ -68,11 +68,25 @@ textarea {
     margin-top: 20px; 
 }
 
-fieldset.for-panel {
+#defaultForPanel fieldset.for-panel {
     /*background-color: #fcfcfc;*/
-    background-color: #A6ACA8;
+    background-color: #fcfcfc;
     /*background-color: #d9edf7;*/
     /*background-color: #f9fdfd;*/
+
+
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding:15px 10px;
+    /*border-color: #bce8f1;*/
+    margin-bottom:12px;
+}
+
+fieldset.for-panel {
+    /*background-color: #fcfcfc;*/
+    background-color: #333C45;
+    /*background-color: #A6ACA8;*/
+    /*background-color: ##333C45;*/
 
 
     border: 1px solid #999;
@@ -175,8 +189,10 @@ input[type="number"] {
 .myFooter{
     font-size: 120%;
     margin-top: 70px;
-    padding-top: 25px;
+    padding-top: 15px;
+    padding-bottom: 12px;
     padding-bottom: 30px;
+    max-height: 18px;
 
     /*min-height: 25px;*/
     /*max-height: 25px;*/
