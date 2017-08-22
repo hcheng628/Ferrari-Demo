@@ -189,6 +189,7 @@ input[type="number"] {
 
 
 .myFooter{
+    color: #F8C700;
     font-size: 120%;
     margin-top: 70px;
     padding-top: 15px;
@@ -197,7 +198,7 @@ input[type="number"] {
     max-height: 18px;
 
     /*min-height: 25px;*/
-    /*max-height: 25px;*/
-    background-color: #F8C700 !important;
+    /*max-height: 25px;  F8C700   */
+    background-color: #333C45 !important;
 }
 
