@@ -1,13 +1,12 @@
 <div class="content" ng-controller="RegisterCtrl">
     <div id="loginScreen" class="row col-md-12">
         <form novalidate>
-            <div class="container">
+
+            <div class="container" ng-show="cfService.loginFlag != true">
                 <div class="row main">
                     <div class="panel-heading">
                         <div class="panel-title text-center">
                             <h1 class="title">
-                                <!--<img src="" alt="" class="loginScreenSm">-->
-
                                 <img ng-src="./img/Ferrari-logo-sm.png" height="260"/></h1>
                             <hr />
                         </div>
@@ -35,7 +34,7 @@
                             </div>
 
                             <div class="form-group ">
-                                <button type="button" class="btn btn-danger btn-lg btn-block login-button">Log In</button>
+                                <button type="button" class="btn btn-danger btn-lg btn-block login-button" ng-click="doLogin()">Log In</button>
                             </div>
 
                             <div class="login-register">
@@ -54,247 +53,317 @@
                 </div>
             </div>
 
-
-            <div class="container" ng-show="cfService.step1Complete == null && true == false">
+            <div id="appraiseMain" class="container" ng-show="cfService.loginFlag == true ">
+                <cc-banner></cc-banner>
                 <fieldset class="for-panel">
-                    <div class="col-sm-12">
-                        <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                            <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                             aria-hidden="true"></i></a>
-                        </div>
+                    <div id="appraiseMainView" class="table-responsive" ng-show="cfService.appraiseView == 'main'">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>RefID</th>
+                                <th>Appraised By</th>
+                                <th>Model</th>
+                                <th>Make</th>
+                                <th>Year</th>
+                                <th>VIN</th>
+                                <th>New/Used</th>
+                                <th>Location</th>
+                                <th>City</th>
+                                <th>Race</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>
+                                    <a href="#">12345</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <a href="#">23456</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <a href="#">34567</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <a href="#">45678</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a href="#">56789</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <a href="#">23451</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <a href="#">34512</a>
+                                </th>
+                                <th>Super Appraiser</th>
+                                <th>488 Spider</th>
+                                <th>Ferrari</th>
+                                <th>2016</th>
+                                <th>19UYA31581L000333</th>
+                                <th>New</th>
+                                <th>ABC Ferrari</th>
+                                <th>Houston, TX</th>
+                                <th>
+                                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                                </th>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <legend>
-                        <i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
-                            class="fa fa-battery-quarter" aria-hidden="true"></i>
-                    </legend>
 
-                    <div class="form-inline">
-                        <!--<div class="container">-->
-                        <!--<div class="col-md-12 " style="">-->
-
-                        <div class="" style="">
-                            <div class="col-sm-6 form-group" style="">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Initial Purchase Amount</label>
-                                    <input type="number" class="form-control" ng-model="app_initPurAmt">
-                                </div>
+                    <div id="appraiseSearchView" ng-show="cfService.appraiseView == 'search'">
+                        <form class="form-inline">
+                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                                <datepicker date-format="yyyy-MM-dd">
+                                    <input id="appraiseSearchToDate" type="text"
+                                           ng-model="autoPay_expiration" class="form-control"
+                                           placeholder="From Date">
+                                </datepicker>
                             </div>
 
-                            <div class="col-sm-6 form-group" style="">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Monthly Net Income From All
-                                        Sources</label>
-                                    <input type="number" class="form-control" value="" required ng-model="app_income"
-                                           required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
-
-
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">First Name</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">First Name</label>
-                                    <input type="text" class="form-control" ng-model="app_firstName"
-                                           required>
-                                </div>
+                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                                <datepicker date-format="yyyy-MM-dd">
+                                    <input id="appraiseSearchFromDate" type="text"
+                                           ng-model="autoPay_expiration" class="form-control"
+                                           placeholder="To Date">
+                                </datepicker>
                             </div>
 
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Middle</label>
-                                    <input type="text" class="form-control " ng-model="app_middleName"
-                                    >
-                                </div>
-                            </div>
-                            <!--<label class="control-label col-sm-3">Last Name</label>-->
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
-
-
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">Middle</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Last Name</label>
-
-                                    <input type="text" class="form-control" ng-model="app_lastName"
-                                           required>
-                                </div>
+                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                                <select class="form-control" id="appraiseSearchModel">
+                                    <option value="">---Please select model---  </option> <!-- not selected / blank option -->
+                                    <option value="Daytona">Ferrari Daytona</option> <!-- interpolation -->
+                                    <option value="250GTO">Ferrari 250 GTO</option>
+                                    <option value="275">Ferrari 275</option>
+                                    <option value="599GTBFiorano">Ferrari 599 GTB Fiorano</option>
+                                    <option value="F430">Ferrari F430</option>
+                                </select>
                             </div>
 
-                            <!--<label class="control-label col-sm-3">Suffix</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Suffix</label>
-                                    <select class="form-control" ng-model="app_suffix" required>
-                                        <option value="">Suffix</option>
-                                        <option value="II">II</option>
-                                        <option value="III">III</option>
-                                        <option value="IV">IV</option>
-                                        <option value="JR">JR</option>
-                                        <option value="SR">SR</option>
-                                    </select>
-                                </div>
+                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                                <input type="text" class="form-control"placeholder="Make">
                             </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                            <button class="btn btn-success pull-right">Search</button>
+                        </form>
+                        <div id="appraiseSearchResult" style="margin-top: 20px;">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>RefID</th>
+                                    <th>Appraised By</th>
+                                    <th>Model</th>
+                                    <th>Make</th>
+                                    <th>Year</th>
+                                    <th>VIN</th>
+                                    <th>New/Used</th>
+                                    <th>Location</th>
+                                    <th>City</th>
+                                    <th>Race</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>
+                                        <a href="#">12345</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
 
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">Date of Birth</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Data of Birth</label>
-                                    <datepicker id="smallDatePicker" date-format="yyyy-MM-dd">
-                                        <input id="birthdate" type="text" class="form-control" ng-model="app_dob"
-                                               required/>
-                                    </datepicker>
-                                </div>
-                            </div>
+                                <tr>
+                                    <th>
+                                        <a href="#">23456</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
 
-                            <!--<label class="control-label col-sm-3">SSN/ITIN</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Social Security</label>
-                                    <input id="ssn" type="text" class="form-control" ui-mask="999-99-9999"
-                                           ng-model="app_ssn" required validate-ssn>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <tr>
+                                    <th>
+                                        <a href="#">34567</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
 
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">Mailing Address</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Mailing Address</label>
-                                    <input type="text" class="form-control" ng-model="app_address"
-                                           required>
-                                </div>
-                            </div>
-                            <!--<label class="control-label col-sm-3">Housing Type</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Housing Type</label>
+                                <tr>
+                                    <th>
+                                        <a href="#">45678</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="#">56789</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
 
-                                    <select class="form-control " ng-model="app_housetype" required>
-                                        <option value="">Housing Type</option>
-                                        <option value="own">Own</option>
-                                        <option value="other">Other</option>
-                                        <option value="rent">Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <tr>
+                                    <th>
+                                        <a href="#">23451</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
 
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">Apt #</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Apt #</label>
-
-                                    <input type="text" class="form-control" ng-model="app_apt">
-                                </div>
-                            </div>
-
-                            <!--<label class="control-label col-sm-3">Zip Code</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Zip code</label>
-                                    <input type="number" class="form-control" ng-model="app_zip" required
-                                           ng-minlength="5" ng-maxlength="5">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
-
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">State</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">State</label>
-                                    <select class="form-control" ng-model="app_state" required>
-                                        <option value="">State</option>
-                                        <option value="Alaska">Alaska</option>
-                                        <option value="Delaware">Delaware</option>
-                                        <option value="Florida">Florida</option>
-                                        <option value="Georgia">Georgia</option>
-                                        <option value="Hawaii">Hawaii</option>
-                                        <option value="Illinois">Illinois</option>
-                                        <option value="Indiana">Indiana</option>
-                                        <option value="Maryland">Maryland</option>
-                                        <option value="New Jersey">New Jersey</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!--<label class="control-label col-sm-3">City</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">City</label>
-                                    <input type="text" class="form-control" ng-model="app_city" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
-
-                        <div class="" style="">
-                            <!--<label class="control-label col-sm-3">Phone Number</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Phone</label>
-
-                                    <input type="tel" class="form-control" ng-model="app_phone"
-                                           ui-mask="999-999-9999"
-                                           required ng-minlength="12" ng-maxlength="12"/>
-                                </div>
-                            </div>
-
-                            <!--<label class="control-label col-sm-3">Email</label>-->
-                            <div class="col-sm-6 form-group">
-                                <div class="">
-                                    <label class="col-sm-6" style="color: white">Email</label>
-
-                                    <input type="email" class="form-control" required ng-model="app_email"
-                                    ></input>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
-
-
-                        <div class="" style="">
-                            <div id="emailAgree" class="form-group" style="color: white">
-                                <input type="checkbox" name="emailAgree" value="emailAgree"/> By providing my email
-                                address, I agree to receive email communications about my account from SYNCB;
-                                and by checking the box, I consent to receive promotional emails.
-                            </div>
-                        </div>
-
-
-                        <div class="">
-                            <div class="">
-                                <div class="col-sm-6 form-group">
-                                    <div class="">
-                                        <button class="col-sm-3 btn btn-success btn-block" style="width: 85%"
-                                                ng-click="cfService.step1Complete = true"> <i class="fa fa-lock"></i> Secure & Encrypted - Submit
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 form-group">
-                                    <div class="">
-                                        <button class="col-sm-3 btn btn-primary btn-block" type="reset"
-                                                style="width: 85%"> Reset
-                                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <tr>
+                                    <th>
+                                        <a href="#">34512</a>
+                                    </th>
+                                    <th>Super Appraiser</th>
+                                    <th>488 Spider</th>
+                                    <th>Ferrari</th>
+                                    <th>2016</th>
+                                    <th>19UYA31581L000333</th>
+                                    <th>New</th>
+                                    <th>ABC Ferrari</th>
+                                    <th>Houston, TX</th>
+                                    <th>
+                                        <i class="fa fa-square-o" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </fieldset>

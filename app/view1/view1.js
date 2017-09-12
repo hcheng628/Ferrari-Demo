@@ -30,13 +30,13 @@ angular.module('myApp.view1', [
     .controller('RegisterCtrl', ['$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function ($scope, $location, $modal, usSpinnerService, CFService) {
         $scope.cfService = CFService;
 
-        $scope.$watch('app_ssn', function(val, oldVal) {
-            console.log('app_ssn= \'' + val + '\'');
-        });
-
-        $scope.$watch('testForm.$valid', function(val, oldVal) {
-            console.log('$watch testForm.$valid ' + val);
-        });
+        // $scope.$watch('app_ssn', function(val, oldVal) {
+        //     console.log('app_ssn= \'' + val + '\'');
+        // });
+        //
+        // $scope.$watch('testForm.$valid', function(val, oldVal) {
+        //     console.log('$watch testForm.$valid ' + val);
+        // });
 
         $scope.app_initPurAmt = null;
         $scope.app_income = null;
@@ -90,6 +90,11 @@ angular.module('myApp.view1', [
                 show: true
             });
         };
+
+        $scope.doLogin = function () {
+            console.log("doLogin......");
+            $scope.cfService.loginFlag = true;
+        };
     }])
     .directive('ccSpinner', function () {
         return {
@@ -101,6 +106,26 @@ angular.module('myApp.view1', [
             }
         };
     })
+
+    .directive('ccBanner', [ 'CFService',function (CFService) {
+        return {
+            'templateUrl': "view1/templates/banner.html",
+            link: function (scope) {
+                scope.cfService = CFService;
+                scope.goToAppraiseMainView = function () {
+                    scope.cfService.appraiseView = 'main';
+                };
+                scope.goToAppraiseSearchView = function () {
+                    scope.cfService.appraiseView = 'search';
+
+                };
+            },
+            'scope': {
+                'isLoading': '=',
+                'message': '@'
+            }
+        };
+    }])
 
     .directive('validateSsn', function () {
         var SSN_REGEXP = /^(?!000)(?!666)(?!9)\d{3}[- ]?(?!00)\d{2}[- ]?(?!0000)\d{4}$/;
@@ -147,6 +172,9 @@ angular.module('myApp.view1', [
     })
     .service('CFService', function ($http, toaster, $q) {
         var self = {
+            'loginFlag': false,
+            'userParty': 'appraise',
+            'appraiseView': 'main',
             'step1Complete': null,
             'step2Complete': null,
             'step3Complete': null,
