@@ -1,3 +1,14 @@
+/* Gallery  Start *//* Gallery  Start */
+#appAppgallery .img-thumbnail {
+    min-width: 100%;
+}
+
+#appAppgallery button {
+    min-width: 100%;
+}
+
+
+/* Gallery  End */
 /* app css stylesheet */
 
 td a{
@@ -181,9 +192,11 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/*#emailAgree.well {*/
-    /*background-color: #E4E3D9;*/
-/*}*/
+
+thead tr th{
+    font-weight: 600;
+    font-size: 130%;
+}
 
 .glyphicon-ok {
     display: none;
@@ -193,6 +206,10 @@ input[type="number"] {
     display: none;
 }
 
+.pagination>li>a {
+    color: #5cb85c;
+    font-weight: bold;
+}
 
 .myFooter{
     color: #F8C700;
@@ -265,8 +282,19 @@ input, input::-webkit-input-placeholder {
 .login-register{
     font-size: 16px;
     text-align: center;
+    color: #5cb85c !important;
 }
 
+.login-register a{
+    color: black !important;
+    /*text-decoration: none;*/
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: #5cb85c !important;
+    box-shadow: 0 1px 1px #5cb85c inset, 0 0 8px #5cb85c !important;
+    outline: 0 none !important;
+}
 
 .banner-li li {
     border-right:  0.7px solid ;
@@ -276,3 +304,23 @@ input, input::-webkit-input-placeholder {
     color: white !important;
 }
 
+.bannerOrgIcon{
+    font-family: 'Open Sans', sans-serif;
+    color: #5cb85c !important;
+    font-size: 150%;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.appViewRefId{
+    font-weight: 700;
+}
+
+.appViewRefId:hover{
+    text-decoration: none;
+}
+
+.appThumbnailView{
+    max-height: 100%;
+    max-width: 100%;
+}

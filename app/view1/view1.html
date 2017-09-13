@@ -8,7 +8,7 @@
                         <div class="panel-title text-center">
                             <h1 class="title">
                                 <img ng-src="./img/Ferrari-logo-sm.png" height="260"/></h1>
-                            <hr />
+                            <hr/>
                         </div>
                     </div>
                     <div class="main-login main-center">
@@ -17,8 +17,10 @@
                             <div class="form-group">
                                 <div class="cols-sm-10">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                                           aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="email" id="email"
+                                               placeholder="Enter your Email"/>
                                     </div>
                                 </div>
                             </div>
@@ -27,14 +29,18 @@
                             <div class="form-group">
                                 <div class="cols-sm-10">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                           aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                               placeholder="Enter your Password"/>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group ">
-                                <button type="button" class="btn btn-danger btn-lg btn-block login-button" ng-click="doLogin()">Log In</button>
+                                <button type="button" class="btn btn-success btn-lg btn-block login-button"
+                                        ng-click="doLogin()">Log In
+                                </button>
                             </div>
 
                             <div class="login-register">
@@ -46,7 +52,8 @@
                             </div>
 
                             <div class="form-group ">
-                                <button type="button" class="btn btn-default btn-lg btn-block login-button">Sign Up</button>
+                                <button type="button" class="btn btn-danger btn-lg btn-block login-button">Sign Up
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -75,7 +82,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">12345</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">12345</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -92,7 +99,7 @@
 
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">23456</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">23456</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -109,7 +116,7 @@
 
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">34567</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">34567</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -126,7 +133,7 @@
 
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">45678</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">45678</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -142,7 +149,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">56789</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">56789</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -159,7 +166,7 @@
 
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">23451</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">23451</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -176,7 +183,7 @@
 
                             <tr>
                                 <td>
-                                    <a href="#" ng-click="doAppAppView()">34512</a>
+                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">34512</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -192,11 +199,28 @@
                             </tr>
                             </tbody>
                         </table>
+                        <div class="">
+                            <div class="col ">Page 1 of 5
+                            </div>
+                            <div class="col ">
+                                <ul class="pagination hidden-xs pull-right">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                </ul>
+                                <ul class="pagination visible-xs pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="appraiseSearchView" ng-show="cfService.appraiseView == 'app_search'">
                         <form class="form-inline">
-                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                            <div class="input-group mb-1 mr-sm-2 mb-sm-0">
                                 <datepicker date-format="yyyy-MM-dd">
                                     <input id="appraiseSearchToDate" type="text"
                                            ng-model="autoPay_expiration" class="form-control"
@@ -204,7 +228,7 @@
                                 </datepicker>
                             </div>
 
-                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                            <div class="input-group mb-1 mr-sm-2 mb-sm-0">
                                 <datepicker date-format="yyyy-MM-dd">
                                     <input id="appraiseSearchFromDate" type="text"
                                            ng-model="autoPay_expiration" class="form-control"
@@ -212,9 +236,10 @@
                                 </datepicker>
                             </div>
 
-                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                            <div class="input-group mb-1 mr-sm-2 mb-sm-0">
                                 <select class="form-control" id="appraiseSearchModel">
-                                    <option value="">---Please select model---  </option> <!-- not selected / blank option -->
+                                    <option value="">--- Select model ---</option>
+                                    <!-- not selected / blank option -->
                                     <option value="Daytona">Ferrari Daytona</option> <!-- interpolation -->
                                     <option value="250GTO">Ferrari 250 GTO</option>
                                     <option value="275">Ferrari 275</option>
@@ -223,20 +248,23 @@
                                 </select>
                             </div>
 
-                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
-                                <input type="text" class="form-control"placeholder="Make">
+                            <div class="input-group mb-1 mr-sm-2 mb-sm-0">
+                                <input type="text" class="form-control" placeholder="Make">
                             </div>
 
-                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                            <div class="input-group mb-1 mr-sm-2 mb-sm-0">
                                 <select class="form-control" id="appraiseSearchStatus">
-                                    <option value="">---Please select status---  </option> <!-- not selected / blank option -->
+                                    <option value="">--- Select status ---</option>
+                                    <!-- not selected / blank option -->
                                     <option value="pending">Pending</option> <!-- interpolation -->
                                     <option value="review">Review</option>
                                     <option value="complete">Complete</option>
                                 </select>
                             </div>
 
-                            <button class="btn btn-success pull-right">Search</button>
+                            <div class="input-group pull-right">
+                                <button class="btn btn-success">Search</button>
+                            </div>
                         </form>
                         <div id="appraiseSearchResult" style="margin-top: 20px;">
                             <table class="table">
@@ -257,7 +285,7 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <a ng-click="doAppAppView()">12345</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">12345</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -274,7 +302,7 @@
 
                                 <tr>
                                     <td>
-                                        <a ng-click="doAppAppView()">23456</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">23456</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -291,7 +319,7 @@
 
                                 <tr>
                                     <td>
-                                        <a ng-click="doAppAppView()">34567</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">34567</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -308,7 +336,7 @@
 
                                 <tr>
                                     <td>
-                                        <a ng-click="doAppAppView()">45678</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">45678</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -324,7 +352,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a ng-click="doAppAppView()">56789</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">56789</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -341,7 +369,7 @@
 
                                 <tr>
                                     <td>
-                                        <a href="#" ng-click="doAppAppView()">23451</a>
+                                        <a class="appViewRefId" href="#" ng-click="doAppAppView()">23451</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -358,7 +386,7 @@
 
                                 <tr>
                                     <td>
-                                        <a href="#" ng-click="doAppAppView()">34512</a>
+                                        <a class="appViewRefId" href="#" ng-click="doAppAppView()">34512</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -373,11 +401,30 @@
                                     </td>
                                 </tr>
                                 </tbody>
+
                             </table>
+                            <div class="">
+                                <div class="col ">Page 1 of 5
+                                </div>
+                                <div class="col ">
+                                    <ul class="pagination hidden-xs pull-right">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                    </ul>
+                                    <ul class="pagination visible-xs pull-right">
+                                        <li><a href="#">«</a></li>
+                                        <li><a href="#">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div id="appraiseAppView" ng-show="cfService.appraiseView == 'app_app'">
+                        <h4 style="color: white" class="container">Ref ID: 12345</h4>
                         <div class="" style="border: solid 1px white; margin-bottom: 15px;">
                             <h5 style="color: #5cb85c" class="container">Vehicle Information</h5>
                             <table id="appraiseAppVehicleInfo" class="table">
@@ -445,7 +492,7 @@
                         </div>
 
                         <div class="" style="border: solid 1px white; margin-bottom: 15px;">
-                            <h5 style="color: #cc0000" class="container">Appraisal Information</h5>
+                            <h5 style="color: #5cb85c" class="container">Appraisal Information</h5>
                             <table id="appraiseAppAppraisalInfo" class="table">
                                 <thead>
                                 <tr>
@@ -467,41 +514,127 @@
                                     <td>Excellent</td>
                                     <td>$9,000.00</td>
                                     <td>
-                                        <a href="#">Sample Report</a>
+                                        <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
                                         <br>
-                                        <a href="#">Sample Report</a>
+                                        <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <div>
-                                <!--<h5 style="color: white" class="container">Photos</h5>-->
-                                <table>
-                                    <tr>
-                                        <td style="padding: 5px 5px 5px 5px">
-                                            <a href="#">
-                                                <img ng-src="./../img/Ferrari-logo-sm.png" style="max-height: 360%" class=""/></h1>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <img ng-src="./../img/Ferrari-logo-sm.png" style="max-height: 360%" class=""/></h1>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <img ng-src="./../img/Ferrari-logo-sm.png" style="max-height: 360%" class=""/></h1>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </table>
+
+                            <div id="appUploadPhotos" class="container form-group">
+                                <h5 style="color: white" class="">Upload Photos</h5>
+                                <div class="container">
+                                    <div class="col-md-11 ">
+                                        <label ng-if="!cfService.appImage" class="btn btn-default pull-right" style="">
+                                                <span>
+                                                    <span> Add New </span>
+                                                    <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
+                                                </span>
+                                            <input type="file" class="form-control"
+                                                   ngf-select style="display: none;"
+                                                   ng-model="cfService.appImage"
+                                                   ngf-drag-over-class="'dragover'"
+                                                   ngf-pattern="'image/*'"
+                                                   ngf-accept="'image/*'"
+                                                   ngf-max-size="5MB"
+                                                   ngf-min-height="100">
+                                            </input>
+                                        </label>
+                                        <label ng-if="cfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                                            Reset
+                                        </label>
+                                        <label ng-if="cfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <img class="img-responsive" style="max-height: 360%" ng-if="cfService.appImage" ngf-thumbnail="cfService.appImage">
+                                    </div>
+                                </div>
+
+
+                                </div>
                             </div>
+
+
+
+                            <div id="appAppgallery" class="container form-group">
+                                <h5 style="color: white" class="">Photo Gallery</h5>
+                                <!--<div class="container">-->
+                                    <!--<div class="col-md-11 ">-->
+                                        <!--<label ng-if="!cfService.appImage" class="btn btn-default pull-right" style="">-->
+                                                <!--<span>-->
+                                                    <!--<span> Add New </span>-->
+                                                    <!--<i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>-->
+                                                <!--</span>-->
+                                            <!--<input type="file" class="form-control"-->
+                                                   <!--ngf-select style="display: none;"-->
+                                                   <!--ng-model="cfService.appImage"-->
+                                                   <!--ngf-drag-over-class="'dragover'"-->
+                                                   <!--ngf-pattern="'image/*'"-->
+                                                   <!--ngf-accept="'image/*'"-->
+                                                   <!--ngf-max-size="5MB"-->
+                                                   <!--ngf-min-height="100">-->
+                                            <!--</input>-->
+                                        <!--</label>-->
+                                        <!--<label ng-if="cfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >-->
+                                            <!--<i class="fa fa-refresh" aria-hidden="true"></i>-->
+                                            <!--Reset-->
+                                        <!--</label>-->
+                                        <!--<label ng-if="cfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">-->
+                                            <!--<i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="clearfix" style="margin-top: 10px; margin-bottom: 20px;"></div>-->
+
+                                <div class="col-md-10">
+                                    <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in cfService.appImageList">
+                                            <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
+                                            <br>
+                                            <button class="btn btn-danger form-control">
+                                            <span>
+                                               <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                            </span>
+                                            </button>
+                                        </div>
+                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                            <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
+                                            <br>
+                                            <button class="btn btn-danger form-control">
+                                            <span>
+                                               <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                            </span>
+                                            </button>
+                                        </div>
+                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                            <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
+                                            <br>
+                                            <button class="btn btn-danger form-control">
+                                                <span>
+                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            </section>
                         </div>
                     </div>
                 </fieldset>
             </div>
-
-
         </form>
 
 
@@ -509,10 +642,10 @@
              ng-show="cfService.step1Complete == true && cfService.step2Complete != true">
             <fieldset class="for-panel">
                 <div class="col-sm-12">
-                <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                    <a href="" style="text-decoration: none;color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                  aria-hidden="true"></i></a>
-                </div>
+                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                        <a href="" style="text-decoration: none;color: #F8C700">FAQ: <i class="fa fa-question-circle"
+                                                                                        aria-hidden="true"></i></a>
+                    </div>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
                         class="fa fa-battery-half" aria-hidden="true"></i></legend>
@@ -607,10 +740,10 @@
              ng-show="cfService.step2Complete == true && cfService.step3Complete != true">
             <fieldset class="for-panel">
                 <div class="col-sm-12">
-                <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                    <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                   aria-hidden="true"></i></a>
-                </div>
+                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                        <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
+                                                                                         aria-hidden="true"></i></a>
+                    </div>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
                         class="fa fa-battery-three-quarters" aria-hidden="true"></i></legend>
@@ -717,10 +850,10 @@
         <div class="container" style="width: 80%" ng-show="cfService.step3Complete == true">
             <fieldset class="for-panel">
                 <div class="col-sm-12">
-                <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                    <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                   aria-hidden="true"></i></a>
-                </div>
+                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                        <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
+                                                                                         aria-hidden="true"></i></a>
+                    </div>
                 </div>
                 <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
                         class="fa fa-battery-full" aria-hidden="true"></i></legend>

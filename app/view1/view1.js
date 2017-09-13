@@ -8,7 +8,8 @@ angular.module('myApp.view1', [
     'angularSpinner',
     'angular-ladda',
     'jcs-autoValidate',
-    'ui.mask'
+    'ui.mask',
+    'ngFileUpload'
 ])
     .run([
         'bootstrap3ElementModifier',
@@ -29,7 +30,6 @@ angular.module('myApp.view1', [
     }])
     .controller('RegisterCtrl', ['$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function ($scope, $location, $modal, usSpinnerService, CFService) {
         $scope.cfService = CFService;
-
         // $scope.$watch('app_ssn', function(val, oldVal) {
         //     console.log('app_ssn= \'' + val + '\'');
         // });
@@ -37,33 +37,6 @@ angular.module('myApp.view1', [
         // $scope.$watch('testForm.$valid', function(val, oldVal) {
         //     console.log('$watch testForm.$valid ' + val);
         // });
-
-        $scope.app_initPurAmt = null;
-        $scope.app_income = null;
-        $scope.app_firstName = null;
-        $scope.app_middleName = null;
-        $scope.app_lastName = null;
-        $scope.app_suffix = "";
-        $scope.app_dob = null;
-        $scope.app_ssn = null;
-
-        $scope.app_housetype = null;
-        $scope.app_address = null;
-        $scope.app_apt = null;
-        $scope.app_city = null;
-        $scope.app_state = null;
-        $scope.app_zip = null;
-
-        $scope.app_phone = null;
-        $scope.app_email = null;
-
-
-        $scope.autoPayName = null;
-        $scope.autoPay_routing = null;
-        $scope.autoPay_bankacct = null;
-        $scope.autoPay_cardnum = null;
-        $scope.autoPay_expiration = null;
-        $scope.autoPay_securityCode = null;
 
 
         $scope.showBureauModal = function () {
@@ -92,7 +65,7 @@ angular.module('myApp.view1', [
         };
 
         $scope.doLogin = function () {
-            console.log("doLogin......");
+            alert("We know you very well! Mr. Putyatin!")
             $scope.cfService.loginFlag = true;
         };
 
@@ -100,6 +73,20 @@ angular.module('myApp.view1', [
             console.log("doAppAppView.....");
             $scope.cfService.appraiseView = "app_app";
         };
+
+        $scope.appUploadImg = function() {
+            console.log("uploagImg $scope.cfService.appImage: " + $scope.cfService.appImage );
+            if($scope.cfService.appImage){
+                console.log("appImage: " + $scope.cfService.appImage);
+                $scope.cfService.appImageList.unshift($scope.cfService.appImage);
+                $scope.cfService.appImage = null;
+            }
+        };
+
+        $scope.appResetImg = function() {
+            $scope.cfService.appImage = null;
+        };
+
     }])
     .directive('ccSpinner', function () {
         return {
@@ -178,6 +165,8 @@ angular.module('myApp.view1', [
     .service('CFService', function ($http, toaster, $q) {
         var self = {
             'loginFlag': false,
+            'appImage': null,
+            'appImageList': [],
             'userParty': 'appraise',
             'appraiseView': 'app_main',
             'step1Complete': null,
