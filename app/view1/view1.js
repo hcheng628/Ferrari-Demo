@@ -58,7 +58,7 @@ angular.module('myApp.view1', [
         $scope.app_email = null;
 
 
-        $scope.autoPayName = null
+        $scope.autoPayName = null;
         $scope.autoPay_routing = null;
         $scope.autoPay_bankacct = null;
         $scope.autoPay_cardnum = null;
@@ -95,6 +95,11 @@ angular.module('myApp.view1', [
             console.log("doLogin......");
             $scope.cfService.loginFlag = true;
         };
+
+        $scope.doAppAppView = function () {
+            console.log("doAppAppView.....");
+            $scope.cfService.appraiseView = "app_app";
+        };
     }])
     .directive('ccSpinner', function () {
         return {
@@ -113,10 +118,10 @@ angular.module('myApp.view1', [
             link: function (scope) {
                 scope.cfService = CFService;
                 scope.goToAppraiseMainView = function () {
-                    scope.cfService.appraiseView = 'main';
+                    scope.cfService.appraiseView = 'app_main';
                 };
                 scope.goToAppraiseSearchView = function () {
-                    scope.cfService.appraiseView = 'search';
+                    scope.cfService.appraiseView = 'app_search';
 
                 };
             },
@@ -174,7 +179,7 @@ angular.module('myApp.view1', [
         var self = {
             'loginFlag': false,
             'userParty': 'appraise',
-            'appraiseView': 'main',
+            'appraiseView': 'app_main',
             'step1Complete': null,
             'step2Complete': null,
             'step3Complete': null,
