@@ -226,6 +226,16 @@
                             <div class="input-group mb-3 mr-sm-3 mb-sm-0">
                                 <input type="text" class="form-control"placeholder="Make">
                             </div>
+
+                            <div class="input-group mb-3 mr-sm-3 mb-sm-0">
+                                <select class="form-control" id="appraiseSearchStatus">
+                                    <option value="">---Please select status---  </option> <!-- not selected / blank option -->
+                                    <option value="pending">Pending</option> <!-- interpolation -->
+                                    <option value="review">Review</option>
+                                    <option value="complete">Complete</option>
+                                </select>
+                            </div>
+
                             <button class="btn btn-success pull-right">Search</button>
                         </form>
                         <div id="appraiseSearchResult" style="margin-top: 20px;">
