@@ -168,7 +168,7 @@ angular.module('myApp.view2', [
             'customer_businessPhone': '304-225-9872',
             'customer_yearsEstablised': '15',
             'customer_businessTypeDropdown': ['Incorporation', 'C Corporation', 'Proprietorship', 'Partnership', 'S Corporation', 'LLC' ],
-            'customer_businessTypeDropdownSelected': '',
+            'customer_businessTypeDropdownSelected': 'Proprietorship',
             'customer_companyAddrLine1': '1708 Lakewood Dr NE',
             'customer_companyAddrLine2': '',
             'customer_companyCity': 'Houston',

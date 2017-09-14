@@ -161,14 +161,14 @@
           </div>
 
           <div id="customerProfile" ng-show="cfService.customerView == 'customer_profile'">
-            <div id="customerAccountInfo" class="input-group" style="margin-top: 20px;">
-              <table class="table col-lg-12">
+            <div id="customerAccountInfo" class="input-group" style="margin-top: 20px; width: 100%">
+              <table class="table col-lg-12" >
                 <thead>
                 <tr>
                   <th>Account Information</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="">
                 <tr>
                   <td>
                     Company Name:
@@ -190,7 +190,7 @@
                   </td>
                 </tr>
                 </tbody>
-
+                
                 <thead>
                 <tr>
                   <th>Company Information</th>
@@ -290,6 +290,7 @@
                   <td></td>
                 </tr>
                 </tbody>
+
                 <thead>
                 <tr>
                   <th>
@@ -328,6 +329,7 @@
                   <td></td>
                 </tr>
                 </tbody>
+
                 <thead>
                 <tr>
                   <th>
@@ -639,8 +641,11 @@
                 <!--</tr>-->
                 <!--</tbody>-->
               </table>
-              <button class="btn btn-success"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
-              <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+              <div>
+                <button class="btn btn-success" > <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                <button class="btn btn-danger" style="margin-left: 5px;"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+              </div>
+
             </div>
             </section>
           </div>
