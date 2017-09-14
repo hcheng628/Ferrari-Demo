@@ -39,6 +39,17 @@ angular.module('myApp.view2', [
             $scope.cfService.customer_companyGuarantorAddressPreFlag = 'N';
         };
 
+        $scope.addPrevAddressInd = function () {
+            $scope.cfService.customer_indGuarantorAddressPreFlag = 'Y';
+        };
+
+        $scope.delPrevAddressInd = function () {
+            $scope.cfService.customer_indGuarantorAddressPreFlag = 'N';
+        };
+
+
+
+
         $scope.goToConsumerSummaryView = function () {
             console.log("goToConsumerSummaryView..... ");
         };
@@ -196,7 +207,6 @@ angular.module('myApp.view2', [
             'customer_companyAffiliateState': 'TX',
             'customer_companyAffiliateZip': '77002',
 
-
             'customer_companyOffcerName1': 'Crif Moka',
             'customer_companyOffcerTitle1': 'CFO',
             'customer_companyOffcerOwnership1': '45%',
@@ -262,6 +272,54 @@ angular.module('myApp.view2', [
 
             'customer_companyGuarantorSalary': '90,000.00',
             'customer_companyGuarantorOtherIncome': '100,000.00',
+
+            //
+            'customer_indFirstName': 'Francis',
+            'customer_indLastName': 'Saquella',
+            'customer_indMI': 'F',
+            'customer_indEmail': 'Saquella@yahoo.com',
+            'customer_indPassword': '321321321',
+            'customer_indConfirmPassword': '321321321',
+            'customer_indGuarantorSSN': 'xxx-xx-9089',
+            'customer_indGuarantorDOB': '1972-10-11',
+            'customer_indGuarantorDriverLicense': 'DI319832Y8',
+            'customer_indGuarantorDriverLicState': 'TN',
+            'customer_indGuarantorHomePhone': '432-234-4343',
+            'customer_indGuarantorCellPhone': '435-224-2321',
+
+            'customer_indGuarantorAddress1': '1623 Main St',
+            'customer_indGuarantorAddress2': '',
+            'customer_indGuarantorAddressCity': 'Tampa',
+            'customer_indGuarantorAddressState': 'FL',
+            'customer_indGuarantorAddressZip': '33601',
+            'customer_indGuarantorAddressLivedYrs': '2008-02-13',
+            'customer_indGuarantorAddressLivedMos': '10',
+            'customer_indGuarantorAddressMortgageHolder': 'James Legstrong',
+            'customer_indGuarantorAddressMonthlyMortgagePayment': '1,800.00',
+            'customer_indGuarantorAddressPreFlag': 'N',
+            'customer_indGuarantorAddress1Pre': '',
+            'customer_indGuarantorAddress2Pre': '',
+            'customer_indGuarantorAddressCityPre': '',
+            'customer_indGuarantorAddressStatePre': '',
+            'customer_indGuarantorAddressZipPre': '',
+            'customer_indGuarantorAddressLivedYrsPre': '',
+            'customer_indRentOrOwnFlag': 'R',
+            'customer_indRentOrOwnFlagPre': 'R',
+            'customer_indGuarantorAddressLivedMosPre': '',
+            'customer_indGuarantorAddressMortgageHolderPre': '',
+            'customer_indGuarantorAddressMonthlyMortgagePaymentPre': '',
+
+            'customer_indClosetName': 'Cisco Babber',
+            'customer_indCloseRelationship': 'Uncle',
+            'customer_indPhone': '432-987-2098',
+
+            // 'customer_ind': '',
+            // 'customer_ind': '',
+            // 'customer_ind': '',
+            // 'customer_ind': '',
+            'customer_ind': '',
+
+
 
             'customer_': '',
             'us_all_state': ["AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID", "IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"],
