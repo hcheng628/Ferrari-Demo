@@ -190,7 +190,7 @@
                   </td>
                 </tr>
                 </tbody>
-                
+
                 <thead>
                 <tr>
                   <th>Company Information</th>
@@ -545,13 +545,72 @@
                     <input type="text" ng-model="cfService.customer_companyGuarantorAddressMonthlyMortgagePayment" class="form-control">
                   </td>
                 </tr>
+
                 <tr>
                   <td>
-                    <button class="btn btn-success">Add Previous Address (Not Implemented Yet)</button>
+                    <button class="btn btn-success" ng-show="cfService.customer_companyGuarantorAddressPreFlag == 'N'" ng-click="addPrevAddress()">Add Previous Address</button>
                   </td>
                   <td></td>
                 </tr>
                 </tbody>
+
+                <!--abc-->
+                <div ng-show="cfService.customer_companyGuarantorAddressPreFlag == 'Y'">
+                  <thead>
+                  <tr>
+                    <th>
+                      Guarantor Previous Address
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfService.customer_companyGuarantorAddress1Pre" class="form-control">
+
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfService.customer_companyGuarantorAddress2Pre" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>City:
+                      <input type="text" ng-model="cfService.customer_companyGuarantorAddressCityPre" class="form-control">
+                    </td>
+                    <td>State:
+                      <select ng-model="cfService.customer_companyGuarantorAddressStatePre" class="form-control"
+                              ng-options="item for item in cfService.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Zip:
+                      <input type="text" ng-model="cfService.customer_companyGuarantorAddressZipPre" class="form-control">
+                    </td>
+                    <td>Lived Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customerCompanyGuarantorAddressLivedYrsPre" type="text"
+                               ng-model="cfService.customer_companyGuarantorAddressLivedYrsPre" class="form-control">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mortgage Holder:
+                      <input type="text" ng-model="cfService.customer_companyGuarantorAddressMortgageHolderPre" class="form-control">
+                    </td>
+                    <td>Monthly Mortgage Payment:
+                      <input type="text" ng-model="cfService.customer_companyGuarantorAddressMonthlyMortgagePaymentPre" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button class="btn btn-danger" ng-show="cfService.customer_companyGuarantorAddressPreFlag == 'Y'" ng-click="delPrevAddress()">Add Previous Address (Not Implemented Yet)</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </div>
+                <!--abc-->
+
                 <thead>
                 <tr>
                   <th>

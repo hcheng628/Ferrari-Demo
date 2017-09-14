@@ -31,6 +31,14 @@ angular.module('myApp.view2', [
     .controller('RegisterCtrl2', ['$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function ($scope, $location, $modal, usSpinnerService, CFService) {
         $scope.cfService = CFService;
 
+        $scope.addPrevAddress = function () {
+            $scope.cfService.customer_companyGuarantorAddressPreFlag = 'Y';
+        };
+
+        $scope.delPrevAddress = function () {
+            $scope.cfService.customer_companyGuarantorAddressPreFlag = 'N';
+        };
+
         $scope.goToConsumerSummaryView = function () {
             console.log("goToConsumerSummaryView..... ");
         };
@@ -230,6 +238,7 @@ angular.module('myApp.view2', [
             'customer_companyGuarantorAddressLivedMos': '10',
             'customer_companyGuarantorAddressMortgageHolder': 'James Legstrong',
             'customer_companyGuarantorAddressMonthlyMortgagePayment': '1,800.00',
+            'customer_companyGuarantorAddressPreFlag': 'N',
             'customer_companyGuarantorAddress1Pre': '',
             'customer_companyGuarantorAddress2Pre': '',
             'customer_companyGuarantorAddressCityPre': '',
