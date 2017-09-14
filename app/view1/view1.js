@@ -65,8 +65,11 @@ angular.module('myApp.view1', [
         };
 
         $scope.doLogin = function () {
-            alert("We know you very well! Mr. Putyatin!")
+            // alert("We know you very well! Mr. Putyatin!")
             $scope.cfService.loginFlag = true;
+            // $routeProvider.otherwise({redirectTo: '/view2'});
+            $location.path('view2');
+
         };
 
         $scope.doAppAppView = function () {

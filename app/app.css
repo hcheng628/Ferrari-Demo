@@ -324,3 +324,23 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     max-height: 100%;
     max-width: 100%;
 }
+
+/* customer interface start */
+#customerProfile input {
+    color: black;
+}
+
+#customerProfile select{
+    color: black;
+}
+
+#customerProfile  input[type="radio"]:checked:after, .radio input[type="radio"]:checked:after, .radio-inline input[type="radio"]:checked:after{
+    border-color: #5cb85c;
+    color: #5cb85c;
+    background-color: #5cb85c;
+    background: radial-gradient(#5cb85c, #5cb85c);
+    border-radius: 50%;
+}
+
+#customerProfile form
+/* customer interface end */

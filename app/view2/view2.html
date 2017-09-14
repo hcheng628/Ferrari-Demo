@@ -1,5 +1,652 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="content" ng-controller="RegisterCtrl2">
+  <div id="loginScreen" class="row col-md-12">
+    <form novalidate>
+
+      <div id="appraiseMain" class="container">
+        <cc-banner-customer></cc-banner-customer>
+        <fieldset class="for-panel">
+          <div id="appraiseMainView" class="table-responsive" ng-show="cfService.customerView == 'customer_summary'">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>RefID</th>
+                <th>Appraised By</th>
+                <th>Model</th>
+                <th>Make</th>
+                <th>Year</th>
+                <th>VIN</th>
+                <th>New/Used</th>
+                <th>Location</th>
+                <th>City</th>
+                <th>Race</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">12345</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">23456</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">34567</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">45678</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">56789</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">23451</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a class="appViewRefId" href="#" ng-click="doAppAppView()">34512</a>
+                </td>
+                <td>Super Appraiser</td>
+                <td>488 Spider</td>
+                <td>Ferrari</td>
+                <td>2016</td>
+                <td>19UYA31581L000333</td>
+                <td>New</td>
+                <td>ABC Ferrari</td>
+                <td>Houston, TX</td>
+                <td>
+                  <i class="fa fa-square-o" aria-hidden="true"></i>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="">
+              <div class="col ">Page 1 of 5
+              </div>
+              <div class="col ">
+                <ul class="pagination hidden-xs pull-right">
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                </ul>
+                <ul class="pagination visible-xs pull-right">
+                  <li><a href="#">«</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="customerProfile" ng-show="cfService.customerView == 'customer_profile'">
+            <div id="customerAccountInfo" class="input-group" style="margin-top: 20px;">
+              <table class="table col-lg-12">
+                <thead>
+                <tr>
+                  <th>Account Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    Company Name:
+                    <input type="text" ng-model="cfService.customer_companyName" class="form-control">
+                  </td>
+                  <td>
+                    Password:
+                    <input type="password" ng-model="cfService.customer_password" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <input type="text" ng-model="cfService.customer_email" class="form-control">
+                  </td>
+                  <td>
+                    Password Confirm:
+                    <input type="password" ng-model="cfService.customer_passwordConfirm" class="form-control">
+                  </td>
+                </tr>
+                </tbody>
+
+                <thead>
+                <tr>
+                  <th>Company Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Nature of Business:
+                    <input type="text" ng-model="cfService.customer_businessNature" class="form-control">
+                  </td>
+                  <td><i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" ng-model="cfService.customer_businessPhone" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Years Established
+                    <input type="text" ng-model="cfService.customer_yearsEstablised" class="form-control">
+                  </td>
+                  <td>
+                    Type of Business:
+                    <select ng-model="cfService.customer_businessTypeDropdownSelected" class="form-control"
+                            ng-options="item for item in cfService.customer_businessTypeDropdown">
+                    </select>
+                  </td>
+                </tr>
+                </tbody>
+
+                <thead>
+                <tr>
+                  <th>
+                    Company Address
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Address Line 1:
+                    <input type="text" ng-model="cfService.customer_companyAddrLine1" class="form-control">
+                  </td>
+                  <td>Address Line 2:
+                    <input type="text" ng-model="cfService.customer_companyAddrLine1" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    City:
+                    <input type="text" ng-model="cfService.customer_companyCity" class="form-control">
+                  </td>
+                  <td>State:
+                    <select ng-model="cfService.customer_companyState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip:
+                    <input type="text" ng-model="cfService.customer_companyZip" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Years under present ownership:
+                    <input type="text" ng-model="cfService.customer_companyYrsUnderPresendOwnership" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Is Business Listed with Dun & Bradstreet Y/N
+                    <input type="radio" ng-model="cfService.customer_companyDunFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_companyDunFlag" value="N">
+                  </td>
+                  <td ng-show="cfService.customer_companyDunFlag == 'Y'">
+                    Duns #:
+                    <input type="text" ng-model="cfService.customer_companyDunNum" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>TAX ID
+                    <input type="text" ng-model="cfService.customer_companyTaxId" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Have you ever had any property repossessed?
+                    <input type="radio" ng-model="cfService.customer_companyRepossessedFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_companyRepossessedFlag" value="N">
+                  </td>
+                  <td>Have you ever had any suits or judgments pending against you?
+                    <input type="radio" ng-model="cfService.customer_companySuitsFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_companySuitsFlag" value="N">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Have you ever filed for bankruptcy in the last 10 years?
+                    <input type="radio" ng-model="cfService.customer_companyBankruptcyFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_companyBankruptcyFlag" value="N">
+                  </td>
+                  <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Affiliate Co. or Subsidiary Information
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Name of Affiliate Co. or Subsidiary:
+                    <input type="text" ng-model="cfService.customer_companyAffiliateName" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Address Line 1:
+                    <input type="text" ng-model="cfService.customer_companyAffiliateAddress1" class="form-control">
+                  </td>
+                  <td>Address Line 2:
+                    <input type="text" ng-model="cfService.customer_companyAffiliateAddress2" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>City:
+                    <input type="text" ng-model="cfService.customer_companyAffiliateCity" class="form-control">
+                  </td>
+                  <td>State:
+                    <select ng-model="cfService.customer_companyAffiliateState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip:
+                    <input type="text" ng-model="cfService.customer_companyAffiliateZip" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Officers
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Name:
+                    <input type="text" ng-model="cfService.customer_companyOffcerName1" class="form-control">
+                  </td>
+                  <td>Title:
+                    <input type="text" ng-model="cfService.customer_companyOffcerTitle1" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ownership Percentage:
+                    <input type="text" ng-model="cfService.customer_companyOffcerOwnership1" class="form-control">
+                  </td>
+                  <td>Years with Company:
+                    <input type="text" ng-model="cfService.customer_companyOffcerYrsWithCompany1" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name:
+                    <input type="text" ng-model="cfService.customer_companyOffcerName2" class="form-control">
+                  </td>
+                  <td>Title:
+                    <input type="text" ng-model="cfService.customer_companyOffcerTitle2" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ownership Percentage:
+                    <input type="text" ng-model="cfService.customer_companyOffcerOwnership2" class="form-control">
+                  </td>
+                  <td>Years with Company:
+                    <input type="text" ng-model="cfService.customer_companyOffcerYrsWithCompany2" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>* Majority stockholder if other than officers</td>
+                  <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Bank Information
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Name of bank:
+                    <input type="text" ng-model="cfService.customer_companyBankName" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Address Line 1:
+                    <input type="text" ng-model="cfService.customer_companyBankAddress1" class="form-control">
+                  </td>
+                  <td>Address Line 2:
+                    <input type="text" ng-model="cfService.customer_companyBankAddress2" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>City:
+                    <input type="text" ng-model="cfService.customer_companyBankCity" class="form-control">
+                  </td>
+                  <td>State:
+                    <select ng-model="cfService.customer_companyBankState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip:
+                    <input type="text" ng-model="cfService.customer_companyBankZip" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" ng-model="cfService.customer_companyBankPhone" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Loan Officer:
+                    <input type="text" ng-model="cfService.customer_companyBankLoanOfficer" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Balance:
+                    <input type="text" ng-model="cfService.customer_companyBankAcctBalance" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Account Type:
+                    <select ng-model="cfService.customer_companyBankAcctTypeSelected" class="form-control"
+                            ng-options="item for item in cfService.customer_companyBankAcctType"></select>
+                  </td>
+                  <td>Account#:
+                    <input type="text" ng-model="cfService.customer_companyBankAcctNum" class="form-control">
+                  </td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Guarantor Information
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>First Name:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorFirstName" class="form-control">
+                  </td>
+                  <td>Last Name:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorLastName" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>M.I:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorMI" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Email:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmail" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Social Security #:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorSSN" class="form-control">
+                  </td>
+                  <td>DOB:
+                    <datepicker date-format="yyyy-MM-dd">
+                      <input id="guarantorDOB" type="text"
+                             ng-model="cfService.customer_companyGuarantorDOB" class="form-control">
+                    </datepicker>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Driver’s License #:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorDriverLicense" class="form-control">
+                  </td>
+                  <td>Driver’s License State:
+                    <select ng-model="cfService.customer_companyGuarantorDriverLicState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Home Phone #:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorHomePhone" class="form-control">
+                  </td>
+                  <td>Cell Phone #:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorCellPhone" class="form-control">
+                  </td>
+                </tr>
+                </tbody>
+
+                <thead>
+                <tr>
+                  <th>
+                    Guarantor Address
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Address Line 1:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorAddress1" class="form-control">
+
+                  </td>
+                  <td>Address Line 2:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorAddress2" class="form-control">
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>City:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorAddressCity" class="form-control">
+                  </td>
+                  <td>State:
+                    <select ng-model="cfService.customer_companyGuarantorAddressState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorAddressZip" class="form-control">
+                  </td>
+                  <td>Lived Since:
+                    <datepicker date-format="yyyy-MM-dd">
+                      <input id="customerCompanyGuarantorAddressLivedYrs" type="text"
+                             ng-model="cfService.customer_companyGuarantorAddressLivedYrs" class="form-control"
+                             placeholder="From Date">
+                    </datepicker>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mortgage Holder:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorAddressMortgageHolder" class="form-control">
+                  </td>
+                  <td>Monthly Mortgage Payment:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorAddressMonthlyMortgagePayment" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-success">Add Previous Address (Not Implemented Yet)</button>
+                  </td>
+                  <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Guarantor’s Employment Information
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Employer Name:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpName" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Position/Title:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpTitle" class="form-control">
+                  </td>
+                  <td>Worked Since:
+                    <datepicker date-format="yyyy-MM-dd">
+                      <input id="customerCompanyGuarantorEmpYrs" type="text"
+                             ng-model="cfService.customer_companyGuarantorEmpYrs" class="form-control"
+                             placeholder="From Date">
+                    </datepicker>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpPhone" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Address Line 1:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpAddress1" class="form-control">
+
+                  </td>
+                  <td>Address Line 2:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpAddress2" class="form-control">
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>City:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpCity" class="form-control">
+                  </td>
+                  <td>State:
+                    <select ng-model="cfService.customer_companyGuarantorEmpState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorEmpZip" class="form-control">
+                  </td>
+                  <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Income Information
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Annual Salary/Wages:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorSalary" class="form-control">
+                  </td>
+                  <td>Other Annual Income Source:
+                    <input type="text" ng-model="cfService.customer_companyGuarantorOtherIncome" class="form-control">
+                  </td>
+                </tr>
+                </tbody>
+                <!--<thead>-->
+                <!--<tr>-->
+                <!--<th>-->
+                <!--xxxxx-->
+                <!--</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                <!--<td></td>-->
+                <!--<td></td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+              </table>
+              <button class="btn btn-success"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+              <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+            </div>
+            </section>
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
