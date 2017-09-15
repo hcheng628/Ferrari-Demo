@@ -699,11 +699,16 @@
                 <!--<td></td>-->
                 <!--</tr>-->
                 <!--</tbody>-->
+                <tbody>
+                <tr>
+                  <td>
+                    <button class="btn btn-success" > <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                    <button class="btn btn-danger" style="margin-left: 5px;"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+                  </td>
+                  <td></td>
+                </tr>
+                </tbody>
               </table>
-              <div>
-                <button class="btn btn-success" > <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
-                <button class="btn btn-danger" style="margin-left: 5px;"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
-              </div>
             </div>
 
             <!-- Individual Profile -->
@@ -962,78 +967,461 @@
                 <thead>
                 <tr>
                   <th>
-
+                    Employment Information
                   </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td></td>
+                  <td>
+                    Employer Name:
+                    <input type="text" ng-model="cfService.customer_indEmpName" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Position/Title:
+                    <input type="text" ng-model="cfService.customer_indEmpPosition" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Worked Since:
+                    <datepicker date-format="yyyy-MM-dd">
+                      <input id="customer_indEmpWorkedSince" type="text"
+                             ng-model="cfService.customer_indEmpWorkedSince" class="form-control">
+                    </datepicker>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" ng-model="cfService.customer_indEmpPhone" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Address Line 1:
+                    <input type="text" ng-model="cfService.customer_indEmpAddressLine1" class="form-control">
+                  </td>
+                  <td>
+                    Address Line 2:
+                    <input type="text" ng-model="cfService.customer_indEmpAddressLine2" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    City:
+                    <input type="text" ng-model="cfService.customer_indEmpCity" class="form-control">
+                  </td>
+                  <td>
+                    State:
+                    <select ng-model="cfService.customer_indEmpState" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Zip:
+                    <input type="text" ng-model="cfService.customer_indEmpZip" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                </tbody>
+
+                <!-- Prev Emp Info -->
+                <thead ng-show="cfService.customer_indAddPrevEmpFlag">
+                <tr>
+                  <th>
+                    Previous Employment Information
+                  </th>
+                </tr>
+                </thead>
+                <tbody ng-show="cfService.customer_indAddPrevEmpFlag">
+                <tr>
+                  <td>
+                    Employer Name:
+                    <input type="text" ng-model="cfService.customer_indEmpNamePrev" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Position/Title:
+                    <input type="text" ng-model="cfService.customer_indEmpPositionPrev" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Worked Since:
+                    <datepicker date-format="yyyy-MM-dd">
+                      <input id="customer_indEmpWorkedSincePrev" type="text"
+                             ng-model="cfService.customer_indEmpWorkedSincePrev" class="form-control">
+                    </datepicker>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" ng-model="cfService.customer_indEmpPhonePrev" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Address Line 1:
+                    <input type="text" ng-model="cfService.customer_indEmpAddressLine1Prev" class="form-control">
+                  </td>
+                  <td>
+                    Address Line 2:
+                    <input type="text" ng-model="cfService.customer_indEmpAddressLine2Prev" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    City:
+                    <input type="text" ng-model="cfService.customer_indEmpCityPrev" class="form-control">
+                  </td>
+                  <td>
+                    State:
+                    <select ng-model="cfService.customer_indEmpStatePrev" class="form-control"
+                            ng-options="item for item in cfService.us_all_state"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Zip:
+                    <input type="text" ng-model="cfService.customer_indEmpZipPrev" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-danger" ng-show="cfService.customer_indAddPrevEmpFlag" ng-click="prevEmpFlagOff()">
+                      <i class="fa fa-times-circle" aria-hidden="true"></i>
+                      Remove Previous Employment Information
+                    </button>
+                  </td>
                   <td></td>
                 </tr>
                 </tbody>
+
                 <thead>
                 <tr>
                   <th>
-
+                    Income Information
                   </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td></td>
+                  <td>
+                    Annual Salary/Wages:
+                    <input type="text" ng-model="cfService.customer_indEmpIncome" class="form-control">
+                  </td>
+                  <td>
+                    Other Annual Income Source:
+                    <input type="text" ng-model="cfService.customer_indEmpOtherIncome" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-success" ng-show="!cfService.customer_indAddPrevEmpFlag" ng-click="prevEmpFlagOn()">Add Previous Employment Information</button>
+                  </td>
                   <td></td>
                 </tr>
                 </tbody>
+                <!-- Emp Info -->
+
+
+
                 <thead>
                 <tr>
                   <th>
-
+                    Last Vehicle Purchased
                   </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
+                  <td>
+                    Make:
+                    <input type="text" ng-model="cfService.customer_indVehMake" class="form-control">
+                  </td>
+                  <td>
+                    Model:
+                    <input type="text" ng-model="cfService.customer_indVehModel" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Year:
+                    <input type="text" ng-model="cfService.customer_indVehYear" class="form-control">
+
+                  </td>
+                  <td>
+                    Financed By:
+                    <input type="text" ng-model="cfService.customer_indVehFinancedBy" class="form-control">
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Term:
+                    <input type="text" ng-model="cfService.customer_indVehTerm" class="form-control">
+
+                  </td>
+                  <td>
+                    Payment:
+                    <input type="text" ng-model="cfService.customer_indVehPayment" class="form-control">
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Have you ever had any property repossessed?
+                    <input type="radio" ng-model="cfService.customer_indVehRepossessedFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_indVehRepossessedFlag" value="N">
+                  </td>
+                  <td>
+                    Have you ever had any suits or judgments pending against you?
+                    <input type="radio" ng-model="cfService.customer_indVehSuitsFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_indVehSuitsFlag" value="N">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Have you ever filed for bankruptcy in the last 10 years?
+                    <input type="radio" ng-model="cfService.customer_indVehBankruptcyFlag" value="Y">
+                    <input type="radio" ng-model="cfService.customer_indVehBankruptcyFlag" value="N">
+                  </td>
                   <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-success" ng-show="!cfService.customer_indAddCoApplicantFlag" ng-click="coApplicantFlagOn()">Add Co-applicant Information</button>
+                  </td>
                   <td></td>
                 </tr>
                 </tbody>
-                <thead>
-                <tr>
-                  <th>
 
-                  </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                </tbody>
-                <thead>
-                <tr>
-                  <th>
+                <!-- Co-Applicatn Info -->
+                <div >
+                  <thead ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <th>
+                      Co-applicant Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <td>
+                      Co-purchaser/Lessee’s Name:
+                      <input type="text" ng-model="cfService.customer_indCoAppPurchaserName" class="form-control">
 
-                  </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                </tbody>
-                <thead>
-                <tr>
-                  <th>
+                    </td>
+                    <td>
+                      Relationship:
+                      <input type="text" ng-model="cfService.customer_indCoAppRelationship" class="form-control">
 
-                  </th>
-                </tr>
-                </thead>
-                <tbody>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Social Security #:
+                      <input type="text" ng-model="cfService.customer_indCoAppSSN" class="form-control">
+
+                    </td>
+                    <td>
+                      DOB:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indCoAppDOB" type="text"
+                               ng-model="cfService.customer_indCoAppDOB" class="form-control">
+                      </datepicker>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfService.customer_indCoAppPhone" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <thead ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <th>
+                      Co-applicant Address
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <td>
+                      Address line 1:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddAddressLine1" class="form-control">
+                    </td>
+                    <td>
+                      Address line 2:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddAddressLine2" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      City:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddCity" class="form-control">
+
+                    </td>
+                    <td>
+                      State:
+                      <select ng-model="cfService.customer_indCoAppAddState" class="form-control"
+                              ng-options="item for item in cfService.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Zip:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddZip" class="form-control">
+
+                    </td>
+                    <td>
+                      Lived Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indCoAppAddSince" type="text"
+                               ng-model="cfService.customer_indCoAppAddSince" class="form-control">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  </tbody>
+                  <thead ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <th>
+                      Co-applicant Employment Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <td>
+                      Employer Name:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpName" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Position/Title:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpPosition" class="form-control">
+
+                    </td>
+                    <td>
+                      Worked Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indCoAppAddEmpWorkedSince" type="text"
+                               ng-model="cfService.customer_indCoAppAddEmpWorkedSince" class="form-control">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpPhone" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Address line 1:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpAddr1" class="form-control">
+
+                    </td>
+                    <td>
+                      Address line 2:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpAddr2" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      City:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpCity" class="form-control">
+
+                    </td>
+                    <td>
+                      State:
+                      <select ng-model="cfService.customer_indCoAppAddEmpState" class="form-control"
+                              ng-options="item for item in cfService.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Zip:
+                      <input type="text" ng-model="cfService.customer_indCoAppAddEmpZip" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <thead ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <th>
+                      Co-applicant Income Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody ng-show="cfService.customer_indAddCoApplicantFlag">
+                  <tr>
+                    <td>
+                      Annual Salary/Wages:
+                      <input type="text" ng-model="cfService.customer_indCoAppIncome" class="form-control">
+                    </td>
+                    <td>
+                      Other Annual Income Source:
+                      <input type="text" ng-model="cfService.customer_indCoAppOtherIncome" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button class="btn btn-danger" ng-show="cfService.customer_indAddCoApplicantFlag" ng-click="coApplicantFlagOff()">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                        Remove Co-applicant Information
+                      </button>
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  </tbody>
+                </div>
+
+                <tbody style="">
                 <tr>
-                  <td></td>
+                  <td>
+                    <button class="btn btn-success">
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                      Save
+                    </button>
+                    <button class="btn btn-danger">
+                      <i class="fa fa-times-circle" aria-hidden="true"></i>
+                      Cancel
+                    </button>
+                  </td>
                   <td></td>
                 </tr>
                 </tbody>

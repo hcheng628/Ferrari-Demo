@@ -64,6 +64,26 @@ angular.module('myApp.view2', [
             $scope.cfService.customer_indGuarantorAddressPreFlag = 'N';
         };
 
+        // 'customer_indAddCoApplicantFlag': false,
+        //     'customer_indAddPrevEmpFlag': false,
+
+
+        $scope.coApplicantFlagOn = function () {
+            $scope.cfService.customer_indAddCoApplicantFlag = true;
+        };
+
+        $scope.coApplicantFlagOff = function () {
+            $scope.cfService.customer_indAddCoApplicantFlag = false;
+        };
+
+        $scope.prevEmpFlagOn = function () {
+            $scope.cfService.customer_indAddPrevEmpFlag = true;
+        };
+
+        $scope.prevEmpFlagOff = function () {
+            $scope.cfService.customer_indAddPrevEmpFlag = false
+        };
+
 
         $scope.goToConsumerSummaryView = function () {
             console.log("goToConsumerSummaryView..... ");
@@ -350,13 +370,70 @@ angular.module('myApp.view2', [
             'customer_indCloseRelationship': 'Uncle',
             'customer_indPhone': '432-987-2098',
 
-            // 'customer_ind': '',
-            // 'customer_ind': '',
-            // 'customer_ind': '',
-            // 'customer_ind': '',
-            'customer_ind': '',
+            'customer_indEmpName': 'DUPONT',
+            'customer_indEmpPosition': 'Account Manager',
+            'customer_indEmpWorkedSince': '2002-01-07',
+            'customer_indEmpPhone': '302-217-0987',
+            'customer_indEmpAddressLine1': '322 Main St',
+            'customer_indEmpAddressLine2': '',
+            'customer_indEmpCity': 'Wilmington',
+            'customer_indEmpState': 'DE',
+            'customer_indEmpZip': '19801',
+            'customer_indEmpIncome': '98,000.00',
+            'customer_indEmpOtherIncome': '5,200.00',
+
+            'customer_indEmpNamePrev': '',
+            'customer_indEmpPositionPrev': '',
+            'customer_indEmpWorkedSincePrev': '',
+            'customer_indEmpPhonePrev': '',
+            'customer_indEmpAddressLine1Prev': '',
+            'customer_indEmpAddressLine2Prev': '',
+            'customer_indEmpCityPrev': '',
+            'customer_indEmpStatePrev': '',
+            'customer_indEmpZipPrev': '',
+
+            'customer_indVehMake': 'Alfa Romeo',
+            'customer_indVehModel': 'Giulia',
+            'customer_indVehYear': '2016',
+            'customer_indVehFinancedBy': 'Bank of SuperRich',
+            'customer_indVehTerm': '48',
+            'customer_indVehPayment': '572.28',
+            'customer_indVehRepossessedFlag': 'N',
+            'customer_indVehSuitsFlag': 'N',
+            'customer_indVehBankruptcyFlag': 'N',
+
+            'customer_indCoAppPurchaserName': 'Belkin Smith',
+            'customer_indCoAppRelationship': 'Uncle',
+            'customer_indCoAppSSN': 'xxx-xx-7653',
+            'customer_indCoAppDOB':'1968-03-13',
+            'customer_indCoAppPhone':'432-098-9966',
+
+            'customer_indCoAppAddAddressLine1': '210 South College Ave',
+            'customer_indCoAppAddAddressLine2': '',
+            'customer_indCoAppAddCity': 'Newark',
+            'customer_indCoAppAddState': 'DE',
+            'customer_indCoAppAddZip': '19716',
+            'customer_indCoAppAddSince': '2005-01-07',
+
+            'customer_indCoAppAddEmpName':'Freelance',
+            'customer_indCoAppAddEmpPosition':'Owner',
+            'customer_indCoAppAddEmpWorkedSince':'1999-6-12',
+            'customer_indCoAppAddEmpPhone':'321-932-2121',
+            'customer_indCoAppAddEmpAddr1':'1100 N King St',
+            'customer_indCoAppAddEmpAddr2':'',
+            'customer_indCoAppAddEmpCity':'Wilmington',
+            'customer_indCoAppAddEmpState':'DE',
+            'customer_indCoAppAddEmpZip':'19884',
 
 
+            'customer_indCoAppIncome':'150,000.00',
+            'customer_indCoAppOtherIncome':'12,000.00',
+
+            'customer_indAddCoApplicantFlag': false,
+            'customer_indAddPrevEmpFlag': false,
+
+
+            'customer_indVeh': '',
             'customerViewAuthCheckFlag': false,
             'customer_IndOrBusFlag': '',
             'customer_': '',
