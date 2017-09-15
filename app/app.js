@@ -14,6 +14,7 @@ angular.module('myApp', [
     console.log("Init App");
     Parse.initialize("appidCheng628");
     Parse.serverURL = 'https://parse-server-cheng.herokuapp.com/parse';
+
 })
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

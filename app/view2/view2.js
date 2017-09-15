@@ -15,7 +15,7 @@ angular.module('myApp.view2', [
         'bootstrap3ElementModifier',
         function (bootstrap3ElementModifier) {
             bootstrap3ElementModifier.enableValidationStateIcons(true);
-        }])
+    }])
 
     .config(['$routeProvider', 'laddaProvider', function ($routeProvider, laddaProvider) {
 
