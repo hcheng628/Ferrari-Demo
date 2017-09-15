@@ -7,8 +7,13 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+])
+.run(function () {
+    console.log("Init App");
+    Parse.initialize("appidCheng628");
+    Parse.serverURL = 'https://parse-server-cheng.herokuapp.com/parse';
+})
+.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
   $routeProvider.otherwise({redirectTo: '/view1'});

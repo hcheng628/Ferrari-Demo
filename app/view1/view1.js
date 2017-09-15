@@ -15,6 +15,8 @@ angular.module('myApp.view1', [
         'bootstrap3ElementModifier',
         function (bootstrap3ElementModifier) {
             bootstrap3ElementModifier.enableValidationStateIcons(true);
+            // Parse.initialize("appidCheng628");
+            // Parse.serverURL = 'https://parse-server-cheng.herokuapp.com/parse';
         }])
 
     .config(['$routeProvider', 'laddaProvider', function ($routeProvider, laddaProvider) {
@@ -68,6 +70,15 @@ angular.module('myApp.view1', [
             // alert("We know you very well! Mr. Putyatin!")
             $scope.cfService.loginFlag = true;
             // $routeProvider.otherwise({redirectTo: '/view2'});
+            Parse.User.logIn('chenghongyu628@gmail.com','password').then(
+                function(success){
+                    console.log("Login Success: " + JSON.stringify(success, undefined, 2));
+                    console.log("Current User:" + JSON.stringify(Parse.User.current(), undefined, 2));
+                },
+                function (error) {
+                    console.error(error);
+                }
+            );
             $location.path('view2');
 
         };
