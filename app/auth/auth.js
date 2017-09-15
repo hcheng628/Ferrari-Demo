@@ -69,18 +69,6 @@ angular.module('myApp.auth', [
 
         };
 
-        // $scope.goToView = function (partyView) {
-        //     $location.path('view1');
-        //     alert(partyView);
-        //     if(whichParty == 'Business' || whichParty == 'Individual'){
-        //         console.log("Go to Customer");
-        //         $location.path('view2');
-        //     } else if (whichParty == 'Appraisal'){
-        //         console.log("Go to Appraisal");
-        //         $location.path('view1');
-        //     }
-        // };
-
         $scope.doRegister = function () {
             var newUser = new Parse.User();
             var lowerCaseUsername = $scope.authcfService.auth_register_username.toLowerCase();
@@ -90,7 +78,9 @@ angular.module('myApp.auth', [
             newUser.set("email", lowerCaseUsername);
             newUser.signUp().then(
                 function (success) {
-                    console.log("Success signUp: " + JSON.stringify(success, null, 2));
+                    $timeout(function(){
+                        $scope.goToLogin()
+                    },1);
                 },
                 function (error) {
                     console.error("Failed signUp: " + JSON.stringify(error, null, 2));
@@ -99,12 +89,14 @@ angular.module('myApp.auth', [
         };
         
         $scope.doResetPassword = function () {
-            Parse.User.requestPasswordReset($scope.authcfService.auth_reset_username).then(
+            Parse.User.requestPasswordReset($scope.authcfService.auth_reset_username.toLowerCase()).then(
                 function (success) {
-                console.log("Success requestPasswordReset: " + JSON.stringify(success, null, 2));
+                    $timeout(function(){
+                        $scope.goToLogin()
+                    },1);
                 },
                 function (error) {
-                console.error("Failed requestPasswordReset: " + JSON.stringify(error, null, 2));
+                    $scope.console.error("Failed requestPasswordReset: " + JSON.stringify(error, null, 2));
                 }
             );
         };
