@@ -30,8 +30,8 @@ angular.module('myApp.view1', [
             controller: 'RegisterCtrl'
         });
     }])
-    .controller('RegisterCtrl', ['$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function ($scope, $location, $modal, usSpinnerService, CFService) {
-        $scope.cfService = CFService;
+    .controller('RegisterCtrl', ['$scope', '$location', '$modal', 'usSpinnerService', 'AppCFService', '$timeout', function ($scope, $location, $modal, usSpinnerService, AppCFService, $timeout) {
+        $scope.appcfService = AppCFService;
         // $scope.$watch('app_ssn', function(val, oldVal) {
         //     console.log('app_ssn= \'' + val + '\'');
         // });
@@ -40,7 +40,23 @@ angular.module('myApp.view1', [
         //     console.log('$watch testForm.$valid ' + val);
         // });
 
-
+        $scope.appViewAuthCheck = function () {
+            console.log('appViewAuthCheck init');
+            if(Parse.User.current()){
+                if(Parse.User.current().get('ferrariDemoParty') == 'Appraisal'){
+                    $scope.appcfService.appViewAuthCheckFlag =  true;
+                    console.log('appViewAuthCheckFlag true' + " " + $scope.appcfService.appraiseView);
+                }else {
+                    $scope.appcfService.appViewAuthCheckFlag = false;
+                    console.log('appViewAuthCheckFlag false');
+                    // Not Auth for this
+                }
+            }else{
+                // Please Login!!!
+                $location.path('auth');
+            }
+        };
+        
         $scope.showBureauModal = function () {
             $scope.createModal = $modal({
                 scope: $scope,
@@ -66,39 +82,22 @@ angular.module('myApp.view1', [
             });
         };
 
-        $scope.doLogin = function () {
-            // alert("We know you very well! Mr. Putyatin!")
-            $scope.cfService.loginFlag = true;
-            // $routeProvider.otherwise({redirectTo: '/view2'});
-            Parse.User.logIn('chenghongyu628@gmail.com','password').then(
-                function(success){
-                    console.log("Login Success: " + JSON.stringify(success, undefined, 2));
-                    console.log("Current User:" + JSON.stringify(Parse.User.current(), undefined, 2));
-                },
-                function (error) {
-                    console.error(error);
-                }
-            );
-            $location.path('view2');
-
-        };
-
         $scope.doAppAppView = function () {
             console.log("doAppAppView.....");
-            $scope.cfService.appraiseView = "app_app";
+            $scope.appcfService.appraiseView = "app_app";
         };
 
         $scope.appUploadImg = function() {
-            console.log("uploagImg $scope.cfService.appImage: " + $scope.cfService.appImage );
-            if($scope.cfService.appImage){
-                console.log("appImage: " + $scope.cfService.appImage);
-                $scope.cfService.appImageList.unshift($scope.cfService.appImage);
-                $scope.cfService.appImage = null;
+            console.log("uploagImg $scope.appcfService.appImage: " + $scope.appcfService.appImage );
+            if($scope.appcfService.appImage){
+                console.log("appImage: " + $scope.appcfService.appImage);
+                $scope.appcfService.appImageList.unshift($scope.appcfService.appImage);
+                $scope.appcfService.appImage = null;
             }
         };
 
         $scope.appResetImg = function() {
-            $scope.cfService.appImage = null;
+            $scope.appcfService.appImage = null;
         };
 
     }])
@@ -113,17 +112,31 @@ angular.module('myApp.view1', [
         };
     })
 
-    .directive('ccBanner', [ 'CFService',function (CFService) {
+    .directive('ccBanner', [ 'AppCFService', '$location', '$timeout',function (AppCFService, $location, $timeout) {
         return {
             'templateUrl': "view1/templates/banner.html",
             link: function (scope) {
-                scope.cfService = CFService;
+                scope.appcfService = AppCFService;
                 scope.goToAppraiseMainView = function () {
-                    scope.cfService.appraiseView = 'app_main';
+                    scope.appcfService.appraiseView = 'app_main';
                 };
                 scope.goToAppraiseSearchView = function () {
-                    scope.cfService.appraiseView = 'app_search';
+                    scope.appcfService.appraiseView = 'app_search';
 
+                };
+                scope.userLogout = function () {
+                    if(Parse.User.current()){
+                        Parse.User.logOut().then(
+                            function (success) {
+                                console.log("Success logOut: " + JSON.stringify(success, null, 2));
+                                $timeout(function(){
+                                    $location.path('auth');
+                                },1);
+                            },
+                            function (error) {
+                                console.error("Failed logOut: " + JSON.stringify(error, null, 2));
+                            });
+                    }
                 };
             },
             'scope': {
@@ -176,8 +189,9 @@ angular.module('myApp.view1', [
             }
         };
     })
-    .service('CFService', function ($http, toaster, $q) {
+    .service('AppCFService', function ($http, toaster, $q) {
         var self = {
+            'appViewAuthCheckFlag': false,
             'loginFlag': false,
             'appImage': null,
             'appImageList': [],

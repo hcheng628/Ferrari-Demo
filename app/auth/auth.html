@@ -1,0 +1,144 @@
+<div class="content" ng-controller="RegisterCtrlAuth">
+    <div id="loginScreen" class="row col-md-12">
+        <form novalidate>
+            <!-- Login Section -->
+            <div class="container">
+                <div class="row main" ng-show="authcfService.auth_current_view == 'login'">
+                    <div class="panel-heading">
+                        <div class="panel-title text-center">
+                            <h1 class="title">
+                                <img ng-src="./img/Ferrari-logo-sm.png" height="260"/></h1>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="main-login main-center">
+                        <form class="form-horizontal" method="post" action="#">
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" placeholder="Enter your Email" ng-model="authcfService.auth_login_username"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" placeholder="Password" ng-model="authcfService.auth_login_password"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <button type="button" class="btn btn-success btn-lg btn-block login-button"
+                                        ng-click="doLogin()">Log In
+                                </button>
+                            </div>
+                            <div class="login-register">
+                                <a ng-click="goToPasswordReset()">Having trouble logging in?</a>
+                            </div>
+                            <div>
+                                <hr>
+                            </div>
+                            <div class="form-group ">
+                                <button type="button" ng-click="goToRegister()" class="btn btn-danger btn-lg btn-block login-button">Sign Up
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Register Section -->
+                <div class="row main" ng-show="authcfService.auth_current_view == 'register'">
+                    <div class="panel-heading">
+                        <div class="panel-title text-center">
+                            <h1 class="title">
+                                <img ng-src="./img/Ferrari-logo-sm.png" height="260"/></h1>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="main-login main-center">
+                        <form class="form-horizontal" method="post" action="#">
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="">
+                                        <span class="input-group-addon pull-left">
+                                            <i class="fa fa-envelope fa" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Enter your Email" ng-model="authcfService.auth_register_username"/>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <div class="cols-sm-10">
+                                        <div class="">
+                                            <span class="input-group-addon pull-left">
+                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                            </span>
+                                            <select ng-model="authcfService.auth_register_partySelected" class="form-control"
+                                                    ng-options="item for item in authcfService.auth_register_party"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="">
+                                        <span class="input-group-addon pull-left">
+                                            <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="password" class="form-control" placeholder="Password" ng-model="authcfService.auth_register_password"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <button type="button" class="btn btn-success btn-lg btn-block login-button"
+                                        ng-click="doRegister()">
+                                    <i class="fa fa-car" aria-hidden="true"></i>
+                                    Register
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg btn-block login-button"
+                                        ng-click="goToLogin()">
+                                    Back to Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Reset Section -->
+                <div class="row main" ng-show="authcfService.auth_current_view == 'reset'">
+                    <div class="panel-heading">
+                        <div class="panel-title text-center">
+                            <h1 class="title">
+                                <img ng-src="./img/Ferrari-logo-sm.png" height="260"/></h1>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="main-login main-center">
+                        <form class="form-horizontal" method="post" action="#">
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="">
+                                        <span class="input-group-addon pull-left">
+                                            <i class="fa fa-envelope fa" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Enter your Email" ng-model="authcfService.auth_reset_username"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <button type="button" class="btn btn-success btn-lg btn-block login-button"
+                                        ng-click="doResetPassword()">
+                                    <i class="fa fa-rocket" aria-hidden="true"></i>
+                                    E-mail Password Reset Link
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg btn-block login-button"
+                                        ng-click="goToLogin()">
+                                    Back to Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

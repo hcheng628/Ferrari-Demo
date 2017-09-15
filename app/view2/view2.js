@@ -31,6 +31,23 @@ angular.module('myApp.view2', [
     .controller('RegisterCtrl2', ['$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function ($scope, $location, $modal, usSpinnerService, CFService) {
         $scope.cfService = CFService;
 
+        $scope.customerViewAuthCheck = function () {
+            console.log('customerViewAuthCheck init');
+            if(Parse.User.current()){
+                if(Parse.User.current().get('ferrariDemoParty') == 'Individual' || Parse.User.current().get('ferrariDemoParty') == 'Business'){
+                    $scope.cfService.customerViewAuthCheckFlag =  true;
+                    $scope.cfService.customer_IndOrBusFlag = Parse.User.current().get('ferrariDemoParty');
+
+                }else {
+                    $scope.cfService.customerViewAuthCheckFlag = false;
+                    // Not Auth for this
+                }
+            }else{
+                // Please Login!!!
+                $location.path('auth');
+            }
+        };
+        
         $scope.addPrevAddress = function () {
             $scope.cfService.customer_companyGuarantorAddressPreFlag = 'Y';
         };
@@ -46,8 +63,6 @@ angular.module('myApp.view2', [
         $scope.delPrevAddressInd = function () {
             $scope.cfService.customer_indGuarantorAddressPreFlag = 'N';
         };
-
-
 
 
         $scope.goToConsumerSummaryView = function () {
@@ -98,7 +113,7 @@ angular.module('myApp.view2', [
         };
     })
 
-    .directive('ccBannerCustomer', [ 'CFService',function (CFService) {
+    .directive('ccBannerCustomer', [ 'CFService', '$location', '$timeout',function (CFService, $location,$timeout) {
         return {
             'templateUrl': "view2/templates/banner.html",
             link: function (scope) {
@@ -123,6 +138,28 @@ angular.module('myApp.view2', [
                     scope.cfService.customerView = 'customer_finance';
                     console.log("goToConsumerFinanceView..... " + scope.cfService.customerView);
                 };
+
+                scope.goToConsumerFinanceView = function () {
+                    scope.cfService.customerView = 'customer_finance';
+                    console.log("goToConsumerFinanceView..... " + scope.cfService.customerView);
+                };
+
+                scope.customerLogout = function () {
+                    console.log("customerLogout");
+                    if(Parse.User.current()){
+                        Parse.User.logOut().then(
+                            function (success) {
+                                console.log("Success logOut: " + JSON.stringify(success, null, 2));
+                                $timeout(function(){
+                                    $location.path('auth');
+                                },1);
+                            },
+                            function (error) {
+                                console.error("Failed logOut: " + JSON.stringify(error, null, 2));
+                            });
+                    }
+                };
+
             },
             'scope': {
                 'isLoading': '=',
@@ -320,7 +357,8 @@ angular.module('myApp.view2', [
             'customer_ind': '',
 
 
-
+            'customerViewAuthCheckFlag': false,
+            'customer_IndOrBusFlag': '',
             'customer_': '',
             'us_all_state': ["AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID", "IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"],
             'test': null

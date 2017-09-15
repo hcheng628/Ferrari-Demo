@@ -163,9 +163,10 @@ div.divDisclure:hover {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300 !important;
     min-width: 85%;
+    color: black;
     /*color: #2095F2;*/
-    color: #5cb85c;
-    background-color: white;
+    /*color: #5cb85c;*/
+    background-color: #FAFFBD;
     border-radius: 7px !important;
     padding-left: 20px !important;
 }

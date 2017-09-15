@@ -1,8 +1,7 @@
-<div class="content" ng-controller="RegisterCtrl2">
+<div class="content" ng-controller="RegisterCtrl2"  data-ng-init="customerViewAuthCheck()">
   <div id="loginScreen" class="row col-md-12">
     <form novalidate>
-
-      <div id="appraiseMain" class="container">
+      <div id="appraiseMain" class="container" ng-show="cfService.customerViewAuthCheckFlag">
         <cc-banner-customer></cc-banner-customer>
         <fieldset class="for-panel">
           <div id="appraiseMainView" class="table-responsive" ng-show="cfService.customerView == 'customer_summary'">
@@ -161,7 +160,8 @@
           </div>
 
           <div id="customerProfile" ng-show="cfService.customerView == 'customer_profile'">
-            <div id="customerAccountInfo" class="input-group" style="margin-top: 20px; width: 100%">
+            <!-- Business Profile -->
+            <div id="customerAccountInfo"  ng-show="cfService.customer_IndOrBusFlag == 'Business'" class="input-group" style="margin-top: 20px; width: 100%">
               <table class="table col-lg-12" >
                 <thead>
                 <tr>
@@ -706,11 +706,8 @@
               </div>
             </div>
 
-            <pre style="margin-top: 30px; margin-bottom: 30px">
-              {{ 'Line Separater   Above: Customer-Business @@@###$$$%%%^^^^&&&&***((()))____$$$$$$$@@    Below: Customer-Individual'}}
-            </pre>
-
-            <div id="customerAccountInfoIndv">
+            <!-- Individual Profile -->
+            <div id="customerAccountInfoIndv" ng-show="cfService.customer_IndOrBusFlag == 'Individual'">
               <table class="table col-lg-12" >
                 <thead>
                 <tr>
@@ -1043,8 +1040,6 @@
 
               </table>
             </div>
-
-            </section>
           </div>
         </fieldset>
       </div>

@@ -1,69 +1,10 @@
-<div class="content" ng-controller="RegisterCtrl">
+<div class="content" ng-controller="RegisterCtrl" data-ng-init="appViewAuthCheck()">
     <div id="loginScreen" class="row col-md-12">
         <form novalidate>
-
-            <div class="container" ng-show="cfService.loginFlag != true">
-                <div class="row main">
-                    <div class="panel-heading">
-                        <div class="panel-title text-center">
-                            <h1 class="title">
-                                <img ng-src="./img/Ferrari-logo-sm.png" height="260"/></h1>
-                            <hr/>
-                        </div>
-                    </div>
-                    <div class="main-login main-center">
-                        <form class="form-horizontal" method="post" action="#">
-
-                            <div class="form-group">
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
-                                                                           aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="email" id="email"
-                                               placeholder="Enter your Email"/>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
-                                                                           aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="password" id="password"
-                                               placeholder="Enter your Password"/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group ">
-                                <button type="button" class="btn btn-success btn-lg btn-block login-button"
-                                        ng-click="doLogin()">Log In
-                                </button>
-                            </div>
-
-                            <div class="login-register">
-                                <a href="#">Having trouble logging in?</a>
-                            </div>
-
-                            <div>
-                                <hr>
-                            </div>
-
-                            <div class="form-group ">
-                                <button type="button" class="btn btn-danger btn-lg btn-block login-button">Sign Up
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div id="appraiseMain" class="container" ng-show="cfService.loginFlag == true ">
+            <div id="appraiseMain" class="container" ng-show="appcfService.appViewAuthCheckFlag">
                 <cc-banner></cc-banner>
                 <fieldset class="for-panel">
-                    <div id="appraiseMainView" class="table-responsive" ng-show="cfService.appraiseView == 'app_main'">
+                    <div id="appraiseMainView" class="table-responsive" ng-show="appcfService.appraiseView == 'app_main'">
                         <table class="table">
                             <thead>
                             <tr>
@@ -82,7 +23,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">12345</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">12345</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -99,7 +40,7 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">23456</a>
+                                    <a class="appViewRefId"  ng-click="doAppAppView()">23456</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -116,7 +57,7 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">34567</a>
+                                    <a class="appViewRefId"  ng-click="doAppAppView()">34567</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -133,7 +74,7 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">45678</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">45678</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -149,7 +90,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">56789</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">56789</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -166,7 +107,7 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">23451</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">23451</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -183,7 +124,7 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId" href="#" ng-click="doAppAppView()">34512</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">34512</a>
                                 </td>
                                 <td>Super Appraiser</td>
                                 <td>488 Spider</td>
@@ -204,22 +145,22 @@
                             </div>
                             <div class="col ">
                                 <ul class="pagination hidden-xs pull-right">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
+                                    <li><a>1</a></li>
+                                    <li><a>2</a></li>
+                                    <li><a>3</a></li>
+                                    <li><a>4</a></li>
+                                    <li><a>5</a></li>
                                 </ul>
                                 <ul class="pagination visible-xs pull-right">
-                                    <li><a href="#">«</a></li>
-                                    <li><a href="#">»</a></li>
+                                    <li><a>«</a></li>
+                                    <li><a>»</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div id="appraiseSearchView" ng-show="cfService.appraiseView == 'app_search'">
-                        <form class="form-inline">
+                    <div id="appraiseSearchView" class="form-inline" ng-show="appcfService.appraiseView == 'app_search'">
+                        <form class="">
                             <div class="input-group mb-1 mr-sm-2 mb-sm-0">
                                 <datepicker date-format="yyyy-MM-dd">
                                     <input id="appraiseSearchToDate" type="text"
@@ -369,7 +310,7 @@
 
                                 <tr>
                                     <td>
-                                        <a class="appViewRefId" href="#" ng-click="doAppAppView()">23451</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">23451</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -386,7 +327,7 @@
 
                                 <tr>
                                     <td>
-                                        <a class="appViewRefId" href="#" ng-click="doAppAppView()">34512</a>
+                                        <a class="appViewRefId" ng-click="doAppAppView()">34512</a>
                                     </td>
                                     <td>Super Appraiser</td>
                                     <td>488 Spider</td>
@@ -408,22 +349,22 @@
                                 </div>
                                 <div class="col ">
                                     <ul class="pagination hidden-xs pull-right">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
+                                        <li><a>1</a></li>
+                                        <li><a>2</a></li>
+                                        <li><a>3</a></li>
+                                        <li><a>4</a></li>
+                                        <li><a>5</a></li>
                                     </ul>
                                     <ul class="pagination visible-xs pull-right">
-                                        <li><a href="#">«</a></li>
-                                        <li><a href="#">»</a></li>
+                                        <li><a>«</a></li>
+                                        <li><a>»</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div id="appraiseAppView" ng-show="cfService.appraiseView == 'app_app'">
+                    <div id="appraiseAppView" ng-show="appcfService.appraiseView == 'app_app'">
                         <h4 style="color: white" class="container">Ref ID: 12345</h4>
                         <div class="" style="border: solid 1px white; margin-bottom: 15px;">
                             <h5 style="color: #5cb85c" class="container">Vehicle Information</h5>
@@ -526,14 +467,14 @@
                                 <h5 style="color: white" class="">Upload Photos</h5>
                                 <div class="container">
                                     <div class="col-md-11 ">
-                                        <label ng-if="!cfService.appImage" class="btn btn-default pull-right" style="">
+                                        <label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">
                                                 <span>
                                                     <span> Add New </span>
                                                     <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
                                                 </span>
                                             <input type="file" class="form-control"
                                                    ngf-select style="display: none;"
-                                                   ng-model="cfService.appImage"
+                                                   ng-model="appcfService.appImage"
                                                    ngf-drag-over-class="'dragover'"
                                                    ngf-pattern="'image/*'"
                                                    ngf-accept="'image/*'"
@@ -541,353 +482,352 @@
                                                    ngf-min-height="100">
                                             </input>
                                         </label>
-                                        <label ng-if="cfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                                        <label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
                                             <i class="fa fa-refresh" aria-hidden="true"></i>
                                             Reset
                                         </label>
-                                        <label ng-if="cfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                                        <label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
                                             <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-10">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <img class="img-responsive" style="max-height: 360%" ng-if="cfService.appImage" ngf-thumbnail="cfService.appImage">
+                                        <img class="img-responsive" style="max-height: 360%" ng-if="appcfService.appImage" ngf-thumbnail="appcfService.appImage">
                                     </div>
                                 </div>
 
 
-                                </div>
                             </div>
+                        </div>
 
 
 
-                            <div id="appAppgallery" class="container form-group">
-                                <h5 style="color: white" class="">Photo Gallery</h5>
-                                <!--<div class="container">-->
-                                    <!--<div class="col-md-11 ">-->
-                                        <!--<label ng-if="!cfService.appImage" class="btn btn-default pull-right" style="">-->
-                                                <!--<span>-->
-                                                    <!--<span> Add New </span>-->
-                                                    <!--<i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>-->
-                                                <!--</span>-->
-                                            <!--<input type="file" class="form-control"-->
-                                                   <!--ngf-select style="display: none;"-->
-                                                   <!--ng-model="cfService.appImage"-->
-                                                   <!--ngf-drag-over-class="'dragover'"-->
-                                                   <!--ngf-pattern="'image/*'"-->
-                                                   <!--ngf-accept="'image/*'"-->
-                                                   <!--ngf-max-size="5MB"-->
-                                                   <!--ngf-min-height="100">-->
-                                            <!--</input>-->
-                                        <!--</label>-->
-                                        <!--<label ng-if="cfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >-->
-                                            <!--<i class="fa fa-refresh" aria-hidden="true"></i>-->
-                                            <!--Reset-->
-                                        <!--</label>-->
-                                        <!--<label ng-if="cfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">-->
-                                            <!--<i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload-->
-                                        <!--</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="clearfix" style="margin-top: 10px; margin-bottom: 20px;"></div>-->
+                        <div id="appAppgallery" class="container form-group">
+                            <h5 style="color: white" class="">Photo Gallery</h5>
+                            <!--<div class="container">-->
+                            <!--<div class="col-md-11 ">-->
+                            <!--<label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">-->
+                            <!--<span>-->
+                            <!--<span> Add New </span>-->
+                            <!--<i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>-->
+                            <!--</span>-->
+                            <!--<input type="file" class="form-control"-->
+                            <!--ngf-select style="display: none;"-->
+                            <!--ng-model="appcfService.appImage"-->
+                            <!--ngf-drag-over-class="'dragover'"-->
+                            <!--ngf-pattern="'image/*'"-->
+                            <!--ngf-accept="'image/*'"-->
+                            <!--ngf-max-size="5MB"-->
+                            <!--ngf-min-height="100">-->
+                            <!--</input>-->
+                            <!--</label>-->
+                            <!--<label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >-->
+                            <!--<i class="fa fa-refresh" aria-hidden="true"></i>-->
+                            <!--Reset-->
+                            <!--</label>-->
+                            <!--<label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">-->
+                            <!--<i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload-->
+                            <!--</label>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="clearfix" style="margin-top: 10px; margin-bottom: 20px;"></div>-->
 
-                                <div class="col-md-10">
-                                    <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in cfService.appImageList">
-                                            <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
-                                            <br>
-                                            <button class="btn btn-danger form-control">
+                            <div class="col-md-10">
+                                <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in appcfService.appImageList">
+                                        <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
+                                        <br>
+                                        <button class="btn btn-danger form-control">
                                             <span>
                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
                                             </span>
-                                            </button>
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                        </button>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                            <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
-                                            <br>
-                                            <button class="btn btn-danger form-control">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
+                                        <br>
+                                        <button class="btn btn-danger form-control">
                                             <span>
                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
                                             </span>
-                                            </button>
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                        </button>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                            <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
-                                            <br>
-                                            <button class="btn btn-danger form-control">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
+                                        <br>
+                                        <button class="btn btn-danger form-control">
                                                 <span>
                                                 <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
                                                 </span>
-                                            </button>
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
-
+                                        </button>
                                     </div>
+                                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
                                 </div>
                             </div>
-                            </section>
                         </div>
+                    </div>
 
                 </fieldset>
             </div>
         </form>
     </div>
 
-        <div class="container" style="width: 80%"
-             ng-show="cfService.step1Complete == true && cfService.step2Complete != true">
-            <fieldset class="for-panel">
-                <div class="col-sm-12">
-                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                        <a href="" style="text-decoration: none;color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                        aria-hidden="true"></i></a>
-                    </div>
+    <div class="container" style="width: 80%"
+         ng-show="appcfService.step1Complete == true && appcfService.step2Complete != true">
+        <fieldset class="for-panel">
+            <div class="col-sm-12">
+                <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                    <a href="" style="text-decoration: none;color: #F8C700">FAQ: <i class="fa fa-question-circle"
+                                                                                    aria-hidden="true"></i></a>
                 </div>
-                <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
-                        class="fa fa-battery-half" aria-hidden="true"></i></legend>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-horizontal">
-                            <div id="approvedOffers">
-                                <div class="panel panel-default">
-                                    <div class="panel-body text-center">
-                                        <div>
-                                            <h3 class="" style="margin-top: -5px">
-                                                You're approved for <strong>$809.00</strong>!
-                                            </h3>
-                                            <span style="font-weight: bold;">Choose the payment plan that works best for you. <br> There are no hidden fees!</span>
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 5px; margin-bottom: 5px;"></div>
+            </div>
+            <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
+                    class="fa fa-battery-half" aria-hidden="true"></i></legend>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div id="approvedOffers">
+                            <div class="panel panel-default">
+                                <div class="panel-body text-center">
+                                    <div>
+                                        <h3 class="" style="margin-top: -5px">
+                                            You're approved for <strong>$809.00</strong>!
+                                        </h3>
+                                        <span style="font-weight: bold;">Choose the payment plan that works best for you. <br> There are no hidden fees!</span>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 5px; margin-bottom: 5px;"></div>
 
-                                        <div ng-click="cfService.step2Complete = true"
-                                             class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
-                                            <div class="panel panel-default" style="background-color: #5EE272">
-                                                <a style="text-decoration: none;">
-                                                    <div class="panel-body">
-                                                        <h5>$287.71/mo for 3 months</h5>
-                                                    </div>
-                                                    <div class="panel-footer" style="background-color: #46B657">
+                                    <div ng-click="appcfService.step2Complete = true"
+                                         class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
+                                        <div class="panel panel-default" style="background-color: #5EE272">
+                                            <a style="text-decoration: none;">
+                                                <div class="panel-body">
+                                                    <h5>$287.71/mo for 3 months</h5>
+                                                </div>
+                                                <div class="panel-footer" style="background-color: #46B657">
                                                     <span class="">
                                                         INTEREST (20% APR)<br>
                                                         $27.12
                                                     </span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
 
-                                        <div ng-click="cfService.step2Complete = true"
-                                             class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
-                                            <div class="panel panel-default" style="background-color: #0F8322">
-                                                <a style="text-decoration: none;">
-                                                    <div class="panel-body">
-                                                        <h5>$142.81/mo for 6 months</h5>
-                                                    </div>
-                                                    <div class="panel-footer" style="background-color: #0A5A17">
+                                    <div ng-click="appcfService.step2Complete = true"
+                                         class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
+                                        <div class="panel panel-default" style="background-color: #0F8322">
+                                            <a style="text-decoration: none;">
+                                                <div class="panel-body">
+                                                    <h5>$142.81/mo for 6 months</h5>
+                                                </div>
+                                                <div class="panel-footer" style="background-color: #0A5A17">
                                                         <span class="">
                                                         INTEREST (20% APR)<br>
                                                         $47.86
                                                     </span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
 
-                                        <div ng-click="cfService.step2Complete = true"
-                                             class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
-                                            <div class="panel panel-default" style="background-color: #023D0A">
-                                                <a style="text-decoration: none;">
-                                                    <div class="panel-body">
-                                                        <h5>$74.94/mo for 12 months</h5>
-                                                    </div>
-                                                    <div class="panel-footer" style="background-color: #012B07">
+                                    <div ng-click="appcfService.step2Complete = true"
+                                         class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 offersSelection">
+                                        <div class="panel panel-default" style="background-color: #023D0A">
+                                            <a style="text-decoration: none;">
+                                                <div class="panel-body">
+                                                    <h5>$74.94/mo for 12 months</h5>
+                                                </div>
+                                                <div class="panel-footer" style="background-color: #012B07">
                                                         <span class="">
                                                         INTEREST (20% APR)<br>
                                                         $47.86
                                                     </span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 10px; margin-bottom: 10px;"></div>
 
-                                        <div class="well" style="font-weight: bold; font-size: 120%">
+                                    <div class="well" style="font-weight: bold; font-size: 120%">
                                             <span style="font-size: 130%; font-weight: bold"> TIP <i
                                                     class="fa fa-hand-o-right" aria-hidden="true"></i>
 </span>
-                                            You're prequalified for financing up to <strong>$3,000</strong>, so you can
-                                            add an additional
-                                            <strong>$2,191</strong> to your cart.
-                                        </div>
+                                        You're prequalified for financing up to <strong>$3,000</strong>, so you can
+                                        add an additional
+                                        <strong>$2,191</strong> to your cart.
                                     </div>
-                                    <!-- div class="panel-footer">Panel footer</div-->
                                 </div>
+                                <!-- div class="panel-footer">Panel footer</div-->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
-            </fieldset>
-        </div>
+            </div>
+            <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+        </fieldset>
+    </div>
 
-        <div class="container" style="width: 80%"
-             ng-show="cfService.step2Complete == true && cfService.step3Complete != true">
-            <fieldset class="for-panel">
-                <div class="col-sm-12">
-                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                        <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                         aria-hidden="true"></i></a>
-                    </div>
+    <div class="container" style="width: 80%"
+         ng-show="appcfService.step2Complete == true && appcfService.step3Complete != true">
+        <fieldset class="for-panel">
+            <div class="col-sm-12">
+                <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                    <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
+                                                                                     aria-hidden="true"></i></a>
                 </div>
-                <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
-                        class="fa fa-battery-three-quarters" aria-hidden="true"></i></legend>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-horizontal">
-                            <div>
-                                <div class="panel panel-default">
-                                    <div class="panel-body text-center">
-                                        <div style="margin-top: 30px; margin-bottom: 30px;">
-                                            <h4 class="">
-                                                You're approved for <strong>$809.00</strong>!
-                                            </h4>
-                                            <span style="">Your monthly payments</span>
-                                        </div>
-                                        <div class="clearfix"></div>
+            </div>
+            <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
+                    class="fa fa-battery-three-quarters" aria-hidden="true"></i></legend>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div>
+                            <div class="panel panel-default">
+                                <div class="panel-body text-center">
+                                    <div style="margin-top: 30px; margin-bottom: 30px;">
+                                        <h4 class="">
+                                            You're approved for <strong>$809.00</strong>!
+                                        </h4>
+                                        <span style="">Your monthly payments</span>
+                                    </div>
+                                    <div class="clearfix"></div>
 
-                                        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th class="text-center" colspan="2">
-                                                        $74.94/mo for 12 months
-                                                    </th>
-                                                </tr>
+                                    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th class="text-center" colspan="2">
+                                                    $74.94/mo for 12 months
+                                                </th>
+                                            </tr>
 
-                                                <tr>
-                                                    <td>
-                                                        Interest (20% APR) <br>
-                                                        <span>$90.27</span>
-                                                    </td>
-                                                    <td>
-                                                        Total of payments <br>
-                                                        <span>$899.27</span>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                            <tr>
+                                                <td>
+                                                    Interest (20% APR) <br>
+                                                    <span>$90.27</span>
+                                                </td>
+                                                <td>
+                                                    Total of payments <br>
+                                                    <span>$899.27</span>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
 
-                                        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered">
-                                            <span>Your payments will be due each month starting on or after Aug 8. 2017</span>
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                                    <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered">
+                                        <span>Your payments will be due each month starting on or after Aug 8. 2017</span>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
 
-                                        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered">
-                                            <h5>Set up AutoPay</h5>
-                                            <span>
+                                    <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered">
+                                        <h5>Set up AutoPay</h5>
+                                        <span>
                                                 AutoPay is the easiest way to pay, and it will help you build <br>
                                                 positive history through on-time payments.
                                             </span>
-                                            <br><br>
-                                            <button class="btn btn-success" ng-click="showCreateModal()">Would you like
-                                                to
-                                                enable AutoPay?
-                                            </button>
-                                            <div style="min-height: 15px;"></div>
-                                        </div>
-                                        <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                                        <br><br>
+                                        <button class="btn btn-success" ng-click="showCreateModal()">Would you like
+                                            to
+                                            enable AutoPay?
+                                        </button>
+                                        <div style="min-height: 15px;"></div>
+                                    </div>
+                                    <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
 
-                                        <div class="form-group">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="agree" value="agree"/> Agree with
-                                                        the
-                                                        terms and conditions
-                                                    </label>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="agree" value="agree"/> Agree with
+                                                    the
+                                                    terms and conditions
+                                                </label>
 
-                                                    <div ng-click="showBureauModal()" style="text-decoration: none">
-                                                        <div class="divDisclure" style="text-align: left;">
-                                                            <strong>PLEASE READ BEFORE APPLYING</strong>
-                                                            I have reviewed and agree to the
-                                                            <a href=""> Truth in Lending Disclosure and Loan
-                                                                Agreement </a>
-                                                            and the refund policy provided by
-                                                            ABCCBA, and have received the <a href=""> Credit Score
-                                                            Disclosure</a>.
-                                                        </div>
+                                                <div ng-click="showBureauModal()" style="text-decoration: none">
+                                                    <div class="divDisclure" style="text-align: left;">
+                                                        <strong>PLEASE READ BEFORE APPLYING</strong>
+                                                        I have reviewed and agree to the
+                                                        <a href=""> Truth in Lending Disclosure and Loan
+                                                            Agreement </a>
+                                                        and the refund policy provided by
+                                                        ABCCBA, and have received the <a href=""> Credit Score
+                                                        Disclosure</a>.
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="form-group">
-                                            <div class="col-md-8 col-md-offset-2">
-                                                <button type="submit" class="btn btn-primary"
-                                                        ng-click="cfService.step3Complete = true" value="confirm">
-                                                    Confirm
-                                                    Loan <i class="fa fa-check" aria-hidden="true"></i></button>
-                                            </div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <button type="submit" class="btn btn-primary"
+                                                    ng-click="appcfService.step3Complete = true" value="confirm">
+                                                Confirm
+                                                Loan <i class="fa fa-check" aria-hidden="true"></i></button>
                                         </div>
                                     </div>
-                                    <!-- div class="panel-footer">Panel footer</div-->
                                 </div>
+                                <!-- div class="panel-footer">Panel footer</div-->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
-            </fieldset>
-        </div>
+            </div>
+            <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+        </fieldset>
+    </div>
 
-        <div class="container" style="width: 80%" ng-show="cfService.step3Complete == true">
-            <fieldset class="for-panel">
-                <div class="col-sm-12">
-                    <div class="pull-right" style="font-size: 120%; font-weight: bold">
-                        <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
-                                                                                         aria-hidden="true"></i></a>
-                    </div>
+    <div class="container" style="width: 80%" ng-show="appcfService.step3Complete == true">
+        <fieldset class="for-panel">
+            <div class="col-sm-12">
+                <div class="pull-right" style="font-size: 120%; font-weight: bold">
+                    <a href="" style="text-decoration: none; color: #F8C700">FAQ: <i class="fa fa-question-circle"
+                                                                                     aria-hidden="true"></i></a>
                 </div>
-                <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
-                        class="fa fa-battery-full" aria-hidden="true"></i></legend>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-horizontal">
-                            <div>
-                                <div class="panel panel-default">
-                                    <div class="clearfix" style="margin-top: 45px; margin-bottom: 45px;"></div>
-                                    <div class="panel-body text-center">
-                                        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered text-success">
+            </div>
+            <legend><i class="fa fa-lock" aria-hidden="true"></i> Secure Checkout - Progress: <i
+                    class="fa fa-battery-full" aria-hidden="true"></i></legend>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div>
+                            <div class="panel panel-default">
+                                <div class="clearfix" style="margin-top: 45px; margin-bottom: 45px;"></div>
+                                <div class="panel-body text-center">
+                                    <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 row row-bordered text-success">
                                         <span style="font-size: 160%"><strong>Application Completed <i
                                                 class="fa fa-check-circle" aria-hidden="true"></i></strong></span>
-                                            <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
-                                            <div class="well">
-                                                Your Order Confirmation Number: <strong>23496-65424-68954</strong><br>
-                                                Please use this number when calling or emailing support converning this
-                                                order.
-                                                If you have any questions, please email us at abc@crif.com, or contact
-                                                us at 1-800-3219988.
-                                            </div>
-                                            <span><br>Thank you for using CRIF System</i></span>
+                                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                        <div class="well">
+                                            Your Order Confirmation Number: <strong>23496-65424-68954</strong><br>
+                                            Please use this number when calling or emailing support converning this
+                                            order.
+                                            If you have any questions, please email us at abc@crif.com, or contact
+                                            us at 1-800-3219988.
                                         </div>
-                                        <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                                        <span><br>Thank you for using CRIF System</i></span>
                                     </div>
-                                    <!-- div class="panel-footer">Panel footer</div-->
+                                    <div class="clearfix" style="margin-top: 30px; margin-bottom: 30px;"></div>
                                 </div>
+                                <!-- div class="panel-footer">Panel footer</div-->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix" style="margin-top: 35px; margin-bottom: 35px;"></div>
-            </fieldset>
-            <div class="clearfix" style="margin-top: 200px;"></div>
-        </div>
+            </div>
+            <div class="clearfix" style="margin-top: 35px; margin-bottom: 35px;"></div>
+        </fieldset>
+        <div class="clearfix" style="margin-top: 200px;"></div>
     </div>
+</div>
 </div>
