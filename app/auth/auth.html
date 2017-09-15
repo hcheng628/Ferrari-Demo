@@ -138,7 +138,21 @@
                         </form>
                     </div>
                 </div>
-            </div>
+
+
+                <div class="row pull-right" style="position: absolute; right: 80%; top: 60%;" ng-show="authcfService.auth_current_view == 'login'">
+                    <div class="clearfix" style="margin-top: 20px; margin-bottom: 0px;"></div>
+                        <div class="well well-sm" style="max-width: 300px;">
+                            <span style="font-weight: 300; font-size: 13px;">Demo Quick Login</span>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm form-control" ng-click="authcfService.auth_login_username = 'A.Putyatin@criflending.com'">Customer - Business</button>
+                                <button class="btn btn-warning btn-sm form-control" ng-click="authcfService.auth_login_username = 'v.dimatteo@crif.com'">Customer - Individual</button>
+                                <button class="btn btn-info btn-sm form-control" ng-click="authcfService.auth_login_username = 'H.Cheng@criflending.com'">Appraisal</button>
+                                <button class="btn btn-success btn-sm form-control" ng-click="authcfService.auth_login_username = ''">Ferrari FS Not Implemented Yet :-(</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </form>
     </div>
 </div>
