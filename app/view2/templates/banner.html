@@ -17,10 +17,16 @@
         </ul>
 
         <div class="pull-right">
-            <a class="bannerOrgIcon">
-                <i class="fa fa-user-circle" aria-hidden="true"> Lavazza Di Georgia - Individual </i>
+            <a class="">
+                <span style="color: #5cb85c; margin-right: 5px;">
+                    {{cfService.currentUserData.ferrariDemoParty}}
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </span>
+                <span style="color: #555555; margin-right: 5px;">
+                     {{cfService.currentUserData.username}}
+                </span>
             </a>
-            <a class="bannerOrgIcon pull-right">
+            <a class="pull-right">
                 <button class="btn btn-success btn-sm" ng-click="customerLogout()">
                     <i class="fa fa-sign-out" aria-hidden="true">Logout</i>
                 </button>

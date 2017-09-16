@@ -46,6 +46,8 @@ angular.module('myApp.view1', [
                 if(Parse.User.current().get('ferrariDemoParty') == 'Appraisal'){
                     $scope.appcfService.appViewAuthCheckFlag =  true;
                     console.log('appViewAuthCheckFlag true' + " " + $scope.appcfService.appraiseView);
+                    $scope.appcfService.currentUserData.username = Parse.User.current().get('username');
+                    $scope.appcfService.currentUserData.ferrariDemoParty = 'Appraisal';
                 }else {
                     $scope.appcfService.appViewAuthCheckFlag = false;
                     console.log('appViewAuthCheckFlag false');
@@ -117,6 +119,7 @@ angular.module('myApp.view1', [
             'templateUrl': "view1/templates/banner.html",
             link: function (scope) {
                 scope.appcfService = AppCFService;
+
                 scope.goToAppraiseMainView = function () {
                     scope.appcfService.appraiseView = 'app_main';
                 };
@@ -191,6 +194,7 @@ angular.module('myApp.view1', [
     })
     .service('AppCFService', function ($http, toaster, $q) {
         var self = {
+            'currentUserData': {},
             'appViewAuthCheckFlag': false,
             'loginFlag': false,
             'appImage': null,

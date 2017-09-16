@@ -14,11 +14,13 @@
         </ul>
 
         <div class="pull-right">
-            <a class="bannerOrgIcon">
-                <i class="fa fa-user-circle" aria-hidden="true"> Super Appraiser</i>
-            </a>
+            <span style="color: #5cb85c; margin-right: 5px;">
+                {{ appcfService.currentUserData.ferrariDemoParty}}
+                <i class="fa fa-user-circle" aria-hidden="true"> </i>
+            </span>
+            <span style="color: #555555; margin-right: 5px;"> {{ appcfService.currentUserData.username}} </span>
 
-            <a class="bannerOrgIcon pull-right">
+            <a class="pull-right">
                 <button class="btn btn-success btn-sm" ng-click="userLogout()">
                     <i class="fa fa-sign-out" aria-hidden="true">Logout</i>
                 </button>

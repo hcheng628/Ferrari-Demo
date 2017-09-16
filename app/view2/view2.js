@@ -38,6 +38,9 @@ angular.module('myApp.view2', [
                     $scope.cfService.customerViewAuthCheckFlag =  true;
                     $scope.cfService.customer_IndOrBusFlag = Parse.User.current().get('ferrariDemoParty');
 
+                    $scope.cfService.currentUserData.username = Parse.User.current().get('username');
+                    $scope.cfService.currentUserData.ferrariDemoParty = $scope.cfService.customer_IndOrBusFlag;
+                    console.log(JSON.stringify($scope.appcfService.currentUserData));
                 }else {
                     $scope.cfService.customerViewAuthCheckFlag = false;
                     // Not Auth for this
@@ -132,7 +135,6 @@ angular.module('myApp.view2', [
             }
         };
     })
-
     .directive('ccBannerCustomer', [ 'CFService', '$location', '$timeout',function (CFService, $location,$timeout) {
         return {
             'templateUrl': "view2/templates/banner.html",
@@ -233,6 +235,7 @@ angular.module('myApp.view2', [
     })
     .service('CFService', function ($http, toaster, $q) {
         var self = {
+            'currentUserData': {},
             'loginFlag': false,
             'userParty': 'customer',
             'customerView': 'customer_summary',
