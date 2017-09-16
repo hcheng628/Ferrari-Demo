@@ -10,7 +10,7 @@
               <div class="col-md-4">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <span>Credit Information </span>
+                    <span class="huge">Credit Information </span>
                   </div>
                   <div class="panel-body">
                     <div class="list-group">
@@ -26,119 +26,322 @@
                 </div>
               </div>
 
-              <div class="col-md-8">
-
-                <div style="">
-                  <span></span>
-                  <div id="container-speed" style="width: 300px; height: 210px; float: left"></div>
-                  <div id="container-rpm" style="width: 300px; height: 210px; float: left"></div>
-                </div>
-
-                <script>
-                    var gaugeOptions = {
-                        chart: {
-                            type: 'solidgauge'
-                        },
-                        title: null,
-                        pane: {
-                            center: ['50%', '100%'],
-                            size: '130%',
-                            startAngle: -90,
-                            endAngle: 90,
-                            background: {
-                                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-                                innerRadius: '60%',
-                                outerRadius: '100%',
-                                shape: 'arc'
-                            }
-                        },
-                        tooltip: {
-                            enabled: false
-                        },
-                        // the value axis
-                        yAxis: {
-                            stops: [
-                                [.1, '#DF5353'], // green
-                                [.6, '#DDDF0D'], // yellow
-                                [.8, '#55BF3B'] // red
-                            ],
-                            lineWidth: 0,
-                            minorTickInterval: null,
+              <div class="col-md-8" style="padding-bottom: 20px">
+                <div class="panel panel-yellow" style="width: 100%">
+                  <div class="panel-heading">
+                    <span class="huge">
+                      <i class="fa fa-tachometer fa-3x" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="panel-body" >
+                    <span></span>
+                    <div id="container-speed" style="width: 300px; height: 210px; float: left"></div>
+                    <div id="container-rpm" style="width: 300px; height: 210px; float: left"></div>
+                  </div>
+                  <script>
+                      var gaugeOptions = {
+                          chart: {
+                              type: 'solidgauge'
+                          },
+                          title: null,
+                          pane: {
+                              center: ['50%', '100%'],
+                              size: '130%',
+                              startAngle: -90,
+                              endAngle: 90,
+                              background: {
+                                  backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                                  innerRadius: '60%',
+                                  outerRadius: '100%',
+                                  shape: 'arc'
+                              }
+                          },
+                          tooltip: {
+                              enabled: false
+                          },
+                          credits: {
+                              enabled: false
+                          },
+                          // the value axis
+                          yAxis: {
+                              stops: [
+                                  [.1, '#DF5353'], // green
+                                  [.6, '#DDDF0D'], // yellow
+                                  [.8, '#55BF3B'] // red
+                              ],
+                              lineWidth: 0,
+                              minorTickInterval: null,
 //                            tickAmount: 2,
-                            title: {
-                                y: -90
-                            },
-                            labels: {
-                                y: 16
-                            }
-                        },
-                        plotOptions: {
-                            solidgauge: {
-                                dataLabels: {
-                                    y: 5,
-                                    borderWidth: 0,
-                                    useHTML: true
-                                }
-                            }
-                        }
-                    };
+                              title: {
+                                  y: -90
+                              },
+                              labels: {
+                                  y: 16
+                              }
+                          },
+                          plotOptions: {
+                              solidgauge: {
+                                  dataLabels: {
+                                      y: 5,
+                                      borderWidth: 0,
+                                      useHTML: true
+                                  }
+                              }
+                          }
+                      };
 
-                    // The speed gauge
-                    var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
-                        yAxis: {
-                            min: 0,
-                            max: 100,
-                            title: {
-                                text: 'Utilization'
-                            }
-                        },
-                        credits: {
-                            enabled: true
-                        },
-                        series: [{
-                            name: 'Speed',
-                            data: [85],
-                            dataLabels: {
-                                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                                '<span style="font-size:12px;color:silver">%</span></div>'
-                            },
-                            tooltip: {
-                                valueSuffix: ' %'
-                            }
-                        }]
+                      // The speed gauge
+                      var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
+                          yAxis: {
+                              min: 0,
+                              max: 100,
+                              title: {
+                                  text: 'Utilization'
+                              }
+                          },
+                          credits: {
+                              enabled: false
+                          },
+                          series: [{
+                              name: 'Speed',
+                              data: [85],
+                              dataLabels: {
+                                  format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                                  ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+                                  '<span style="font-size:12px;color:silver">%</span></div>'
+                              },
+                              tooltip: {
+                                  valueSuffix: ' %'
+                              }
+                          }]
 
-                    }));
+                      }));
 
-                    // The RPM gauge
-                    var chartRpm = Highcharts.chart('container-rpm', Highcharts.merge(gaugeOptions, {
-                        yAxis: {
-                            min: 550,
-                            max: 850,
-                            title: {
-                                text: 'FICO Score'
-                            }
-                        },
-                        series: [{
-                            name: 'RPM',
-                            data: [760],
-                            dataLabels: {
-                                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
-                                '<span style="font-size:12px;color:silver"></span></div>'
-                            },
-                            tooltip: {
-                                valueSuffix: ''
-                            }
-                        }]
+                      // The RPM gauge
+                      var chartRpm = Highcharts.chart('container-rpm', Highcharts.merge(gaugeOptions, {
+                          yAxis: {
+                              min: 550,
+                              max: 850,
+                              title: {
+                                  text: 'FICO Score'
+                              }
+                          },
+                          series: [{
+                              name: 'RPM',
+                              data: [760],
+                              dataLabels: {
+                                  format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                                  ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+                                  '<span style="font-size:12px;color:silver"></span></div>'
+                              },
+                              tooltip: {
+                                  valueSuffix: ''
+                              }
+                          }]
 
-                    }));
-                    $('.highcharts-credits').remove();
-                </script>
+                      }));
+                      //                    $('.highcharts-credits').remove();
+                  </script>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div style="">
 
               </div>
             </div>
 
+            <div class="col-md-12">
+              <div class="col-md-4">
+                <div class="panel panel-green">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+                          <span>Payments </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="list-group">
+                      <a class="list-group-item">Current Balance</a>
+                      <a class="list-group-item">Payment Due</a>
+                      <a class="list-group-item">Date Due</a>
+                      <a class="list-group-item"> </a>
+                      <a class="list-group-item">Last Payment</a>
+                      <a class="list-group-item">Last Payment Date</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <i class="fa fa-support fa-3x"></i>
+                      </div>
+                        <div class="huge pull-right" style="margin-right: 5px !important;">Collateral Status</div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Appraisal</th>
+                        <th>Inspection</th>
+                        <th>Insurance</th>
+                        <th>View More</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>BMW</td>
+                        <td>620i</td>
+                        <td>2015</td>
+                        <td>Pending</td>
+                        <td>Pending</td>
+                        <td>
+                          <i class="fa fa-check-square" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Jeep</td>
+                        <td>Grand Cherokee</td>
+                        <td>2004</td>
+                        <td>
+                          <i class="fa fa-check-square" aria-hidden="true"></i>
+                        </td>
+                        <td>Pending</td>
+                        <td>
+                          <i class="fa fa-check-square" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Volvo</td>
+                        <td>S60 R</td>
+                        <td>2008</td>
+                        <td>
+                          <i class="fa fa-check-square" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                          <i class="fa fa-check-square" aria-hidden="true"></i>
+                        </td>
+                        <td>Pending</td>
+                        <td>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="col-md-4">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-backward fa-3x fa-rotate-90" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+                          <span>Credit Line Increase Request</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <form class="form-group">
+                      <table class="table">
+                        <tr>
+                          <td>
+                          <span style="color: #555555">Current Credit Line:</span>
+                          <input type="text" class="form-control" value="300,000.00" readonly>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span style="color: #555555">Requested Increased:</span>
+                            <input type="text" class="form-control" value="100,000.00">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <button class="btn btn-success">Request</button>
+                            <button class="btn btn-danger">Cancel</button>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="panel panel-yellow" style="width: 100%">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+                      </div>
+                      <div class="huge pull-right" style="margin-right: 5px !important;">Funds Withdrawal Request</div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <table class="table">
+                      <tr>
+                        <td>
+                          Current Credit Line:
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="300,000.00" readonly>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Current Balance:
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="5,000.00" readonly>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Request Withdrawal:
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="10,000.00">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-success">Request</button>
+                        </td>
+                        <td>
+                          <button class="btn btn-danger">Cancel</button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
           </div>
 
           <div id="customerProfile" ng-show="cfService.customerView == 'customer_profile'">
