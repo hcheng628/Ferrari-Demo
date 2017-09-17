@@ -7,6 +7,14 @@
     min-width: 100%;
 }
 
+#customerAppgallery .img-thumbnail {
+    min-width: 100%;
+}
+
+#customerAppgallery button {
+    min-width: 100%;
+}
+
 
 /* Gallery  End */
 /* app css stylesheet */
@@ -379,10 +387,11 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 
 .appViewRefId{
     font-weight: 700;
+    cursor: pointer;
 }
 
 .appViewRefId:hover{
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 .appThumbnailView{

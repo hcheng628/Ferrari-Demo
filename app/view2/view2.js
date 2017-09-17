@@ -191,10 +191,10 @@ angular.module('myApp.view2', [
             console.log("goToConsumerFinanceView..... ");
         };
 
-        $scope.doAppAppView = function () {
-            console.log("doAppAppView.....");
-            $scope.cfService.appraiseView = "app_app";
-        };
+        // $scope.doAppAppView = function () {
+        //     console.log("doAppAppView.....");
+        //     $scope.cfService.appraiseView = "app_app";
+        // };
 
         $scope.appUploadImg = function() {
             console.log("uploagImg $scope.cfService.appImage: " + $scope.cfService.appImage );
@@ -207,6 +207,10 @@ angular.module('myApp.view2', [
 
         $scope.appResetImg = function() {
             $scope.cfService.appImage = null;
+        };
+
+        $scope.docustomerAppAppView = function () {
+            $scope.cfService.customerView = "customer_app";
         };
     }])
     .controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
@@ -353,7 +357,6 @@ angular.module('myApp.view2', [
                             });
                     }
                 };
-
             },
             'scope': {
                 'isLoading': '=',
@@ -412,7 +415,7 @@ angular.module('myApp.view2', [
         };
     })
     .service('CFService', function ($http, toaster, $q) {
-        // customer_profile customer_summary
+        // customer_profile customer_summary customer_vehicle customer_app
         var self = {
             'currentUserData': {},
             'loginFlag': false,

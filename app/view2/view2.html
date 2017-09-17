@@ -2072,7 +2072,6 @@
                 </div>
               </div>
           </div>
-
             <div class="col-md-12" style="padding-bottom: 20px">
               <div class="panel panel-red" style="width: 100%">
                 <div class="panel-heading">
@@ -2125,8 +2124,365 @@
                 </div>
               </div>
             </div>
-
           </div>
+
+            <div id="customerVehiclesMainView" class="table-responsive" ng-show="cfService.customerView == 'customer_vehicle'">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>CarID</th>
+                  <th>Make</th>
+                  <th>Model</th>
+                  <th>Year</th>
+                  <th>VIN</th>
+                  <th>Status</th>
+                  <th>New/Used</th>
+                  <th>Race</th>
+                  <th>Location</th>
+                  <th>Appraisal</th>
+                  <th>Insured</th>
+                  <th>Inspection</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <a class="appViewRefId" ng-click="docustomerAppAppView()">12345</a>
+                  </td>
+                  <td>Ferrari</td>
+                  <td>488 Spider</td>
+                  <td>2016</td>
+                  <td>19UYA31581L000333</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Available
+                    </span>
+                  </td>
+                  <td>New</td>
+                  <td>
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  </td>
+                  <td>Houston, TX</td>
+                  <td>09/04/2015</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    Yes
+                    </span>
+                  </td>
+                  <td>03/06/2016</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <a class="appViewRefId" ng-click="docustomerAppAppView()">12345</a>
+                  </td>
+                  <td>BMW</td>
+                  <td>650i</td>
+                  <td>2012</td>
+                  <td>19UYA31581L312333</td>
+                  <td>
+                    <span style="color: #555555">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Unavailable
+                    </span>
+                  </td>
+                  <td>New</td>
+                  <td>
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  </td>
+                  <td>Tampa, FL</td>
+                  <td>09/04/2016</td>
+                  <td>
+                    <span style="color: #555555">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    No
+                    </span>
+                  </td>
+                  <td>03/03/2016</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <a class="appViewRefId" ng-click="docustomerAppAppView()">12345</a>
+                  </td>
+                  <td>Jeep</td>
+                  <td>Commander</td>
+                  <td>2008</td>
+                  <td>19UYACD581L000333</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Available
+                    </span>
+                  </td>
+                  <td>Used</td>
+                  <td>
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                  </td>
+                  <td>Houston, TX</td>
+                  <td>09/04/2013</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    Yes
+                    </span>
+                  </td>
+                  <td>03/06/2014</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <button class="btn btn-success">
+                      <i class="fa fa-plus-square" aria-hidden="true"></i>
+                      Add Another Vehicle</button>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="">
+                <div class="col ">Page 1 of 5
+                </div>
+                <div class="col ">
+                  <ul class="pagination hidden-xs pull-right">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                  </ul>
+                  <ul class="pagination visible-xs pull-right">
+                    <li><a>«</a></li>
+                    <li><a>»</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          <div id="customerVehicleAppView" ng-show="cfService.customerView == 'customer_app'">
+            <h4 style="color: white" class="container">Your Car ID: 12345</h4>
+            <div class="" style="border: solid 1px white; margin-bottom: 15px;">
+              <h5 style="color: #5cb85c" class="container">Vehicle Information</h5>
+              <table id="customerAppVehicleInfo" class="table">
+                <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Make</th>
+                  <th>Year</th>
+                  <th>VIN</th>
+                  <th>Engine Number</th>
+                  <th>New/Used</th>
+                  <th>Race</th>
+                  <th>Mileage</th>
+                  <th>Exterior Color</th>
+                  <th>Exterior Color</th>
+                  <th>City</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>488 Spider</td>
+                  <td>Ferrari</td>
+                  <td>2016</td>
+                  <td>19UYA31581L000333</td>
+                  <td>JIAHTS382SJ</td>
+                  <td>New</td>
+                  <td>
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  </td>
+                  <td>56,000</td>
+                  <td>Red</td>
+                  <td>Black</td>
+                  <td>Houston, TX</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Available
+                    </span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="" style="border: solid 1px white; margin-bottom: 15px;">
+              <h5 style="color: #5cb85c" class="container">Insurance Information</h5>
+              <table id="customerVehInsuranceInfo" class="table">
+                <tbody>
+                <tr>
+                  <td>Insurance Company:</td>
+                  <td>Geico</td>
+                  <td>Effective Date:</td>
+                  <td>06/15/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-success">Upload New Police Information</button>
+                  </td>
+                  <td></td>
+                  <td>Insured Amount:</td>
+                  <td>$80,000.00</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="" style="border: solid 1px white; margin-bottom: 15px;">
+              <h5 style="color: #5cb85c" class="container">Inspection Information</h5>
+              <table id="customerVehInspectionInfo" class="table">
+                <tbody>
+                <tr>
+                  <td>Inspection Date:</td>
+                  <td>02/15/2017</td>
+                  <td>Inspection Status:</td>
+                  <td>Complete</td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-success">Upload Report</button>
+                  </td>
+                  <td></td>
+                  <td>Inspection Fee:</td>
+                  <td>$900.00</td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn btn-danger">
+                       &nbsp &nbsp &nbsp &nbsp Review &nbsp &nbsp &nbsp &nbsp
+                    </button>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="" style="border: solid 1px white; margin-bottom: 15px;">
+              <h5 style="color: #5cb85c" class="container">Appraisal Information</h5>
+              <table id="customerAppAppraisalInfo" class="table">
+                <thead>
+                <tr>
+                  <th>Appraisal Date</th>
+                  <th>Appraisal Status</th>
+                  <th>Appraisal Fee</th>
+                  <th>Amount</th>
+                  <th>Overall Condition</th>
+                  <th>Value Adjustments</th>
+                  <th>Report</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>09-10-2017</td>
+                  <td>Pending</td>
+                  <td>$ 599.99</td>
+                  <td>$ 75,000.00</td>
+                  <td>Excellent</td>
+                  <td>$9,000.00</td>
+                  <td>
+                    <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
+                    <br>
+                    <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+              <div id="customerUploadPhotos" class="container form-group">
+                <h5 style="color: #5cb85c" class="">Upload Photos</h5>
+                <div class="container">
+                  <div class="col-md-11 ">
+                    <label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">
+                                                <span>
+                                                    <span> Add New </span>
+                                                    <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
+                                                </span>
+                      <input type="file" class="form-control"
+                             ngf-select style="display: none;"
+                             ng-model="appcfService.appImage"
+                             ngf-drag-over-class="'dragover'"
+                             ngf-pattern="'image/*'"
+                             ngf-accept="'image/*'"
+                             ngf-max-size="5MB"
+                             ngf-min-height="100">
+                      </input>
+                    </label>
+                    <label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                      Reset
+                    </label>
+                    <label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="col-md-6 col-md-offset-3">
+                    <img class="img-responsive" style="max-height: 360%" ng-if="appcfService.appImage" ngf-thumbnail="appcfService.appImage">
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+            <div id="customerAppgallery" class="container form-group">
+              <h5 style="color: #5cb85c" class="">Photo Gallery</h5>
+              <div class="col-md-10">
+                <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in appcfService.appImageList">
+                    <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
+                    <br>
+                    <button class="btn btn-danger form-control">
+                                            <span>
+                                               <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                            </span>
+                    </button>
+                  </div>
+                  <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
+                    <br>
+                    <button class="btn btn-danger form-control">
+                                            <span>
+                                               <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                            </span>
+                    </button>
+                  </div>
+                  <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
+                    <br>
+                    <button class="btn btn-danger form-control">
+                                                <span>
+                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                                </span>
+                    </button>
+                  </div>
+                  <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </fieldset>
       </div>
     </form>
