@@ -1,6 +1,4 @@
 'use strict';
-
-// Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
   '720kb.datepicker',
@@ -14,13 +12,10 @@ angular.module('myApp', [
     console.log("Init App");
     Parse.initialize("appidCheng628");
     Parse.serverURL = 'https://parse-server-cheng.herokuapp.com/parse';
-
     //
-
     //
 })
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-
   $routeProvider.otherwise({redirectTo: '/auth'});
 }]);

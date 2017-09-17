@@ -1,7 +1,6 @@
 'use strict';
 angular.module('myApp.auth', [
     'ngRoute',
-    'mgcrea.ngStrap',
     'ngAnimate',
     'toaster',
     'angularSpinner',
@@ -10,11 +9,11 @@ angular.module('myApp.auth', [
     'ui.mask',
     'ngFileUpload'
 ])
-    .run([
-        'bootstrap3ElementModifier',
-        function (bootstrap3ElementModifier) {
-            bootstrap3ElementModifier.enableValidationStateIcons(true);
-        }])
+    // .run([
+    //     'bootstrap3ElementModifier',
+    //     function (bootstrap3ElementModifier) {
+    //         bootstrap3ElementModifier.enableValidationStateIcons(true);
+    //     }])
 
     .config(['$routeProvider', 'laddaProvider', function ($routeProvider, laddaProvider) {
         laddaProvider.setOption({
@@ -26,7 +25,7 @@ angular.module('myApp.auth', [
             controller: 'RegisterCtrlAuth'
         });
     }])
-    .controller('RegisterCtrlAuth', ['$scope', '$location', '$modal', 'usSpinnerService', 'AuthCFService', '$timeout', function ($scope, $location, $modal, usSpinnerService, AuthCFService, $timeout) {
+    .controller('RegisterCtrlAuth', ['$scope', '$location', 'usSpinnerService', 'AuthCFService', '$timeout', function ($scope, $location, usSpinnerService, AuthCFService, $timeout) {
         $scope.authcfService = AuthCFService;
 
         $scope.goToLogin = function () {

@@ -2,20 +2,21 @@
 
 angular.module('myApp.view2', [
     'ngRoute',
-    'mgcrea.ngStrap',
     'ngAnimate',
     'toaster',
     'angularSpinner',
     'angular-ladda',
     'jcs-autoValidate',
     'ui.mask',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ui.bootstrap',
+    'ngSanitize'
 ])
-    .run([
-        'bootstrap3ElementModifier',
-        function (bootstrap3ElementModifier) {
-            bootstrap3ElementModifier.enableValidationStateIcons(true);
-    }])
+    // .run([
+    //     'bootstrap3ElementModifier',
+    //     function (bootstrap3ElementModifier) {
+    //         bootstrap3ElementModifier.enableValidationStateIcons(true);
+    // }])
 
     .config(['$routeProvider', 'laddaProvider', function ($routeProvider, laddaProvider) {
 
@@ -28,9 +29,129 @@ angular.module('myApp.view2', [
             controller: 'RegisterCtrl2'
         });
     }])
-    .controller('RegisterCtrl2', ['$scope', '$location', '$modal', 'usSpinnerService', 'CFService', function ($scope, $location, $modal, usSpinnerService, CFService) {
-        $scope.cfService = CFService;
+    .controller('RegisterCtrl2', ['$scope', '$location', '$document', '$uibModal', 'usSpinnerService', 'CFService', '$log', function ($scope, $location, $document, $uibModal, usSpinnerService, CFService, $log) {
+        //
+        var $ctrl = this;
+        $ctrl.items = ['item1', 'item2', 'item3'];
+        $ctrl.animationsEnabled = true;
+        // $ctrl.openI = function (size, parentSelector) {
+        //     var parentElem = parentSelector ?
+        //         angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        //     var modalInstance = $uibModal.open({
+        //         animation: $ctrl.animationsEnabled,
+        //         ariaLabelledBy: 'modal-title',
+        //         ariaDescribedBy: 'modal-body',
+        //         templateUrl: 'myModalContent.html',
+        //         controller: 'ModalInstanceCtrl',
+        //         controllerAs: '$ctrl',
+        //         size: size,
+        //         appendTo: parentElem,
+        //         resolve: {
+        //             items: function () {
+        //                 return $ctrl.items;
+        //             }
+        //         }
+        //     });
+        //
+        //     modalInstance.result.then(function (selectedItem) {
+        //         $ctrl.selected = selectedItem;
+        //     }, function () {
+        //         $log.info('Modal dismissed at: ' + new Date());
+        //     });
+        // };
 
+        // $ctrl.openW = function (size, parentSelector) {
+        //     var parentElem = parentSelector ?
+        //         angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        //     var modalInstance = $uibModal.open({
+        //         animation: $ctrl.animationsEnabled,
+        //         ariaLabelledBy: 'modal-title',
+        //         ariaDescribedBy: 'modal-body',
+        //         templateUrl: 'myModalContent.html',
+        //         controller: 'ModalInstanceCtrl',
+        //         controllerAs: '$ctrl',
+        //         size: size,
+        //         appendTo: parentElem,
+        //         resolve: {
+        //             items: function () {
+        //                 return $ctrl.items;
+        //             }
+        //         }
+        //     });
+        //
+        //     modalInstance.result.then(function (selectedItem) {
+        //         $ctrl.selected = selectedItem;
+        //     }, function () {
+        //         $log.info('Modal dismissed at: ' + new Date());
+        //     });
+        // };
+
+        $ctrl.openComponentModalI = function () {
+            var modalInstance = $uibModal.open({
+                animation: $ctrl.animationsEnabled,
+                component: 'modalComponentI',
+                resolve: {
+                    items: function () {
+                        return $ctrl.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $ctrl.selected = selectedItem;
+            }, function () {
+                $log.info('modal-component dismissed at: ' + new Date());
+            });
+        };
+
+        $ctrl.openComponentModalW = function () {
+            var modalInstance = $uibModal.open({
+                animation: $ctrl.animationsEnabled,
+                component: 'modalComponentW',
+                resolve: {
+                    items: function () {
+                        return $ctrl.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $ctrl.selected = selectedItem;
+            }, function () {
+                $log.info('modal-component dismissed at: ' + new Date());
+            });
+        };
+
+        // $ctrl.openMultipleModals = function () {
+        //     $uibModal.open({
+        //         animation: $ctrl.animationsEnabled,
+        //         ariaLabelledBy: 'modal-title-bottom',
+        //         ariaDescribedBy: 'modal-body-bottom',
+        //         templateUrl: 'stackedModal.html',
+        //         size: 'sm',
+        //         controller: function($scope) {
+        //             $scope.name = 'bottom';
+        //         }
+        //     });
+        //
+        //     $uibModal.open({
+        //         animation: $ctrl.animationsEnabled,
+        //         ariaLabelledBy: 'modal-title-top',
+        //         ariaDescribedBy: 'modal-body-top',
+        //         templateUrl: 'stackedModal.html',
+        //         size: 'sm',
+        //         controller: function($scope) {
+        //             $scope.name = 'top';
+        //         }
+        //     });
+        // };
+
+        // $ctrl.toggleAnimation = function () {
+        //     $ctrl.animationsEnabled = !$ctrl.animationsEnabled;
+        // };
+        //
+
+        $scope.cfService = CFService;
         $scope.customerViewAuthCheck = function () {
             console.log('customerViewAuthCheck init');
             if(Parse.User.current()){
@@ -40,7 +161,7 @@ angular.module('myApp.view2', [
 
                     $scope.cfService.currentUserData.username = Parse.User.current().get('username');
                     $scope.cfService.currentUserData.ferrariDemoParty = $scope.cfService.customer_IndOrBusFlag;
-                    console.log(JSON.stringify($scope.appcfService.currentUserData));
+                    console.log(JSON.stringify($scope.cfService.currentUserData));
                 }else {
                     $scope.cfService.customerViewAuthCheckFlag = false;
                     // Not Auth for this
@@ -121,10 +242,74 @@ angular.module('myApp.view2', [
         $scope.appResetImg = function() {
             $scope.cfService.appImage = null;
         };
-
-
-
     }])
+    .controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
+        var $ctrl = this;
+        $ctrl.items = items;
+        $ctrl.selected = {
+            item: $ctrl.items[0]
+        };
+
+        $ctrl.ok = function () {
+            $uibModalInstance.close($ctrl.selected.item);
+        };
+
+        $ctrl.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
+    })
+    .component('modalComponentI', {
+    templateUrl: 'myModalContentI.html',
+    bindings: {
+        resolve: '<',
+        close: '&',
+        dismiss: '&'
+    },
+    controller: function () {
+        var $ctrl = this;
+
+        $ctrl.$onInit = function () {
+            $ctrl.items = $ctrl.resolve.items;
+            $ctrl.selected = {
+                item: $ctrl.items[0]
+            };
+        };
+
+        $ctrl.ok = function () {
+            $ctrl.close({$value: $ctrl.selected.item});
+        };
+
+        $ctrl.cancel = function () {
+            $ctrl.dismiss({$value: 'cancel'});
+        };
+    }
+})
+    .component('modalComponentW', {
+        templateUrl: 'myModalContentW.html',
+        bindings: {
+            resolve: '<',
+            close: '&',
+            dismiss: '&'
+        },
+        controller: function () {
+            var $ctrl = this;
+
+            $ctrl.$onInit = function () {
+                $ctrl.items = $ctrl.resolve.items;
+                $ctrl.selected = {
+                    item: $ctrl.items[0]
+                };
+            };
+
+            $ctrl.ok = function () {
+                $ctrl.close({$value: $ctrl.selected.item});
+            };
+
+            $ctrl.cancel = function () {
+                $ctrl.dismiss({$value: 'cancel'});
+            };
+        }
+    })
     .directive('ccSpinner', function () {
         return {
             'restrict': 'AEC',
@@ -233,7 +418,14 @@ angular.module('myApp.view2', [
             }
         };
     })
+    .filter('array', function() {
+        return function(input) {
+            //console.log(input);
+            return input.join(', ');
+        };
+    })
     .service('CFService', function ($http, toaster, $q) {
+        // customer_profile customer_summary
         var self = {
             'currentUserData': {},
             'loginFlag': false,

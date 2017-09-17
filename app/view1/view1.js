@@ -2,7 +2,6 @@
 
 angular.module('myApp.view1', [
     'ngRoute',
-    'mgcrea.ngStrap',
     'ngAnimate',
     'toaster',
     'angularSpinner',
@@ -11,13 +10,16 @@ angular.module('myApp.view1', [
     'ui.mask',
     'ngFileUpload'
 ])
-    .run([
-        'bootstrap3ElementModifier',
-        function (bootstrap3ElementModifier) {
-            bootstrap3ElementModifier.enableValidationStateIcons(true);
-            // Parse.initialize("appidCheng628");
-            // Parse.serverURL = 'https://parse-server-cheng.herokuapp.com/parse';
-        }])
+    .run(
+        // [
+        // 'bootstrap3ElementModifier',
+        // function (bootstrap3ElementModifier) {
+        //     bootstrap3ElementModifier.enableValidationStateIcons(true);
+        //     // Parse.initialize("appidCheng628");
+        //     // Parse.serverURL = 'https://parse-server-cheng.herokuapp.com/parse';
+        // }
+        // ]
+    )
 
     .config(['$routeProvider', 'laddaProvider', function ($routeProvider, laddaProvider) {
 
@@ -30,7 +32,7 @@ angular.module('myApp.view1', [
             controller: 'RegisterCtrl'
         });
     }])
-    .controller('RegisterCtrl', ['$scope', '$location', '$modal', 'usSpinnerService', 'AppCFService', '$timeout', function ($scope, $location, $modal, usSpinnerService, AppCFService, $timeout) {
+    .controller('RegisterCtrl', ['$scope', '$location', 'usSpinnerService', 'AppCFService', '$timeout', function ($scope, $location, usSpinnerService, AppCFService, $timeout) {
         $scope.appcfService = AppCFService;
         // $scope.$watch('app_ssn', function(val, oldVal) {
         //     console.log('app_ssn= \'' + val + '\'');
@@ -57,31 +59,6 @@ angular.module('myApp.view1', [
                 // Please Login!!!
                 $location.path('auth');
             }
-        };
-        
-        $scope.showBureauModal = function () {
-            $scope.createModal = $modal({
-                scope: $scope,
-                template: 'view1/templates/modal.bureau.tpl.html',
-                show: true
-            });
-        };
-
-        $scope.showCreateModal = function () {
-            $scope.createModal = $modal({
-                scope: $scope,
-                template: 'view1/templates/modal.offers.tpl.html',
-                show: true
-            });
-        };
-
-        $scope.showAutoPayModal = function () {
-            $scope.createModal.hide();
-            $scope.createModal = $modal({
-                scope: $scope,
-                template: 'view1/templates/modal.autopay.tpl.html',
-                show: true
-            });
         };
 
         $scope.doAppAppView = function () {

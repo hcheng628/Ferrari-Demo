@@ -1,6 +1,81 @@
-<div class="content" ng-controller="RegisterCtrl2"  data-ng-init="customerViewAuthCheck()">
+<div>
+<div ng-controller="RegisterCtrl2 as $ctrl" class="modal-demo">
+  <script type="text/ng-template" id="myModalContentI.html">
+    <div class="modal-header">
+      <h3 style="color: #5cb85c" class="modal-title" id="modal-title">
+        <i class="fa fa-backward fa-rotate-90" aria-hidden="true"></i>
+        Increase Credit Line
+      </h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+
+      <table class="table">
+        <tr>
+          <td>
+            <span style="color: #555555">Current Credit Line:</span>
+            <input type="text" class="form-control" value="300,000.00" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color: #555555">Requested Increased:</span>
+            <input type="text" class="form-control" value="100,000.00">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Request</button>
+      <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="myModalContentW.html">
+    <div class="modal-header">
+      <h3 style="color: #5cb85c" class="modal-title" id="modal-titleW">
+        <i class="fa fa-money" aria-hidden="true"></i>Withdraw Funds
+      </h3>
+    </div>
+    <div class="modal-body" id="modal-bodyW">
+
+      <table class="table">
+        <tr>
+          <td>
+            Current Credit Line:
+          </td>
+          <td>
+            <input type="text" class="form-control" value="300,000.00" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Current Balance:
+          </td>
+          <td>
+            <input type="text" class="form-control" value="5,000.00" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Request Withdrawal:
+          </td>
+          <td>
+            <input type="text" class="form-control" value="10,000.00">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Request</button>
+      <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+  </script>
+</div>
+
+<div class="content" ng-controller="RegisterCtrl2 as $ctrl"  data-ng-init="customerViewAuthCheck()">
   <div id="loginScreen" class="row col-md-12">
     <form novalidate>
+
       <div id="appraiseMain" class="container" ng-show="cfService.customerViewAuthCheckFlag">
         <cc-banner-customer></cc-banner-customer>
         <fieldset class="for-panel">
@@ -8,32 +83,71 @@
 
             <div class="col-md-12">
               <div class="col-md-4">
-                <div class="panel panel-default">
+                <div class="panel panel-green">
                   <div class="panel-heading">
-                    <span class="huge">Credit Information </span>
+                    <i class="fa fa-fighter-jet fa-3x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Quick Links</span>
                   </div>
                   <div class="panel-body">
                     <div class="list-group">
-                      <a class="list-group-item">FICO Score</a>
-                      <a class="list-group-item">Credit Line</a>
-                      <a class="list-group-item">Interest Rate</a>
-                      <a class="list-group-item">Outstanding</a>
-                      <a class="list-group-item">Utilization Rate</a>
-                      <a class="list-group-item">Request Credit Line Increase</a>
-                      <a class="list-group-item">Request Funds Withdrawal</a>
+                      <button style="margin-bottom: 10px;" class="btn btn-success list-group-item list-group-item-success" ng-click="$ctrl.openComponentModalI()">
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                        <span>Increase Credit Line</span>
+                      </button>
+                      <button style="margin-bottom: 10px;" class="btn btn-success list-group-item list-group-item-success" ng-click="$ctrl.openComponentModalW()">
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                        <span>Withdraw Funds</span>
+                      </button>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-8" style="padding-bottom: 20px">
-                <div class="panel panel-yellow" style="width: 100%">
-                  <div class="panel-heading">
-                    <span class="huge">
-                      <i class="fa fa-tachometer fa-3x" aria-hidden="true"></i>
-                    </span>
+                  <div class="panel panel-green">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                          <div class="huge">
+                            <span>Payments </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="list-group">
+                        <a class="list-group-item">Current Balance: <span class="pull-right">$5,000,000.00</span></a>
+                        <a class="list-group-item">Payment Due: <span class="pull-right">$25,000.00</span></a>
+                        <a class="list-group-item">Date Due: <span class="pull-right">10/15/2017</span></a>
+                        <a class="list-group-item">Last Payment: <span class="pull-right">$25,000.00</span></a>
+                        <a class="list-group-item">Last Payment Date: <span class="pull-right">09/15/2017</span></a>
+                      </div>
+                    </div>
                   </div>
+              </div>
+              <div class="col-md-8" style="padding-bottom: 20px">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-tachometer fa-3x" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+                          <span>Credit Information</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="panel-body" >
+                    <div class="list-group">
+                      <a class="list-group-item">FICO Score: <span class="pull-right" style="font-weight: bold">760</span></a>
+                      <a class="list-group-item">Credit Line: <span class="pull-right" style="font-weight: bold">$15,500,000.00</span></a>
+                      <a class="list-group-item">Interest Rate: <span class="pull-right" style="font-weight: bold">2.96%</span></a>
+                      <a class="list-group-item">Outstanding: <span class="pull-right" style="font-weight: bold">$5,000,000.00</span></a>
+                      <a class="list-group-item">Utilization Rate: <span class="pull-right" style="font-weight: bold">31.3%</span></a>
+                    </div>
                     <span></span>
                     <div id="container-speed" style="width: 300px; height: 210px; float: left"></div>
                     <div id="container-rpm" style="width: 300px; height: 210px; float: left"></div>
@@ -106,9 +220,9 @@
                               name: 'Speed',
                               data: [85],
                               dataLabels: {
-                                  format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                                  ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                                  '<span style="font-size:12px;color:silver">%</span></div>'
+                                  format: '<div style="text-align:center"><span style="display: inline;font-size:25px;color:' +
+                                  ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span>' +
+                                  '<span style="font-size:25px;color:#5cb85c">%</span></div>'
                               },
                               tooltip: {
                                   valueSuffix: ' %'
@@ -145,47 +259,17 @@
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <div style="">
-
+              <div style="">
               </div>
             </div>
 
-            <div class="col-md-12">
-              <div class="col-md-4">
-                <div class="panel panel-green">
-                  <div class="panel-heading">
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
-                      </div>
-                      <div class="col-xs-9 text-right">
-                        <div class="huge">
-                          <span>Payments </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <div class="list-group">
-                      <a class="list-group-item">Current Balance</a>
-                      <a class="list-group-item">Payment Due</a>
-                      <a class="list-group-item">Date Due</a>
-                      <a class="list-group-item"> </a>
-                      <a class="list-group-item">Last Payment</a>
-                      <a class="list-group-item">Last Payment Date</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-8">
-                <div class="panel panel-red" style="width: 100%">
-                  <div class="panel-heading">
-                    <div class="row">
-                      <div class="col-md-2">
-                        <i class="fa fa-support fa-3x"></i>
-                      </div>
-                        <div class="huge pull-right" style="margin-right: 5px !important;">Collateral Status</div>
+            <div class="col-md-12" style="margin-top: 20px">
+              <!-- Payment Info col-4 goes here panel panel-red -->
+                <div class="pull-right" style="width: 95%">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <i class="fa fa-support fa-3x"></i>
+                      <span class="huge">Collateral Status</span>
                     </div>
                   </div>
                   <div class="panel-body">
@@ -249,102 +333,12 @@
                     </table>
                   </div>
                 </div>
-              </div>
-
               <div class="clearfix"></div>
-
-              <div class="col-md-4">
-                <div class="panel panel-primary">
-                  <div class="panel-heading">
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <i class="fa fa-backward fa-3x fa-rotate-90" aria-hidden="true"></i>
-                      </div>
-                      <div class="col-xs-9 text-right">
-                        <div class="huge">
-                          <span>Credit Line Increase Request</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <form class="form-group">
-                      <table class="table">
-                        <tr>
-                          <td>
-                          <span style="color: #555555">Current Credit Line:</span>
-                          <input type="text" class="form-control" value="300,000.00" readonly>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span style="color: #555555">Requested Increased:</span>
-                            <input type="text" class="form-control" value="100,000.00">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <button class="btn btn-success">Request</button>
-                            <button class="btn btn-danger">Cancel</button>
-                          </td>
-                        </tr>
-                      </table>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-8">
-                <div class="panel panel-yellow" style="width: 100%">
-                  <div class="panel-heading">
-                    <div class="row">
-                      <div class="col-md-2">
-                        <i class="fa fa-money fa-3x" aria-hidden="true"></i>
-                      </div>
-                      <div class="huge pull-right" style="margin-right: 5px !important;">Funds Withdrawal Request</div>
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <table class="table">
-                      <tr>
-                        <td>
-                          Current Credit Line:
-                        </td>
-                        <td>
-                          <input type="text" class="form-control" value="300,000.00" readonly>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Current Balance:
-                        </td>
-                        <td>
-                          <input type="text" class="form-control" value="5,000.00" readonly>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Request Withdrawal:
-                        </td>
-                        <td>
-                          <input type="text" class="form-control" value="10,000.00">
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn btn-success">Request</button>
-                        </td>
-                        <td>
-                          <button class="btn btn-danger">Cancel</button>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
+          </div>
           </div>
 
           <div id="customerProfile" ng-show="cfService.customerView == 'customer_profile'">
+
             <!-- Business Profile -->
             <div id="customerAccountInfo"  ng-show="cfService.customer_IndOrBusFlag == 'Business'" class="input-group" style="margin-top: 20px; width: 100%">
               <table class="table col-lg-12" >
@@ -871,19 +865,6 @@
                   </td>
                 </tr>
                 </tbody>
-                <!--<thead>-->
-                <!--<tr>-->
-                <!--<th>-->
-                <!--xxxxx-->
-                <!--</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr>-->
-                <!--<td></td>-->
-                <!--<td></td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
                 <tbody>
                 <tr>
                   <td>
@@ -1121,7 +1102,6 @@
                 </div>
 
 
-
                 <thead>
                 <tr>
                   <th>
@@ -1333,8 +1313,6 @@
                 </tr>
                 </tbody>
                 <!-- Emp Info -->
-
-
 
                 <thead>
                 <tr>
@@ -1614,6 +1592,7 @@
               </table>
             </div>
           </div>
+
         </fieldset>
       </div>
     </form>
