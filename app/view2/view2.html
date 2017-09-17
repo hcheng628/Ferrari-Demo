@@ -70,6 +70,73 @@
       <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
     </div>
   </script>
+
+  <!-- Make Payment Start -->
+  <script type="text/ng-template" id="myModalContentMakePayment.html">
+    <div class="modal-header">
+      <h3 style="color: #5cb85c" class="modal-title" id="modal-titleMakePayment">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        Make Payment
+      </h3>
+    </div>
+    <div class="modal-body" id="modal-bodyMakePayment">
+      <table class="table">
+        <tr>
+          <td>
+            <span style="color: #555555">Payment Amount:</span>
+            <input type="text" class="form-control" value="3,000.00">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="btn btn-success">Setup AutoPay</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color: #555555">First Name on Bank Acct:</span>
+            <input type="text" class="form-control" value="">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color: #555555">Last Name on Bank Acct:</span>
+            <input type="text" class="form-control" value="">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color: #555555">Acct Type:</span>
+            <select name="" id="" class="form-control">
+              <option value="">--- Select Acct Type ---</option>
+              <option value="Checking">Checking</option>
+              <option value="Saving">Saving</option>
+
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color: #555555">Bank Routing #:</span>
+            <input type="text" class="form-control" value="321-321">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color: #555555">Bank Acct #:</span>
+            <input type="text" class="form-control" value="321-3321-321">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Submit</button>
+      <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+  </script>
+  <!-- Make Payment Start -->
+
+
 </div>
 
 <div class="content" ng-controller="RegisterCtrl2 as $ctrl"  data-ng-init="customerViewAuthCheck()">
@@ -682,7 +749,6 @@
           </div>
 
           <div id="customerProfile" ng-show="cfService.customerView == 'customer_profile'">
-
             <!-- Business Profile -->
             <div id="customerAccountInfo"  ng-show="cfService.customer_IndOrBusFlag == 'Business'" class="input-group" style="margin-top: 20px; width: 100%">
               <table class="table col-lg-12" >
@@ -1220,7 +1286,6 @@
                 </tbody>
               </table>
             </div>
-
             <!-- Individual Profile -->
             <div id="customerAccountInfoIndv" ng-show="cfService.customer_IndOrBusFlag == 'Individual'">
               <table class="table col-lg-12" >
@@ -1937,6 +2002,77 @@
             </div>
           </div>
 
+          <div id="customerFinance" ng-show="cfService.customerView == 'customer_finance'">
+            <div class="col-md-12" style="padding-bottom: 20px">
+              <div class="panel panel-green" style="width: 100%">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <i class="fa fa-usd fa-3x" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                      <div class="huge">
+                        <span>Current Activity</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-body" >
+                  <div class="panel-body">
+                    <table class="table" style="color: #555555">
+                      <tbody>
+                      <tr>
+                        <td>Credit Line:</td>
+                        <td style="font-weight: bold">$15,000,000.00</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.openComponentModalI()">Increase Limit</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Payment Due:</td>
+                        <td style="font-weight: bold">$25,000.00</td>
+                        <td></td>
+                        <td>Interest Rate:</td>
+                        <td style="font-weight: bold">2.98%</td>
+                      </tr>
+                      <tr>
+                        <td>Due Date:</td>
+                        <td style="font-weight: bold">10/15/2017</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.openComponentModalW()">Request Withdrawal</button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Outstanding:</td>
+                        <td style="font-weight: bold">$5,000,000.00</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.myModalContentMakePayment()">Make Payment</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Utilization:</td>
+                        <td style="font-weight: bold">31%</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <button class="btn btn-success" style="width: 100%">Billing Statements</button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </div>
         </fieldset>
       </div>
     </form>

@@ -34,58 +34,6 @@ angular.module('myApp.view2', [
         var $ctrl = this;
         $ctrl.items = ['item1', 'item2', 'item3'];
         $ctrl.animationsEnabled = true;
-        // $ctrl.openI = function (size, parentSelector) {
-        //     var parentElem = parentSelector ?
-        //         angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
-        //     var modalInstance = $uibModal.open({
-        //         animation: $ctrl.animationsEnabled,
-        //         ariaLabelledBy: 'modal-title',
-        //         ariaDescribedBy: 'modal-body',
-        //         templateUrl: 'myModalContent.html',
-        //         controller: 'ModalInstanceCtrl',
-        //         controllerAs: '$ctrl',
-        //         size: size,
-        //         appendTo: parentElem,
-        //         resolve: {
-        //             items: function () {
-        //                 return $ctrl.items;
-        //             }
-        //         }
-        //     });
-        //
-        //     modalInstance.result.then(function (selectedItem) {
-        //         $ctrl.selected = selectedItem;
-        //     }, function () {
-        //         $log.info('Modal dismissed at: ' + new Date());
-        //     });
-        // };
-
-        // $ctrl.openW = function (size, parentSelector) {
-        //     var parentElem = parentSelector ?
-        //         angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
-        //     var modalInstance = $uibModal.open({
-        //         animation: $ctrl.animationsEnabled,
-        //         ariaLabelledBy: 'modal-title',
-        //         ariaDescribedBy: 'modal-body',
-        //         templateUrl: 'myModalContent.html',
-        //         controller: 'ModalInstanceCtrl',
-        //         controllerAs: '$ctrl',
-        //         size: size,
-        //         appendTo: parentElem,
-        //         resolve: {
-        //             items: function () {
-        //                 return $ctrl.items;
-        //             }
-        //         }
-        //     });
-        //
-        //     modalInstance.result.then(function (selectedItem) {
-        //         $ctrl.selected = selectedItem;
-        //     }, function () {
-        //         $log.info('Modal dismissed at: ' + new Date());
-        //     });
-        // };
-
         $ctrl.openComponentModalI = function () {
             var modalInstance = $uibModal.open({
                 animation: $ctrl.animationsEnabled,
@@ -108,6 +56,24 @@ angular.module('myApp.view2', [
             var modalInstance = $uibModal.open({
                 animation: $ctrl.animationsEnabled,
                 component: 'modalComponentW',
+                resolve: {
+                    items: function () {
+                        return $ctrl.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $ctrl.selected = selectedItem;
+            }, function () {
+                $log.info('modal-component dismissed at: ' + new Date());
+            });
+        };
+
+        $ctrl.myModalContentMakePayment = function () {
+            var modalInstance = $uibModal.open({
+                animation: $ctrl.animationsEnabled,
+                component: 'myModalContentMakePayment',
                 resolve: {
                     items: function () {
                         return $ctrl.items;
@@ -310,6 +276,32 @@ angular.module('myApp.view2', [
             };
         }
     })
+    .component('myModalContentMakePayment', {
+        templateUrl: 'myModalContentMakePayment.html',
+        bindings: {
+            resolve: '<',
+            close: '&',
+            dismiss: '&'
+        },
+        controller: function () {
+            var $ctrl = this;
+
+            $ctrl.$onInit = function () {
+                $ctrl.items = $ctrl.resolve.items;
+                $ctrl.selected = {
+                    item: $ctrl.items[0]
+                };
+            };
+
+            $ctrl.ok = function () {
+                $ctrl.close({$value: $ctrl.selected.item});
+            };
+
+            $ctrl.cancel = function () {
+                $ctrl.dismiss({$value: 'cancel'});
+            };
+        }
+    })
     .directive('ccSpinner', function () {
         return {
             'restrict': 'AEC',
@@ -339,11 +331,6 @@ angular.module('myApp.view2', [
                 scope.goToConsumerVehicleView = function () {
                     scope.cfService.customerView = 'customer_vehicle';
                     console.log("goToConsumerVehicleView..... " + scope.cfService.customerView);
-                };
-
-                scope.goToConsumerFinanceView = function () {
-                    scope.cfService.customerView = 'customer_finance';
-                    console.log("goToConsumerFinanceView..... " + scope.cfService.customerView);
                 };
 
                 scope.goToConsumerFinanceView = function () {
