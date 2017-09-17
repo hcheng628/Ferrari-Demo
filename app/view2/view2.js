@@ -627,7 +627,7 @@ angular.module('myApp.view2', [
             'customer_indAddCoApplicantFlag': false,
             'customer_indAddPrevEmpFlag': false,
 
-
+            'customer_uploadDocs': null,
             'customer_indVeh': '',
             'customerViewAuthCheckFlag': false,
             'customer_IndOrBusFlag': '',

@@ -228,6 +228,13 @@ div.divDisclure:hover {
     padding-left: 20px !important;
 }
 
+select:focus{
+    outline:0 !important;
+    box-shadow: 0 0 2pt 1pt #5cb85c !important;
+}
+
+
+
 #smallDatePicker ._720kb-datepicker-open {
     /*width: 90%;*/
 }
@@ -587,7 +594,7 @@ body {
     height: 50px;
     display: inline-block;
     border-radius: 50px;
-    background-color: #a3d063;
+    background-color: #5cb85c;
     border: 2px solid #a3d063;
     color: #fff;
     cursor: pointer;

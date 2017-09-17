@@ -79,7 +79,7 @@
       <div id="appraiseMain" class="container" ng-show="cfService.customerViewAuthCheckFlag">
         <cc-banner-customer></cc-banner-customer>
         <fieldset class="for-panel">
-          <div id="appraiseMainView" class="table-responsive" ng-show="cfService.customerView == 'customer_summary'">
+          <div id="appraiseMainView" class="" ng-show="cfService.customerView == 'customer_summary'">
 
             <div class="col-md-12">
               <div class="col-md-4">
@@ -409,14 +409,60 @@
                         </div>
                         <div class="col-xs-9 text-right">
                           <div class="huge">
-                            <span>Contact FFS Representative</span>
+                            <span>Contact Us?</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <div class="panel-body" style="display: block;">
-                      <button class="btn btn-success" onclick="return $('.chatChat').show();">Live Chat with FFS</button>
+
+                      <div class="well well-sm" style="margin-bottom: 10px;">
+                        <h7 style="color: #555555">Tips:</h7>
+                        <span style="color: #5cb85c">
+                          You can live chat with Ferrari Financial Service representatives
+                          <i class="fa fa-smile-o" aria-hidden="true"></i>.
+                        </span>
+                      </div>
+
+                      <div class="" style="margin-bottom: 10px;">
+                        <h6>
+                          Call Us:
+                          <a class="pull-right" style="text-decoration: none; color: #5cb85c" class="">
+                            (201)510-2500
+                          </a>
+                        </h6>
+
+                      </div>
+
+                      <div style="margin-bottom: 10px;color: #555555">
+                        <h6>Hours: </h6 style="margin: 0 0 0 0;">
+                        <ul class="list-unstyled pull-right" style="margin: 0 0 0 0;">
+                          <li  style="margin: 0 0 0 0;">Sunday: Closed</li>
+                          <li  style="margin: 0 0 0 0;">Monday: 9AM–6PM</li>
+                          <li  style="margin: 0 0 0 0;">Tuesday: 9AM–6PM</li>
+                          <li  style="margin: 0 0 0 0;">Wednesday: 9AM–6PM</li>
+                          <li  style="margin: 0 0 0 0;">Thursday: 9AM–6PM</li>
+                          <li  style="margin: 0 0 0 0;">Friday: 9AM–6PM</li>
+                          <li  style="margin: 0 0 0 0;">Saturday: Closed</li>
+                        </ul>
+                      </div>
+
+
+
+                      <div class="" style="margin-bottom: 10px;">
+                        <button class="btn btn-success" style="width: 100%" onclick="return $('.chatChat').show();">
+                          <i class="fa fa-weixin" aria-hidden="true"></i>
+                          Start Live Chat
+                        </button>
+                      </div>
+
+                      <div class="" style="margin-bottom: 10px;">
+                        <a href="mailto:ferrari@ferrarifs.com" class="btn btn-success" style="width: 100%">
+                          <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
+                          Send Us an E-mail
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -499,7 +545,148 @@
                   </div>
                   <div class="clearfix"></div>
                 </div>
+            </div>
 
+            <div class="col-md-12" style="margin-top: 20px">
+              <div class="pull-right" style="width: 95%">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
+                    <span class="huge">Documents</span>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>
+                        <select id="documentType" class="form-control">
+                          <option value="">--- Select Document Type --- </option>
+                          <option value="insurance">Insurance</option>
+                          <option value="appraisalReport">Appraisal Report</option>
+                          <option value="financialStatement">Financial Statement</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </th>
+                      <!--<th>Documents</th>-->
+                      <th>
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="documentsFrom" type="text" class="form-control" placeholder="From Date">
+                        </datepicker>
+                      </th>
+                      <th>
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="documentsTo" type="text" class="form-control" placeholder="To Date">
+                        </datepicker>
+                      </th>
+                      <th>
+                        <button class="btn btn-success">Show</button>
+                      </th>
+                    </tr>
+                    </thead>
+                  </table>
+
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Document Type</th>
+                        <th>Go to Document</th>
+                        <th>Note</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>09/05/2017</td>
+                        <td>Insurance</td>
+                        <td>
+                          <button class="btn btn-success">
+                            <i class="fa fa-cloud-download" aria-hidden="true"></i>  <span> Download</span>
+                          </button>
+                        </td>
+                        <td>Insurance contract for Ferrari 458</td>
+                      </tr>
+                      <tr>
+                        <td>9/03/2017</td>
+                        <td>Financial Statements</td>
+                        <td>
+                          <button class="btn btn-success">
+                            <i class="fa fa-cloud-download" aria-hidden="true"></i> <span> Download</span>
+                          </button>
+                        </td>
+                        <td>Requested statement for 2016</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+
+
+
+              <div class="clearfix"></div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 20px">
+              <div class="pull-right" style="width: 95%">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-cloud-upload fa-3x" aria-hidden="true"></i>
+                    <span class="huge">Upload Documents</span>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>
+                        <select id="uploadDocumentType" class="form-control">
+                          <option value="">--- Select Document Type --- </option>
+                          <option value="insurance">Insurance</option>
+                          <option value="appraisalReport">Appraisal Report</option>
+                          <option value="financialStatement">Financial Statement</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </th>
+                      <!--<th>Documents</th>-->
+
+                      <th>
+                        <label ng-if="!cfService.customer_uploadDocs" class="btn btn-success pull-right">
+                          <span>
+                           <span>Add New / Browse</span>
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          </span>
+                          <input type="file" class="form-control"
+                                 ngf-select style="display: none;"
+                                 ng-model="cfService.customer_uploadDocs"
+                                 ngf-drag-over-class="'dragover'"
+                                 ngf-max-size="50MB"
+                                 ngf-min-height="100">
+                          </input>
+                        </label>
+                      </th>
+                      <th>
+                        <span ng-show="cfService.customer_uploadDocs">
+                          <button class="btn btn-success">
+                            Upload
+                          </button>
+                          <button class="btn btn-danger"ng-click="cfService.customer_uploadDocs = null">
+                            Retset Upload Document
+                          </button>
+                        </span>
+                      </th>
+                      <th>
+                        <pre ng-show="false">{{ JSON.stringify(cfService.customer_uploadDocs) }}</pre>
+                      </th>
+                    </tr>
+                    </thead>
+                  </table>
+
+                </div>
+              </div>
+              <div class="clearfix"></div>
+
+              <div class="clearfix"></div>
             </div>
 
           </div>
