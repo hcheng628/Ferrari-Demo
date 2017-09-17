@@ -366,182 +366,229 @@
 
                     <div id="appraiseAppView" ng-show="appcfService.appraiseView == 'app_app'">
                         <h4 style="color: white" class="container">Ref ID: 12345</h4>
-                        <div class="" style="border: solid 1px white; margin-bottom: 15px;">
-                            <h5 style="color: #5cb85c" class="container">Vehicle Information</h5>
-                            <table id="appraiseAppVehicleInfo" class="table">
-                                <thead>
-                                <tr>
-                                    <th>Model</th>
-                                    <th>Make</th>
-                                    <th>Year</th>
-                                    <th>VIN</th>
-                                    <th>Engine Number</th>
-                                    <th>New/Used</th>
-                                    <th>Race</th>
-                                    <th>Mileage</th>
-                                    <th>Exterior Color</th>
-                                    <th>Exterior Color</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>488 Spider</td>
-                                    <td>Ferrari</td>
-                                    <td>2016</td>
-                                    <td>19UYA31581L000333</td>
-                                    <td>JIAHTS382SJ</td>
-                                    <td>New</td>
-                                    <td>
-                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                    </td>
-                                    <td>56,000</td>
-                                    <td>Red</td>
-                                    <td>Black</td>
-                                    <td>USA</td>
-                                    <td>Houston, TX</td>
-                                </tr>
-                                </tbody>
-                            </table>
+
+                        <div class="col-md-12" style="width: 100%">
+                            <div class="panel panel-green" style="width: 100%">
+                                <div class="panel-heading">
+                                    <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+                                    <span class="huge pull-right">Vehicle Information</span>
+                                </div>
+
+                                <div class="panel-body" style="color: #555555;">
+                                    <table id="appraiseAppVehicleInfo" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Model</th>
+                                            <th>Make</th>
+                                            <th>Year</th>
+                                            <th>VIN</th>
+                                            <th>Engine Number</th>
+                                            <th>New/Used</th>
+                                            <th>Race</th>
+                                            <th>Mileage</th>
+                                            <th>Exterior Color</th>
+                                            <th>Exterior Color</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>488 Spider</td>
+                                            <td>Ferrari</td>
+                                            <td>2016</td>
+                                            <td>19UYA31581L000333</td>
+                                            <td>JIAHTS382SJ</td>
+                                            <td>New</td>
+                                            <td>
+                                                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                            </td>
+                                            <td>56,000</td>
+                                            <td>Red</td>
+                                            <td>Black</td>
+                                            <td>USA</td>
+                                            <td>Houston, TX</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="" style="border: solid 1px white; margin-bottom: 15px;">
-                            <h5 style="color: #5cb85c" class="container">Contact Information</h5>
-                            <table id="appraiseAppContactInfo" class="table">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>
-                                        <i class="fa fa-envelope"></i>
-                                    </th>
-                                    <th>
-                                        <i class="fa fa-phone-square"></i>
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Aaron James</td>
-                                    <td>1708 Waterwall Rd, Houston, TX</td>
-                                    <td>abc@gmail.com</td>
-                                    <td>(302)-889-8877</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                            <div class="panel panel-red" style="width: 100%">
+                                <div class="panel-heading">
+                                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                                    <span class="huge pull-right">Contact Information</span>
+                                </div>
+                                <div class="panel-body" style="color: #555555;">
+                                    <table id="appraiseAppContactInfo" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Address</th>
+                                            <th>
+                                                <i class="fa fa-envelope"></i>
+                                            </th>
+                                            <th>
+                                                <i class="fa fa-phone-square"></i>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Aaron James</td>
+                                            <td>1708 Waterwall Rd, Houston, TX</td>
+                                            <td>abc@gmail.com</td>
+                                            <td>(302)-889-8877</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="" style="border: solid 1px white; margin-bottom: 15px;">
-                            <h5 style="color: #5cb85c" class="container">Appraisal Information</h5>
-                            <table id="appraiseAppAppraisalInfo" class="table">
-                                <thead>
-                                <tr>
-                                    <th>Appraisal Date</th>
-                                    <th>Appraisal Status</th>
-                                    <th>Appraisal Fee</th>
-                                    <th>Amount</th>
-                                    <th>Overall Condition</th>
-                                    <th>Value Adjustments</th>
-                                    <th>Report</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>09-10-2017</td>
-                                    <td>Pending</td>
-                                    <td>$ 599.99</td>
-                                    <td>$ 75,000.00</td>
-                                    <td>Excellent</td>
-                                    <td>$9,000.00</td>
-                                    <td>
-                                        <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
-                                        <br>
-                                        <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
 
-                            <div id="appUploadPhotos" class="container form-group">
-                                <h5 style="color: #5cb85c" class="">Upload Photos</h5>
-                                <div class="container">
-                                    <div class="col-md-11 ">
-                                        <label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">
+                        <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                            <div class="panel panel-green" style="width: 100%">
+                                <div class="panel-heading">
+                                    <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+                                    <span class="huge pull-right">Appraisal Information</span>
+                                </div>
+
+                                <div class="panel-body" style="color: #555555;">
+                                    <table id="appraiseAppAppraisalInfo" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Appraisal Date</th>
+                                            <th>Appraisal Status</th>
+                                            <th>Appraisal Fee</th>
+                                            <th>Amount</th>
+                                            <th>Overall Condition</th>
+                                            <th>Value Adjustments</th>
+                                            <th>Report</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>09-10-2017</td>
+                                            <td>Pending</td>
+                                            <td>$ 599.99</td>
+                                            <td>$ 75,000.00</td>
+                                            <td>Excellent</td>
+                                            <td>$9,000.00</td>
+                                            <td>
+                                                <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
+                                                <br>
+                                                <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                            <div class="panel panel-red" style="width: 100%">
+                                <div class="panel-heading">
+                                    <i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+                                    <span class="huge pull-right">Upload Photos</span>
+                                </div>
+                                <div class="panel-body" style="color: #555555;">
+                                    <div class="container">
+                                        <div class="col-md-11 ">
+                                            <label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">
                                                 <span>
                                                     <span> Add New </span>
                                                     <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
                                                 </span>
-                                            <input type="file" class="form-control"
-                                                   ngf-select style="display: none;"
-                                                   ng-model="appcfService.appImage"
-                                                   ngf-drag-over-class="'dragover'"
-                                                   ngf-pattern="'image/*'"
-                                                   ngf-accept="'image/*'"
-                                                   ngf-max-size="5MB"
-                                                   ngf-min-height="100">
-                                            </input>
-                                        </label>
-                                        <label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
-                                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                                            Reset
-                                        </label>
-                                        <label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
-                                        </label>
+                                                <input type="file" class="form-control"
+                                                       ngf-select style="display: none;"
+                                                       ng-model="appcfService.appImage"
+                                                       ngf-drag-over-class="'dragover'"
+                                                       ngf-pattern="'image/*'"
+                                                       ngf-accept="'image/*'"
+                                                       ngf-max-size="5MB"
+                                                       ngf-min-height="100">
+                                                </input>
+                                            </label>
+                                            <label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                Reset
+                                            </label>
+                                            <label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                                                <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <img class="img-responsive" style="max-height: 360%" ng-if="appcfService.appImage" ngf-thumbnail="appcfService.appImage">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-10">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <img class="img-responsive" style="max-height: 360%" ng-if="appcfService.appImage" ngf-thumbnail="appcfService.appImage">
-                                    </div>
-                                </div>
-
-
                             </div>
                         </div>
 
 
 
-                        <div id="appAppgallery" class="container form-group">
-                            <h5 style="color: #5cb85c" class="">Photo Gallery</h5>
-                            <div class="col-md-10">
-                                <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in appcfService.appImageList">
-                                        <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
-                                        <br>
-                                        <button class="btn btn-danger form-control">
+
+                        <!--<div id="appAppgallery" class="container form-group">-->
+                            <!--<h5 style="color: #5cb85c" class=""></h5>-->
+
+                        <!--</div>-->
+
+
+                        <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                            <div  id="appAppgallery" class="panel panel-green" style="width: 100%">
+                                <div class="panel-heading">
+                                    <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
+                                    <span class="huge pull-right">Photo Gallery</span>
+                                </div>
+                                <div class="panel-body" style="color: #555555;">
+                                    <div class="col-md-10">
+                                        <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in appcfService.appImageList">
+                                                <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
+                                                <br>
+                                                <button class="btn btn-danger form-control">
                                             <span>
                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
                                             </span>
-                                        </button>
-                                    </div>
-                                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                                </button>
+                                            </div>
+                                            <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
-                                        <br>
-                                        <button class="btn btn-danger form-control">
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
+                                                <br>
+                                                <button class="btn btn-danger form-control">
                                             <span>
                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
                                             </span>
-                                        </button>
-                                    </div>
-                                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                                </button>
+                                            </div>
+                                            <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
-                                        <br>
-                                        <button class="btn btn-danger form-control">
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
+                                                <br>
+                                                <button class="btn btn-danger form-control">
                                                 <span>
                                                 <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
                                                 </span>
-                                        </button>
+                                                </button>
+                                            </div>
+                                            <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                                        </div>
                                     </div>
-                                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
                                 </div>
                             </div>
                         </div>
+
+
+
                     </div>
                 </fieldset>
             </div>
