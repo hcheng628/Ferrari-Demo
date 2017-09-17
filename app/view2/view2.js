@@ -420,7 +420,7 @@ angular.module('myApp.view2', [
             'currentUserData': {},
             'loginFlag': false,
             'userParty': 'customer',
-            'customerView': 'customer_summary',
+            'customerView': 'customer_app',
             'customer_companyName': 'Sample Company',
             'customer_email': 'business@business.com',
             'customer_password': 'password',
