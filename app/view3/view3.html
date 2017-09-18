@@ -1102,7 +1102,6 @@
       <div id="appraiseMain" class="container" ng-show="cfServiceFFS.ffsViewAuthCheckFlag">
         <cc-banner-ffs></cc-banner-ffs>
         <fieldset class="for-panel">
-
           <div id="ffsVehiclesMainVehicle" ng-show="cfServiceFFS.ffsView == 'ffs_worklist_app_view_vehicle'">
             <h4 style="color: white" class="container">Your Car ID: 12345</h4>
 
@@ -1357,7 +1356,6 @@
               </div>
             </div>
           </div>
-
           <div id="ffsVehiclesMainVehicleList" class="table-responsive" ng-show="cfServiceFFS.ffsView == 'ffs_worklist_app_view_vehicle_list'">
             <table class="table">
               <thead>
@@ -1500,7 +1498,6 @@
               </div>
             </div>
           </div>
-
           <div id="ffsProfileSampleView" ng-show="cfServiceFFS.ffsView == 'ffs_worklist_app_view_profile'">
             <div id="ffsAccountInfoIndv">
               <table class="table col-lg-12" >
@@ -2733,9 +2730,7 @@
               </div>
             </div>
           </div>
-
           <div id="ffsVehiclesMainClient" class="" ng-show="cfServiceFFS.ffsView == 'ffs_clients'">
-
             <div class="col-md-12" style="width: 100%">
               <div class="panel panel-green" style="width: 100%">
                 <div class="panel-heading">
@@ -2865,18 +2860,15 @@
                 </div>
               </div>
             </div>
-
-
           </div>
-
-
           <div id="ffsMainReport" ng-show="cfServiceFFS.ffsView == 'ffs_reports'">
+
             <div class="col-md-12" style="padding-bottom: 20px">
               <div class="panel panel-green" style="width: 100%">
                 <div class="panel-heading">
                   <div class="row">
                     <div class="col-xs-3">
-                      <i class="fa fa-usd fa-3x" aria-hidden="true"></i>
+                      <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                       <div class="huge">
@@ -2891,48 +2883,59 @@
                     <table class="table" style="color: #555555">
                       <tbody>
                       <tr>
-                        <td>Credit Line:</td>
-                        <td style="font-weight: bold">$15,000,000.00</td>
-                        <td></td>
-                        <td></td>
+                        <th>Generate Report:</th>
+                        <th>
+                          <select ng-model="cfServiceFFS.ffs_reportTypeListSelected" class="form-control"
+                                  ng-options="item for item in cfServiceFFS.ffs_reportTypeList">
+                          </select>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>For Period:</th>
+                        <th></th>
+                      </tr>
+                      <tr>
                         <td>
-                          <button class="btn btn-success" style="width: 100%" ng-click="$ctrlView3.openComponentModalI()">Increase Limit</button>
+                          <datepicker date-format="yyyy-MM-dd">
+                            <input id="ffs_reportFromDate" type="text"
+                                   ng-model="cfServiceFFS.ffs_reportFromDate" class="form-control">
+                          </datepicker>
+                        </td>
+                        <td>
+                          <datepicker date-format="yyyy-MM-dd">
+                            <input id="ffs_reportToDate" type="text"
+                                   ng-model="cfServiceFFS.ffs_reportToDate" class="form-control">
+                          </datepicker>
                         </td>
                       </tr>
                       <tr>
-                        <td>Payment Due:</td>
-                        <td style="font-weight: bold">$25,000.00</td>
-                        <td></td>
-                        <td>Interest Rate:</td>
-                        <td style="font-weight: bold">2.98%</td>
+                        <th>Report Name: <span class="pull-right">{{ cfServiceFFS.ffs_reportName ? cfServiceFFS.ffs_reportName + '.pdf' : ''}}</span></th>
+                        <th>
+                          <input type="text" ng-model="cfServiceFFS.ffs_reportName" class="form-control">
+                        </th>
                       </tr>
                       <tr>
-                        <td>Due Date:</td>
-                        <td style="font-weight: bold">10/15/2017</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button class="btn btn-success" style="width: 100%" ng-click="$ctrlView3.openComponentModalW()">Request Withdrawal</button>
-                        </td>
-                      </tr>
+                        <th>
+                          <button class="btn btn-success">Generate</button>
+                        </th>
+                        <th>
 
-                      <tr>
-                        <td>Outstanding:</td>
-                        <td style="font-weight: bold">$5,000,000.00</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button class="btn btn-success" style="width: 100%" ng-click="$ctrlView3.myModalContentMakePayment()">Make Payment</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Utilization:</td>
-                        <td style="font-weight: bold">31%</td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button class="btn btn-success" style="width: 100%">Billing Statements</button>
-                        </td>
+                          <label ng-if="!cfServiceFFS.ffs_uploadReportFile" class="btn btn-success">
+                            <span>
+                              <span> Browse </span>
+                                <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
+                            </span>
+                            <input type="file" class="form-control"
+                                   ngf-select style="display: none;"
+                                   ng-model="cfServiceFFS.ffs_uploadReportFile"
+                                   ngf-drag-over-class="'dragover'"
+                                   ngf-max-size="5MB"
+                                   ngf-min-height="100">
+                            </input>
+                          </label>
+                          <button class="btn btn-danger" ng-show="cfServiceFFS.ffs_uploadReportFile" ng-click="cfServiceFFS.ffs_uploadReportFile = null">Remove</button>
+                          <button class="btn btn-success" ng-show="cfServiceFFS.ffs_uploadReportFile">Upload</button>
+                        </th>
                       </tr>
                       </tbody>
                     </table>
@@ -2940,6 +2943,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-md-12" style="padding-bottom: 20px">
               <div class="panel panel-red" style="width: 100%">
                 <div class="panel-heading">
@@ -2958,33 +2962,58 @@
                 <div class="panel-body" >
                   <div class="panel-body">
                     <table class="table" style="color: #555555">
-                      <thead>
+                      <tbody style="margin-top: 50px;">
                       <tr>
                         <th>Date</th>
-                        <th>Amount</th>
-                        <th>Note</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <td>09/01/2017</td>
-                        <td>$15,000.00</td>
-                        <td>Withdrawal Approved</td>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>User</th>
+                        <th></th>
                       </tr>
                       <tr>
-                        <td>09/11/2017</td>
-                        <td style="font-weight: bold; color: #5cb85c">-$9,500.00</td>
+                        <td>09/10/2016</td>
+                        <td>Monthly</td>
+                        <td>ABC File.pdf</td>
+                        <td>Finance Officer</td>
                         <td>
-                          <button class="btn btn-success">
-                            View Check
-                            <i class="fa fa-arrow-circle-right "></i>
-                          </button>
+                          <button class="btn btn-danger">Delete</button>
                         </td>
                       </tr>
                       <tr>
-                        <td>09/01/2017</td>
-                        <td>$5,000.00</td>
-                        <td>Withdrawal Approved</td>
+                        <td>06/10/2017</td>
+                        <td>Monthly</td>
+                        <td>Borrowing Base File.pdf</td>
+                        <td>Account Manager</td>
+                        <td>
+                          <button class="btn btn-danger">Delete</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>07/10/2017</td>
+                        <td>Borrowing Request</td>
+                        <td>Borrowing File.pdf</td>
+                        <td>Finance Officer</td>
+                        <td>
+                          <button class="btn btn-danger">Delete</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>08/10/2017</td>
+                        <td>Monthly</td>
+                        <td>Sample File.pdf</td>
+                        <td>Account Manager</td>
+                        <td>
+                          <button class="btn btn-danger">Delete</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>09/10/2017</td>
+                        <td>Monthly</td>
+                        <td>Wow File.pdf</td>
+                        <td>Finance Officer</td>
+                        <td>
+                          <button class="btn btn-danger">Delete</button>
+                        </td>
                       </tr>
                       </tbody>
                     </table>
@@ -2992,6 +3021,8 @@
                 </div>
               </div>
             </div>
+
+
           </div>
 
           <div id="customerVehicleAppView" ng-show="cfServiceFFS.ffsView == 'customer_app'">

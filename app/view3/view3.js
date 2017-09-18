@@ -262,10 +262,17 @@ angular.module('myApp.view3', [
         var self = {
             'currentUserData': {},
             'loginFlag': false,
-            'ffsView': 'ffs_worklist',
+            'ffsView': 'ffs_reports',
             'ffsViewAuthCheckFlag': false,
             'appImage': null,
             'appImageList':[],
+            'ffs_reportTypeList': ['Monthly','Borrowing Request','Borrowing Base'],
+            'ffs_reportTypeListSelect': null,
+            'ffs_reportFromDate': null,
+            'ffs_reportToDate': null,
+            'ffs_reportName': null,
+            'ffs_uploadReportFile': null,
+
             //
             'customer_indFirstName': 'Francis',
             'customer_indLastName': 'Saquella',
