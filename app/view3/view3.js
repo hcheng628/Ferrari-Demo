@@ -24,43 +24,10 @@ angular.module('myApp.view3', [
         var $ctrlView3 = this;
         $ctrlView3.items = ['item1', 'item2', 'item3'];
         $ctrlView3.animationsEnabled = true;
-        $ctrlView3.openComponentModalI = function () {
+        $ctrlView3.myModalContentWClientPopup = function () {
             var modalInstance = $uibModal.open({
                 animation: $ctrlView3.animationsEnabled,
-                component: 'modalComponentI',
-                resolve: {
-                    items: function () {
-                        return $ctrlView3.items;
-                    }
-                }
-            });
-            modalInstance.result.then(function (selectedItem) {
-                $ctrlView3.selected = selectedItem;
-            }, function () {
-                $log.info('modal-component dismissed at: ' + new Date());
-            });
-        };
-        $ctrlView3.openComponentModalW = function () {
-            var modalInstance = $uibModal.open({
-                animation: $ctrlView3.animationsEnabled,
-                component: 'modalComponentW',
-                resolve: {
-                    items: function () {
-                        return $ctrlView3.items;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (selectedItem) {
-                $ctrlView3.selected = selectedItem;
-            }, function () {
-                $log.info('modal-component dismissed at: ' + new Date());
-            });
-        };
-        $ctrlView3.myModalContentMakePayment = function () {
-            var modalInstance = $uibModal.open({
-                animation: $ctrlView3.animationsEnabled,
-                component: 'myModalContentMakePayment',
+                component: 'myModalContentWClientPopup',
                 resolve: {
                     items: function () {
                         return $ctrlView3.items;
@@ -161,60 +128,8 @@ angular.module('myApp.view3', [
             $uibModalInstance.dismiss('cancel');
         };
 })
-.component('modalComponentI', {
-        templateUrl: 'myModalContentI.html',
-        bindings: {
-            resolve: '<',
-            close: '&',
-            dismiss: '&'
-        },
-        controller: function () {
-            var $ctrlView3 = this;
-
-            $ctrlView3.$onInit = function () {
-                $ctrlView3.items = $ctrlView3.resolve.items;
-                $ctrlView3.selected = {
-                    item: $ctrlView3.items[0]
-                };
-            };
-
-            $ctrlView3.ok = function () {
-                $ctrlView3.close({$value: $ctrlView3.selected.item});
-            };
-
-            $ctrlView3.cancel = function () {
-                $ctrlView3.dismiss({$value: 'cancel'});
-            };
-        }
-})
-.component('modalComponentW', {
-        templateUrl: 'myModalContentW.html',
-        bindings: {
-            resolve: '<',
-            close: '&',
-            dismiss: '&'
-        },
-        controller: function () {
-            var $ctrlView3 = this;
-
-            $ctrlView3.$onInit = function () {
-                $ctrlView3.items = $ctrlView3.resolve.items;
-                $ctrlView3.selected = {
-                    item: $ctrlView3.items[0]
-                };
-            };
-
-            $ctrlView3.ok = function () {
-                $ctrlView3.close({$value: $ctrlView3.selected.item});
-            };
-
-            $ctrlView3.cancel = function () {
-                $ctrlView3.dismiss({$value: 'cancel'});
-            };
-        }
-})
-.component('myModalContentMakePayment', {
-        templateUrl: 'myModalContentMakePayment.html',
+.component('myModalContentWClientPopup', {
+        templateUrl: 'myModalContentWClientPopup.html',
         bindings: {
             resolve: '<',
             close: '&',
@@ -341,13 +256,13 @@ angular.module('myApp.view3', [
         };
 })
 .service('CFServiceFFS', function ($http, toaster, $q) {
-    //  ffs_clients ffs_reports      ffs_worklist_app_view    ffs_worklist  ffs_worklist_app_view
+    //  ffs_clients         ffs_reports      ffs_worklist_app_view    ffs_worklist  ffs_worklist_app_view
     // ffs_worklist_app_view_profile ffs_worklist_app_view_vehicle_list
     // ffs_worklist_app_view_vehicle
         var self = {
             'currentUserData': {},
             'loginFlag': false,
-            'ffsView': 'ffs_worklist',
+            'ffsView': 'ffs_clients',
             'ffsViewAuthCheckFlag': false,
             'appImage': null,
             'appImageList':[],

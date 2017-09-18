@@ -1,42 +1,45 @@
 <div>
   <div ng-controller="RegisterCtrl2 as $ctrl" class="modal-demo">
     <script type="text/ng-template" id="myModalContentI.html">
-      <div class="modal-header">
-        <h3 style="color: #5cb85c" class="modal-title" id="modal-title">
-          <i class="fa fa-backward fa-rotate-90" aria-hidden="true"></i>
-          Increase Credit Line
-        </h3>
-      </div>
-      <div class="modal-body" id="modal-body">
+       <div class="modal-header container smallModalDiv">
+          <h3 style="color: #5cb85c" class="modal-title" id="modal-title">
+            <i class="fa fa-backward fa-rotate-90" aria-hidden="true"></i>
+            Increase Credit Line
+          </h3>
+        </div>
 
-        <table class="table">
-          <tr>
-            <td>
-              <span style="color: #555555">Current Credit Line:</span>
-              <input type="text" class="form-control" value="300,000.00" readonly>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span style="color: #555555">Requested Increased:</span>
-              <input type="text" class="form-control" value="100,000.00">
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Request</button>
-        <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
-      </div>
+        <div class="modal-body container smallModalDiv" id="modal-body">
+          <table class="table">
+            <tr>
+              <td>
+                <span style="color: #555555">Current Credit Line:</span>
+                <input type="text" class="form-control" value="300,000.00" readonly>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #555555">Requested Increased:</span>
+                <input type="text" class="form-control" value="100,000.00">
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="modal-footer container smallModalDiv">
+          <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Request</button>
+          <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+
+
     </script>
 
     <script type="text/ng-template" id="myModalContentW.html">
-      <div class="modal-header">
+      <div class="modal-header container smallModalDiv">
         <h3 style="color: #5cb85c" class="modal-title" id="modal-titleW">
           <i class="fa fa-money" aria-hidden="true"></i>Withdraw Funds
         </h3>
       </div>
-      <div class="modal-body" id="modal-bodyW">
+      <div class="modal-body container smallModalDiv" id="modal-bodyW">
 
         <table class="table">
           <tr>
@@ -65,7 +68,7 @@
           </tr>
         </table>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer container smallModalDiv">
         <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Request</button>
         <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
       </div>
@@ -73,13 +76,18 @@
 
     <!-- Make Payment Start -->
     <script type="text/ng-template" id="myModalContentMakePayment.html">
-      <div class="modal-header">
+      <div class="modal-header container smallModalDiv">
         <h3 style="color: #5cb85c" class="modal-title" id="modal-titleMakePayment">
           <i class="fa fa-paper-plane" aria-hidden="true"></i>
           Make Payment
         </h3>
+
+        <!--<h3 style="color: #5cb85c" class="modal-title" id="modal-title">-->
+          <!--<i class="fa fa-backward fa-rotate-90" aria-hidden="true"></i>-->
+          <!--Increase Credit Line-->
+        <!--</h3>-->
       </div>
-      <div class="modal-body" id="modal-bodyMakePayment">
+      <div class="modal-body container smallModalDiv" id="modal-bodyMakePayment">
         <table class="table">
           <tr>
             <td>
@@ -129,7 +137,7 @@
           </tr>
         </table>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer container smallModalDiv">
         <button class="btn btn-success" type="button" ng-click="$ctrl.ok()">Submit</button>
         <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
       </div>
