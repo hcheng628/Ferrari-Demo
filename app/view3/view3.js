@@ -93,8 +93,8 @@ angular.module('myApp.view3', [
             }
         };
 
-        $scope.doFfsAppAppView = function () {
-            $scope.cfServiceFFS.ffsView = "ffs_app";
+        $scope.goToWorkListAppView = function () {
+            $scope.cfServiceFFS.ffsView = "ffs_worklist_app_view";
         };
 }])
 .controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
@@ -293,7 +293,7 @@ angular.module('myApp.view3', [
         };
 })
 .service('CFServiceFFS', function ($http, toaster, $q) {
-    //  ffs_clients ffs_reports ffs_worklist
+    //  ffs_clients ffs_reports      ffs_worklist_app_view    ffs_worklist      ffs_worklist_app_view
         var self = {
             'currentUserData': {},
             'loginFlag': false,

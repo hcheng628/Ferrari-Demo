@@ -135,64 +135,7 @@
       </div>
     </script>
     <!-- Make Payment Start -->
-
     <!-- Chat -->
-    <script>
-        (function () {
-            // $('.chatChat').hide();
-            var Message;
-            Message = function (arg) {
-                this.text = arg.text, this.message_side = arg.message_side;
-                this.draw = function (_this) {
-                    return function () {
-                        var $message;
-                        $message = $($('.message_template').clone().html());
-                        $message.addClass(_this.message_side).find('.text').html(_this.text);
-                        $('.messages').append($message);
-                        return setTimeout(function () {
-                            return $message.addClass('appeared');
-                        }, 0);
-                    };
-                }(this);
-                return this;
-            };
-            $(function () {
-                var getMessageText, message_side, sendMessage;
-                message_side = 'right';
-                getMessageText = function () {
-                    var $message_input;
-                    $message_input = $('.message_input');
-                    return $message_input.val();
-                };
-                sendMessage = function (text) {
-                    var $messages, message;
-                    if (text.trim() === '') {
-                        return;
-                    }
-                    $('.message_input').val('');
-                    $messages = $('.messages');
-                    message_side = message_side === 'left' ? 'right' : 'left';
-                    message = new Message({
-                        text: text,
-                        message_side: message_side
-                    });
-                    message.draw();
-                    return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-                };
-                $('.send_message').click(function (e) {
-                    return sendMessage(getMessageText());
-                });
-                $('.message_input').keyup(function (e) {
-                    event.preventDefault();
-                    if (e.which === 13) { return sendMessage(getMessageText());}
-                    return false;
-                });
-                sendMessage('Ciao! :)');
-                sendMessage('Hi Ferrari! How are you?');
-                sendMessage('I\'m fine, thank you!');
-            });
-        }.call(this));
-    </script>
   </div>
 
   <div class="content" ng-controller="View3Ctrl as $ctrlView3"  data-ng-init="ffsViewAuthCheck()">
@@ -201,9 +144,246 @@
         <div id="appraiseMain" class="container" ng-show="cfServiceFFS.ffsViewAuthCheckFlag">
           <cc-banner-ffs></cc-banner-ffs>
           <fieldset class="for-panel">
-            <div id="appraiseMainView" class="" ng-show="cfServiceFFS.ffsView == 'ffs_worklist'">
+            <div id="appraiseMainView" class="" ng-show="cfServiceFFS.ffsView == 'ffs_worklist_app_view'">
+              <!-- App View Start -->
+              <div class="col-md-12" style="width: 100%">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Activity Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="ffsAppActivityInformation" class="table" style="font-size: 90%">
+                      <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Creation Date</th>
+                        <th>Type</th>
+                        <th>Phase</th>
+                        <th>Priority</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>1001</td>
+                        <td>09/12/2017</td>
+                        <td>Credit Line Extension</td>
+                        <td>Completed</td>
+                        <td>High</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
 
-              <div class="panel panel-green" style="width: 100%">
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Client Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="ffsAppClientInformation" class="table">
+                      <thead>
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Home Phone</th>
+                        <th>Cell Phone</th>
+                        <th>Address information</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Redding</td>
+                        <td>Pong</td>
+                        <td>p.redding@abc.com</td>
+                        <td>302-123-1231</td>
+                        <td>432-987-0987</td>
+                        <td>112 Main St, Albany, NY, 12208</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-success" style="background-color: #D9534F">View Full Profile</button>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-money fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Financial Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="ffsAppFinancialInfo" class="table" style="font-size: 90%">
+                      <thead>
+                      <tr>
+                        <th>FICO</th>
+                        <th>Credit Line</th>
+                        <th>Outstanding</th>
+                        <th>Utilization</th>
+                        <th>Yld</th>
+                        <th>Interest Rate</th>
+                        <th>Maximum LTV</th>
+                        <th>Net Worth</th>
+                        <th>Days Delinquent</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>813</td>
+                        <td>$35,000.00</td>
+                        <td>$5,000.00</td>
+                        <td>30%</td>
+                        <td>55%</td>
+                        <td>%2.97</td>
+                        <td>77%</td>
+                        <td>$20,000.00</td>
+                        <td>20</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Vehicle Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="ffsAppVehicleInformation" class="table">
+                      <thead>
+                      <tr>
+                        <th>Count of Vehicles</th>
+                        <th>Total FFS Value</th>
+                        <th>Total Market Value (Eligible)</th>
+                        <th>Total Market Value (BB)</th>
+                        <th>LTV</th>
+                        <th>Net Worth Ratio</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>3</td>
+                        <td>$120,000.00</td>
+                        <td>$110,000.00</td>
+                        <td>$10,000.00</td>
+                        <td>50%</td>
+                        <td>76%</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-success" style="background-color: #D9534F">View Full Vehicle Information</button>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Decision Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="ffsAppDecisionInfo" class="table" style="font-size: 90%">
+                      <thead>
+                      <tr>
+                        <th>Decision Type</th>
+                        <th>Decision Reason</th>
+                        <th>Decision Notes</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Approved</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-success" style="background-color: #5cb85c">Continue</button>
+                        </td>
+                        <td>
+                          <button class="btn btn-success" style="background-color: #5cb85c">Escalate</button>
+                        </td>
+                        <td>
+                          <button class="btn btn-success" style="background-color: #5cb85c">Create Summary</button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-history fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Decision History</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="ffsAppDecisionHistoryInformation" class="table">
+
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Decision</th>
+                        <th>Role</th>
+                        <th>Notes</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>2/28/2017</td>
+                        <td>Initial Review</td>
+                        <td>Sample Role A</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                      <tr>
+                        <td>3/13/2017</td>
+                        <td>Approved</td>
+                        <td>Sample Role B</td>
+                        <td></td>
+                      </tr>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- App View End -->
+            </div>
+            <div id="ffsMainView" class="" ng-show="cfServiceFFS.ffsView == 'ffs_worklist'">
+
+              <div class="col-md-12" style="width: 100%">
+
+                <div class="panel panel-green" style="width: 100%">
                 <div class="panel-heading">
                   <i class="fa fa-support fa-2x"></i>
                   <span class="huge pull-right">Current Activities</span>
@@ -228,7 +408,9 @@
                     </thead>
                     <tbody>
                     <tr>
-                      <td>0101</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0101</a>
+                      </td>
                       <td>09/12/2017</td>
                       <td>Credit Line Review</td>
                       <td>High</td>
@@ -241,7 +423,9 @@
                       <td>30%</td>
                     </tr>
                     <tr>
-                      <td>0121</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0121</a>
+                      </td>
                       <td>09/10/2015</td>
                       <td>Credit Line Extensio</td>
                       <td>Medium</td>
@@ -254,7 +438,9 @@
                       <td>50%</td>
                     </tr>
                     <tr>
-                      <td>0103</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0103</a>
+                      </td>
                       <td>05/10/2017</td>
                       <td>withdrawal</td>
                       <td>High</td>
@@ -267,7 +453,9 @@
                       <td>60%</td>
                     </tr>
                     <tr>
-                      <td>0401</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0401</a>
+                      </td>
                       <td>09/12/2017</td>
                       <td>Credit Line Review</td>
                       <td>Medium</td>
@@ -280,7 +468,9 @@
                       <td>45%</td>
                     </tr>
                     <tr>
-                      <td>0201</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0201</a>
+                      </td>
                       <td>09/12/2017</td>
                       <td>Credit Line Review</td>
                       <td>Low</td>
@@ -293,7 +483,9 @@
                       <td>50%</td>
                     </tr>
                     <tr>
-                      <td>0107</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0107</a>
+                      </td>
                       <td>03/06/2017</td>
                       <td>Credit Line Review</td>
                       <td>High</td>
@@ -306,7 +498,9 @@
                       <td>70%</td>
                     </tr>
                     <tr>
-                      <td>0301</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0301</a>
+                      </td>
                       <td>02/19/2017</td>
                       <td>Payment Confirmation</td>
                       <td>High</td>
@@ -319,7 +513,9 @@
                       <td>50%</td>
                     </tr>
                     <tr>
-                      <td>0501</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0501</a>
+                      </td>
                       <td>04/22/2017</td>
                       <td>Credit Line Review</td>
                       <td>Low</td>
@@ -332,7 +528,9 @@
                       <td>36%</td>
                     </tr>
                     <tr>
-                      <td>0701</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0701</a>
+                      </td>
                       <td>06/28/2017</td>
                       <td>Credit Line Review</td>
                       <td>High</td>
@@ -345,7 +543,9 @@
                       <td>60%</td>
                     </tr>
                     <tr>
-                      <td>0901</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0901</a>
+                      </td>
                       <td>09/12/2017</td>
                       <td>Inspection Review</td>
                       <td>Medium</td>
@@ -358,7 +558,9 @@
                       <td>50%</td>
                     </tr>
                     <tr>
-                      <td>1101</td>
+                      <td>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">1101</a>
+                      </td>
                       <td>09/12/2017</td>
                       <td>Credit Line Review</td>
                       <td>High</td>
@@ -374,7 +576,7 @@
                   </table>
                 </div>
               </div>
-              <div class="panel panel-red" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%; margin-top: 20px;">
                   <div class="panel-heading">
                     <div class="row">
                       <div class="col-xs-3">
@@ -458,7 +660,7 @@
                     </div>
                   </div>
                 </div>
-
+              </div>
 
               <!--<div class="col-md-12">-->
                 <!--<div class="col-md-4">-->
@@ -2689,7 +2891,6 @@
                     </tr>
                     </tbody>
                   </div>
-
                   <tbody style="">
                   <tr>
                     <td>
@@ -2705,14 +2906,12 @@
                     <td></td>
                   </tr>
                   </tbody>
-
                 </table>
               </div>
             </div>
           </fieldset>
         </div>
       <!--</form>-->
-
     </div>
   </div>
 </div>
