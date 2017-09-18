@@ -262,7 +262,7 @@ angular.module('myApp.view3', [
         var self = {
             'currentUserData': {},
             'loginFlag': false,
-            'ffsView': 'ffs_clients',
+            'ffsView': 'ffs_worklist',
             'ffsViewAuthCheckFlag': false,
             'appImage': null,
             'appImageList':[],

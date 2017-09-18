@@ -424,6 +424,13 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     border-radius: 50%;
 }
 
+#ffsAccountInfoIndvPopup  input[type="radio"]:checked:after, .radio input[type="radio"]:checked:after, .radio-inline input[type="radio"]:checked:after{
+    border-color: #5cb85c;
+    color: #5cb85c;
+    background-color: #5cb85c;
+    background: radial-gradient(#5cb85c, #5cb85c);
+    border-radius: 50%;
+}
 
 #customerProfile td{
     border: none;
@@ -734,16 +741,21 @@ body {
     background: white;
 }
 
+.largeModalDiv{
+    width: 100%;
+    background: white;
+}
+
 /* Pop Tab Start */
 #exTab1 .tab-content {
     color : white;
-    background-color: #428bca;
+    background-color: #555555;
     padding : 5px 15px;
 }
 
 #exTab2 h3 {
     color : white;
-    background-color: #428bca;
+    background-color: white;
     padding : 5px 15px;
 }
 
@@ -761,8 +773,13 @@ body {
 
 #exTab3 .tab-content {
     color : white;
-    background-color: #428bca;
+    background-color: #555555;
     padding : 5px 15px;
 }
-
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    background-color: #5cb85c;
+}
+.nav-pills a {
+    color: #5cb85c;
+}
 /* Pop Tab  Start*/
