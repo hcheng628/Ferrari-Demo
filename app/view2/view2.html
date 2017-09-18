@@ -2394,7 +2394,6 @@
                 </div>
               </div>
 
-
               <div class="col-md-12" style="width: 100%; margin-top: 20px;">
                 <div class="panel panel-red" style="width: 100%">
                   <div class="panel-heading">
@@ -2444,14 +2443,14 @@
                   <div class="panel-body" style="color: #555555;">
                     <div class="container">
                       <div class="col-md-11 ">
-                        <label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">
+                        <label ng-if="!cfService.appImage" class="btn btn-default pull-right" style="">
                                                 <span>
                                                     <span> Add New </span>
                                                     <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
                                                 </span>
                           <input type="file" class="form-control"
                                  ngf-select style="display: none;"
-                                 ng-model="appcfService.appImage"
+                                 ng-model="cfService.appImage"
                                  ngf-drag-over-class="'dragover'"
                                  ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'"
@@ -2459,24 +2458,23 @@
                                  ngf-min-height="100">
                           </input>
                         </label>
-                        <label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                        <label ng-if="cfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
                           <i class="fa fa-refresh" aria-hidden="true"></i>
                           Reset
                         </label>
-                        <label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                        <label ng-if="cfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
                           <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
                         </label>
                       </div>
                     </div>
                     <div class="col-md-10">
                       <div class="col-md-6 col-md-offset-3">
-                        <img class="img-responsive" style="max-height: 360%" ng-if="appcfService.appImage" ngf-thumbnail="appcfService.appImage">
+                        <img class="img-responsive" style="max-height: 360%" ng-if="cfService.appImage" ngf-thumbnail="cfService.appImage">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
 
               <div class="col-md-12" style="width: 100%; margin-top: 20px;">
                 <div class="panel panel-red" style="width: 100%">
@@ -2487,7 +2485,7 @@
                   <div class="panel-body" style="color: #555555;">
                     <div id="customerAppgallery" class="col-md-10">
                       <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in appcfService.appImageList">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in cfService.appImageList">
                           <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
                           <br>
                           <button class="btn btn-danger form-control">

@@ -421,6 +421,8 @@ angular.module('myApp.view2', [
             'loginFlag': false,
             'userParty': 'customer',
             'customerView': 'customer_summary',
+            'appImage': null,
+            'appImageList': [],
             'customer_companyName': 'Sample Company',
             'customer_email': 'business@business.com',
             'customer_password': 'password',

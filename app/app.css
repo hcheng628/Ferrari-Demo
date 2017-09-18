@@ -15,6 +15,14 @@
     min-width: 100%;
 }
 
+#ffsAppgallery .img-thumbnail {
+    min-width: 100%;
+}
+
+#ffsAppgallery button {
+    min-width: 100%;
+}
+
 
 /* Gallery  End */
 /* app css stylesheet */
@@ -708,5 +716,7 @@ body {
 /* chat  */
 
 
-
+.btn-danger{
+    background-color: #D9534F !important;
+}
 
