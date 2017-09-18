@@ -783,3 +783,7 @@ body {
     color: #5cb85c;
 }
 /* Pop Tab  Start*/
+
+.chatPlaceholder {
+    min-height: 660px;
+}
