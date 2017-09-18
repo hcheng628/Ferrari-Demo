@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default" style="margin-bottom: 50px">
+    <div class="container-fluid"
+         style="border-style: solid; border-top-color: #cc0000; !important; border-bottom-color: transparent;
+            border-left-color: transparent; border-right-color: transparent">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img ng-src="./../img/Ferrari-logo-sm.png" style="max-height: 360%" class=""/></h1>
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav" style="font-weight: 500; font-size: 130%">
+            <li><a ng-click="goToFFSWorklist()" style="cursor: pointer;">Worklist</a></li>
+            <li><a ng-click="goToFFSClients()" style="cursor: pointer;">Clients</a></li>
+            <li><a ng-click="goToFFSReports()" style="cursor: pointer;">Reports</a></li>
+        </ul>
+
+        <div class="pull-right" style="margin-top: 5px;">
+            <a class="">
+                <span style="color: #5cb85c; margin-right: 5px;">
+                    {{cfServiceFFS.currentUserData.ferrariDemoParty}}
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </span>
+                <span style="color: #555555; margin-right: 5px;">
+                     {{cfServiceFFS.currentUserData.username}}
+                </span>
+            </a>
+            <a class="pull-right">
+                <button class="btn btn-success btn-sm" ng-click="ffsLogout()">
+                    <i class="fa fa-sign-out" aria-hidden="true">Logout</i>
+                </button>
+            </a>
+
+        </div>
+    </div>
+</nav>
+

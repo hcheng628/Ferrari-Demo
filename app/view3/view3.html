@@ -1,5 +1,2718 @@
-<p>This is the partial for view 3.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div>
+  <div ng-controller="View3Ctrl as $ctrlView3" class="modal-demo">
+    <script type="text/ng-template" id="myModalContentI.html">
+      <div class="modal-header">
+        <h3 style="color: #5cb85c" class="modal-title" id="modal-title">
+          <i class="fa fa-backward fa-rotate-90" aria-hidden="true"></i>
+          Increase Credit Line
+        </h3>
+      </div>
+      <div class="modal-body" id="modal-body">
+
+        <table class="table">
+          <tr>
+            <td>
+              <span style="color: #555555">Current Credit Line:</span>
+              <input type="text" class="form-control" value="300,000.00" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color: #555555">Requested Increased:</span>
+              <input type="text" class="form-control" value="100,000.00">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="$ctrlView3.ok()">Request</button>
+        <button class="btn btn-danger" type="button" ng-click="$ctrlView3.cancel()">Cancel</button>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="myModalContentW.html">
+      <div class="modal-header">
+        <h3 style="color: #5cb85c" class="modal-title" id="modal-titleW">
+          <i class="fa fa-money" aria-hidden="true"></i>Withdraw Funds
+        </h3>
+      </div>
+      <div class="modal-body" id="modal-bodyW">
+
+        <table class="table">
+          <tr>
+            <td>
+              Current Credit Line:
+            </td>
+            <td>
+              <input type="text" class="form-control" value="300,000.00" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Current Balance:
+            </td>
+            <td>
+              <input type="text" class="form-control" value="5,000.00" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Request Withdrawal:
+            </td>
+            <td>
+              <input type="text" class="form-control" value="10,000.00">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="$ctrlView3.ok()">Request</button>
+        <button class="btn btn-danger" type="button" ng-click="$ctrlView3.cancel()">Cancel</button>
+      </div>
+    </script>
+
+    <!-- Make Payment Start -->
+    <script type="text/ng-template" id="myModalContentMakePayment.html">
+      <div class="modal-header">
+        <h3 style="color: #5cb85c" class="modal-title" id="modal-titleMakePayment">
+          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          Make Payment
+        </h3>
+      </div>
+      <div class="modal-body" id="modal-bodyMakePayment">
+        <table class="table">
+          <tr>
+            <td>
+              <span style="color: #555555">Payment Amount:</span>
+              <input type="text" class="form-control" value="3,000.00">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btn btn-success">Setup AutoPay</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color: #555555">First Name on Bank Acct:</span>
+              <input type="text" class="form-control" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color: #555555">Last Name on Bank Acct:</span>
+              <input type="text" class="form-control" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color: #555555">Acct Type:</span>
+              <select name="" id="" class="form-control">
+                <option value="">--- Select Acct Type ---</option>
+                <option value="Checking">Checking</option>
+                <option value="Saving">Saving</option>
+
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color: #555555">Bank Routing #:</span>
+              <input type="text" class="form-control" value="321-321">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color: #555555">Bank Acct #:</span>
+              <input type="text" class="form-control" value="321-3321-321">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="$ctrlView3.ok()">Submit</button>
+        <button class="btn btn-danger" type="button" ng-click="$ctrlView3.cancel()">Cancel</button>
+      </div>
+    </script>
+    <!-- Make Payment Start -->
+
+    <!-- Chat -->
+    <script>
+        (function () {
+            // $('.chatChat').hide();
+            var Message;
+            Message = function (arg) {
+                this.text = arg.text, this.message_side = arg.message_side;
+                this.draw = function (_this) {
+                    return function () {
+                        var $message;
+                        $message = $($('.message_template').clone().html());
+                        $message.addClass(_this.message_side).find('.text').html(_this.text);
+                        $('.messages').append($message);
+                        return setTimeout(function () {
+                            return $message.addClass('appeared');
+                        }, 0);
+                    };
+                }(this);
+                return this;
+            };
+            $(function () {
+                var getMessageText, message_side, sendMessage;
+                message_side = 'right';
+                getMessageText = function () {
+                    var $message_input;
+                    $message_input = $('.message_input');
+                    return $message_input.val();
+                };
+                sendMessage = function (text) {
+                    var $messages, message;
+                    if (text.trim() === '') {
+                        return;
+                    }
+                    $('.message_input').val('');
+                    $messages = $('.messages');
+                    message_side = message_side === 'left' ? 'right' : 'left';
+                    message = new Message({
+                        text: text,
+                        message_side: message_side
+                    });
+                    message.draw();
+                    return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+                };
+                $('.send_message').click(function (e) {
+                    return sendMessage(getMessageText());
+                });
+                $('.message_input').keyup(function (e) {
+                    event.preventDefault();
+                    if (e.which === 13) { return sendMessage(getMessageText());}
+                    return false;
+                });
+                sendMessage('Ciao! :)');
+                sendMessage('Hi Ferrari! How are you?');
+                sendMessage('I\'m fine, thank you!');
+            });
+        }.call(this));
+    </script>
+  </div>
+
+  <div class="content" ng-controller="View3Ctrl as $ctrlView3"  data-ng-init="ffsViewAuthCheck()">
+    <div id="loginScreen" class="row col-md-12">
+      <!--<form novalidate>-->
+        <div id="appraiseMain" class="container" ng-show="cfServiceFFS.ffsViewAuthCheckFlag">
+          <cc-banner-ffs></cc-banner-ffs>
+          <fieldset class="for-panel">
+            <div id="appraiseMainView" class="" ng-show="cfServiceFFS.ffsView == 'ffs_worklist'">
+
+              <div class="panel panel-green" style="width: 100%">
+                <div class="panel-heading">
+                  <i class="fa fa-support fa-2x"></i>
+                  <span class="huge pull-right">Current Activities</span>
+                </div>
+
+                <div class="panel-body" style="color: #555555;">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>Priority</th>
+                      <th>Phase</th>
+                      <th>Client</th>
+                      <th>FICO</th>
+                      <th>Amount</th>
+                      <th>Credit Line</th>
+                      <th>Outstanding</th>
+                      <th>Utilization</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>0101</td>
+                      <td>09/12/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>High</td>
+                      <td>Initial Review</td>
+                      <td>Client A</td>
+                      <td>815</td>
+                      <td>$120,000.00</td>
+                      <td>$300,000.00</td>
+                      <td>$8,000.00</td>
+                      <td>30%</td>
+                    </tr>
+                    <tr>
+                      <td>0121</td>
+                      <td>09/10/2015</td>
+                      <td>Credit Line Extensio</td>
+                      <td>Medium</td>
+                      <td>Appraisal</td>
+                      <td>Client A</td>
+                      <td>775</td>
+                      <td>$160,000.00</td>
+                      <td>$200,000.00</td>
+                      <td>$4,000.00</td>
+                      <td>50%</td>
+                    </tr>
+                    <tr>
+                      <td>0103</td>
+                      <td>05/10/2017</td>
+                      <td>withdrawal</td>
+                      <td>High</td>
+                      <td>Approval</td>
+                      <td>Client B</td>
+                      <td>765</td>
+                      <td>$10,000.00</td>
+                      <td>$30,000.00</td>
+                      <td>$1,000.00</td>
+                      <td>60%</td>
+                    </tr>
+                    <tr>
+                      <td>0401</td>
+                      <td>09/12/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>Medium</td>
+                      <td>Completed</td>
+                      <td>Client A</td>
+                      <td>815</td>
+                      <td>$120,000.00</td>
+                      <td>$300,000.00</td>
+                      <td>$8,000.00</td>
+                      <td>45%</td>
+                    </tr>
+                    <tr>
+                      <td>0201</td>
+                      <td>09/12/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>Low</td>
+                      <td>Appraisal</td>
+                      <td>Client A</td>
+                      <td>815</td>
+                      <td>$120,000.00</td>
+                      <td>$300,000.00</td>
+                      <td>$8,000.00</td>
+                      <td>50%</td>
+                    </tr>
+                    <tr>
+                      <td>0107</td>
+                      <td>03/06/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>High</td>
+                      <td>Approval</td>
+                      <td>Client C</td>
+                      <td>695</td>
+                      <td>$20,000.00</td>
+                      <td>$330,000.00</td>
+                      <td>$1,000.00</td>
+                      <td>70%</td>
+                    </tr>
+                    <tr>
+                      <td>0301</td>
+                      <td>02/19/2017</td>
+                      <td>Payment Confirmation</td>
+                      <td>High</td>
+                      <td>Appraisal</td>
+                      <td>Client A</td>
+                      <td>815</td>
+                      <td>$20,000.00</td>
+                      <td>$40,000.00</td>
+                      <td>$2,000.00</td>
+                      <td>50%</td>
+                    </tr>
+                    <tr>
+                      <td>0501</td>
+                      <td>04/22/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>Low</td>
+                      <td>Completed</td>
+                      <td>Client A</td>
+                      <td>730</td>
+                      <td>$12,000.00</td>
+                      <td>$30,000.00</td>
+                      <td>$1,500.00</td>
+                      <td>36%</td>
+                    </tr>
+                    <tr>
+                      <td>0701</td>
+                      <td>06/28/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>High</td>
+                      <td>Appraisal Review</td>
+                      <td>Client S</td>
+                      <td>820</td>
+                      <td>$200,000.00</td>
+                      <td>$400,000.00</td>
+                      <td>$12,000.00</td>
+                      <td>60%</td>
+                    </tr>
+                    <tr>
+                      <td>0901</td>
+                      <td>09/12/2017</td>
+                      <td>Inspection Review</td>
+                      <td>Medium</td>
+                      <td>Completed</td>
+                      <td>Client G</td>
+                      <td>725</td>
+                      <td>$50,000.00</td>
+                      <td>$10,000.00</td>
+                      <td>$3,000.00</td>
+                      <td>50%</td>
+                    </tr>
+                    <tr>
+                      <td>1101</td>
+                      <td>09/12/2017</td>
+                      <td>Credit Line Review</td>
+                      <td>High</td>
+                      <td>Appraisal</td>
+                      <td>Client Z</td>
+                      <td>815</td>
+                      <td>$120,000.00</td>
+                      <td>$300,000.00</td>
+                      <td>$8,000.00</td>
+                      <td>70%</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="panel panel-red" style="width: 100%; margin-top: 20px;">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-commenting fa-3x" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+                          <span>Customer Chat Room</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="panel-body" style="display: block;">
+                    <div class="" style="margin-bottom: 23px; margin-top: 10px" ng-show="true">
+                      <div class="chat__main">
+                        <ol class="chat__messages">
+                          
+                          <li class="message">
+                            <div class="message__title">
+                              <span class="message__from">James:</span>
+                              <span>10:45 pm</span>
+                            </div>
+                            <div class="message__body">
+                              Good morning!
+                            </div>
+                          </li>
+                          <li class="message">
+                            <div class="message__title">
+                              <span class="message__from">James:</span>
+                              <span>10:45 pm</span>
+                            </div>
+                            <div class="message__body">
+                              Good morning!
+                            </div>
+                          </li>
+
+                          <li class="message">
+                            <div class="message__title">
+                              <span class="message__from">John:</span>
+                              <span>7:42 pm</span>
+                            </div>
+                            <div class="message__body">
+                              Hello there!
+                            </div>
+                          </li>
+
+                          <li class="message">
+                            <div class="message__title">
+                              <span class="message__from">Leo:</span>
+                              <span>10:42 pm</span>
+                            </div>
+                            <div class="message__body">
+                              May I get a Ferrari for free?
+                            </div>
+                          </li>
+
+                          <li class="message">
+                            <div class="message__title">
+                              <span class="message__from">James:</span>
+                              <span>10:45 pm</span>
+                            </div>
+                            <div class="message__body">
+                              Good morning!
+                            </div>
+                          </li>
+
+
+                        </ol>
+
+                      </div>
+                      <div class="chat__footer">
+                        <form>
+                          <input type="text" autofocus="1" autocomplete="off" placeholder="New Message">
+                          <button class="btn btn-success">
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            Send
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              <!--<div class="col-md-12">-->
+                <!--<div class="col-md-4">-->
+                  <!--<div class="panel panel-green">-->
+                    <!--<div class="panel-heading">-->
+                      <!--<i class="fa fa-fighter-jet fa-3x" aria-hidden="true"></i>-->
+                      <!--<span class="huge pull-right">Quick Links</span>-->
+                    <!--</div>-->
+                    <!--<div class="panel-body">-->
+                      <!--<div class="list-group">-->
+                        <!--<button style="margin-bottom: 10px;" class="btn btn-success list-group-item list-group-item-success" ng-click="$ctrlView3.openComponentModalI()">-->
+                          <!--<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>-->
+                          <!--<span>Increase Credit Line</span>-->
+                        <!--</button>-->
+                        <!--<button style="margin-bottom: 10px;" class="btn btn-success list-group-item list-group-item-success" ng-click="$ctrlView3.openComponentModalW()">-->
+                          <!--<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>-->
+                          <!--<span>Withdraw Funds</span>-->
+                        <!--</button>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="panel panel-green" style="margin-top: -5px;">-->
+                    <!--<div class="panel-heading">-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-xs-3">-->
+                          <!--<i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-9 text-right">-->
+                          <!--<div class="huge">-->
+                            <!--<span>Payments </span>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="panel-body" style="margin-top: -10px;">-->
+                      <!--<div class="list-group">-->
+                        <!--<a class="list-group-item">Current Balance: <span class="pull-right">$5,000,000.00</span></a>-->
+                        <!--<a class="list-group-item">Payment Due: <span class="pull-right">$25,000.00</span></a>-->
+                        <!--<a class="list-group-item">Date Due: <span class="pull-right">10/15/2017</span></a>-->
+                        <!--<a class="list-group-item">Last Payment: <span class="pull-right">$25,000.00</span></a>-->
+                        <!--<a class="list-group-item">Last Payment Date: <span class="pull-right">09/15/2017</span></a>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-8" style="padding-bottom: 20px">-->
+                  <!--<div class="panel panel-red" style="width: 100%">-->
+                    <!--<div class="panel-heading">-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-xs-3">-->
+                          <!--<i class="fa fa-tachometer fa-3x" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-9 text-right">-->
+                          <!--<div class="huge">-->
+                            <!--<span>Credit Information</span>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="panel-body" >-->
+                      <!--<div class="list-group">-->
+                        <!--<a class="list-group-item">FICO Score: <span class="pull-right" style="font-weight: bold">760</span></a>-->
+                        <!--<a class="list-group-item">Credit Line: <span class="pull-right" style="font-weight: bold">$15,500,000.00</span></a>-->
+                        <!--<a class="list-group-item">Interest Rate: <span class="pull-right" style="font-weight: bold">2.96%</span></a>-->
+                        <!--<a class="list-group-item">Outstanding: <span class="pull-right" style="font-weight: bold">$5,000,000.00</span></a>-->
+                        <!--<a class="list-group-item">Utilization Rate: <span class="pull-right" style="font-weight: bold">31.3%</span></a>-->
+                      <!--</div>-->
+                      <!--<span></span>-->
+                      <!--<div id="container-speed" style="width: 300px; height: 210px; float: left"></div>-->
+                      <!--<div id="container-rpm" style="width: 300px; height: 210px; float: left"></div>-->
+                    <!--</div>-->
+                    <!--<script>-->
+                        <!--var gaugeOptions = {-->
+                            <!--chart: {-->
+                                <!--type: 'solidgauge'-->
+                            <!--},-->
+                            <!--title: null,-->
+                            <!--pane: {-->
+                                <!--center: ['50%', '100%'],-->
+                                <!--size: '130%',-->
+                                <!--startAngle: -90,-->
+                                <!--endAngle: 90,-->
+                                <!--background: {-->
+                                    <!--backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',-->
+                                    <!--innerRadius: '60%',-->
+                                    <!--outerRadius: '100%',-->
+                                    <!--shape: 'arc'-->
+                                <!--}-->
+                            <!--},-->
+                            <!--tooltip: {-->
+                                <!--enabled: false-->
+                            <!--},-->
+                            <!--credits: {-->
+                                <!--enabled: false-->
+                            <!--},-->
+                            <!--// the value axis-->
+                            <!--yAxis: {-->
+                                <!--stops: [-->
+                                    <!--[.1, '#DF5353'], // green-->
+                                    <!--[.6, '#DDDF0D'], // yellow-->
+                                    <!--[.8, '#55BF3B'] // red-->
+                                <!--],-->
+                                <!--lineWidth: 0,-->
+                                <!--minorTickInterval: null,-->
+<!--//                            tickAmount: 2,-->
+                                <!--title: {-->
+                                    <!--y: -90-->
+                                <!--},-->
+                                <!--labels: {-->
+                                    <!--y: 16-->
+                                <!--}-->
+                            <!--},-->
+                            <!--plotOptions: {-->
+                                <!--solidgauge: {-->
+                                    <!--dataLabels: {-->
+                                        <!--y: 5,-->
+                                        <!--borderWidth: 0,-->
+                                        <!--useHTML: true-->
+                                    <!--}-->
+                                <!--}-->
+                            <!--}-->
+                        <!--};-->
+
+                        <!--// The speed gauge-->
+                        <!--var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {-->
+                            <!--yAxis: {-->
+                                <!--min: 0,-->
+                                <!--max: 100,-->
+                                <!--title: {-->
+                                    <!--text: 'Utilization'-->
+                                <!--}-->
+                            <!--},-->
+                            <!--credits: {-->
+                                <!--enabled: false-->
+                            <!--},-->
+                            <!--series: [{-->
+                                <!--name: 'Speed',-->
+                                <!--data: [85],-->
+                                <!--dataLabels: {-->
+                                    <!--format: '<div style="text-align:center"><span style="display: inline;font-size:25px;color:' +-->
+                                    <!--((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span>' +-->
+                                    <!--'<span style="font-size:25px;color:#5cb85c">%</span></div>'-->
+                                <!--},-->
+                                <!--tooltip: {-->
+                                    <!--valueSuffix: ' %'-->
+                                <!--}-->
+                            <!--}]-->
+
+                        <!--}));-->
+
+                        <!--// The RPM gauge-->
+                        <!--var chartRpm = Highcharts.chart('container-rpm', Highcharts.merge(gaugeOptions, {-->
+                            <!--yAxis: {-->
+                                <!--min: 550,-->
+                                <!--max: 850,-->
+                                <!--title: {-->
+                                    <!--text: 'FICO Score'-->
+                                <!--}-->
+                            <!--},-->
+                            <!--series: [{-->
+                                <!--name: 'RPM',-->
+                                <!--data: [760],-->
+                                <!--dataLabels: {-->
+                                    <!--format: '<div style="text-align:center"><span style="font-size:25px;color:' +-->
+                                    <!--((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +-->
+                                    <!--'<span style="font-size:12px;color:silver"></span></div>'-->
+                                <!--},-->
+                                <!--tooltip: {-->
+                                    <!--valueSuffix: ''-->
+                                <!--}-->
+                            <!--}]-->
+
+                        <!--}));-->
+                        <!--//                    $('.highcharts-credits').remove();-->
+                    <!--</script>-->
+                  <!--</div>-->
+                  <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+                <!--<div style="">-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="clearfix"></div>-->
+
+              <!-- Almost Empty -->
+              <!--<div class="col-md-12">-->
+                <!--<div class="col-md-4">-->
+                  <!--<div class="panel panel-green">-->
+                    <!--<div class="panel-heading">-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-xs-3">-->
+                          <!--<i class="fa fa-commenting fa-3x" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-9 text-right">-->
+                          <!--<div class="huge">-->
+                            <!--<span>Contact Us?</span>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="panel-body" style="display: block;">-->
+
+                      <!--<div class="well well-sm" style="margin-bottom: 10px;">-->
+                        <!--<h7 style="color: #555555">Tips:</h7>-->
+                        <!--<span style="color: #5cb85c">-->
+                          <!--You can live chat with Ferrari Financial Service representatives-->
+                          <!--<i class="fa fa-smile-o" aria-hidden="true"></i>.-->
+                        <!--</span>-->
+                      <!--</div>-->
+
+                      <!--<div class="" style="margin-bottom: 10px;">-->
+                        <!--<h6>-->
+                          <!--Call Us:-->
+                          <!--<a class="pull-right" style="text-decoration: none; color: #5cb85c" class="">-->
+                            <!--(201)510-2500-->
+                          <!--</a>-->
+                        <!--</h6>-->
+
+                      <!--</div>-->
+
+                      <!--<div style="margin-bottom: 10px;color: #555555">-->
+                        <!--<span style="margin: 0 0 0 0;">Hours: </span >-->
+                        <!--<ul class="list-unstyled pull-right" style="margin: 0 0 0 0; margin-bottom: 15px;">-->
+                          <!--<li  style="margin: 0 0 0 0;">Sunday: Closed</li>-->
+                          <!--<li  style="margin: 0 0 0 0;">Monday: 9AM–6PM</li>-->
+                          <!--<li  style="margin: 0 0 0 0;">Tuesday: 9AM–6PM</li>-->
+                          <!--<li  style="margin: 0 0 0 0;">Wednesday: 9AM–6PM</li>-->
+                          <!--<li  style="margin: 0 0 0 0;">Thursday: 9AM–6PM</li>-->
+                          <!--<li  style="margin: 0 0 0 0;">Friday: 9AM–6PM</li>-->
+                          <!--<li  style="margin: 0 0 0 0;">Saturday: Closed</li>-->
+                        <!--</ul>-->
+                      <!--</div>-->
+
+
+
+                      <!--<div class="" style="margin-bottom: 23px; margin-top: 10px">-->
+                        <!--<button class="btn btn-success" style="width: 100%" onclick="return $('.chatChat').show();">-->
+                          <!--<i class="fa fa-weixin" aria-hidden="true"></i>-->
+                          <!--Start Live Chat-->
+                        <!--</button>-->
+                      <!--</div>-->
+
+                      <!--<div class="" style="margin-bottom: 10px;">-->
+                        <!--<a href="mailto:ferrari@ferrarifs.com" class="btn btn-success" style="width: 100%">-->
+                          <!--<i class="fa fa-envelope-open-o" aria-hidden="true"></i>-->
+                          <!--Send Us an E-mail-->
+                        <!--</a>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="col-md-8" style="padding-bottom: 20px">-->
+                  <!--<div class="panel panel-red" style="width: 100%">-->
+                    <!--<div class="panel-heading">-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-xs-3">-->
+                          <!--<i class="fa fa-rss fa-3x" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-9 text-right">-->
+                          <!--<div class="huge">-->
+                            <!--<span>Current Activity</span>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="panel-body" >-->
+                      <!--<div class="panel-body">-->
+                        <!--<table class="table">-->
+                          <!--<thead>-->
+                          <!--<tr>-->
+                            <!--<th class="control-label">Show Activity</th>-->
+                            <!--<th>-->
+                              <!--<datepicker date-format="yyyy-MM-dd">-->
+                                <!--<input id="showActivityFrom" type="text" class="form-control" placeholder="From Date">-->
+                              <!--</datepicker>-->
+                            <!--</th>-->
+                            <!--<th>-->
+                              <!--<datepicker date-format="yyyy-MM-dd">-->
+                                <!--<input id="showActivityTo" type="text" class="form-control" placeholder="To Date">-->
+                              <!--</datepicker>-->
+                            <!--</th>-->
+                            <!--<th>-->
+                              <!--<button class="btn btn-success">Show</button>-->
+                            <!--</th>-->
+                          <!--</tr>-->
+                          <!--</thead>-->
+                        <!--</table>-->
+                        <!--<table class="table">-->
+                          <!--<thead>-->
+                          <!--<tr>-->
+                            <!--<th>Date</th>-->
+                            <!--<th>Activity</th>-->
+                            <!--<th>Status</th>-->
+                            <!--<th>Note</th>-->
+                          <!--</tr>-->
+                          <!--</thead>-->
+                          <!--<tbody>-->
+                          <!--<tr>-->
+                            <!--<td>09/05/2017</td>-->
+                            <!--<td>Funds Withdrawal</td>-->
+                            <!--<td>Approved</td>-->
+                            <!--<td>Funds are transferred to the bank account.</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td>09/03/2017</td>-->
+                            <!--<td>Vehicle Inspection</td>-->
+                            <!--<td>Notified</td>-->
+                            <!--<td>Appraisal company should review Ferrari 458</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td>09/01/2017</td>-->
+                            <!--<td>Credit Line Extension Request</td>-->
+                            <!--<td>Rejected</td>-->
+                            <!--<td>Not enough collateral</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td>09/01/2017</td>-->
+                            <!--<td>Vehicle Insurance</td>-->
+                            <!--<td>Notified</td>-->
+                            <!--<td>Insurance information for Ferrari 458 should be provided by 10/01/2017</td>-->
+                          <!--</tr>-->
+                          <!--</tbody>-->
+                        <!--</table>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="col-md-12" style="margin-top: 20px">-->
+                <!--<div class="pull-right" style="width: 95%">-->
+                  <!--<div class="row">-->
+                    <!--<div class="col-xs-3">-->
+                      <!--<i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>-->
+                      <!--<span class="huge">Documents</span>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="panel-body">-->
+                    <!--<table class="table">-->
+                      <!--<thead>-->
+                      <!--<tr>-->
+                        <!--<th>-->
+                          <!--<select id="documentType" class="form-control">-->
+                            <!--<option value="">-&#45;&#45; Select Document Type -&#45;&#45; </option>-->
+                            <!--<option value="insurance">Insurance</option>-->
+                            <!--<option value="appraisalReport">Appraisal Report</option>-->
+                            <!--<option value="financialStatement">Financial Statement</option>-->
+                            <!--<option value="other">Other</option>-->
+                          <!--</select>-->
+                        <!--</th>-->
+                        <!--&lt;!&ndash;<th>Documents</th>&ndash;&gt;-->
+                        <!--<th>-->
+                          <!--<datepicker date-format="yyyy-MM-dd">-->
+                            <!--<input id="documentsFrom" type="text" class="form-control" placeholder="From Date">-->
+                          <!--</datepicker>-->
+                        <!--</th>-->
+                        <!--<th>-->
+                          <!--<datepicker date-format="yyyy-MM-dd">-->
+                            <!--<input id="documentsTo" type="text" class="form-control" placeholder="To Date">-->
+                          <!--</datepicker>-->
+                        <!--</th>-->
+                        <!--<th>-->
+                          <!--<button class="btn btn-success">Show</button>-->
+                        <!--</th>-->
+                      <!--</tr>-->
+                      <!--</thead>-->
+                    <!--</table>-->
+
+                    <!--<table class="table">-->
+                      <!--<thead>-->
+                      <!--<tr>-->
+                        <!--<th>Date</th>-->
+                        <!--<th>Document Type</th>-->
+                        <!--<th>Go to Document</th>-->
+                        <!--<th>Note</th>-->
+                      <!--</tr>-->
+                      <!--</thead>-->
+                      <!--<tbody>-->
+                      <!--<tr>-->
+                        <!--<td>09/05/2017</td>-->
+                        <!--<td>Insurance</td>-->
+                        <!--<td>-->
+                          <!--<button class="btn btn-success">-->
+                            <!--<i class="fa fa-cloud-download" aria-hidden="true"></i>  <span> Download</span>-->
+                          <!--</button>-->
+                        <!--</td>-->
+                        <!--<td>Insurance contract for Ferrari 458</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                        <!--<td>9/03/2017</td>-->
+                        <!--<td>Financial Statements</td>-->
+                        <!--<td>-->
+                          <!--<button class="btn btn-success">-->
+                            <!--<i class="fa fa-cloud-download" aria-hidden="true"></i> <span> Download</span>-->
+                          <!--</button>-->
+                        <!--</td>-->
+                        <!--<td>Requested statement for 2016</td>-->
+                      <!--</tr>-->
+                      <!--</tbody>-->
+                    <!--</table>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+                <!---->
+                <!--<div class="clearfix"></div>-->
+              <!--</div>-->
+
+              <!--<div class="col-md-12" style="margin-top: 20px">-->
+                <!--<div class="pull-right" style="width: 95%">-->
+                  <!--<div class="row">-->
+                    <!--<div class="col-xs-3">-->
+                      <!--<i class="fa fa-cloud-upload fa-3x" aria-hidden="true"></i>-->
+                      <!--<span class="huge">Upload Documents</span>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="panel-body">-->
+                    <!--<table class="table">-->
+                      <!--<thead>-->
+                      <!--<tr>-->
+                        <!--<th>-->
+                          <!--<select id="uploadDocumentType" class="form-control">-->
+                            <!--<option value="">-&#45;&#45; Select Document Type -&#45;&#45; </option>-->
+                            <!--<option value="insurance">Insurance</option>-->
+                            <!--<option value="appraisalReport">Appraisal Report</option>-->
+                            <!--<option value="financialStatement">Financial Statement</option>-->
+                            <!--<option value="other">Other</option>-->
+                          <!--</select>-->
+                        <!--</th>-->
+                        <!--&lt;!&ndash;<th>Documents</th>&ndash;&gt;-->
+
+                        <!--<th>-->
+                          <!--<label ng-if="!cfServiceFFS.customer_uploadDocs" class="btn btn-success pull-right">-->
+                          <!--<span>-->
+                           <!--<span>Add New / Browse</span>-->
+                            <!--<i class="fa fa-file-text-o" aria-hidden="true"></i>-->
+                          <!--</span>-->
+                            <!--<input type="file" class="form-control"-->
+                                   <!--ngf-select style="display: none;"-->
+                                   <!--ng-model="cfServiceFFS.customer_uploadDocs"-->
+                                   <!--ngf-drag-over-class="'dragover'"-->
+                                   <!--ngf-max-size="50MB"-->
+                                   <!--ngf-min-height="100">-->
+                            <!--</input>-->
+                          <!--</label>-->
+                        <!--</th>-->
+                        <!--<th>-->
+                        <!--<span ng-show="cfServiceFFS.customer_uploadDocs">-->
+                          <!--<button class="btn btn-success">-->
+                            <!--Upload-->
+                          <!--</button>-->
+                          <!--<button class="btn btn-danger"ng-click="cfServiceFFS.customer_uploadDocs = null">-->
+                            <!--Retset Upload Document-->
+                          <!--</button>-->
+                        <!--</span>-->
+                        <!--</th>-->
+                        <!--<th>-->
+                          <!--<pre ng-show="false">{{ JSON.stringify(cfServiceFFS.customer_uploadDocs) }}</pre>-->
+                        <!--</th>-->
+                      <!--</tr>-->
+                      <!--</thead>-->
+                    <!--</table>-->
+
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+              <!--</div>-->
+
+            </div>
+
+            <div id="customerFinance" ng-show="cfServiceFFS.ffsView == 'ffs_reports'">
+              <div class="col-md-12" style="padding-bottom: 20px">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-usd fa-3x" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+                          <span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="panel-body" >
+                    <div class="panel-body">
+                      <table class="table" style="color: #555555">
+                        <tbody>
+                        <tr>
+                          <td>Credit Line:</td>
+                          <td style="font-weight: bold">$15,000,000.00</td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <button class="btn btn-success" style="width: 100%" ng-click="$ctrlView3.openComponentModalI()">Increase Limit</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Payment Due:</td>
+                          <td style="font-weight: bold">$25,000.00</td>
+                          <td></td>
+                          <td>Interest Rate:</td>
+                          <td style="font-weight: bold">2.98%</td>
+                        </tr>
+                        <tr>
+                          <td>Due Date:</td>
+                          <td style="font-weight: bold">10/15/2017</td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <button class="btn btn-success" style="width: 100%" ng-click="$ctrlView3.openComponentModalW()">Request Withdrawal</button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Outstanding:</td>
+                          <td style="font-weight: bold">$5,000,000.00</td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <button class="btn btn-success" style="width: 100%" ng-click="$ctrlView3.myModalContentMakePayment()">Make Payment</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Utilization:</td>
+                          <td style="font-weight: bold">31%</td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <button class="btn btn-success" style="width: 100%">Billing Statements</button>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12" style="padding-bottom: 20px">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-history fa-3x" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+                          <span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="panel-body" >
+                    <div class="panel-body">
+                      <table class="table" style="color: #555555">
+                        <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Amount</th>
+                          <th>Note</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>09/01/2017</td>
+                          <td>$15,000.00</td>
+                          <td>Withdrawal Approved</td>
+                        </tr>
+                        <tr>
+                          <td>09/11/2017</td>
+                          <td style="font-weight: bold; color: #5cb85c">-$9,500.00</td>
+                          <td>
+                            <button class="btn btn-success">
+                              View Check
+                              <i class="fa fa-arrow-circle-right "></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>09/01/2017</td>
+                          <td>$5,000.00</td>
+                          <td>Withdrawal Approved</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="customerVehiclesMainView" class="table-responsive" ng-show="cfServiceFFS.ffsView == 'ffs_clients'">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>CarID</th>
+                  <th>Make</th>
+                  <th>Model</th>
+                  <th>Year</th>
+                  <th>VIN</th>
+                  <th>Status</th>
+                  <th>New/Used</th>
+                  <th>Race</th>
+                  <th>Location</th>
+                  <th>Appraisal</th>
+                  <th>Insured</th>
+                  <th>Inspection</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <a class="appViewRefId" ng-click="docustomerAppAppView()">12345</a>
+                  </td>
+                  <td>Ferrari</td>
+                  <td>488 Spider</td>
+                  <td>2016</td>
+                  <td>19UYA31581L000333</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Available
+                    </span>
+                  </td>
+                  <td>New</td>
+                  <td>
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  </td>
+                  <td>Houston, TX</td>
+                  <td>09/04/2015</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    Yes
+                    </span>
+                  </td>
+                  <td>03/06/2016</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <a class="appViewRefId" ng-click="docustomerAppAppView()">12345</a>
+                  </td>
+                  <td>BMW</td>
+                  <td>650i</td>
+                  <td>2012</td>
+                  <td>19UYA31581L312333</td>
+                  <td>
+                    <span style="color: #555555">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Unavailable
+                    </span>
+                  </td>
+                  <td>New</td>
+                  <td>
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  </td>
+                  <td>Tampa, FL</td>
+                  <td>09/04/2016</td>
+                  <td>
+                    <span style="color: #555555">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    No
+                    </span>
+                  </td>
+                  <td>03/03/2016</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <a class="appViewRefId" ng-click="docustomerAppAppView()">12345</a>
+                  </td>
+                  <td>Jeep</td>
+                  <td>Commander</td>
+                  <td>2008</td>
+                  <td>19UYACD581L000333</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                      <i class="fa fa-flag" aria-hidden="true"></i>
+                      Available
+                    </span>
+                  </td>
+                  <td>Used</td>
+                  <td>
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                  </td>
+                  <td>Houston, TX</td>
+                  <td>09/04/2013</td>
+                  <td>
+                    <span style="color: #5cb85c">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    Yes
+                    </span>
+                  </td>
+                  <td>03/06/2014</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <button class="btn btn-success">
+                      <i class="fa fa-plus-square" aria-hidden="true"></i>
+                      Add Another Vehicle</button>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="">
+                <div class="col ">Page 1 of 5
+                </div>
+                <div class="col ">
+                  <ul class="pagination hidden-xs pull-right">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                  </ul>
+                  <ul class="pagination visible-xs pull-right">
+                    <li><a>«</a></li>
+                    <li><a>»</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="customerVehicleAppView" ng-show="cfServiceFFS.ffsView == 'customer_app'">
+              <h4 style="color: white" class="container">Your Car ID: 12345</h4>
+
+              <div class="col-md-12" style="width: 100%">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Vehicle Information</span>
+                  </div>
+
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="customerAppVehicleInfo" class="table" style="font-size: 90%">
+                      <thead>
+                      <tr>
+                        <th>Model</th>
+                        <th>Make</th>
+                        <th>Year</th>
+                        <th>VIN</th>
+                        <th>Engine Number</th>
+                        <th>New/Used</th>
+                        <th>Race</th>
+                        <th>Mileage</th>
+                        <th>Exterior Color</th>
+                        <th>Exterior Color</th>
+                        <th>City</th>
+                        <th>Status</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>488 Spider</td>
+                        <td>Ferrari</td>
+                        <td>2016</td>
+                        <td>19UYA31581L000333</td>
+                        <td>JIAHTS382SJ</td>
+                        <td>New</td>
+                        <td>
+                          <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                        </td>
+                        <td>56,000</td>
+                        <td>Red</td>
+                        <td>Black</td>
+                        <td>Houston, TX</td>
+                        <td>
+                  <span style="color: #5cb85c">
+                  <i class="fa fa-flag" aria-hidden="true"></i>
+                  Available
+                  </span>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Insurance Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="customerVehInsuranceInfo" class="table">
+                      <tbody>
+                      <tr>
+                        <td>Insurance Company:</td>
+                        <td>Geico</td>
+                        <td>Effective Date:</td>
+                        <td>06/15/2017</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-success">Upload New Police Information</button>
+                        </td>
+                        <td></td>
+                        <td>Insured Amount:</td>
+                        <td>$80,000.00</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Inspection Information</span>
+                  </div>
+
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="customerVehInspectionInfo" class="table">
+                      <tbody>
+                      <tr>
+                        <td>Inspection Date:</td>
+                        <td>02/15/2017</td>
+                        <td>Inspection Status:</td>
+                        <td>Complete</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-success">Upload Report</button>
+                        </td>
+                        <td></td>
+                        <td>Inspection Fee:</td>
+                        <td>$900.00</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button class="btn btn-danger">
+                            &nbsp &nbsp &nbsp &nbsp Review &nbsp &nbsp &nbsp &nbsp
+                          </button>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Appraisal Information</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <table id="customerAppAppraisalInfo" class="table">
+                      <thead>
+                      <tr>
+                        <th>Appraisal Date</th>
+                        <th>Appraisal Status</th>
+                        <th>Appraisal Fee</th>
+                        <th>Amount</th>
+                        <th>Overall Condition</th>
+                        <th>Value Adjustments</th>
+                        <th>Report</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>09-10-2017</td>
+                        <td>Pending</td>
+                        <td>$ 599.99</td>
+                        <td>$ 75,000.00</td>
+                        <td>Excellent</td>
+                        <td>$9,000.00</td>
+                        <td>
+                          <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
+                          <br>
+                          <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-green" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Upload Photos</span>
+                  </div>
+
+                  <div class="panel-body" style="color: #555555;">
+                    <div class="container">
+                      <div class="col-md-11 ">
+                        <label ng-if="!appcfServiceFFS.appImage" class="btn btn-default pull-right" style="">
+                                                <span>
+                                                    <span> Add New </span>
+                                                    <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
+                                                </span>
+                          <input type="file" class="form-control"
+                                 ngf-select style="display: none;"
+                                 ng-model="appcfServiceFFS.appImage"
+                                 ngf-drag-over-class="'dragover'"
+                                 ngf-pattern="'image/*'"
+                                 ngf-accept="'image/*'"
+                                 ngf-max-size="5MB"
+                                 ngf-min-height="100">
+                          </input>
+                        </label>
+                        <label ng-if="appcfServiceFFS.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                          <i class="fa fa-refresh" aria-hidden="true"></i>
+                          Reset
+                        </label>
+                        <label ng-if="appcfServiceFFS.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                          <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="col-md-6 col-md-offset-3">
+                        <img class="img-responsive" style="max-height: 360%" ng-if="appcfServiceFFS.appImage" ngf-thumbnail="appcfServiceFFS.appImage">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-12" style="width: 100%; margin-top: 20px;">
+                <div class="panel panel-red" style="width: 100%">
+                  <div class="panel-heading">
+                    <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
+                    <span class="huge pull-right">Photo Gallery</span>
+                  </div>
+                  <div class="panel-body" style="color: #555555;">
+                    <div id="customerAppgallery" class="col-md-10">
+                      <div class="container col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="color: #5cb85c" >
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-repeat="eachImg in appcfServiceFFS.appImageList">
+                          <img ng-src="{{ eachImg.$ngfBlobUrl }}" class="img-thumbnail img-responsive"/>
+                          <br>
+                          <button class="btn btn-danger form-control">
+                                            <span>
+                                               <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                            </span>
+                          </button>
+                        </div>
+                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                          <img ng-src="./../img/car1.png" class="img-thumbnail  img-responsive"/>
+                          <br>
+                          <button class="btn btn-danger form-control">
+                                            <span>
+                                               <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                            </span>
+                          </button>
+                        </div>
+                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                          <img ng-src="./../img/car2.png" class="img-thumbnail img-responsive"/>
+                          <br>
+                          <button class="btn btn-danger form-control">
+                                                <span>
+                                                <i ng-click="" class="fa fa-trash-o fa-2x fa-cog-secondary" aria-hidden="true"></i>
+                                                </span>
+                          </button>
+                        </div>
+                        <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div id="customerProfile" ng-show="cfServiceFFS.ffsView == ''">
+              <!-- Business Profile -->
+              <div id="customerAccountInfo"  ng-show="cfServiceFFS.customer_IndOrBusFlag == 'Business'" class="input-group" style="margin-top: 20px; width: 100%">
+                <table class="table col-lg-12" >
+                  <thead>
+                  <tr>
+                    <th>Account Information</th>
+                  </tr>
+                  </thead>
+                  <tbody style="">
+                  <tr>
+                    <td>
+                      Company Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyName" class="form-control">
+                    </td>
+                    <td>
+                      Password:
+                      <input type="password" ng-model="cfServiceFFS.customer_password" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_email" class="form-control">
+                    </td>
+                    <td>
+                      Password Confirm:
+                      <input type="password" ng-model="cfServiceFFS.customer_passwordConfirm" class="form-control">
+                    </td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>Company Information</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Nature of Business:
+                      <input type="text" ng-model="cfServiceFFS.customer_businessNature" class="form-control">
+                    </td>
+                    <td><i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_businessPhone" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Years Established
+                      <input type="text" ng-model="cfServiceFFS.customer_yearsEstablised" class="form-control">
+                    </td>
+                    <td>
+                      Type of Business:
+                      <select ng-model="cfServiceFFS.customer_businessTypeDropdownSelected" class="form-control"
+                              ng-options="item for item in cfServiceFFS.customer_businessTypeDropdown">
+                      </select>
+                    </td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Company Address
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAddrLine1" class="form-control">
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAddrLine1" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      City:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyCity" class="form-control">
+                    </td>
+                    <td>State:
+                      <select ng-model="cfServiceFFS.customer_companyState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyZip" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Years under present ownership:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyYrsUnderPresendOwnership" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Is Business Listed with Dun & Bradstreet Y/N?
+                      <input type="radio" ng-model="cfServiceFFS.customer_companyDunFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_companyDunFlag" value="N">
+                    </td>
+                    <td ng-show="cfServiceFFS.customer_companyDunFlag == 'Y'">
+                      Duns #:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyDunNum" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TAX ID
+                      <input type="text" ng-model="cfServiceFFS.customer_companyTaxId" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Have you ever had any property repossessed?
+                      <input type="radio" ng-model="cfServiceFFS.customer_companyRepossessedFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_companyRepossessedFlag" value="N">
+                    </td>
+                    <td>Have you ever had any suits or judgments pending against you?
+                      <input type="radio" ng-model="cfServiceFFS.customer_companySuitsFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_companySuitsFlag" value="N">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Have you ever filed for bankruptcy in the last 10 years?
+                      <input type="radio" ng-model="cfServiceFFS.customer_companyBankruptcyFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_companyBankruptcyFlag" value="N">
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Affiliate Co. or Subsidiary Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Name of Affiliate Co. or Subsidiary:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAffiliateName" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAffiliateAddress1" class="form-control">
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAffiliateAddress2" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>City:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAffiliateCity" class="form-control">
+                    </td>
+                    <td>State:
+                      <select ng-model="cfServiceFFS.customer_companyAffiliateState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyAffiliateZip" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Officers
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerName1" class="form-control">
+                    </td>
+                    <td>Title:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerTitle1" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ownership Percentage:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerOwnership1" class="form-control">
+                    </td>
+                    <td>Years with Company:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerYrsWithCompany1" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerName2" class="form-control">
+                    </td>
+                    <td>Title:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerTitle2" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ownership Percentage:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerOwnership2" class="form-control">
+                    </td>
+                    <td>Years with Company:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyOffcerYrsWithCompany2" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>* Majority stockholder if other than officers</td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <thead>
+                  <tr>
+                    <th>
+                      Bank Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Name of bank:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankName" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankAddress1" class="form-control">
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankAddress2" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>City:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankCity" class="form-control">
+                    </td>
+                    <td>State:
+                      <select ng-model="cfServiceFFS.customer_companyBankState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankZip" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankPhone" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Loan Officer:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankLoanOfficer" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Balance:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankAcctBalance" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Account Type:
+                      <select ng-model="cfServiceFFS.customer_companyBankAcctTypeSelected" class="form-control"
+                              ng-options="item for item in cfServiceFFS.customer_companyBankAcctType"></select>
+                    </td>
+                    <td>Account#:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyBankAcctNum" class="form-control">
+                    </td>
+                  </tr>
+                  </tbody>
+                  <thead>
+                  <tr>
+                    <th>
+                      Guarantor Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>First Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorFirstName" class="form-control">
+                    </td>
+                    <td>Last Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorLastName" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>M.I:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorMI" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Email:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmail" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Social Security #:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorSSN" class="form-control">
+                    </td>
+                    <td>DOB:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="guarantorDOB" type="text"
+                               ng-model="cfServiceFFS.customer_companyGuarantorDOB" class="form-control">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Driver’s License #:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorDriverLicense" class="form-control">
+                    </td>
+                    <td>Driver’s License State:
+                      <select ng-model="cfServiceFFS.customer_companyGuarantorDriverLicState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Home Phone #:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorHomePhone" class="form-control">
+                    </td>
+                    <td>Cell Phone #:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorCellPhone" class="form-control">
+                    </td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Guarantor Address
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddress1" class="form-control">
+
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddress2" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>City:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressCity" class="form-control">
+                    </td>
+                    <td>State:
+                      <select ng-model="cfServiceFFS.customer_companyGuarantorAddressState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressZip" class="form-control">
+                    </td>
+                    <td>Lived Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customerCompanyGuarantorAddressLivedYrs" type="text"
+                               ng-model="cfServiceFFS.customer_companyGuarantorAddressLivedYrs" class="form-control"
+                               placeholder="From Date">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mortgage Holder:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressMortgageHolder" class="form-control">
+                    </td>
+                    <td>Monthly Mortgage Payment:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressMonthlyMortgagePayment" class="form-control">
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <button class="btn btn-success" ng-show="cfServiceFFS.customer_companyGuarantorAddressPreFlag == 'N'" ng-click="addPrevAddress()">Add Previous Address</button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                  <!--abc-->
+                  <div ng-show="cfServiceFFS.customer_companyGuarantorAddressPreFlag == 'Y'">
+                    <thead>
+                    <tr>
+                      <th>
+                        Guarantor Previous Address
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>Address Line 1:
+                        <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddress1Pre" class="form-control">
+
+                      </td>
+                      <td>Address Line 2:
+                        <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddress2Pre" class="form-control">
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>City:
+                        <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressCityPre" class="form-control">
+                      </td>
+                      <td>State:
+                        <select ng-model="cfServiceFFS.customer_companyGuarantorAddressStatePre" class="form-control"
+                                ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Zip:
+                        <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressZipPre" class="form-control">
+                      </td>
+                      <td>Lived Since:
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="customerCompanyGuarantorAddressLivedYrsPre" type="text"
+                                 ng-model="cfServiceFFS.customer_companyGuarantorAddressLivedYrsPre" class="form-control">
+                        </datepicker>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mortgage Holder:
+                        <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressMortgageHolderPre" class="form-control">
+                      </td>
+                      <td>Monthly Mortgage Payment:
+                        <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorAddressMonthlyMortgagePaymentPre" class="form-control">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button class="btn btn-danger" ng-show="cfServiceFFS.customer_companyGuarantorAddressPreFlag == 'Y'" ng-click="delPrevAddress()">Add Previous Address (Not Implemented Yet)</button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </div>
+                  <!--abc-->
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Guarantor’s Employment Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Employer Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpName" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Position/Title:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpTitle" class="form-control">
+                    </td>
+                    <td>Worked Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customerCompanyGuarantorEmpYrs" type="text"
+                               ng-model="cfServiceFFS.customer_companyGuarantorEmpYrs" class="form-control"
+                               placeholder="From Date">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpPhone" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpAddress1" class="form-control">
+
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpAddress2" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>City:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpCity" class="form-control">
+                    </td>
+                    <td>State:
+                      <select ng-model="cfServiceFFS.customer_companyGuarantorEmpState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorEmpZip" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <thead>
+                  <tr>
+                    <th>
+                      Income Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Annual Salary/Wages:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorSalary" class="form-control">
+                    </td>
+                    <td>Other Annual Income Source:
+                      <input type="text" ng-model="cfServiceFFS.customer_companyGuarantorOtherIncome" class="form-control">
+                    </td>
+                  </tr>
+                  </tbody>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <button class="btn btn-success" > <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                      <button class="btn btn-danger" style="margin-left: 5px;"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Individual Profile -->
+              <div id="customerAccountInfoIndv" ng-show="cfServiceFFS.customer_IndOrBusFlag == 'Individual'">
+                <table class="table col-lg-12" >
+                  <thead>
+                  <tr>
+                    <th>Account Information</th>
+                  </tr>
+                  </thead>
+                  <tbody style="">
+                  <tr>
+                    <td>
+                      First Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_indFirstName" class="form-control">
+                    </td>
+                    <td>
+                      Last Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_indLastName" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      M.I
+                      <input type="text" ng-model="cfServiceFFS.customer_indMI" class="form-control">
+                    </td>
+                    <td>
+                      E-mail:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmail" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Password:
+                      <input type="password" ng-model="cfServiceFFS.customer_indPassword" class="form-control">
+                    </td>
+                    <td>
+                      Confirm Password:
+                      <input type="password" ng-model="cfServiceFFS.customer_indConfirmPassword" class="form-control">
+                    </td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Personal Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      Social Security #:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorSSN" class="form-control">
+                    </td>
+                    <td>
+                      DOB:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indGuarantorDOB" type="text"
+                               ng-model="cfServiceFFS.customer_indGuarantorDOB" class="form-control">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Driver's License #:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorDriverLicense" class="form-control">
+                    </td>
+                    <td>
+                      Driver's License State:
+                      <select ng-model="cfServiceFFS.customer_indGuarantorDriverLicState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Home Phone:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorHomePhone" class="form-control">
+                    </td>
+                    <td>
+                      Cell Phone:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorCellPhone" class="form-control">
+                    </td>
+                  </tr>
+                  </tbody>
+                  <thead>
+                  <tr>
+                    <th>
+                      Current Address
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddress1" class="form-control">
+
+                    </td>
+                    <td>Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddress2" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      City:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressCity" class="form-control">
+
+                    </td>
+                    <td>
+                      State:
+                      <select ng-model="cfServiceFFS.customer_indGuarantorAddressState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressZip" class="form-control">
+                    </td>
+                    <td>Lived Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indGuarantorAddressLivedYrs" type="text"
+                               ng-model="cfServiceFFS.customer_indGuarantorAddressLivedYrs" class="form-control">
+                      </datepicker>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Rented/Own ?
+                      <input type="radio" ng-model="cfServiceFFS.customer_indRentOrOwnFlag" value="R">
+                      <input type="radio" ng-model="cfServiceFFS.customer_indRentOrOwnFlag" value="O">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Landlord/Mortgage Holder(s):
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressMortgageHolder" class="form-control">
+
+                    </td>
+                    <td>
+                      Monthly Mortgage/Rent:
+                      <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressMonthlyMortgagePayment" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button class="btn btn-success" ng-show="cfServiceFFS.customer_indGuarantorAddressPreFlag == 'N'" ng-click="addPrevAddressInd()">Add Previous Address</button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                  <div id="Test">
+                    <thead ng-show="cfServiceFFS.customer_indGuarantorAddressPreFlag == 'Y'">
+                    <tr>
+                      <th>
+                        Previous Address
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody ng-show="cfServiceFFS.customer_indGuarantorAddressPreFlag == 'Y'">
+                    <tr>
+                      <td>Address Line 1:
+                        <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddress1Pre" class="form-control">
+
+                      </td>
+                      <td>Address Line 2:
+                        <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddress2Pre" class="form-control">
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        City:
+                        <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressCityPre" class="form-control">
+
+                      </td>
+                      <td>
+                        State:
+                        <select ng-model="cfServiceFFS.customer_indGuarantorAddressStatePre" class="form-control"
+                                ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Zip:
+                        <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressZipPre" class="form-control">
+                      </td>
+                      <td>Lived Since:
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="customer_indGuarantorAddressLivedYrsPre" type="text"
+                                 ng-model="cfServiceFFS.customer_indGuarantorAddressLivedYrsPre" class="form-control">
+                        </datepicker>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Rented/Own ?
+                        <input type="radio" ng-model="cfServiceFFS.customer_indRentOrOwnFlagPre" value="R">
+                        <input type="radio" ng-model="cfServiceFFS.customer_indRentOrOwnFlagPre" value="O">
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Landlord/Mortgage Holder(s):
+                        <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressMortgageHolderPre" class="form-control">
+
+                      </td>
+                      <td>
+                        Monthly Mortgage/Rent:
+                        <input type="text" ng-model="cfServiceFFS.customer_indGuarantorAddressMonthlyMortgagePaymentPre" class="form-control">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button class="btn btn-danger" ng-show="cfServiceFFS.customer_indGuarantorAddressPreFlag == 'Y'" ng-click="delPrevAddressInd()">Remove Previous Address</button>
+                      </td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                  </div>
+
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Closest Contact Person
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_indClosetName" class="form-control">
+
+                    </td>
+                    <td>
+                      Relationship:
+                      <input type="text" ng-model="cfServiceFFS.customer_indCloseRelationship" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_indPhone" class="form-control">
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <thead>
+                  <tr>
+                    <th>
+                      Employment Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      Employer Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpName" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Position/Title:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpPosition" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Worked Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indEmpWorkedSince" type="text"
+                               ng-model="cfServiceFFS.customer_indEmpWorkedSince" class="form-control">
+                      </datepicker>
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpPhone" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpAddressLine1" class="form-control">
+                    </td>
+                    <td>
+                      Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpAddressLine2" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      City:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpCity" class="form-control">
+                    </td>
+                    <td>
+                      State:
+                      <select ng-model="cfServiceFFS.customer_indEmpState" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpZip" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  </tbody>
+
+                  <!-- Prev Emp Info -->
+                  <thead ng-show="cfServiceFFS.customer_indAddPrevEmpFlag">
+                  <tr>
+                    <th>
+                      Previous Employment Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody ng-show="cfServiceFFS.customer_indAddPrevEmpFlag">
+                  <tr>
+                    <td>
+                      Employer Name:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpNamePrev" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Position/Title:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpPositionPrev" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Worked Since:
+                      <datepicker date-format="yyyy-MM-dd">
+                        <input id="customer_indEmpWorkedSincePrev" type="text"
+                               ng-model="cfServiceFFS.customer_indEmpWorkedSincePrev" class="form-control">
+                      </datepicker>
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpPhonePrev" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Address Line 1:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpAddressLine1Prev" class="form-control">
+                    </td>
+                    <td>
+                      Address Line 2:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpAddressLine2Prev" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      City:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpCityPrev" class="form-control">
+                    </td>
+                    <td>
+                      State:
+                      <select ng-model="cfServiceFFS.customer_indEmpStatePrev" class="form-control"
+                              ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Zip:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpZipPrev" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button class="btn btn-danger" ng-show="cfServiceFFS.customer_indAddPrevEmpFlag" ng-click="prevEmpFlagOff()">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                        Remove Previous Employment Information
+                      </button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Income Information
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      Annual Salary/Wages:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpIncome" class="form-control">
+                    </td>
+                    <td>
+                      Other Annual Income Source:
+                      <input type="text" ng-model="cfServiceFFS.customer_indEmpOtherIncome" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button class="btn btn-success" ng-show="!cfServiceFFS.customer_indAddPrevEmpFlag" ng-click="prevEmpFlagOn()">Add Previous Employment Information</button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                  <!-- Emp Info -->
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Last Vehicle Purchased
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      Make:
+                      <input type="text" ng-model="cfServiceFFS.customer_indVehMake" class="form-control">
+                    </td>
+                    <td>
+                      Model:
+                      <input type="text" ng-model="cfServiceFFS.customer_indVehModel" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Year:
+                      <input type="text" ng-model="cfServiceFFS.customer_indVehYear" class="form-control">
+
+                    </td>
+                    <td>
+                      Financed By:
+                      <input type="text" ng-model="cfServiceFFS.customer_indVehFinancedBy" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Term:
+                      <input type="text" ng-model="cfServiceFFS.customer_indVehTerm" class="form-control">
+
+                    </td>
+                    <td>
+                      Payment:
+                      <input type="text" ng-model="cfServiceFFS.customer_indVehPayment" class="form-control">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Have you ever had any property repossessed?
+                      <input type="radio" ng-model="cfServiceFFS.customer_indVehRepossessedFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_indVehRepossessedFlag" value="N">
+                    </td>
+                    <td>
+                      Have you ever had any suits or judgments pending against you?
+                      <input type="radio" ng-model="cfServiceFFS.customer_indVehSuitsFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_indVehSuitsFlag" value="N">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Have you ever filed for bankruptcy in the last 10 years?
+                      <input type="radio" ng-model="cfServiceFFS.customer_indVehBankruptcyFlag" value="Y">
+                      <input type="radio" ng-model="cfServiceFFS.customer_indVehBankruptcyFlag" value="N">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button class="btn btn-success" ng-show="!cfServiceFFS.customer_indAddCoApplicantFlag" ng-click="coApplicantFlagOn()">Add Co-applicant Information</button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                  <!-- Co-Applicatn Info -->
+                  <div >
+                    <thead ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <th>
+                        Co-applicant Information
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <td>
+                        Co-purchaser/Lessee’s Name:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppPurchaserName" class="form-control">
+
+                      </td>
+                      <td>
+                        Relationship:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppRelationship" class="form-control">
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Social Security #:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppSSN" class="form-control">
+
+                      </td>
+                      <td>
+                        DOB:
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="customer_indCoAppDOB" type="text"
+                                 ng-model="cfServiceFFS.customer_indCoAppDOB" class="form-control">
+                        </datepicker>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppPhone" class="form-control">
+                      </td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                    <thead ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <th>
+                        Co-applicant Address
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <td>
+                        Address line 1:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddAddressLine1" class="form-control">
+                      </td>
+                      <td>
+                        Address line 2:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddAddressLine2" class="form-control">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        City:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddCity" class="form-control">
+
+                      </td>
+                      <td>
+                        State:
+                        <select ng-model="cfServiceFFS.customer_indCoAppAddState" class="form-control"
+                                ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Zip:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddZip" class="form-control">
+
+                      </td>
+                      <td>
+                        Lived Since:
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="customer_indCoAppAddSince" type="text"
+                                 ng-model="cfServiceFFS.customer_indCoAppAddSince" class="form-control">
+                        </datepicker>
+                      </td>
+                    </tr>
+                    </tbody>
+                    <thead ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <th>
+                        Co-applicant Employment Information
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <td>
+                        Employer Name:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpName" class="form-control">
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Position/Title:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpPosition" class="form-control">
+
+                      </td>
+                      <td>
+                        Worked Since:
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input id="customer_indCoAppAddEmpWorkedSince" type="text"
+                                 ng-model="cfServiceFFS.customer_indCoAppAddEmpWorkedSince" class="form-control">
+                        </datepicker>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpPhone" class="form-control">
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Address line 1:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpAddr1" class="form-control">
+
+                      </td>
+                      <td>
+                        Address line 2:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpAddr2" class="form-control">
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        City:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpCity" class="form-control">
+
+                      </td>
+                      <td>
+                        State:
+                        <select ng-model="cfServiceFFS.customer_indCoAppAddEmpState" class="form-control"
+                                ng-options="item for item in cfServiceFFS.us_all_state"></select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Zip:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppAddEmpZip" class="form-control">
+                      </td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                    <thead ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <th>
+                        Co-applicant Income Information
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody ng-show="cfServiceFFS.customer_indAddCoApplicantFlag">
+                    <tr>
+                      <td>
+                        Annual Salary/Wages:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppIncome" class="form-control">
+                      </td>
+                      <td>
+                        Other Annual Income Source:
+                        <input type="text" ng-model="cfServiceFFS.customer_indCoAppOtherIncome" class="form-control">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button class="btn btn-danger" ng-show="cfServiceFFS.customer_indAddCoApplicantFlag" ng-click="coApplicantFlagOff()">
+                          <i class="fa fa-times-circle" aria-hidden="true"></i>
+                          Remove Co-applicant Information
+                        </button>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </div>
+
+                  <tbody style="">
+                  <tr>
+                    <td>
+                      <button class="btn btn-success">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        Save
+                      </button>
+                      <button class="btn btn-danger">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                        Cancel
+                      </button>
+                    </td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      <!--</form>-->
+
+    </div>
+  </div>
+</div>

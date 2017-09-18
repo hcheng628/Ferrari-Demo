@@ -59,6 +59,11 @@ angular.module('myApp.auth', [
                             console.log("Go to Appraisal");
                             $location.path('view1');
                         },1);
+                    } else if (whichParty == 'FFS'){
+                        $timeout(function(){
+                            console.log("Go to FFS");
+                            $location.path('view3');
+                        },1);
                     }
                 },
                 function (error) {
