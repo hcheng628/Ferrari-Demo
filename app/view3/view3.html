@@ -60,8 +60,8 @@
                 sendMessage('I will try');
             });
         };
-//        (function () {
-//        }.call(this));
+        //        (function () {
+        //        }.call(this));
     </script>
     <!-- Client Popup Start -->
     <script type="text/ng-template" id="myModalContentWClientPopup.html">
@@ -147,7 +147,7 @@
                       DOB:
                       <datepicker date-format="yyyy-MM-dd">
                         <input id="ffs_customer_indGuarantorDOBPopup" type="text"
-                                class="form-control" value="1972-10-11">
+                               class="form-control" value="1972-10-11">
                       </datepicker>
                     </td>
                   </tr>
@@ -328,7 +328,7 @@
                       Worked Since:
                       <datepicker date-format="yyyy-MM-dd">
                         <input id="ffs_customer_indEmpWorkedSincePopup" type="text"
-                                class="form-control" value="2002-01-07">
+                               class="form-control" value="2002-01-07">
                       </datepicker>
                     </td>
                     <td>
@@ -1079,7 +1079,7 @@
                     </table>
                   </div>
                 </div>
-            </div>
+              </div>
             </div>
             <div class="tab-pane" id="6a">
               <div class="chatPlaceholder">
@@ -2576,7 +2576,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                       <div class="huge">
-                        <span>Overview</span>
+                        <span>Customer Base Overview</span>
                       </div>
                     </div>
                   </div>
@@ -2586,28 +2586,27 @@
                   <table class="table">
                     <tbody>
                     <tr>
-                      <td style="font-weight: bold">Aggregate Market Value:</td>
-                      <td style="font-weight: bold; color: #5cb85c">$145,350,000.00</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold">Net Principal Balance:</td>
-                      <td style="font-weight: bold; color: #5cb85c">$31,500,000.00</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold">Count of Vehicles:</td>
-                      <td style="font-weight: bold; color: #5cb85c">62</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td colspan="5" class="">
+                        <img ng-src="./ffsOverviewChart.png"/>
+                      </td>
                     </tr>
                     </tbody>
-
+                    <tbody>
+                    <tr>
+                      <td style="font-weight: bold">Aggregate Market Value:
+                        <br>
+                        <span style="font-weight: bold; color: #5cb85c">$145,350,000.00</span>
+                      </td>
+                      <td colspan="2" style="font-weight: bold">Net Principal Balance:
+                        <br>
+                        <span style="font-weight: bold; color: #5cb85c">$31,500,000.00</span>
+                      </td>
+                      <td colspan="2" style="font-weight: bold">Count of Vehicles:
+                        <br>
+                        <span style="font-weight: bold; color: #5cb85c">62</span>
+                      </td>
+                    </tr>
+                    </tbody>
                     <tbody style="margin-top: 20px;">
                     <tr>
                       <th>Criteria</th>
@@ -2801,64 +2800,64 @@
                       <td>50%</td>
                     </tr>
                     <!--<tr>-->
-                      <!--<td>-->
-                        <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0501</a>-->
-                      <!--</td>-->
-                      <!--<td>04/22/2017</td>-->
-                      <!--<td>Credit Line Review</td>-->
-                      <!--<td>Low</td>-->
-                      <!--<td>Completed</td>-->
-                      <!--<td>Client A</td>-->
-                      <!--<td>730</td>-->
-                      <!--<td>$12,000.00</td>-->
-                      <!--<td>$30,000.00</td>-->
-                      <!--<td>$1,500.00</td>-->
-                      <!--<td>36%</td>-->
+                    <!--<td>-->
+                    <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0501</a>-->
+                    <!--</td>-->
+                    <!--<td>04/22/2017</td>-->
+                    <!--<td>Credit Line Review</td>-->
+                    <!--<td>Low</td>-->
+                    <!--<td>Completed</td>-->
+                    <!--<td>Client A</td>-->
+                    <!--<td>730</td>-->
+                    <!--<td>$12,000.00</td>-->
+                    <!--<td>$30,000.00</td>-->
+                    <!--<td>$1,500.00</td>-->
+                    <!--<td>36%</td>-->
                     <!--</tr>-->
                     <!--<tr>-->
-                      <!--<td>-->
-                        <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0701</a>-->
-                      <!--</td>-->
-                      <!--<td>06/28/2017</td>-->
-                      <!--<td>Credit Line Review</td>-->
-                      <!--<td>High</td>-->
-                      <!--<td>Appraisal Review</td>-->
-                      <!--<td>Client S</td>-->
-                      <!--<td>820</td>-->
-                      <!--<td>$200,000.00</td>-->
-                      <!--<td>$400,000.00</td>-->
-                      <!--<td>$12,000.00</td>-->
-                      <!--<td>60%</td>-->
+                    <!--<td>-->
+                    <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0701</a>-->
+                    <!--</td>-->
+                    <!--<td>06/28/2017</td>-->
+                    <!--<td>Credit Line Review</td>-->
+                    <!--<td>High</td>-->
+                    <!--<td>Appraisal Review</td>-->
+                    <!--<td>Client S</td>-->
+                    <!--<td>820</td>-->
+                    <!--<td>$200,000.00</td>-->
+                    <!--<td>$400,000.00</td>-->
+                    <!--<td>$12,000.00</td>-->
+                    <!--<td>60%</td>-->
                     <!--</tr>-->
                     <!--<tr>-->
-                      <!--<td>-->
-                        <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0901</a>-->
-                      <!--</td>-->
-                      <!--<td>09/12/2017</td>-->
-                      <!--<td>Inspection Review</td>-->
-                      <!--<td>Medium</td>-->
-                      <!--<td>Completed</td>-->
-                      <!--<td>Client G</td>-->
-                      <!--<td>725</td>-->
-                      <!--<td>$50,000.00</td>-->
-                      <!--<td>$10,000.00</td>-->
-                      <!--<td>$3,000.00</td>-->
-                      <!--<td>50%</td>-->
+                    <!--<td>-->
+                    <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0901</a>-->
+                    <!--</td>-->
+                    <!--<td>09/12/2017</td>-->
+                    <!--<td>Inspection Review</td>-->
+                    <!--<td>Medium</td>-->
+                    <!--<td>Completed</td>-->
+                    <!--<td>Client G</td>-->
+                    <!--<td>725</td>-->
+                    <!--<td>$50,000.00</td>-->
+                    <!--<td>$10,000.00</td>-->
+                    <!--<td>$3,000.00</td>-->
+                    <!--<td>50%</td>-->
                     <!--</tr>-->
                     <!--<tr>-->
-                      <!--<td>-->
-                        <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">1101</a>-->
-                      <!--</td>-->
-                      <!--<td>09/12/2017</td>-->
-                      <!--<td>Credit Line Review</td>-->
-                      <!--<td>High</td>-->
-                      <!--<td>Appraisal</td>-->
-                      <!--<td>Client Z</td>-->
-                      <!--<td>815</td>-->
-                      <!--<td>$120,000.00</td>-->
-                      <!--<td>$300,000.00</td>-->
-                      <!--<td>$8,000.00</td>-->
-                      <!--<td>70%</td>-->
+                    <!--<td>-->
+                    <!--<a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">1101</a>-->
+                    <!--</td>-->
+                    <!--<td>09/12/2017</td>-->
+                    <!--<td>Credit Line Review</td>-->
+                    <!--<td>High</td>-->
+                    <!--<td>Appraisal</td>-->
+                    <!--<td>Client Z</td>-->
+                    <!--<td>815</td>-->
+                    <!--<td>$120,000.00</td>-->
+                    <!--<td>$300,000.00</td>-->
+                    <!--<td>$8,000.00</td>-->
+                    <!--<td>70%</td>-->
                     <!--</tr>-->
                     </tbody>
                   </table>
@@ -2906,11 +2905,11 @@
 
                     </div>
                     <div class="chat__footer">
-                        <input type="text" autocomplete="off" ng-model="cfServiceFFS.ffs_eachMsg" placeholder="New Message">
-                        <button class="btn btn-success" ng-click="ffsSendMsg();">
-                          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                          Send
-                        </button>
+                      <input type="text" autocomplete="off" ng-model="cfServiceFFS.ffs_eachMsg" placeholder="New Message">
+                      <button class="btn btn-success" ng-click="ffsSendMsg();">
+                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                        Send
+                      </button>
                     </div>
                   </div>
                 </div>
