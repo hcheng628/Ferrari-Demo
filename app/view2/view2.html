@@ -590,34 +590,46 @@
                           <tr>
                             <th>Date</th>
                             <th>Activity</th>
+                            <th>Amount</th>
                             <th>Status</th>
                             <th>Note</th>
                           </tr>
                           </thead>
                           <tbody>
                           <tr>
-                            <td>09/05/2017</td>
-                            <td>Funds Withdrawal</td>
-                            <td>Approved</td>
-                            <td>Funds are transferred to the bank account.</td>
+                            <td>09/19/2017</td>
+                            <td>Withdrawal Request</td>
+                            <td>$25,000.00</td>
+                            <td>In progress</td>
+                            <td>Disbursement is under review</td>
                           </tr>
                           <tr>
                             <td>09/03/2017</td>
                             <td>Vehicle Inspection</td>
-                            <td>Notified</td>
-                            <td>Appraisal company should review Ferrari 458</td>
+                            <td></td>
+                            <td>Scheduled</td>
+                            <td>Inspection for Ferrari 458</td>
+                          </tr>
+                          <tr>
+                            <td>09/02/2017</td>
+                            <td>New Collateral</td>
+                            <td></td>
+                            <td>Completed</td>
+                            <td> Ferrari 458 added</td>
                           </tr>
                           <tr>
                             <td>09/01/2017</td>
                             <td>Credit Line Extension Request</td>
+                            <td>$28,000,000.00</td>
                             <td>Rejected</td>
-                            <td>Not enough collateral</td>
+                            <td> Insufficient collateral value</td>
                           </tr>
                           <tr>
-                            <td>09/01/2017</td>
+                            <td>07/15/2017</td>
                             <td>Vehicle Insurance</td>
-                            <td>Notified</td>
-                            <td>Insurance information for Ferrari 458 should be provided by 10/01/2017</td>
+                            <td>$28,000,000.00</td>
+                            <td>Completed</td>
+                            <td>Annual renewal for Ferrari Testarossa</td>
                           </tr>
                           </tbody>
                         </table>
@@ -2077,6 +2089,7 @@
                     <div class="row">
                       <div class="col-xs-3">
                         <i class="fa fa-usd fa-3x" aria-hidden="true"></i>
+                        <span class="huge pull-right">Status</span>
                       </div>
                       <div class="col-xs-9 text-right">
                         <div class="huge">
@@ -2093,46 +2106,42 @@
                         <tr>
                           <td>Credit Line:</td>
                           <td style="font-weight: bold">$15,000,000.00</td>
-                          <td></td>
-                          <td></td>
-                          <td>
-                            <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.openComponentModalI()">Increase Limit</button>
-                          </td>
+                          <td>Utilization:</td>
+                          <td style="font-weight: bold">31%</td>
                         </tr>
                         <tr>
-                          <td>Payment Due:</td>
-                          <td style="font-weight: bold">$25,000.00</td>
-                          <td></td>
+                          <td>Outstanding:</td>
+                          <td style="font-weight: bold">$5,000,000.00</td>
                           <td>Interest Rate:</td>
                           <td style="font-weight: bold">2.98%</td>
                         </tr>
                         <tr>
-                          <td>Due Date:</td>
-                          <td style="font-weight: bold">10/15/2017</td>
-                          <td></td>
-                          <td></td>
+                          <td>
+                            <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.openComponentModalI()">Increase Limit</button>
+                          </td>
                           <td>
                             <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.openComponentModalW()">Request Withdrawal</button>
                           </td>
+                          <td></td>
+                          <td></td>
                         </tr>
-
                         <tr>
-                          <td>Outstanding:</td>
-                          <td style="font-weight: bold">$5,000,000.00</td>
-                          <td></td>
-                          <td></td>
+                          <td>Due Date:</td>
+                          <td style="font-weight: bold">10/15/2017</td>
+                          <td>Payment Due:</td>
+                          <td style="font-weight: bold">$25,000.00</td>
+                          <td>
+                          </td>
+                        </tr>
+                        <tr>
                           <td>
                             <button class="btn btn-success" style="width: 100%" ng-click="$ctrl.myModalContentMakePayment()">Make Payment</button>
                           </td>
-                        </tr>
-                        <tr>
-                          <td>Utilization:</td>
-                          <td style="font-weight: bold">31%</td>
-                          <td></td>
-                          <td></td>
                           <td>
                             <button class="btn btn-success" style="width: 100%">Billing Statements</button>
                           </td>
+                          <td></td>
+                          <td></td>
                         </tr>
                         </tbody>
                       </table>
@@ -2146,6 +2155,7 @@
                     <div class="row">
                       <div class="col-xs-3">
                         <i class="fa fa-history fa-3x" aria-hidden="true"></i>
+                        <span class="huge pull-right">Payment History</span>
                       </div>
                       <div class="col-xs-9 text-right">
                         <div class="huge">
@@ -2162,18 +2172,18 @@
                         <tr>
                           <th>Date</th>
                           <th>Amount</th>
-                          <th>Note</th>
+                          <th>Details</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                          <td>09/01/2017</td>
-                          <td>$15,000.00</td>
-                          <td>Withdrawal Approved</td>
+                          <td>09/19/2017</td>
+                          <td>$25,000.00</td>
+                          <td>Number #123456789098765432; Wells Fargo; ACCNT#123456789876</td>
                         </tr>
                         <tr>
-                          <td>09/11/2017</td>
-                          <td style="font-weight: bold; color: #5cb85c">-$9,500.00</td>
+                          <td>09/01/2017</td>
+                          <td style="font-weight: bold; color: #5cb85c"> -$9,000.00</td>
                           <td>
                             <button class="btn btn-success">
                               View Check
@@ -2182,9 +2192,45 @@
                           </td>
                         </tr>
                         <tr>
-                          <td>09/01/2017</td>
+                          <td>08/19/2017</td>
                           <td>$5,000.00</td>
-                          <td>Withdrawal Approved</td>
+                          <td>Number #123456789098765432; Wells Fargo; ACCNT#123456789876</td>
+                        </tr>
+                        <tr>
+                          <td>08/17/2017</td>
+                          <td>$45,000.00</td>
+                          <td>Number #123456789098765432; Wells Fargo; ACCNT#123456789876</td>
+                        </tr>
+                        <tr>
+                          <td>08/12/2017</td>
+                          <td>$11,000.00</td>
+                          <td>Number #123456789098765432; Bank of America; ACCNT#123456789876</td>
+                        </tr>
+                        <tr>
+                          <td>07/01/2017</td>
+                          <td style="font-weight: bold; color: #5cb85c"> -$6,000.00</td>
+                          <td>
+                            <button class="btn btn-success">
+                              View Check
+                              <i class="fa fa-arrow-circle-right "></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>06/01/2017 </td>
+                          <td style="font-weight: bold; color: #5cb85c">-$21,000.00</td>
+                          <td>
+                            <button class="btn btn-success">
+                              View Check
+                              <i class="fa fa-arrow-circle-right "></i>
+                            </button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>05/19/2017</td>
+                          <td>$45,000.00</td>
+                          <td>Number #123456789098765432; Wells Fargo; ACCNT#123456789876</td>
                         </tr>
                         </tbody>
                       </table>
