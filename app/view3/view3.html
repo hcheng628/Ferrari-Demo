@@ -256,12 +256,10 @@
                     <td>
                       Name:
                       <input type="text" class="form-control" value="Cisco Babber">
-
                     </td>
                     <td>
                       Relationship:
                       <input type="text"  class="form-control" value="Uncle">
-
                     </td>
                   </tr>
                   <tr>
@@ -271,6 +269,36 @@
                     <td></td>
                   </tr>
                   </tbody>
+
+                  <thead>
+                  <tr>
+                    <th>
+                      Bank Information
+                    </th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      Account Name:
+                      <input type="text" value="Jack Ross" class="form-control">
+                    </td>
+                    <td>
+                      Routing Number:
+                      <input type="text" value="42321-31234" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Account number:
+                      <input type="text" value="1221-3134" class="form-control">
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  </tbody>
+
                   <thead>
                   <tr>
                     <th>
@@ -1165,28 +1193,39 @@
                   <span class="huge pull-right">Insurance Information</span>
                 </div>
                 <div class="panel-body" style="color: #555555;">
-                  <table id="ffsVehInsuranceInfo" class="table">
+                  <table id="customerVehInsuranceInfo_B" class="table">
                     <tbody>
                     <tr>
-                      <td>Insurance Company:</td>
-                      <td>Geico</td>
-                      <td>Effective Date:</td>
-                      <td>06/15/2017</td>
+                      <td>
+                        Insurance Company:
+                        <br>
+                        Geico
+                      </td>
+                      <td>
+                        Effective Date:
+                        <br>
+                        06/15/2017
+                      </td>
+                      <td>
+                        Insured Amount:
+                        <br>
+                        $80,000.00
+                      </td>
+                      <td></td>
                     </tr>
                     <tr>
                       <td>
-                        <button class="btn btn-success">Upload New Police Information</button>
+                        <button class="btn btn-success">UPLOAD NEW POLICY INFORMATION</button>
                       </td>
                       <td></td>
-                      <td>Insured Amount:</td>
-                      <td>$80,000.00</td>
+                      <td></td>
+                      <td></td>
                     </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-
             <div class="col-md-12" style="width: 100%; margin-top: 20px;">
               <div class="panel panel-green" style="width: 100%">
                 <div class="panel-heading">
@@ -1195,27 +1234,40 @@
                 </div>
 
                 <div class="panel-body" style="color: #555555;">
-                  <table id="ffsVehInspectionInfo" class="table">
+                  <table id="customerVehInspectionInfo" class="table">
                     <tbody>
                     <tr>
-                      <td>Inspection Date:</td>
-                      <td>02/15/2017</td>
-                      <td>Inspection Status:</td>
-                      <td>Complete</td>
-                    </tr>
-                    <tr>
+                      <td>Inspection Date:
+                        <br>
+                        02/15/2017
+                      </td>
                       <td>
-                        <button class="btn btn-success">Upload Report</button>
+                        Inspection Status:
+                        <br>
+                        Complete
+                      </td>
+                      <td>
+                        Inspection Fee:
+                        <br>
+                        $900.00
                       </td>
                       <td></td>
-                      <td>Inspection Fee:</td>
-                      <td>$900.00</td>
+                    </tr>
+                    <tr>
+                      <td colspan=3">
+                        <textarea class="form-control" cols="35" rows="2" placeholder="Optional Comments"></textarea>
+                      </td>
+                      <td>
+                      </td>
+                      <td></td>
+                      <td>
+                        <button class="btn btn-danger">
+                          Request Review
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <td>
-                        <button class="btn btn-danger">
-                          &nbsp &nbsp &nbsp &nbsp Review &nbsp &nbsp &nbsp &nbsp
-                        </button>
                       </td>
                       <td></td>
                       <td></td>
@@ -1234,16 +1286,47 @@
                   <span class="huge pull-right">Appraisal Information</span>
                 </div>
                 <div class="panel-body" style="color: #555555;">
-                  <table id="ffsAppAppraisalInfo" class="table">
+                  <table id="customerAppAppraisalInfo" class="table">
                     <thead>
                     <tr>
-                      <th>Appraisal Date</th>
-                      <th>Appraisal Status</th>
-                      <th>Appraisal Fee</th>
-                      <th>Amount</th>
-                      <th>Overall Condition</th>
-                      <th>Value Adjustments</th>
-                      <th>Report</th>
+                      <th>Add New Record</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr style="font-size: 85%">
+                      <th>
+                        Appraisal Date
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input type="text" class="form-control" placeholder="From Date">
+                        </datepicker>
+                      </th>
+                      <th>
+                        Appraisal Status
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Appraisal Fee
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Amount
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Overall Condition
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Value Adjustments
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        <button class="btn btn-success">Upload Report and Submit</button>
+                      </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -1258,6 +1341,15 @@
                         <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
                         <br>
                         <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                        <textarea cols="35" rows="2" class="form-control" placeholder="Opetional Comments"></textarea>
+                      </td>
+                      <td></td>
+                      <td>
+                        <button class="btn btn-danger">Request Review</button>
                       </td>
                     </tr>
                     </tbody>
@@ -1276,7 +1368,7 @@
                 <div class="panel-body" style="color: #555555;">
                   <div class="container">
                     <div class="col-md-11 ">
-                      <label ng-if="!cfServiceFFS.appImage" class="btn btn-default pull-right" style="">
+                      <label ng-if="!cfServiceFFS.appImage" class="btn btn-success pull-left" style="">
                                                 <span>
                                                     <span> Add New </span>
                                                     <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
@@ -1291,11 +1383,11 @@
                                ngf-min-height="100">
                         </input>
                       </label>
-                      <label ng-if="cfServiceFFS.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                      <label ng-if="cfServiceFFS.appImage" class="btn btn-danger pull-left" ng-click="appResetImg()" style="color: white;" >
                         <i class="fa fa-refresh" aria-hidden="true"></i>
                         Reset
                       </label>
-                      <label ng-if="cfServiceFFS.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                      <label ng-if="cfServiceFFS.appImage" class="btn btn-success pull-left" ng-click="appUploadImg()" style="color: white;">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
                       </label>
                     </div>
@@ -1735,12 +1827,10 @@
                   <td>
                     Name:
                     <input type="text" ng-model="cfServiceFFS.customer_indClosetName" class="form-control">
-
                   </td>
                   <td>
                     Relationship:
                     <input type="text" ng-model="cfServiceFFS.customer_indCloseRelationship" class="form-control">
-
                   </td>
                 </tr>
                 <tr>
@@ -1748,6 +1838,34 @@
                     <input type="text" ng-model="cfServiceFFS.customer_indPhone" class="form-control">
                   </td>
                   <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Bank Information
+                  </th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    Account Name:
+                    <input type="text" value="Jack Ross" class="form-control">
+                  </td>
+                  <td>
+                    Routing Number:
+                    <input type="text" value="42321-31234" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Account number:
+                    <input type="text" value="1221-3134" class="form-control">
+                  </td>
+                  <td>
+                  </td>
                 </tr>
                 </tbody>
                 <thead>
@@ -3157,21 +3275,33 @@
                   <span class="huge pull-right">Insurance Information</span>
                 </div>
                 <div class="panel-body" style="color: #555555;">
-                  <table id="customerVehInsuranceInfo" class="table">
+                  <table id="customerVehInsuranceInfo_A" class="table">
                     <tbody>
                     <tr>
-                      <td>Insurance Company:</td>
-                      <td>Geico</td>
-                      <td>Effective Date:</td>
-                      <td>06/15/2017</td>
+                      <td>
+                        Insurance Company:
+                        <br>
+                        Geico
+                      </td>
+                      <td>
+                        Effective Date:
+                        <br>
+                        06/15/2017
+                      </td>
+                      <td>
+                        Insured Amount:
+                        <br>
+                        $80,000.00
+                      </td>
+                      <td></td>
                     </tr>
                     <tr>
                       <td>
-                        <button class="btn btn-success">Upload New Police Information</button>
+                        <button class="btn btn-success">UPLOAD NEW POLICY INFORMATION</button>
                       </td>
                       <td></td>
-                      <td>Insured Amount:</td>
-                      <td>$80,000.00</td>
+                      <td></td>
+                      <td></td>
                     </tr>
                     </tbody>
                   </table>
@@ -3190,29 +3320,41 @@
                   <table id="customerVehInspectionInfo" class="table">
                     <tbody>
                     <tr>
-                      <td>Inspection Date:</td>
-                      <td>02/15/2017</td>
-                      <td>Inspection Status:</td>
-                      <td>Complete</td>
-                    </tr>
-                    <tr>
+                      <td>Inspection Date:
+                        <br>
+                        02/15/2017
+                      </td>
                       <td>
-                        <button class="btn btn-success">Upload Report</button>
+                        Inspection Status:
+                        <br>
+                        Complete
+                      </td>
+                      <td>
+                        Inspection Fee:
+                        <br>
+                        $900.00
                       </td>
                       <td></td>
-                      <td>Inspection Fee:</td>
-                      <td>$900.00</td>
                     </tr>
                     <tr>
+                      <td colspan=3">
+                        <textarea class="form-control" cols="35" rows="2" placeholder="Optional Comments"></textarea>
+                      </td>
+                      <td>
+                      </td>
+                      <td></td>
                       <td>
                         <button class="btn btn-danger">
-                          &nbsp &nbsp &nbsp &nbsp Review &nbsp &nbsp &nbsp &nbsp
+                          Request Review
                         </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
                       </td>
                       <td></td>
                       <td></td>
                       <td></td>
-
                     </tr>
                     </tbody>
                   </table>
@@ -3231,13 +3373,44 @@
                   <table id="customerAppAppraisalInfo" class="table">
                     <thead>
                     <tr>
-                      <th>Appraisal Date</th>
-                      <th>Appraisal Status</th>
-                      <th>Appraisal Fee</th>
-                      <th>Amount</th>
-                      <th>Overall Condition</th>
-                      <th>Value Adjustments</th>
-                      <th>Report</th>
+                      <th>Add New Record</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr style="font-size: 85%">
+                      <th>
+                        Appraisal Date
+                        <datepicker date-format="yyyy-MM-dd">
+                          <input type="text" class="form-control" placeholder="From Date">
+                        </datepicker>
+                      </th>
+                      <th>
+                        Appraisal Status
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Appraisal Fee
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Amount
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Overall Condition
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        Value Adjustments
+                        <input type="text" class="form-control">
+                      </th>
+                      <th>
+                        <button class="btn btn-success">Upload Report and Submit</button>
+                      </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -3252,6 +3425,15 @@
                         <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
                         <br>
                         <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                        <textarea cols="35" rows="2" class="form-control" placeholder="Opetional Comments"></textarea>
+                      </td>
+                      <td></td>
+                      <td>
+                        <button class="btn btn-danger">Request Review</button>
                       </td>
                     </tr>
                     </tbody>
@@ -3270,7 +3452,7 @@
                 <div class="panel-body" style="color: #555555;">
                   <div class="container">
                     <div class="col-md-11 ">
-                      <label ng-if="!appcfServiceFFS.appImage" class="btn btn-default pull-right" style="">
+                      <label ng-if="!appcfServiceFFS.appImage" class="btn btn-success pull-left" style="">
                                                 <span>
                                                     <span> Add New </span>
                                                     <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
@@ -3285,11 +3467,11 @@
                                ngf-min-height="100">
                         </input>
                       </label>
-                      <label ng-if="appcfServiceFFS.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                      <label ng-if="appcfServiceFFS.appImage" class="btn btn-danger pull-left" ng-click="appResetImg()" style="color: white;" >
                         <i class="fa fa-refresh" aria-hidden="true"></i>
                         Reset
                       </label>
-                      <label ng-if="appcfServiceFFS.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                      <label ng-if="appcfServiceFFS.appImage" class="btn btn-success pull-left" ng-click="appUploadImg()" style="color: white;">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
                       </label>
                     </div>
@@ -3454,10 +3636,14 @@
                     <input type="radio" ng-model="cfServiceFFS.customer_companyDunFlag" value="Y">
                     <input type="radio" ng-model="cfServiceFFS.customer_companyDunFlag" value="N">
                   </td>
+                  <td></td>
+                </tr>
+                <tr>
                   <td ng-show="cfServiceFFS.customer_companyDunFlag == 'Y'">
                     Duns #:
                     <input type="text" ng-model="cfServiceFFS.customer_companyDunNum" class="form-control">
                   </td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>TAX ID
@@ -4127,12 +4313,10 @@
                   <td>
                     Name:
                     <input type="text" ng-model="cfServiceFFS.customer_indClosetName" class="form-control">
-
                   </td>
                   <td>
                     Relationship:
                     <input type="text" ng-model="cfServiceFFS.customer_indCloseRelationship" class="form-control">
-
                   </td>
                 </tr>
                 <tr>
@@ -4140,6 +4324,34 @@
                     <input type="text" ng-model="cfServiceFFS.customer_indPhone" class="form-control">
                   </td>
                   <td></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                  <th>
+                    Bank Information
+                  </th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    Account Name:
+                    <input type="text" value="Jack Ross" class="form-control">
+                  </td>
+                  <td>
+                    Routing Number:
+                    <input type="text" value="42321-31234" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Account number:
+                    <input type="text" value="1221-3134" class="form-control">
+                  </td>
+                  <td>
+                  </td>
                 </tr>
                 </tbody>
                 <thead>
