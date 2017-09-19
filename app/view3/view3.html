@@ -901,7 +901,7 @@
                 <div class="panel panel-green" style="width: 100%">
                   <div class="panel-heading">
                     <i class="fa fa-support fa-2x"></i>
-                    <span class="huge pull-right">Current Activities</span>
+                    <span class="huge pull-right">Current Worklist</span>
                   </div>
 
                   <div class="panel-body" style="color: #555555;">
@@ -2501,25 +2501,49 @@
                     <tr>
                       <th>Decision Type</th>
                       <th>Decision Reason</th>
+                      <th>Escalation</th>
                       <th>Decision Notes</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                      <td>Approved</td>
-                      <td></td>
-                      <td></td>
+                      <td>
+                        <select class="form-control">
+                          <option value="approved">Approved</option>
+                          <option value="declined">Declined</option>
+                          <option value="review">Review</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="form-control">
+                          <option value="II">Insufficient information</option>
+                          <option value="DPCC">Didn’t pass collateral check</option>
+                          <option value=DCNBV>Documents could not be verified</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="form-control">
+                          <option value="Au1">Authority 1</option>
+                          <option value="Au2">Authority 2</option>
+                          <option value=Au3V>Authority 3</option>
+                        </select>
+                      </td>
+                      <td>
+                        <textarea cols="10" rows="2" class="form-control" placeholder=""></textarea>
+                      </td>
                     </tr>
                     <tr>
                       <td>
                         <button class="btn btn-success" style="background-color: #5cb85c">Continue</button>
+                        <button class="btn btn-success" style="background-color: #5cb85c">Narrative Summary</button>
                       </td>
                       <td>
-                        <button class="btn btn-success" style="background-color: #5cb85c">Escalate</button>
+                        <!--<button class="btn btn-success" style="background-color: #5cb85c">Escalate</button>-->
                       </td>
                       <td>
-                        <button class="btn btn-success" style="background-color: #5cb85c">Create Summary</button>
                       </td>
+                      <td></td>
                     </tr>
                     </tbody>
                   </table>
@@ -2542,6 +2566,7 @@
                       <th>Decision</th>
                       <th>Role</th>
                       <th>Notes</th>
+                      <th>Decision Reasons</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -2550,12 +2575,14 @@
                       <td>Initial Review</td>
                       <td>Sample Role A</td>
                       <td></td>
+                      <td></td>
                     </tr>
                     <tr>
                     <tr>
                       <td>3/13/2017</td>
                       <td>Approved</td>
                       <td>Sample Role B</td>
+                      <td></td>
                       <td></td>
                     </tr>
                     </tr>
@@ -2675,7 +2702,7 @@
               <div class="panel panel-green" style="width: 100%; margin-top: 20px;">
                 <div class="panel-heading">
                   <i class="fa fa-support fa-2x"></i>
-                  <span class="huge pull-right">Current Activities</span>
+                  <span class="huge pull-right">Current Worklist</span>
                 </div>
 
                 <div class="panel-body" style="color: #555555;">
@@ -2701,45 +2728,45 @@
                         <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0101</a>
                       </td>
                       <td>09/12/2017</td>
-                      <td>Credit Line Review</td>
+                      <td>Request</td>
                       <td>High</td>
                       <td>Initial Review</td>
-                      <td>Client A</td>
-                      <td>815</td>
-                      <td>$120,000.00</td>
-                      <td>$300,000.00</td>
-                      <td>$8,000.00</td>
-                      <td>30%</td>
+                      <td>James Smith</td>
+                      <td>750</td>
+                      <td>$15,000,000.00</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
                     </tr>
                     <tr>
                       <td>
                         <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0121</a>
                       </td>
-                      <td>09/10/2015</td>
-                      <td>Credit Line Extensio</td>
-                      <td>Medium</td>
-                      <td>Appraisal</td>
-                      <td>Client A</td>
-                      <td>775</td>
-                      <td>$160,000.00</td>
-                      <td>$200,000.00</td>
-                      <td>$4,000.00</td>
-                      <td>50%</td>
+                      <td>09/11/2015</td>
+                      <td>Review</td>
+                      <td>Normal</td>
+                      <td>Collateral Appraisal</td>
+                      <td>Michael Jones</td>
+                      <td>680</td>
+                      <td>-</td>
+                      <td>$16,000,000.00</td>
+                      <td>$5,000,000.00</td>
+                      <td>31.3</td>
                     </tr>
                     <tr>
                       <td>
                         <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0103</a>
                       </td>
-                      <td>05/10/2017</td>
+                      <td>09/10/2017</td>
                       <td>Withdrawal</td>
-                      <td>High</td>
-                      <td>Approval</td>
-                      <td>Client B</td>
-                      <td>765</td>
-                      <td>$10,000.00</td>
-                      <td>$30,000.00</td>
+                      <td>Normal</td>
+                      <td>Confirmation</td>
+                      <td>John Black</td>
+                      <td>710</td>
+                      <td>$150,000.00</td>
+                      <td>$16,000,000.00</td>
                       <td>$1,000.00</td>
-                      <td>60%</td>
+                      <td>31.3</td>
                     </tr>
                     <tr>
                       <td>
@@ -2758,47 +2785,17 @@
                     </tr>
                     <tr>
                       <td>
-                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0201</a>
+                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0401</a>
                       </td>
-                      <td>09/12/2017</td>
-                      <td>Credit Line Review</td>
-                      <td>Low</td>
-                      <td>Appraisal</td>
-                      <td>Client A</td>
-                      <td>815</td>
-                      <td>$120,000.00</td>
-                      <td>$300,000.00</td>
+                      <td>09/10/2017</td>
+                      <td>Request</td>
+                      <td>Normal</td>
+                      <td>Final Decision</td>
+                      <td>Dave Gray</td>
+                      <td>700</td>
+                      <td>$15,000,000.00</td>
+                      <td>$16,000,000.00</td>
                       <td>$8,000.00</td>
-                      <td>50%</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0107</a>
-                      </td>
-                      <td>03/06/2017</td>
-                      <td>Credit Line Review</td>
-                      <td>High</td>
-                      <td>Approval</td>
-                      <td>Client C</td>
-                      <td>695</td>
-                      <td>$20,000.00</td>
-                      <td>$330,000.00</td>
-                      <td>$1,000.00</td>
-                      <td>70%</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a ng-click="goToWorkListAppView()" style="cursor: pointer; font-weight: bold">0301</a>
-                      </td>
-                      <td>02/19/2017</td>
-                      <td>Payment Confirmation</td>
-                      <td>High</td>
-                      <td>Appraisal</td>
-                      <td>Client A</td>
-                      <td>815</td>
-                      <td>$20,000.00</td>
-                      <td>$40,000.00</td>
-                      <td>$2,000.00</td>
                       <td>50%</td>
                     </tr>
                     <!--<tr>-->
@@ -3025,11 +3022,14 @@
                       <td>63%</td>
                       <td>15</td>
                     </tr>
-
                     </tbody>
                   </table>
                   <div class="">
-                    <div class="col ">Page 1 of 5
+                    <div class="col ">
+                      <button class="btn btn-success">Export Client List to Excel</button>
+                      <br>
+                      <br>
+                      Page 1 of 5
                     </div>
                     <div class="col ">
                       <ul class="pagination hidden-xs pull-right">
@@ -3060,7 +3060,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                       <div class="huge">
-                        <span></span>
+                        <span class="pull-right huge">New Report</span>
                       </div>
                     </div>
                   </div>
@@ -3071,43 +3071,36 @@
                     <table class="table" style="color: #555555">
                       <tbody>
                       <tr>
-                        <th>Generate Report:</th>
-                        <th>
+                        <th>Generate Report:
+                          <br>
                           <select ng-model="cfServiceFFS.ffs_reportTypeListSelected" class="form-control"
                                   ng-options="item for item in cfServiceFFS.ffs_reportTypeList">
                           </select>
                         </th>
-                      </tr>
-                      <tr>
-                        <th>For Period:</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <td>
+                        <th>
+                          From Date:
+                          <br>
                           <datepicker date-format="yyyy-MM-dd">
                             <input id="ffs_reportFromDate" type="text"
                                    ng-model="cfServiceFFS.ffs_reportFromDate" class="form-control">
                           </datepicker>
-                        </td>
-                        <td>
+                        </th>
+                        <th>
+                          To Date:
+                          <br>
                           <datepicker date-format="yyyy-MM-dd">
                             <input id="ffs_reportToDate" type="text"
                                    ng-model="cfServiceFFS.ffs_reportToDate" class="form-control">
                           </datepicker>
-                        </td>
+                        </th>
                       </tr>
                       <tr>
                         <th>Report Name: <span class="pull-right">{{ cfServiceFFS.ffs_reportName ? cfServiceFFS.ffs_reportName + '.pdf' : ''}}</span></th>
                         <th>
                           <input type="text" ng-model="cfServiceFFS.ffs_reportName" class="form-control">
                         </th>
-                      </tr>
-                      <tr>
                         <th>
                           <button class="btn btn-success">Generate</button>
-                        </th>
-                        <th>
-
                           <label ng-if="!cfServiceFFS.ffs_uploadReportFile" class="btn btn-success">
                             <span>
                               <span> Browse </span>
@@ -3136,10 +3129,12 @@
               <div class="panel panel-red" style="width: 100%">
                 <div class="panel-heading">
                   <div class="row">
+
                     <div class="col-xs-3">
                       <i class="fa fa-history fa-3x" aria-hidden="true"></i>
                     </div>
                     <div class="col-xs-9 text-right">
+                      <span class="huge pull-right">Reports Log</span>
                       <div class="huge">
                         <span></span>
                       </div>

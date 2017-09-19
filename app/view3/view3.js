@@ -65,7 +65,7 @@ angular.module('myApp.view3', [
         };
 
         $scope.goToWorkListAppViewProfile = function () {
-            $scope.cfServiceFFS.ffsView = "ffs_worklist_app_view_profile";
+            $scope.cfServiceFFS.ffsView = "ffs_worklist_app_view_vehicle_list";
         };
 
         $scope.goToFFSVehicleListView = function () {

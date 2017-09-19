@@ -685,7 +685,7 @@ body {
 .chat__main {
     display: flex;
     flex-direction: column;
-    height: 36vh;
+    height: 28vh;
     width: 100%
 }
 
