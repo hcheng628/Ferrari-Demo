@@ -9,13 +9,13 @@
                             <thead>
                             <tr>
                                 <th>RefID</th>
-                                <th>Appraised By</th>
+                                <th>Due Date</th>
+                                <th>Phase</th>
+                                <th>Priority</th>
                                 <th>Model</th>
                                 <th>Make</th>
                                 <th>Year</th>
-                                <th>VIN</th>
                                 <th>New/Used</th>
-                                <th>Location</th>
                                 <th>City</th>
                                 <th>Race</th>
                             </tr>
@@ -25,13 +25,13 @@
                                 <td>
                                     <a class="appViewRefId" ng-click="doAppAppView()">12345</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td>09/18/2017</td>
+                                <td>Requested</td>
+                                <td>High</td>
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -40,15 +40,15 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId"  ng-click="doAppAppView()">23456</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">23456</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td>09/16/2017</td>
+                                <td>Requested</td>
+                                <td>Normal</td>
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -57,15 +57,16 @@
 
                             <tr>
                                 <td>
-                                    <a class="appViewRefId"  ng-click="doAppAppView()">34567</a>
+                                    <a class="appViewRefId" ng-click="doAppAppView()">34567</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td style="color: #D9534F">09/20/2017</td>
+                                <td>Requested</td>
+                                <td>High</td>
+
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -76,13 +77,14 @@
                                 <td>
                                     <a class="appViewRefId" ng-click="doAppAppView()">45678</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td>09/15/2017</td>
+                                <td>Requested</td>
+                                <td>Normal</td>
+
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -92,13 +94,13 @@
                                 <td>
                                     <a class="appViewRefId" ng-click="doAppAppView()">56789</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td>09/26/2017</td>
+                                <td>In Progress</td>
+                                <td>Normal</td>
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -109,13 +111,14 @@
                                 <td>
                                     <a class="appViewRefId" ng-click="doAppAppView()">23451</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td style="color: #D9534F">09/24/2017</td>
+                                <td>Requested</td>
+                                <td>High</td>
+
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -126,19 +129,21 @@
                                 <td>
                                     <a class="appViewRefId" ng-click="doAppAppView()">34512</a>
                                 </td>
-                                <td>Super Appraiser</td>
+                                <td style="color: #D9534F">09/24/2017</td>
+                                <td>In Progress</td>
+                                <td>High</td>
+
                                 <td>488 Spider</td>
                                 <td>Ferrari</td>
                                 <td>2016</td>
-                                <td>19UYA31581L000333</td>
                                 <td>New</td>
-                                <td>ABC Ferrari</td>
                                 <td>Houston, TX</td>
                                 <td>
                                     <i class="fa fa-square-o" aria-hidden="true"></i>
                                 </td>
                             </tr>
                             </tbody>
+
                         </table>
                         <div class="">
                             <div class="col ">Page 1 of 5
@@ -212,13 +217,13 @@
                                 <thead>
                                 <tr>
                                     <th>RefID</th>
-                                    <th>Appraised By</th>
+                                    <th>Due Date</th>
+                                    <th>Phase</th>
+                                    <th>Priority</th>
                                     <th>Model</th>
                                     <th>Make</th>
                                     <th>Year</th>
-                                    <th>VIN</th>
                                     <th>New/Used</th>
-                                    <th>Location</th>
                                     <th>City</th>
                                     <th>Race</th>
                                 </tr>
@@ -228,13 +233,13 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">12345</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td>09/18/2017</td>
+                                    <td>Requested</td>
+                                    <td>High</td>
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -245,13 +250,13 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">23456</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td>09/16/2017</td>
+                                    <td>Requested</td>
+                                    <td>Normal</td>
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -262,13 +267,14 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">34567</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td style="color: #D9534F">09/20/2017</td>
+                                    <td>Requested</td>
+                                    <td>High</td>
+
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -279,13 +285,14 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">45678</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td>09/15/2017</td>
+                                    <td>Requested</td>
+                                    <td>Normal</td>
+
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -295,13 +302,13 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">56789</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td>09/26/2017</td>
+                                    <td>In Progress</td>
+                                    <td>Normal</td>
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -312,13 +319,14 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">23451</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td style="color: #D9534F">09/24/2017</td>
+                                    <td>Requested</td>
+                                    <td>High</td>
+
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -329,13 +337,14 @@
                                     <td>
                                         <a class="appViewRefId" ng-click="doAppAppView()">34512</a>
                                     </td>
-                                    <td>Super Appraiser</td>
+                                    <td style="color: #D9534F">09/24/2017</td>
+                                    <td>In Progress</td>
+                                    <td>High</td>
+
                                     <td>488 Spider</td>
                                     <td>Ferrari</td>
                                     <td>2016</td>
-                                    <td>19UYA31581L000333</td>
                                     <td>New</td>
-                                    <td>ABC Ferrari</td>
                                     <td>Houston, TX</td>
                                     <td>
                                         <i class="fa fa-square-o" aria-hidden="true"></i>
@@ -460,18 +469,58 @@
                                     <table id="appraiseAppAppraisalInfo" class="table">
                                         <thead>
                                         <tr>
-                                            <th>Appraisal Date</th>
-                                            <th>Appraisal Status</th>
-                                            <th>Appraisal Fee</th>
-                                            <th>Amount</th>
-                                            <th>Overall Condition</th>
-                                            <th>Value Adjustments</th>
-                                            <th>Report</th>
+                                            <th>Add New Record</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
+                                        <tr style="font-size: 85%">
+                                            <th>
+                                                Appraisal Date
+                                                <datepicker date-format="yyyy-MM-dd">
+                                                    <input type="text" class="form-control">
+                                                </datepicker>
+                                            </th>
+                                            <th>
+                                                Appraisal Status
+                                                <input type="text" class="form-control">
+                                            </th>
+                                            <th>
+                                                Appraisal Fee
+                                                <input type="text" class="form-control">
+                                            </th>
+                                            <th>
+                                                Amount
+                                                <input type="text" class="form-control">
+                                            </th>
+                                            <th>
+                                                Overall Condition
+                                                <input type="text" class="form-control">
+                                            </th>
+                                            <th>
+                                                Value Adjustments
+                                                <input type="text" class="form-control">
+                                            </th>
+                                            <th>
+                                                <button class="btn btn-success">Upload Report and Submit</button>
+                                            </th>
+                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<th>Appraisal Date</th>-->
+                                            <!--<th>Appraisal Status</th>-->
+                                            <!--<th>Appraisal Fee</th>-->
+                                            <!--<th>Amount</th>-->
+                                            <!--<th>Overall Condition</th>-->
+                                            <!--<th>Value Adjustments</th>-->
+                                            <!--<th>Report</th>-->
+                                        <!--</tr>-->
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>09-10-2017</td>
+                                            <td>09-20-2017</td>
                                             <td>Pending</td>
                                             <td>$ 599.99</td>
                                             <td>$ 75,000.00</td>
@@ -479,6 +528,32 @@
                                             <td>$9,000.00</td>
                                             <td>
                                                 <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Tipo Z-102 Berlinetta Evaluation</a>
+                                                <br>
+                                                <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>06-10-2017</td>
+                                            <td>Complete</td>
+                                            <td>$ 399.99</td>
+                                            <td>$ 65,000.00</td>
+                                            <td>Excellent</td>
+                                            <td>$8,000.00</td>
+                                            <td>
+                                                <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo Tipo Z-102 Berlinetta Evaluation</a>
+                                                <br>
+                                                <a href="./../pdf/AppReport2.pdf" target="_blank">Inspection Request</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-10-2017</td>
+                                            <td>Complete</td>
+                                            <td>$199.99</td>
+                                            <td>$5,000.00</td>
+                                            <td>Excellent</td>
+                                            <td>$600.00</td>
+                                            <td>
+                                                <a href="./../pdf/AppReport1.pdf" target="_blank">Vanyo 1955 Pegaso Evaluation</a>
                                                 <br>
                                                 <a href="./../pdf/AppReport2.pdf" target="_blank">Floor Plan Inspection Request</a>
                                             </td>
@@ -498,7 +573,7 @@
                                 <div class="panel-body" style="color: #555555;">
                                     <div class="container">
                                         <div class="col-md-11 ">
-                                            <label ng-if="!appcfService.appImage" class="btn btn-default pull-right" style="">
+                                            <label ng-if="!appcfService.appImage" class="btn btn-danger pull-left" style="">
                                                 <span>
                                                     <span> Add New </span>
                                                     <i class="fa fa-picture-o fa-cog-primary" aria-hidden="true"></i>
@@ -513,11 +588,11 @@
                                                        ngf-min-height="100">
                                                 </input>
                                             </label>
-                                            <label ng-if="appcfService.appImage" class="btn btn-danger pull-right" ng-click="appResetImg()" style="color: white;" >
+                                            <label ng-if="appcfService.appImage" class="btn btn-danger pull-left" ng-click="appResetImg()" style="color: white;" >
                                                 <i class="fa fa-refresh" aria-hidden="true"></i>
                                                 Reset
                                             </label>
-                                            <label ng-if="appcfService.appImage" class="btn btn-success pull-right" ng-click="appUploadImg()" style="color: white;">
+                                            <label ng-if="appcfService.appImage" class="btn btn-success pull-left" ng-click="appUploadImg()" style="color: white;">
                                                 <i class="fa fa-paper-plane" aria-hidden="true"></i> Confirm and Upload
                                             </label>
                                         </div>
