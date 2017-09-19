@@ -2763,26 +2763,7 @@
                 <div class="panel-body" style="display: block;">
                   <div class="" style="margin-bottom: 23px; margin-top: 10px" ng-show="true">
                     <div class="chat__main">
-                      <ol class="chat__messages">
-
-                        <li class="message">
-                          <div class="message__title">
-                            <span class="message__from">James:</span>
-                            <span>10:45 pm</span>
-                          </div>
-                          <div class="message__body">
-                            Good morning!
-                          </div>
-                        </li>
-                        <li class="message">
-                          <div class="message__title">
-                            <span class="message__from">James:</span>
-                            <span>10:45 pm</span>
-                          </div>
-                          <div class="message__body">
-                            Good morning!
-                          </div>
-                        </li>
+                      <ol id="message-list" class="chat__messages">
 
                         <li class="message">
                           <div class="message__title">
@@ -2803,29 +2784,15 @@
                             May I get a Ferrari for free?
                           </div>
                         </li>
-
-                        <li class="message">
-                          <div class="message__title">
-                            <span class="message__from">James:</span>
-                            <span>10:45 pm</span>
-                          </div>
-                          <div class="message__body">
-                            Good morning!
-                          </div>
-                        </li>
-
-
                       </ol>
 
                     </div>
                     <div class="chat__footer">
-                      <form>
-                        <input type="text" autofocus="1" autocomplete="off" placeholder="New Message">
-                        <button class="btn btn-success">
+                        <input type="text" autocomplete="off" ng-model="cfServiceFFS.ffs_eachMsg" placeholder="New Message">
+                        <button class="btn btn-success" ng-click="ffsSendMsg();">
                           <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                           Send
                         </button>
-                      </form>
                     </div>
                   </div>
                 </div>

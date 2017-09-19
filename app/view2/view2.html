@@ -4,7 +4,8 @@
        <div class="modal-header container smallModalDiv">
           <h3 style="color: #5cb85c" class="modal-title" id="modal-title">
             <i class="fa fa-backward fa-rotate-90" aria-hidden="true"></i>
-            Increase Credit Line
+            <!--Increase Credit Line-->
+            Increase Requested
           </h3>
         </div>
 
@@ -13,13 +14,13 @@
             <tr>
               <td>
                 <span style="color: #555555">Current Credit Line:</span>
-                <input type="text" class="form-control" value="300,000.00" readonly>
+                <input type="text" class="form-control" value="$15,500,000.00" readonly>
               </td>
             </tr>
             <tr>
               <td>
                 <span style="color: #555555">Requested Increased:</span>
-                <input type="text" class="form-control" value="100,000.00">
+                <input type="text" class="form-control" value="$18,000,000.00">
               </td>
             </tr>
           </table>
@@ -34,7 +35,7 @@
     <script type="text/ng-template" id="myModalContentW.html">
       <div class="modal-header container smallModalDiv">
         <h3 style="color: #5cb85c" class="modal-title" id="modal-titleW">
-          <i class="fa fa-money" aria-hidden="true"></i>Withdraw Funds
+          <i class="fa fa-money" aria-hidden="true"></i> Withdraw Funds
         </h3>
       </div>
       <div class="modal-body container smallModalDiv" id="modal-bodyW">
@@ -45,15 +46,16 @@
               Current Credit Line:
             </td>
             <td>
-              <input type="text" class="form-control" value="300,000.00" readonly>
+              <input type="text" class="form-control" value="$15,500,000.00" readonly>
             </td>
           </tr>
           <tr>
             <td>
-              Current Balance:
+              <!--Current Balance:-->
+              Outstanding:
             </td>
             <td>
-              <input type="text" class="form-control" value="5,000.00" readonly>
+              <input type="text" class="form-control" value="$5,000,000.00" readonly>
             </td>
           </tr>
           <tr>
@@ -61,7 +63,27 @@
               Request Withdrawal:
             </td>
             <td>
-              <input type="text" class="form-control" value="10,000.00">
+              <input type="text" class="form-control" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+            </td>
+            <td>
+              <label for="subscribeNews">Use Current Bank Account?</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btn btn-success">Add an Account</button>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Memo:</td>
+            <td>
+              <textarea name="textarea" rows="10" cols="50" style="" class="form-control">Your memo goes here ......</textarea>
             </td>
           </tr>
         </table>
@@ -170,7 +192,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="panel panel-green" style="margin-top: -5px;">
+                  <div class="panel panel-green" style="margin-top: 20px;">
                     <div class="panel-heading">
                       <div class="row">
                         <div class="col-xs-3">
@@ -183,9 +205,9 @@
                         </div>
                       </div>
                     </div>
-                    <div class="panel-body" style="margin-top: -10px;">
+                    <div class="panel-body" style="margin-top: 15px;">
                       <div class="list-group">
-                        <a class="list-group-item">Current Balance: <span class="pull-right">$5,000,000.00</span></a>
+                        <!--<a class="list-group-item">Current Balance: <span class="pull-right">$5,000,000.00</span></a>-->
                         <a class="list-group-item">Payment Due: <span class="pull-right">$25,000.00</span></a>
                         <a class="list-group-item">Date Due: <span class="pull-right">10/15/2017</span></a>
                         <a class="list-group-item">Last Payment: <span class="pull-right">$25,000.00</span></a>
@@ -363,7 +385,7 @@
                         <td>09/02/2010</td>
                         <td>02/07/2012</td>
                         <td>
-                          <button class="btn btn-success">View More <i class="fa fa-arrow-circle-right "></i></button>
+                          <button class="btn btn-success" ng-click="docustomerAppAppView()">View More <i class="fa fa-arrow-circle-right "></i></button>
                         </td>
                       </tr>
                       <tr>
@@ -374,7 +396,7 @@
                         <td>03/20/2016</td>
                         <td>09/07/2008</td>
                         <td>
-                          <button class="btn btn-success">View More <i class="fa fa-arrow-circle-right "></i></button>
+                          <button class="btn btn-success" ng-click="docustomerAppAppView()">View More <i class="fa fa-arrow-circle-right "></i></button>
                         </td>
                       </tr>
                       <tr>
@@ -385,7 +407,7 @@
                         <td>03/04/2007</td>
                         <td>05/06/2009</td>
                         <td>
-                          <button class="btn btn-success">View More <i class="fa fa-arrow-circle-right "></i></button>
+                          <button class="btn btn-success" ng-click="docustomerAppAppView()">View More <i class="fa fa-arrow-circle-right "></i></button>
                         </td>
                       </tr>
                       </tbody>
@@ -652,6 +674,7 @@
                         <th>Document Type</th>
                         <th>Go to Document</th>
                         <th>Note</th>
+                        <th>Delete</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -664,6 +687,11 @@
                           </button>
                         </td>
                         <td>Insurance contract for Ferrari 458</td>
+                        <td>
+                          <button class="btn btn-danger">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i> <span>Delete</span>
+                          </button>
+                        </td>
                       </tr>
                       <tr>
                         <td>9/03/2017</td>
@@ -674,6 +702,11 @@
                           </button>
                         </td>
                         <td>Requested statement for 2016</td>
+                        <td>
+                          <button class="btn btn-danger">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i> <span>Delete</span>
+                          </button>
+                        </td>
                       </tr>
                       </tbody>
                     </table>
@@ -694,7 +727,7 @@
                     <table class="table">
                       <thead>
                       <tr>
-                        <th>
+                        <td>
                           <select id="uploadDocumentType" class="form-control">
                             <option value="">--- Select Document Type --- </option>
                             <option value="insurance">Insurance</option>
@@ -702,9 +735,14 @@
                             <option value="financialStatement">Financial Statement</option>
                             <option value="other">Other</option>
                           </select>
+                        </td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th><textarea name="textarea" rows="5" class="form-control" cols="55" placeholder="Optional Notes Section"></textarea>
                         </th>
-                        <!--<th>Documents</th>-->
-
+                        <th></th>
                         <th>
                           <label ng-if="!cfService.customer_uploadDocs" class="btn btn-success pull-right">
                           <span>
@@ -729,9 +767,6 @@
                             Retset Upload Document
                           </button>
                         </span>
-                        </th>
-                        <th>
-                          <pre ng-show="false">{{ JSON.stringify(cfService.customer_uploadDocs) }}</pre>
                         </th>
                       </tr>
                       </thead>

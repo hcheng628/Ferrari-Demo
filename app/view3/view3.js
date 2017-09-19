@@ -99,7 +99,21 @@ angular.module('myApp.view3', [
         $scope.prevEmpFlagOff = function () {
             $scope.cfServiceFFS.customer_indAddPrevEmpFlag = false
         };
-        
+
+        $scope.ffsSendMsg = function () {
+            if($scope.cfServiceFFS.ffs_eachMsg) {
+                $scope.cfServiceFFS.ffs_msgList.push($scope.cfServiceFFS.ffs_eachMsg);
+                var time = new Date();
+                time = time.toLocaleString('en-US', { hour: 'numeric',minute:'numeric', hour12: true }).toLowerCase();
+                var messageList = $('#message-list');
+                var eachMsg = "<li class=\"message pull-right\"><div class=\"message__title pull-right\"><span class=\"message__from\">Me:</span>"
+                    + "<span>" + time + "</span></div><div class=\"message__body\">" + $scope.cfServiceFFS.ffs_eachMsg + "</div></li><div class=\"clearfix\"></div>";
+                messageList.append(eachMsg);
+                $scope.cfServiceFFS.ffs_eachMsg = "";
+                $('#message-list').scrollTop($('#message-list').height())
+            }
+        };
+
         $scope.appUploadImg = function() {
             console.log("uploagImg $scope.cfServiceFFS.appImage: " + $scope.cfServiceFFS.appImage );
             if($scope.cfServiceFFS.appImage){
@@ -272,6 +286,8 @@ angular.module('myApp.view3', [
             'ffs_reportToDate': null,
             'ffs_reportName': null,
             'ffs_uploadReportFile': null,
+            'ffs_eachMsg': null,
+            'ffs_msgList': [],
 
             //
             'customer_indFirstName': 'Francis',

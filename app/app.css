@@ -432,9 +432,13 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     border-radius: 50%;
 }
 
+input[type="checkbox"]:checked:after{
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
 #customerProfile td{
     border: none;
-
 }
 
 #customerProfile th {
@@ -737,7 +741,7 @@ body {
 }
 
 .smallModalDiv{
-    width: 40%;
+    width: 45%;
     background: white;
 }
 
